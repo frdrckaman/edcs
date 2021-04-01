@@ -1,2 +1,2 @@
 # edcs
-Electronic Data Capturing System
+Electronic Data Capturing System an app for data collection
