@@ -9,7 +9,7 @@ ENV_DIR = str(Path(os.path.join(BASE_DIR, ".env")))
 env = environ.Env(
     DJANGO_DEBUG=(bool, False),
     DEBUG_TOOLBAR=(bool, False),
-    DJANGO_EDC_BOOTSTRAP=(int, 3),
+    DJANGO_EDCS_BOOTSTRAP=(int, 3),
     DATABASE_SQLITE_ENABLED=(bool, False),
 )
 
@@ -27,9 +27,11 @@ DEBUG = env("DJANGO_DEBUG")
 
 DEBUG_TOOLBAR = env("DEBUG_TOOLBAR")
 
-SUBJECT_DATA_MODEL = env("EDC_SUBJECT_DATA_MODEL")
+SUBJECT_DATA_MODEL = env("EDCS_SUBJECT_DATA_MODEL")
 
 LOGIN_REDIRECT_URL = env.str("DJANGO_LOGIN_REDIRECT_URL")
+
+EDCS_BOOTSTRAP = env("DJANGO_EDCS_BOOTSTRAP")
 
 ALLOWED_HOSTS = []
 
@@ -43,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'edcs_auth.apps.EdcsAuthConfig',
+    'edcs_dashboard.apps.EdcsDashboardConfig',
 ]
 
 MIDDLEWARE = [

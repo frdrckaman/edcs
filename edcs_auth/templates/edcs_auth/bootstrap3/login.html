@@ -1,0 +1,75 @@
+{% extends 'edcs_dashboard/bootstrap3/base.html' %}
+{% load auth_tags %}
+{% block title %} <title> EDCS | Login </title> {% endblock title %}
+{% block content %}
+    <div id="wrapper" class="screen_wide sidebar_off">
+    <div id="layout">
+        <div id="content">
+            <div class="wrap nm">
+                <div class="signin_block">
+                    <div class="row">
+
+                        {% if form.errors %}
+                            {% for err in form.errors.values %}
+                                <div class="alert alert-danger">
+                                    <strong>Error!</strong>
+                                    {% with  err|split:'.' as errors %}
+                                        {% for error in errors %}
+                                            {{ error|striptags }}
+                                        {% endfor %}
+                                    {% endwith %}
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        <div class="block">
+                            <div class="head">
+                                <h2>EDCS </h2>
+                                <ul class="buttons">
+                                    <li><a href="#" class="tip" title="Contact administrator"><i class="i-warning"></i></a></li>
+                                    <li><a href="#" class="tip" title="Forget your password?"><i class="i-locked"></i></a></li>
+                                </ul>
+                                <div class="side fr">
+                                    <button class="btn btn-danger"> UAT SERVER </button>
+                                </div>
+                            </div>
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="content np">
+                                    <div class="controls-row">
+                                        <div class="col-md-3">Login:</div>
+                                        <div class="col-md-9">
+                                            <input type="text" name="username" class="form-control" value="" placeholder="Username"/>
+                                        </div>
+                                    </div>
+                                    <div class="controls-row">
+                                        <div class="col-md-3">Password:</div>
+                                        <div class="col-md-9">
+                                            <input type="password" name="password" class="form-control" value="" placeholder="Password"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <div class="side fl">
+                                        <label class="checkbox">
+                                            <input type="checkbox" name="kmsi"/> Keep me signed in
+                                        </label>
+                                    </div>
+                                    <div class="side fr">
+                                        <input type="submit" value="Login" class="btn btn-primary">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="alert alert-default">
+                            <strong>&COPY; Licensed for use under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL 3.0</a></strong>
+                            <strong class="pull-right">Revision: 0.1</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}

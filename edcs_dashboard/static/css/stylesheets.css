@@ -1,0 +1,85 @@
+@import "bootstrap/bootstrap.min.css";
+@import "jquery/jquery-ui-1.10.3.custom.css";
+
+@import "select2/select2.css";
+@import "uniform/uniform.default.css";
+@import "tagsinput/jquery.tagsinput.css";
+@import "multiselect/multi-select.css";
+@import "validationengine/validationEngine.css";
+@import "stepy/jquery.stepy.css";
+@import "cleditor/jquery.cleditor.css";
+@import "mcustomscrollbar/jquery.mCustomScrollbar.css";
+
+@import "shbrush/shCoreDefault.css";
+@import "shbrush/shThemeDefault.css";
+@import "ibutton/jquery.ibutton.css";
+@import "colorpicker/colorpicker.css";
+
+@import "datatables/jquery.dataTables.css";
+@import "fancybox/jquery.fancybox.css";
+
+@import "codemirror/codemirror.css";
+@import "filetree/jqueryFileTree.css";
+
+@import "icomoon.css";
+@import "stylesheet.css";
+@import "themes.css";
+@import "mystyles.css";
+
+
+html,body{height: 100%; min-height: 100%;}
+
+body{font-family: arial, tahoma, sans-serif; font-size: 11px; position: relative; background: #F9F9F9; color: #333;}
+
+/*~Smartphones (portrait and landscape)~*/
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {    
+    
+}
+
+/*~Smartphones (landscape)~*/
+@media only screen and (min-width : 321px) {
+    
+}
+
+/*~Smartphones (portrait)~*/
+@media only screen and (max-width : 320px) {
+    
+}
+
+@media only screen and (max-width: 767px){
+    body{padding-right: 0px; padding-left: 0px;}
+    
+}
+
+@media only screen and (max-width: 768px){
+    #layout{margin-top: 36px; float: left;}
+    #wrapper.screen_wide #header .logo{width: 50px;}
+    #header .logo{width: 50px; background: url('../img/logo_small.png') left top no-repeat; height: 36px;}
+    
+    #sidebar{position: relative; width: 100%; z-index: 10; margin-top: 0px;}
+        #sidebar .user{background: #F5F5F5;}
+        #sidebar .navigation{width: 100%;}
+        #sidebar .navigation li.active > a{border-right: 0px;}
+    #content{margin-left: 0px; padding: 0px; background-image: none; margin-top: 0px;}
+    #content > .wrap{margin-top: 0px;}
+    .row-fluid .controls-row [class*="span"]+[class*="span"]{margin-left: 0px;}
+    #content .search input[type='text']{width: 70px;}
+    
+}
+
+@media only screen and (max-width: 1023px) {    
+      
+}
+
+/*~iPads (portrait and landscape)~*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    
+}
+
+@media only screen and (max-width: 1024px) {
+    
+}
+
+@media only screen and (max-width: 1279px) {
+    
+}
