@@ -10,8 +10,8 @@ class UserProfile(models.Model):
     job_title = models.CharField(max_length=100, null=True, blank=True)
     alternate_email = models.EmailField("Alternate email address", blank=True, null=True)
     sites = models.ManyToManyField(Site, blank=True)
-    mobile = models.CharField(max_length=25, validators=[RegexValidator(regex="^\+\d+")], null=True, blank=True,
-                              help_text="e.g. +1234567890")
+    mobile = models.CharField(max_length=25, validators=[RegexValidator(regex="^\+\d+")],
+                              null=True, blank=True, help_text="e.g. +1234567890")
 
     def __str__(self):
         return self.user.username
