@@ -22,10 +22,10 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install flake8
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Lint with flake8
-      run: |
-        pip install flake8
-        flake8
+#    - name: Lint with flake8
+#      run: |
+#        pip install flake8
+#        flake8
     - name: Coverage
       run: |
         pip install coverage
