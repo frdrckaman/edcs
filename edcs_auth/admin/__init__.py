@@ -1,0 +1,1 @@
+from .user_profile_admin import UserProfileAdmin
