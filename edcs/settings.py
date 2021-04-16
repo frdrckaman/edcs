@@ -22,6 +22,8 @@ environ.Env.read_env(ENV_DIR)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env.str("DJANGO_SECRET_KEY")
 
+APP_NAME = env.str("DJANGO_APP_NAME")
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DJANGO_DEBUG")
 
@@ -48,9 +50,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_revision.apps.AppConfig',
     'django_audit_fields.apps.AppConfig',
+    'defender',
     'simple_history',
     'edcs_auth.apps.EdcsAuthConfig',
     'edcs_dashboard.apps.EdcsDashboardConfig',
+    'edcs_model.apps.EdcsModelConfig',
+    'edcs_utils.apps.EdcsUtilsConfig',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +64,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'defender.middleware.FailedLoginMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
@@ -95,23 +101,40 @@ DATABASES = {
     }
 }
 
+if env.str("DJANGO_CACHE") == "redis":
+    CACHES = {
+        "default": {
+            "BACKEND": "django_redis.cache.RedisCache",
+            "LOCATION": "redis://127.0.0.1:6379/1",
+            "OPTIONS": {
+                "CLIENT_CLASS": "django_redis.client.DefaultClient",
+                "PASSWORD": env.str("DJANGO_REDIS_PASSWORD"),
+            },
+            "KEY_PREFIX": f"{APP_NAME}",
+        }
+    }
+    SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+    SESSION_CACHE_ALIAS = "default"
+    DJANGO_REDIS_IGNORE_EXCEPTIONS = True
+    DJANGO_REDIS_LOG_IGNORED_EXCEPTIONS = True
+elif env.str("DJANGO_CACHE") == "memcached":
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.memcached.PyLibMCCache",
+            "LOCATION": "unix:/tmp/memcached.sock",
+        }
+    }
+    SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 GIT_DIR = BASE_DIR
@@ -125,6 +148,10 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 
+DEFENDER_REDIS_NAME = "default"
+DEFENDER_LOCK_OUT_BY_IP_AND_USERNAME = True
+DEFENDER_LOCKOUT_TEMPLATE = "edcs_auth/bootstrap3/login.html"
+DEFENDER_LOGIN_FAILURE_LIMIT = 5
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
