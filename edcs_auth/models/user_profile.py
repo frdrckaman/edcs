@@ -4,12 +4,15 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.utils.translation import gettext_lazy as _
+from edcs_notification.model_mixins import NotificationUserProfileModelMixin
+from edcs_export.choices import EXPORT_FORMATS
+from edcs_export.constants import CSV
 
 from .role import Role
 from ..constants import CUSTOM_ROLE, STAFF_ROLE
 
 
-class UserProfile(models.Model):
+class UserProfile(NotificationUserProfileModelMixin, models.Model):
 
     user = models.OneToOneField(User, on_delete=CASCADE)
 
@@ -26,7 +29,17 @@ class UserProfile(models.Model):
         validators=[RegexValidator(regex="^\+\d+")],
         null=True,
         blank=True,
-        help_text="e.g. +1234567890",
+        help_text="e.g. +0123456789",
+    )
+
+    export_format = models.CharField(
+        verbose_name="Export format",
+        max_length=25,
+        choices=EXPORT_FORMATS,
+        default=CSV,
+        null=True,
+        blank=True,
+        help_text="Note: requires export permissions",
     )
 
     roles = models.ManyToManyField(Role, blank=True)

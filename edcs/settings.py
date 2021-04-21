@@ -50,12 +50,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_revision.apps.AppConfig',
     'django_audit_fields.apps.AppConfig',
+    'logentry_admin',
     'defender',
     'simple_history',
     'edcs_auth.apps.EdcsAuthConfig',
     'edcs_dashboard.apps.EdcsDashboardConfig',
     'edcs_model.apps.EdcsModelConfig',
     'edcs_utils.apps.EdcsUtilsConfig',
+    'edcs_notification.apps.EdcsNotificationConfig',
+    'edcs_export.apps.EdcsExportConfig',
 ]
 
 MIDDLEWARE = [
