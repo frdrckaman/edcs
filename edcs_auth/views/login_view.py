@@ -1,7 +1,7 @@
 from django.conf import settings
+
 from django.contrib import messages
 from django.contrib.auth.views import LoginView as BaseLoginView
-from django.contrib.auth.views import LogoutView as BaseLogoutView
 
 
 class LoginView(BaseLoginView):
@@ -14,7 +14,3 @@ class LoginView(BaseLoginView):
             messages.add_message(self.request, messages.ERROR, "Please enable cookies.")
         self.request.session.delete_test_cookie()
         return context
-
-
-class LogoutView(BaseLogoutView):
-    next_page = 'login'
