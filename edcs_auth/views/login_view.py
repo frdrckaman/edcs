@@ -1,11 +1,10 @@
 from django.conf import settings
-
 from django.contrib import messages
 from django.contrib.auth.views import LoginView as BaseLoginView
 
 
 class LoginView(BaseLoginView):
-    template_name = f'edcs_auth/bootstrap{settings.EDCS_BOOTSTRAP}/login.html'
+    template_name = f"edcs_auth/bootstrap{settings.EDCS_BOOTSTRAP}/login.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
