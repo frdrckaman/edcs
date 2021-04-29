@@ -15,7 +15,7 @@ from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.views import View
 
 # def edcs_vac083_home(generic.ListView):
 #     # latest_question_list = Question.objects.order_by('-pub_date')[:5]
@@ -47,22 +47,39 @@ def edcs_vac083Home(request):
 #     return render(request, 'demographicForm.html', {'form': form})
 
 
+# class DemographicView(CreateView):
+#     model = DemographicForm
+#     # fields = ['subject_initials', 'subject_id', 'visit_date', 'visit_code',
+#     #           'gender', 'race', 'dob', 'years', 'months', 'residence', 'phone',
+#     #           'literate', 'education', 'address', 'coordinator_initials',
+#     #           'coordinator_time', 'reviewer_initials', 'reviewer_time']
+#     # template_name = 'edcs_vac083/edcs_vac083_enter_data.html'
+#     # form_class = DemographicForm
+#     # success_url = '/thanks/'
+#
+#     # def form_valid(self, form):
+#     #     # This method is called when valid form data has been POSTed.
+#     #     # It should return an HttpResponse.
+#     #     form.send_email()
+#     #     return super().form_valid(form)
+#
+#     def form_valid(self, form):
+#         form.instance.created_by = self.request.user
+#         return super().form_valid(form)
+
+
+# class DemographicView(View):
+
+    # def get(self, request):
+    #     form = DemographicForm()
+    #     return render(request, 'edcs_vac083/edcs_vac083_enter_data.html', {'form': form})
+
+
 class DemographicView(CreateView):
-    model = DemographicForm
-    # fields = ['subject_initials', 'subject_id', 'visit_date', 'visit_code',
-    #           'gender', 'race', 'dob', 'years', 'months', 'residence', 'phone',
-    #           'literate', 'education', 'address', 'coordinator_initials',
-    #           'coordinator_time', 'reviewer_initials', 'reviewer_time']
-    # template_name = 'edcs_vac083/edcs_vac083_enter_data.html'
-    # form_class = DemographicForm
-    # success_url = '/thanks/'
-
-    # def form_valid(self, form):
-    #     # This method is called when valid form data has been POSTed.
-    #     # It should return an HttpResponse.
-    #     form.send_email()
-    #     return super().form_valid(form)
-
-    def form_valid(self, form):
-        form.instance.created_by = self.request.user
-        return super().form_valid(form)
+    model = Demographic
+    fields = ['subject_initials', 'subject_id', 'visit_date', 'visit_code',
+                'gender', 'race', 'dob', 'years', 'months', 'residence', 'phone',
+                'literate', 'education', 'address', 'coordinator_initials',
+                'coordinator_time', 'reviewer_initials', 'reviewer_time']
+    template_name = 'edcs_vac083/edcs_vac083_enter_data.html'
+    success_url = reverse_lazy('edcs_vac083/edcs_vac083_home.html')
