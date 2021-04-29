@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'edcs_utils.apps.EdcsUtilsConfig',
     'edcs_notification.apps.EdcsNotificationConfig',
     'edcs_export.apps.EdcsExportConfig',
+    'edcs_vac083.apps.EdcsVac083Config',
 ]
 
 MIDDLEWARE = [
