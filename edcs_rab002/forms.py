@@ -6,4 +6,4 @@ class DemographicForm(ModelForm):
     class Meta:
         model = Demographic
         fields = '__all__'
-        exclude = ['months']
+        # exclude = ['months']

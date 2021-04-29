@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from .forms import DemographicForm
 from .models import Demographic
+from django.http import HttpResponse
 
 
 def DemographicCreate(request):
@@ -8,7 +9,9 @@ def DemographicCreate(request):
         form = DemographicForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('edcs_rab002/DemographicCreate')
+            # return redirect(reverse(''))
+            return HttpResponse('Successfully Saved')
+
     else:
         form = DemographicForm()
     return render(request, 'edcs_rab002/edcs_rab002_home.html', {'form': form})
