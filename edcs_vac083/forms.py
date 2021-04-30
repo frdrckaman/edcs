@@ -11,8 +11,3 @@ class DemographicForm(ModelForm):
                   'coordinator_time', 'reviewer_initials', 'reviewer_time']
 
 
-# class DeleteDemographicForm(ModelForm):
-#     class Meta:
-#         model = Demographic
-#         fields = '__All__'
-

@@ -11,5 +11,14 @@ class DemographicAdmin(admin.ModelAdmin):
                                                 'coordinator_time', 'reviewer_initials', 'reviewer_time']}),
     ]
 
+    list_display = ('subject_id', 'visit_date', 'subject_initials', 'gender')
+    list_filter = ['subject_id']
+    search_fields = ['subject_id']
+
+
+admin.site.site_header = "ELECTRONIC DATA CAPTURE SYSTEM(VAC083)"
+admin.site.site_title = "Data entry Area"
+admin.site.index_title = "Welcome to the VAC083"
+
 
 admin.site.register(Demographic, DemographicAdmin)
