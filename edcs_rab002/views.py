@@ -14,7 +14,7 @@ def DemographicCreate(request):
 
     else:
         form = DemographicForm()
-    return render(request, 'edcs_rab002/edcs_rab002_home.html', {'form': form})
+    return render(request, 'edcs_rab002/edcs_rab002_enter_data.html', {'form': form})
 
 
 def DemographicEdit(request, pk=None):
