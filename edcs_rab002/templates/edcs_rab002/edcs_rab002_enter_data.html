@@ -2,7 +2,7 @@
 <form action="{% url 'edcs_rab002:DemographicCreate' %}"  method="post">
       {% csrf_token %}
       {{ form.as_p }}
-<button class="button" type="submit">Create</button>
+<button class="button" type="submit">Submit</button>
 </form>
 
 <p><a href="{% url 'edcs_dashboard:home' %}">Go Back<a/></p>

@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from edcs_model.models import BaseUuidModel
+from edcs_constants.choices import GENDER
 
 #
 # class Demographic(models.Model):
@@ -61,7 +63,7 @@ from django.contrib.auth.models import User
 #
 
 
-class Demographic(models.Model):
+class Demographic(BaseUuidModel):
     subject_initials = models.CharField(max_length=3)
     subject_id = models.CharField(max_length=9)
     visit_date = models.DateField()
@@ -70,10 +72,7 @@ class Demographic(models.Model):
         ('1', 'sc1'),
     ]
     visit_code = models.CharField(max_length=1, choices=visit_code_choices)
-    gender_choices = [
-        ('1', 'Male'),
-        ('2', 'Female'),
-    ]
+    gender_choices = GENDER
     gender = models.CharField(max_length=1, choices=gender_choices)
     race_choices = [
         ('1', 'Africa'),

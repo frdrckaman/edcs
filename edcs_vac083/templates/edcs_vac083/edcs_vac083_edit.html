@@ -1,0 +1,7 @@
+<h1>Edit DATA</h1>
+<form action="{% url 'edcs_vac083:DemographicEdit' demographic.pk %}"
+      method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+<button class="button" type="submit">Update</button>
+</form>

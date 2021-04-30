@@ -1,13 +1,435 @@
-<!-- Navbar (Sits on top) -->
-<div class="w3-top w3-bar w3-white w3-wide w3-padding w3-card">
-<a href="#home" class="w3-bar-item w3-button"><b>BR</b> Architects</a>
+{% extends 'edcs_dashboard/bootstrap3/base.html' %}
+{% load static %}
+{% block title %}<title> EDCS | Home </title>{% endblock title%}
+{% block main-content %}
 
-<!-- Float links to the right. Hide them on small screens -->
-<div class="w3-right w3-hide-small">
-<a href="#projects" class="w3-bar-item w3-button">Projects</a>
-<a href="#about" class="w3-bar-item w3-button">About</a>
-<a href="#contact" class="w3-bar-item w3-button">Contact</a>
-</div>
+    <div id="wrapper">
 
-</div>
+        <div id="header">
 
+            <div class="wrap">
+
+                <a href="index.html" class="logo"></a>
+
+                <div class="buttons fl">
+                    <div class="item">
+                        <a href="#" class="btn btn-primary btn-sm c_layout">
+                            <span class="i-layout-8"></span>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#" class="btn btn-primary btn-sm c_screen">
+                            <span class="i-stretch"></span>
+                        </a>
+                    </div>
+                    <div class="item">
+                    <a href="{% url 'edcs_vac083:DemographicCreate' %}" class="btn btn-danger "> ENTER DATA </a>
+                    </div>
+                    <div class="item">
+                    <a href="{{demographic.get_absolute_url}}/admin/d97be669-b729-42f5-9908-425fa6ef52bf/change}}" class="btn btn-danger "> Edit Records </a>
+                    </div>
+                    <div class="item">
+                    <a href="{% url 'edcs_vac083:DemographicView' %}" class="btn btn-danger "> View Records </a>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <div class="item">
+                        <a href="#" class="btn btn-primary btn-sm">
+                            <span class="i-cog"></span>
+                        </a>
+                        <div class="popup">
+                            <div class="head">
+                                <h2>Settings</h2>
+                            </div>
+                            <div class="content np">
+                                <div class="row">
+                                    <div class="controls-row">
+                                        <div class="col-md-3">Themes:</div>
+                                        <div class="col-md-9 themes">
+                                            <a href="#" class="default tip" data-theme="" title="Default"></a>
+                                            <a href="#" class="dark tip" data-theme="themeDark" title="Dark"></a>
+                                            <a href="#" class="simple tip" data-theme="themeSimple" title="Simple"></a>
+                                            <div class="help-block">On click theme will changed and saved settings</div>
+                                        </div>
+                                    </div>
+                                    <div class="controls-row">
+                                        <div class="col-md-3">Backgrounds:</div>
+                                        <div class="col-md-9 backgrounds">
+                                            <a href="#" class="default tip" data-theme="" title="Default"></a>
+                                            <a href="#" class="b_bcrosshatch" data-back="b_bcrosshatch"></a>
+                                            <a href="#" class="b_crosshatch" data-back="b_crosshatch"></a>
+                                            <a href="#" class="b_cube" data-back="b_cube"></a>
+                                            <a href="#" class="b_dots" data-back="b_dots"></a>
+                                            <a href="#" class="b_grid" data-back="b_grid"></a>
+                                            <a href="#" class="b_hline" data-back="b_hline"></a>
+                                            <a href="#" class="b_simple" data-back="b_simple"></a>
+                                            <a href="#" class="b_vline" data-back="b_vline"></a>
+                                            <div class="help-block">On click background will changed and saved settings</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer">
+                                <div class="side fr">
+                                    <button class="btn btn-primary popup-close">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <a href="#" class="btn btn-primary btn-sm">
+                            <span class="i-chat"></span>
+                        </a>
+                        <div class="popup">
+                            <div class="head">
+                                <h2>Messages</h2>
+                            </div>
+                            <div class="content npb messages minify" id="messages"></div>
+                            <div class="footer">
+                                <div class="side fl">
+                                    <button class="btn btn-link">Show all</button>
+                                </div>
+                                <div class="side fr">
+                                    <button class="btn btn-primary popup-close">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                <span class="i-forward"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><span class="i-profile"></span> Profile</a></li>
+                                <li><a href="#"><span class="i-tools"></span> Controls</a></li>
+                                <li><a href="#"><span class="i-locked"></span> Lock</a></li>
+                                <li><a href="#"><span class="i-forward"></span> Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="layout">
+
+            <div id="sidebar">
+
+                <div class="user">
+                    <div class="pic">
+                        <img src="img/examples/users/dmitry_m.jpg"/>
+                    </div>
+                    <div class="info">
+                        <div class="name">
+                            <a href="#">John Doe</a>
+                        </div>
+                        <div class="buttons">
+                            <a href="#"><span class="i-cog"></span> Settings</a>
+                            <a href="#"><span class="i-chat"></span> Messages</a>
+                            <a href="#" class="fr"><span class="i-forward"></span> Logout</a>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="navigation">
+                    <li>
+                        <a href="index.html">Dashboard</a>
+                    </li>
+                    <li><a href="http://aqvatarius.com/themes/leo_v14/front-end/index.html" target="_blank">Front-end Template</a></li>
+                    <li class="openable open">
+                        <a href="#">UI Elements</a>
+                        <ul>
+                            <li>
+                                <a href="ui_elements.html">Elements</a>
+                            </li>
+                            <li>
+                                <a href="ui_widgets.html">Widgets</a>
+                            </li>
+                            <li>
+                                <a href="ui_buttons.html">Buttons</a>
+                            </li>
+                            <li>
+                                <a href="ui_icons.html">Icons</a>
+                            </li>
+                            <li class="active">
+                                <a href="ui_grid.html">Grid system</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="openable">
+                        <a href="#">Form Stuff</a>
+                        <ul>
+                            <li>
+                                <a href="form_elements.html">Form elements</a>
+                            </li>
+                            <li>
+                                <a href="form_validation.html">Form validation</a>
+                            </li>
+                            <li>
+                                <a href="form_wizard.html">Wizard</a>
+                            </li>
+                            <li>
+                                <a href="form_wysiwyg.html">WYSIWYG</a>
+                            </li>
+                            <li>
+                                <a href="form_code_editor.html">Code editor</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="messages.html">Messages</a>
+                    </li>
+                    <li>
+                        <a href="charts.html">Charts</a>
+                    </li>
+                    <li class="openable">
+                        <a href="tables.html">Tables</a>
+                        <ul>
+                            <li>
+                                <a href="tables_default.html">Default tables</a>
+                            </li>
+                            <li>
+                                <a href="tables_sort.html">Sorting tables</a>
+                            </li>
+                            <li>
+                                <a href="tables_edit.html">Editable tables</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="typography.html">Typography</a>
+                    </li>
+                    <li>
+                        <a href="files.html">File handling</a>
+                    </li>
+                    <li>
+                        <a href="calendar.html">Calendar</a>
+                    </li>
+                    <li class="openable">
+                        <a href="#">Maps</a>
+                        <ul>
+                            <li>
+                                <a href="maps_vector.html">Vector maps</a>
+                            </li>
+                            <li>
+                                <a href="maps_google.html">Google maps</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="openable">
+                        <a href="#">Sample Pages</a>
+                        <ul>
+                            <li>
+                                <a href="sample_login.html">Login</a>
+                            </li>
+                            <li>
+                                <a href="sample_user_edit.html">User edit</a>
+                            </li>
+                            <li>
+                                <a href="sample_search.html">Search result</a>
+                            </li>
+                            <li>
+                                <a href="sample_faq.html">FAQ</a>
+                            </li>
+                            <li>
+                                <a href="sample_mailbox.html">Mailbox</a>
+                            </li>
+                            <li>
+                                <a href="sample_invoice.html">Invoice</a>
+                            </li>
+                            <li>
+                                <a href="sample_gallery.html">Gallery</a>
+                            </li>
+                            <li>
+                                <a href="sample_blank.html">Blank page</a>
+                            </li>
+                            <li>
+                                <a href="sample_price.html">Pricing table</a>
+                            </li>
+                            <li>
+                                <a href="sample_payment.html">Payment table</a>
+                            </li>
+                            <li class="openable">
+                                <a href="#">Error pages</a>
+                                <ul>
+                                    <li><a href="sample_error_403.html">Error 403 forbidden</a></li>
+                                    <li><a href="sample_error_404.html">Error 404 not found</a></li>
+                                    <li><a href="sample_error_503.html">Error 503 service unavailable</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="openable">
+                        <a href="#" class="icon"><span class="i-star text-info"></span>Navigation samples<span class="label label-danger fr">+6</span></a>
+                        <ul>
+                            <li><a href="#" class="icon"><span class="i-battery text-danger"></span>Second level<span class="label label-info fr">$35,224</span></a></li>
+                            <li class="openable">
+                                <a href="#" class="icon"><span class="i-cart text-success"></span>Second level<span class="label label-danger fr">+3</span></a>
+                                <ul>
+                                    <li><a href="#" class="icon"><span class="i-film"></span>Third level<span class="label label-info fr">3</span><span class="label label-success fr">2</span><span class="label fr">1</span></a></li>
+                                    <li class="active"><a href="#" class="icon"><span class="i-cube text-info"></span>Active third level<span class="label label-info fr">3</span><span class="label label-info fr">2</span><span class="label label-info fr">1</span></a></li>
+                                    <li><a href="#" class="icon"><span class="i-info"></span>Third level<span class="label label-warning fr">3</span><span class="label label-danger fr">2</span><span class="label fr">1</span></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="icon"><span class="i-box text-warning"></span>Second level<span class="label label-success fr">$1989.02</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div id="content">
+
+                <div class="wrap">
+
+                    <div class="head">
+                        <div class="info">
+                            <h1>Grid</h1>
+                            <ul class="breadcrumb">
+                                <li><a href="#">Dashboard</a></li>
+                                <li><a href="#">UI</a></li>
+                                <li class="active">Grid</li>
+                            </ul>
+                        </div>
+
+                        <div class="search">
+                            <form action="#" method="post">
+                                <input type="text" class="form-control" placeholder="search..."/>
+                                <button type="submit"><span class="i-calendar"></span></button>
+                                <button type="submit"><span class="i-magnifier"></span></button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="container sortableContent" id="grid_content_1">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="alert alert-info">
+                                    <strong>Atention!</strong> Position of blocks is saving into cookies. After page reload you can see all changes.
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row scRow">
+                            <div class="col-md-6 scCol">
+
+                                <div class="block" id="grid_block_1">
+                                    <div class="head">
+                                        <h2>Sample block #1</h2>
+                                    </div>
+                                    <div class="content">
+                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    </div>
+                                </div>
+
+                                <div class="block" id="grid_block_2">
+                                    <div class="head">
+                                        <h2>Sample block #2</h2>
+                                    </div>
+                                    <div class="content">
+                                        Ut quis lectus turpis, a pretium massa. Aliquam diam libero, ullamcorper sit amet consequat ut, rutrum a dui. Morbi hendrerit tempus lectus, non euismod mauris tempus sit amet. Curabitur sed rhoncus nibh. Maecenas fringilla ornare lorem sit amet egestas. Donec sit amet nunc diam. Cras urna dui, vestibulum feugiat luctus eu, semper vel diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 scCol">
+
+                                <div class="block" id="grid_block_3">
+                                    <div class="head">
+                                        <h2>Sample block #3</h2>
+                                    </div>
+                                    <div class="content">
+                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    </div>
+                                </div>
+
+                                <div class="block" id="grid_block_4">
+                                    <div class="head">
+                                        <h2>Sample block #4</h2>
+                                    </div>
+                                    <div class="content">
+                                        Ut quis lectus turpis, a pretium massa. Aliquam diam libero, ullamcorper sit amet consequat ut, rutrum a dui. Morbi hendrerit tempus lectus, non euismod mauris tempus sit amet. Curabitur sed rhoncus nibh. Maecenas fringilla ornare lorem sit amet egestas. Donec sit amet nunc diam. Cras urna dui, vestibulum feugiat luctus eu, semper vel diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row scRow">
+                            <div class="col-md-12 scCol">
+
+                                <div class="block" id="grid_block_5">
+                                    <div class="head">
+                                        <h2>Sample block #5</h2>
+                                    </div>
+                                    <div class="content">
+                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row scRow">
+                            <div class="col-md-6 scCol">
+
+                                <div class="block" id="grid_block_6">
+                                    <div class="head">
+                                        <h2>Sample block #6</h2>
+                                    </div>
+                                    <div class="content">
+                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    </div>
+                                </div>
+
+                                <div class="block" id="grid_block_7">
+                                    <div class="head">
+                                        <h2>Sample block #7</h2>
+                                    </div>
+                                    <div class="content">
+                                        Ut quis lectus turpis, a pretium massa. Aliquam diam libero, ullamcorper sit amet consequat ut, rutrum a dui. Morbi hendrerit tempus lectus, non euismod mauris tempus sit amet. Curabitur sed rhoncus nibh. Maecenas fringilla ornare lorem sit amet egestas. Donec sit amet nunc diam. Cras urna dui, vestibulum feugiat luctus eu, semper vel diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 scCol">
+
+                                <div class="block" id="grid_block_8">
+                                    <div class="head">
+                                        <h2>Sample block #8</h2>
+                                    </div>
+                                    <div class="content">
+                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    </div>
+                                </div>
+
+                                <div class="block" id="grid_block_9">
+                                    <div class="head">
+                                        <h2>Sample block #9</h2>
+                                    </div>
+                                    <div class="content">
+                                        Ut quis lectus turpis, a pretium massa. Aliquam diam libero, ullamcorper sit amet consequat ut, rutrum a dui. Morbi hendrerit tempus lectus, non euismod mauris tempus sit amet. Curabitur sed rhoncus nibh. Maecenas fringilla ornare lorem sit amet egestas. Donec sit amet nunc diam. Cras urna dui, vestibulum feugiat luctus eu, semper vel diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock main-content %}
