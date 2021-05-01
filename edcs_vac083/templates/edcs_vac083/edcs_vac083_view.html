@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'edcs_dashboard/bootstrap3/base.html' %}
+{% load static %}
+{% block title %}<title> EDCS | Home </title>{% endblock title%}
+{% block main-content %}
 
-</body>
-</html>
+<ul class="list-group">
+    {% for object in object_list %}
+  <li class="list-group-item active d-flex justify-content-between align-items-center">
+      {{ object.subject_id }} - {{ object.subject_initials }}
+      <span class="badge badge-primary badge-pill">
+
+           {{ demographicCount }}
+
+      </span>
+  </li>
+
+    <hr/>
+    <!-- If objet_list is empty  -->
+    {% empty %}
+    <li>No objects yet.</li>
+    {% endfor %}
+
+</ul>
+
+{% endblock %}

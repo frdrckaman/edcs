@@ -9,5 +9,4 @@ urlpatterns = [
     path("dashboard/", include("edcs_dashboard.urls")),
     path("home/", DashboardView.as_view(), name="home_url"),
     path("edcs_vac083/", include("edcs_vac083.urls")),
-    path("edcs_rab002/", include("edcs_rab002.urls")),
 ]

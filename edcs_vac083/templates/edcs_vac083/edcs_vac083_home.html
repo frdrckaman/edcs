@@ -22,14 +22,14 @@
                             <span class="i-stretch"></span>
                         </a>
                     </div>
-<!--                    <div class="item">-->
-<!--                    <a href="{{demographic.get_absolute_url}}/d97be669-b729-42f5-9908-425fa6ef52bf/change" class="btn btn-danger "> ENTER DATA </a>-->
-<!--                    </div>-->
                     <div class="item">
                     <a href="{% url 'edcs_vac083:DemographicCreate' %}" class="btn btn-danger "> ENTER DATA </a>
                     </div>
                     <div class="item">
                     <a href="{% url 'edcs_vac083:DemographicView' %}" class="btn btn-danger "> View Records </a>
+                    </div>
+                    <div class="item">
+                    <a href="{% url 'edcs_vac083:edcs_vac083_visits' %}" class="btn btn-danger "> View Visits </a>
                     </div>
                 </div>
 
@@ -324,7 +324,9 @@
                                         <h2>PRE - SCREENING</h2>
                                     </div>
                                     <div class="content">
-                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                              <span class="badge badge-primary badge-pill">
+                                                  {{ demographicCount }}
+                                              </span>
                                     </div>
                                 </div>
 

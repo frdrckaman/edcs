@@ -16,9 +16,13 @@ class DemographicAdmin(admin.ModelAdmin):
     search_fields = ['subject_id']
 
 
-admin.site.site_header = "ELECTRONIC DATA CAPTURE SYSTEM(VAC083)"
+admin.site.site_header = "ELECTRONIC DATA CAPTURE SYSTEM (VAC083)"
 admin.site.site_title = "Data entry Area"
 admin.site.index_title = "Welcome to the VAC083"
 
 
 admin.site.register(Demographic, DemographicAdmin)
+
+
+
+

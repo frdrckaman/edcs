@@ -1,7 +1,0 @@
-<h1>Edit post</h1>
-<form action="{% url 'DemographicEdit' demographic.pk %}"
-      method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-<button class="button" type="submit">Update</button>
-</form>

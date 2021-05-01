@@ -1,6 +1,4 @@
 from django.db import models
-from django.urls import reverse
-from django.contrib.auth.models import User
 from edcs_model.models import BaseUuidModel
 from edcs_constants.choices import GENDER
 
