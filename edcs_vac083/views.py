@@ -16,10 +16,10 @@ class DemographicView(ListView):
     template_name = 'edcs_vac083/edcs_vac083_view.html'
 
 
-def edcsVac083VisitsView(ListView):
+class edcs_vac083_visits(ListView):
     form = ScreeningTwoForm
-    template_name = 'edcs_vac083/edcs_vac083_enter_data.html'
-    return HttpResponse('hi')
+    model = ScreeningTwo
+    template_name = 'edcs_vac083/edcs_vac083_visits.html'
 
 
 def DemographicCreate(request):
@@ -73,19 +73,19 @@ def edcs_vac083_count(request):
 
 class ExclusionCriteriaView(ListView):
     model = ExclusionCriteria
-    template_name = 'edcs_vac083/edcs_vac083_view.html'
+    template_name = 'edcs_vac083/edcs_vac083_enter_data_exclusion.html.html'
 
 
 def ScreeningOneView(request):
     if request.method == 'POST':
-        form1 = ScreeningTwoForm(request.POST)
-        if form1.is_valid():
-            form1.save()
+        form = ScreeningTwoForm(request.POST)
+        if form.is_valid():
+            form.save()
             return redirect('edcs_vac083_visits:edcs_vac083_visits')
 
     else:
-        form1 = ScreeningTwoForm()
-    return render(request, 'edcs_vac083/edcs_vac083_enter_data.html', {'form1': form1})
+        form = ScreeningTwoForm()
+    return render(request, 'edcs_vac083/screening/sc1/edcs_vac083_enter_data.html', {'form': form})
 
 
 def ScreeningTwoView(request):
@@ -97,7 +97,19 @@ def ScreeningTwoView(request):
 
     else:
         form2 = ScreeningTwoForm()
-    return render(request, 'edcs_vac083/edcs_vac083_enter_data.html', {'form2': form2})
+    return render(request, 'edcs_vac083/edcs_vac083_enter_data2.html', {'form2': form2})
+
+
+def ScreeningTwoViewData(request):
+    if request.method == 'POST':
+        form = ScreeningTwoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('edcs_vac083_visits:edcs_vac083_visits')
+
+    else:
+        form = ScreeningTwoForm()
+    return render(request, 'edcs_vac083/screening/sc2/edcs_vac083_enter_data.html', {'form': form})
 
 
 class PublisherList(ListView):

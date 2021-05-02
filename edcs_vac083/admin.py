@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Demographic, Book, Author, Publisher
+from . models import Demographic, Book, Author, Publisher, ExclusionCriteria, ScreeningTwo
 
 
 class DemographicAdmin(admin.ModelAdmin):
@@ -26,7 +26,8 @@ admin.site.register(Demographic, DemographicAdmin)
 admin.site.register(Book)
 admin.site.register(Publisher)
 admin.site.register(Author)
-
+admin.site.register(ExclusionCriteria)
+admin.site.register(ScreeningTwo)
 
 
 

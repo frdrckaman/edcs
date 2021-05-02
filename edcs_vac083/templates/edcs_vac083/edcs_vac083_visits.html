@@ -10,8 +10,9 @@
         <h5 class="card-title">PRE - Screening</h5>
         <p class="card-text">Number Recruited.</p>
         <a href="#" class="btn btn-primary">PRE</a>
+        <a href="{% url 'edcs_vac083:edcs_vac083_screening_one' %}" class="btn btn-danger "> ENTER DATA </a>
         <div class="item">
-                    <a href="{% url 'edcs_vac083:edcs_vac083_screening' %}" class="btn btn-danger "> PRE - Screening </a>
+          <a href="{% url 'edcs_vac083:edcs_vac083_screening_one' %}" class="btn btn-danger "> PRE - Screening </a>
         </div>
       </div>
     </div>
@@ -20,12 +21,18 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Screening One</h5>
-        <p class="card-text">Number Screened.</p>
+        <p class="card-text">Number Screened.
+          <span class="badge badge-primary badge-pill">
+
+           {{ demographicCount }}
+
+          </span>
+        </p>
         <a href="#" class="btn btn-primary">SC1</a>
         <a href="{% url 'edcs_vac083:DemographicCreate' %}" class="btn btn-danger "> ENTER DATA </a>
       </div>
         <div class="item">
-          <a href="{% url 'edcs_vac083:edcs_vac083_screening' %}" class="btn btn-danger "> Screening One </a>
+          <a href="{% url 'edcs_vac083:edcs_vac083_screening_one' %}" class="btn btn-danger "> Screening One </a>
         </div>
     </div>
   </div>
@@ -33,10 +40,74 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Screening Two</h5>
-        <p class="card-text">Number Eligibal.</p>
-        <a href="{% url 'edcs_vac083:edcs_vac083_enter_data' %}" class="btn btn-primary">Enter Data</a>
+        <p class="card-text">Number Eligibal.
+        <span class="badge badge-primary badge-pill">
+
+           {{ demographicCount }}
+
+        </span>
+        </p>
+        <a href="#" class="btn btn-primary">SC2</a>
+        <a href="{% url 'edcs_vac083:edcs_vac083_screening_two_enter_data' %}" class="btn btn-primary">Enter Data</a>
         <div class="item">
-                    <a href="{% url 'edcs_vac083:edcs_vac083_screening' %}" class="btn btn-danger "> Screening Two </a>
+          <a href="{% url 'edcs_vac083:edcs_vac083_screening_two' %}" class="btn btn-danger "> Screening Two </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Pre - Vaccination</h5>
+        <p class="card-text">Number Vaccinated.
+          <span class="badge badge-primary badge-pill">
+
+           {{ demographicCount }}
+
+          </span>
+        </p>
+        <a href="#" class="btn btn-primary">V1</a>
+        <a href="{% url 'edcs_vac083:edcs_vac083_screening_two' %}" class="btn btn-primary">Enter Data</a>
+        <div class="item">
+          <a href="{% url 'edcs_vac083:edcs_vac083_screening_two' %}" class="btn btn-danger "> Pre - Vaccination </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">WARDS</h5>
+        <p class="card-text">Number Visited.
+          <span class="badge badge-primary badge-pill">
+
+           {{ demographicCount }}
+
+          </span>
+        </p>
+        <a href="#" class="btn btn-primary">WARD</a>
+        <a href="{% url 'edcs_vac083:edcs_vac083_screening_two' %}" class="btn btn-primary">Enter Data</a>
+        <div class="item">
+          <a href="{% url 'edcs_vac083:edcs_vac083_screening_two' %}" class="btn btn-danger "> WARDS </a>
+        </div>
+      </div>
+    </div>
+  </div>
+   <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">HOME VISITS</h5>
+        <p class="card-text">Number Visited.
+          <span class="badge badge-primary badge-pill">
+
+           {{ demographicCount }}
+
+          </span>
+        </p>
+        <a href="#" class="btn btn-primary">HOME</a>
+        <a href="{% url 'edcs_vac083:edcs_vac083_screening_two' %}" class="btn btn-primary">Enter Data</a>
+        <div class="item">
+          <a href="{% url 'edcs_vac083:edcs_vac083_screening_two' %}" class="btn btn-danger "> HOME VISITS </a>
         </div>
       </div>
     </div>
