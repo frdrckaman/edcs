@@ -1,0 +1,34 @@
+{% extends 'edcs_dashboard/bootstrap3/base.html' %}
+{% load static %}
+{% block title %}<title> EDCS | Home </title>{% endblock title%}
+{% block main-content %}
+<div class="container">
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Exclusion Criteria</h5>
+        <p class="card-text">Exclusion Criteria.</p>
+        <a href="#" class="btn btn-primary">Exclusion</a>
+        <div class="item">
+                    <a href="{% url 'edcs_vac083:edcs_vac083_screening' %}" class="btn btn-danger "> Exclusion Criteria </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Screening Two</h5>
+        <p class="card-text">Number Eligibal.</p>
+        <a href="{% url 'edcs_vac083:DemographicCreate' %}" class="btn btn-primary">SC2</a>
+        <div class="item">
+                    <a href="{% url 'edcs_vac083:edcs_vac083_screening' %}" class="btn btn-danger "> Screening Two </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

@@ -2,19 +2,46 @@
 {% load static %}
 {% block title %}<title> EDCS | Home </title>{% endblock title%}
 {% block main-content %}
-
-<!-- Example single danger button -->
-<div class="btn-group">
-  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Action
-  </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Separated link</a>
+<div class="container">
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">PRE - Screening</h5>
+        <p class="card-text">Number Recruited.</p>
+        <a href="#" class="btn btn-primary">PRE</a>
+        <div class="item">
+                    <a href="{% url 'edcs_vac083:edcs_vac083_screening' %}" class="btn btn-danger "> PRE - Screening </a>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Screening One</h5>
+        <p class="card-text">Number Screened.</p>
+        <a href="#" class="btn btn-primary">SC1</a>
+        <a href="{% url 'edcs_vac083:DemographicCreate' %}" class="btn btn-danger "> ENTER DATA </a>
+      </div>
+        <div class="item">
+          <a href="{% url 'edcs_vac083:edcs_vac083_screening' %}" class="btn btn-danger "> Screening One </a>
+        </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Screening Two</h5>
+        <p class="card-text">Number Eligibal.</p>
+        <a href="{% url 'edcs_vac083:edcs_vac083_enter_data' %}" class="btn btn-primary">Enter Data</a>
+        <div class="item">
+                    <a href="{% url 'edcs_vac083:edcs_vac083_screening' %}" class="btn btn-danger "> Screening Two </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 {% endblock %}

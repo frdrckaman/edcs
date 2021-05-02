@@ -23,13 +23,13 @@
                         </a>
                     </div>
                     <div class="item">
-                    <a href="{% url 'edcs_vac083:DemographicCreate' %}" class="btn btn-danger "> ENTER DATA </a>
-                    </div>
-                    <div class="item">
                     <a href="{% url 'edcs_vac083:DemographicView' %}" class="btn btn-danger "> View Records </a>
                     </div>
                     <div class="item">
-                    <a href="{% url 'edcs_vac083:edcs_vac083_visits' %}" class="btn btn-danger "> View Visits </a>
+                    <a href="{% url 'edcs_vac083:edcsVac083VisitsView' %}" class="btn btn-danger "> View Visits </a>
+                    </div>
+                    <div class="item">
+                    <a href="{% url 'edcs_vac083:edcs_vac083_count' %}" class="btn btn-danger "> View Counts </a>
                     </div>
                 </div>
 
@@ -324,6 +324,7 @@
                                         <h2>PRE - SCREENING</h2>
                                     </div>
                                     <div class="content">
+                                        Total Patients Recruited are
                                               <span class="badge badge-primary badge-pill">
                                                   {{ demographicCount }}
                                               </span>
@@ -335,7 +336,10 @@
                                         <h2>SCREENING ONE</h2>
                                     </div>
                                     <div class="content">
-                                        Ut quis lectus turpis, a pretium massa. Aliquam diam libero, ullamcorper sit amet consequat ut, rutrum a dui. Morbi hendrerit tempus lectus, non euismod mauris tempus sit amet. Curabitur sed rhoncus nibh. Maecenas fringilla ornare lorem sit amet egestas. Donec sit amet nunc diam. Cras urna dui, vestibulum feugiat luctus eu, semper vel diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                        Total Number of Patients Screened are
+                                       <span class="badge badge-primary badge-pill">
+                                                  {{ demographicCount }}
+                                       </span>
                                     </div>
                                 </div>
 
@@ -347,16 +351,21 @@
                                         <h2>SCREENING TWO</h2>
                                     </div>
                                     <div class="content">
-                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                        Total Patients With SCREENING TWO Visits are
+                                       <span class="badge badge-primary badge-pill">
+                                                  {{ demographicCount }}
+                                       </span>
                                     </div>
                                 </div>
 
                                 <div class="block" id="grid_block_4">
                                     <div class="head">
                                         <h2>PRE - VACCINATION</h2>
-                                    </div>
                                     <div class="content">
-                                        Ut quis lectus turpis, a pretium massa. Aliquam diam libero, ullamcorper sit amet consequat ut, rutrum a dui. Morbi hendrerit tempus lectus, non euismod mauris tempus sit amet. Curabitur sed rhoncus nibh. Maecenas fringilla ornare lorem sit amet egestas. Donec sit amet nunc diam. Cras urna dui, vestibulum feugiat luctus eu, semper vel diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                        Total Patients With PRE - VACCINATION Visits are
+                                       <span class="badge badge-primary badge-pill">
+                                                  {{ demographicCount }}
+                                       </span>
                                     </div>
                                 </div>
 
@@ -371,7 +380,10 @@
                                         <h2>WARDS</h2>
                                     </div>
                                     <div class="content">
-                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                        Total Patients With WARD Visits are
+                                       <span class="badge badge-primary badge-pill">
+                                                  {{ demographicCount }}
+                                       </span>
                                     </div>
                                 </div>
 
@@ -386,7 +398,10 @@
                                         <h2>HOME VISITS</h2>
                                     </div>
                                     <div class="content">
-                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                        Total Patients With Home Visits are
+                                       <span class="badge badge-primary badge-pill">
+                                                  {{ demographicCount }}
+                                       </span>
                                     </div>
                                 </div>
 
@@ -395,7 +410,10 @@
                                         <h2>UNSCHEDULE VISITS</h2>
                                     </div>
                                     <div class="content">
-                                        Ut quis lectus turpis, a pretium massa. Aliquam diam libero, ullamcorper sit amet consequat ut, rutrum a dui. Morbi hendrerit tempus lectus, non euismod mauris tempus sit amet. Curabitur sed rhoncus nibh. Maecenas fringilla ornare lorem sit amet egestas. Donec sit amet nunc diam. Cras urna dui, vestibulum feugiat luctus eu, semper vel diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                        Total Patients With Unscheduled Visits are
+                                       <span class="badge badge-primary badge-pill">
+                                                  {{ demographicCount }}
+                                       </span>
                                     </div>
                                 </div>
 
@@ -407,7 +425,10 @@
                                         <h2>LOGS</h2>
                                     </div>
                                     <div class="content">
-                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                        Total Patients with Logs are
+                                       <span class="badge badge-primary badge-pill">
+                                                  {{ demographicCount }}
+                                       </span>
                                     </div>
                                 </div>
 
@@ -416,7 +437,13 @@
                                         <h2>TERMINATION</h2>
                                     </div>
                                     <div class="content">
-                                        Ut quis lectus turpis, a pretium massa. Aliquam diam libero, ullamcorper sit amet consequat ut, rutrum a dui. Morbi hendrerit tempus lectus, non euismod mauris tempus sit amet. Curabitur sed rhoncus nibh. Maecenas fringilla ornare lorem sit amet egestas. Donec sit amet nunc diam. Cras urna dui, vestibulum feugiat luctus eu, semper vel diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+                                        Total Terminated Patients are
+
+                                       <span class="badge badge-primary badge-pill">
+                                                  {{ demographicCount }}
+                                       </span>
+
                                     </div>
                                 </div>
 

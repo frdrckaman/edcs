@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Demographic
+from . models import Demographic, Book, Author, Publisher
 
 
 class DemographicAdmin(admin.ModelAdmin):
@@ -22,6 +22,10 @@ admin.site.index_title = "Welcome to the VAC083"
 
 
 admin.site.register(Demographic, DemographicAdmin)
+
+admin.site.register(Book)
+admin.site.register(Publisher)
+admin.site.register(Author)
 
 
 
