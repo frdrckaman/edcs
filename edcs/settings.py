@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'simple_history',
     'edcs_auth.apps.EdcsAuthConfig',
     'edcs_dashboard.apps.EdcsDashboardConfig',
+    'edcs_device.apps.AppConfig',
     'edcs_model.apps.EdcsModelConfig',
     'edcs_utils.apps.EdcsUtilsConfig',
     'edcs_notification.apps.EdcsNotificationConfig',
