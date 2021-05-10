@@ -114,6 +114,4 @@ class AdministrationViewMixin(ContextMixin):
 
         keys = other_keys + edcs_keys
 
-        print({key: sections.get(key) for key in keys})
-
         return {key: sections.get(key) for key in keys}
