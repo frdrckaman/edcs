@@ -25,7 +25,7 @@ def post_migrate_user_roles(sender=None, **kwargs):  # noqa
 
 class EdcsAuthConfig(AppConfig):
     name = "edcs_auth"
-    verbose_name = "EDCS Authentication"
+    verbose_name = "Edcs Authentication"
 
     def ready(self):
         post_migrate.connect(post_migrate_user_roles, sender=self)

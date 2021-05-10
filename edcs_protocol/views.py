@@ -1,14 +1,12 @@
 from django.conf import settings
 from django.views.generic.base import TemplateView
-from edcs_dashboard.view_mixins import EdcViewMixin
+from edcs_dashboard.view_mixins import EdcsViewMixin
 
 from edcs_protocol import Protocol
 
 
-class HomeView(EdcViewMixin, TemplateView):
-    template_name = f"edc_protocol/bootstrap{settings.EDC_BOOTSTRAP}/home.html"
-    navbar_name = "edc_protocol"
-    navbar_selected_item = "protocol"
+class HomeView(EdcsViewMixin, TemplateView):
+    template_name = f"edcs_protocol/bootstrap{settings.EDCS_BOOTSTRAP}/home.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

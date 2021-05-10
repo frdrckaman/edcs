@@ -14,7 +14,7 @@ class TemplateRequestContextMixin:
     def get_context_data(self, **kwargs):
         """Adds template data to context."""
         context = super().get_context_data(**kwargs)
-        print(f"****************** {context} ***************")
+        print(f"****************** {self.request.template_data} ***************")
         context.update(self.request.template_data)
         return context
 

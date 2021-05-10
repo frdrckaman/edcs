@@ -16,7 +16,7 @@ class AdministrationViewMixin(ContextMixin):
         f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/administration.html"
     )
 
-    edcs_module_prefix = "EDCS"
+    edcs_module_prefix = "Edcs"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
