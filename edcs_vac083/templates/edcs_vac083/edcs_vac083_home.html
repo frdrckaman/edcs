@@ -23,13 +23,10 @@
                         </a>
                     </div>
                     <div class="item">
-                    <a href="{% url 'edcs_vac083:DemographicView' %}" class="btn btn-danger "> View Records </a>
+                    <a href="{% url 'edcs_vac083:edcs_vac083_visits' %}" class="btn btn-danger "> View Records </a>
                     </div>
                     <div class="item">
                     <a href="{% url 'edcs_vac083:edcs_vac083_visits' %}" class="btn btn-danger "> View Visits </a>
-                    </div>
-                    <div class="item">
-                    <a href="{% url 'edcs_vac083:edcs_vac083_count' %}" class="btn btn-danger "> View Counts </a>
                     </div>
                 </div>
 
@@ -320,15 +317,28 @@
                             <div class="col-md-6 scCol">
 
                                 <div class="block" id="grid_block_1">
-                                    <div class="head">
+                                    <div id="head1" class="head">
                                         <h2>PRE - SCREENING</h2>
                                     </div>
                                     <div class="content">
                                         Total Patients Recruited are
                                               <span class="badge badge-primary badge-pill">
-                                                  {{ demographicCount }}
+                                                  {{ count }}
                                               </span>
                                     </div>
+                                    <div class="container">
+                                          <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                                (PRLIMINARY REGISTRATION(PR)) {{ count }}%
+                                            </div>
+                                          </div>
+                                          <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                                              (PRE - SCREENING (PS) CHECKLIST) {{ count }}%
+                                            </div>
+                                          </div>
+                                    </div>
+
                                 </div>
 
                                 <div class="block" id="grid_block_2">
@@ -338,9 +348,48 @@
                                     <div class="content">
                                         Total Number of Patients Screened are
                                        <span class="badge badge-primary badge-pill">
-                                                  {{ demographicCount }}
+                                                  {{ count }}
                                        </span>
                                     </div>
+                                        <div class="container">
+                                          <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                                                (DEMOGRAPHIC) {{ count }}%
+                                            </div>
+                                          </div>
+                                          <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                                              (VITAL SIGN) {{ count }}%
+                                            </div>
+                                          </div>
+                                             <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                                (MEDICAL HISTORY) {{ count }}%
+                                            </div>
+                                          </div>
+                                          <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                                              (DETAILED PHYSICAL EXAMINATION) {{ count }}%
+                                            </div>
+                                          </div>
+                                             <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                                (INCLUSION CRITERIA) {{ count }}%
+                                            </div>
+                                          </div>
+                                          <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                                              (SCREENING ONE) {{ count }}%
+                                            </div>
+                                          </div>
+                                             <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                                (PREGNANCY FOLLOW UP) {{ count }}%
+                                            </div>
+                                          </div>
+                                    </div>
+
+
                                 </div>
 
                             </div>
@@ -356,7 +405,20 @@
                                                   {{ demographicCount }}
                                        </span>
                                     </div>
-                                </div>
+
+        <div class="content np">
+          <div class="controls-row">
+            <div class="col-md-3">Screen Two</div>
+            <div class="col-md-9">
+              <div class="progress">Exclusion Criteria
+                <div class="progress-bar progress-bar-info tip" title="40%" style="width: 40%"></div>
+              </div>
+              <div class="progress">Screening Two
+                <div class="progress-bar progress-bar-info tip" title="60%" style="width: 60%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
 
                                 <div class="block" id="grid_block_4">
                                     <div class="head">
@@ -460,5 +522,4 @@
         </div>
 
     </div>
-
 {% endblock main-content %}
