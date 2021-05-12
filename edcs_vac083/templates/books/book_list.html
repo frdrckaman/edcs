@@ -1,0 +1,8 @@
+{% block content %}
+    <h2>Publishers</h2>
+    <ul>
+        {% for book in book_list %}
+            <li>{{ book.title }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

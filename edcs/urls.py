@@ -11,9 +11,14 @@ urlpatterns = [
     path('admin/', edcs_notification_admin.urls),
     path("", include('edcs_auth.urls')),
     path("dashboard/", include("edcs_dashboard.urls")),
+<<<<<<< HEAD
+    path("home/", DashboardView.as_view(), name="home_url"),
+    path("edcs_vac083/", include("edcs_vac083.urls")),
+=======
     path("edcs_device/", include("edcs_device.urls")),
     path("edcs_notification/", include("edcs_notification.urls")),
     path("edcs_export/", include("edcs_export.urls")),
     # path("home/", DashboardView.as_view(), name="home_url"),
     path("administration/", AdministrationView.as_view(), name="administration_url"),
+>>>>>>> a264a860fb13b2108b067bc1f517d938c14314ee
 ]
