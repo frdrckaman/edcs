@@ -34,6 +34,7 @@ SUBJECT_DATA_MODEL = env("EDCS_SUBJECT_DATA_MODEL")
 LOGIN_REDIRECT_URL = env.str("DJANGO_LOGIN_REDIRECT_URL")
 
 EDCS_BOOTSTRAP = env("DJANGO_EDCS_BOOTSTRAP")
+DASHBOARD_BASE_TEMPLATES = env.dict("DJANGO_DASHBOARD_BASE_TEMPLATES")
 
 ALLOWED_HOSTS = []
 
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
     'simple_history',
     'edcs_auth.apps.EdcsAuthConfig',
     'edcs_dashboard.apps.EdcsDashboardConfig',
+    'edcs_device.apps.AppConfig',
     'edcs_model.apps.EdcsModelConfig',
     'edcs_utils.apps.EdcsUtilsConfig',
     'edcs_notification.apps.EdcsNotificationConfig',
@@ -73,6 +75,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
 ]
+
+MIDDLEWARE.extend(
+    [
+        "edcs_dashboard.middleware.DashboardMiddleware",
+    ]
+)
 
 ROOT_URLCONF = 'edcs.urls'
 

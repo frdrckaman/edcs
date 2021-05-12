@@ -1,6 +1,7 @@
 {% extends 'edcs_dashboard/bootstrap3/base.html' %}
 {% load static %}
 {% block title %}<title> EDCS | Home </title>{% endblock title%}
+<<<<<<< HEAD
 {% block main-content %}
     <div id="wrapper">
     <div id="header">
@@ -111,6 +112,9 @@
         </div>
     </div>
 
+=======
+{% block content %}
+>>>>>>> a264a860fb13b2108b067bc1f517d938c14314ee
     <div id="layout">
         <div id="sidebar">
             <div class="user">
@@ -119,7 +123,7 @@
                 </div>
                 <div class="info">
                     <div class="name">
-                        <a href="{% url 'edcs_dashboard:home' %}">John Doe</a>
+                        <a href="{% url 'edcs_dashboard:home' %}">{{ user.username }}</a>
                     </div>
                     <div class="buttons">
                         <a href="#"><span class="i-cog"></span> Settings</a>
@@ -179,5 +183,4 @@
             </div>
         </div>
     </div>
-    </div>
-{% endblock main-content %}
+{% endblock content %}

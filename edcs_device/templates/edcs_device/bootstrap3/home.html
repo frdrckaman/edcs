@@ -1,0 +1,101 @@
+{% extends 'edcs_dashboard/bootstrap3/base.html' %}
+{% block content %}
+    <div id="">
+        <div class="wrap">
+            <br><br><br><br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-4">
+                        <h4>Configuration</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Environment</h4>
+                    </div>
+                    <div class="col-md-offset-2 col-md-4">
+                        <div class="block">
+                            <div class="content np">
+                                <table cellpadding="0" cellspacing="0" width="100%" class="list">
+                                    <thead>
+                                    <tr>
+                                        <th width="70">Name</th>
+                                        <th>Value</th>
+                                        <th width="40">Status</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><span class="date">ID</span></td>
+                                        <td><a href="#">{{ app_config.device_id }}</a></td>
+                                        <td><span class="label label-info">unknown</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="date">Role</span></td>
+                                        <td><a href="#">{{ app_config.role }}</a></td>
+                                        <td><span class="label label-info">unknown</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="date">IP Address</span></td>
+                                        <td><a href="#">{{ ip_address }}</a></td>
+                                        {% if ip_address is not None %}
+                                            <td><span class="label label-success">Active</span></td>
+                                        {% else %}
+                                            <td><span class="label label-info">unknown</span></td>
+                                        {% endif %}
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="4" align="right"><a class="btn btn-sm "></a></td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="block">
+                            <div class="content np">
+                                <table cellpadding="0" cellspacing="0" width="100%" class="list">
+                                    <thead>
+                                    <tr>
+                                        <th width="70">Name</th>
+                                        <th>Value</th>
+                                        <th width="40">Status</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><span class="date">Central Server</span></td>
+                                        <td><a href="#">{{ app_config.central_server_id }}</a></td>
+                                        <td><span class="label label-info">unknown</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="date">Servers</span></td>
+                                        <td><a href="#">{{ app_config.server_id_list|default:""|join:", " }}</a></td>
+                                        <td><span class="label label-info">unknown</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="date">Node Servers</span></td>
+                                        <td><a href="#">{{ app_config.node_server_id_list|default:""|join:", " }}</a></td>
+                                        <td><span class="label label-info">unknown</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="date">"Middleman" devices</span></td>
+                                        <td><a href="#">{{ app_config.middleman_id_list|default:""|join:", " }}</a></td>
+                                        <td><span class="label label-info">unknown</span></td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="4" align="right"><a class="btn btn-sm "></a></td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

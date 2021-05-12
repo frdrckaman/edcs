@@ -1,8 +1,10 @@
 from django.urls import path
-from edcs_dashboard.views import DashboardView
+from django.contrib import admin
+from edcs_dashboard.views import HomeView
 
 app_name = "edcs_dashboard"
 
+urlpatterns = [path("admin/", admin.site.urls)]
 urlpatterns = [
-    path('', DashboardView.as_view(), name="home"),
+    path('', HomeView.as_view(), name="home"),
 ]

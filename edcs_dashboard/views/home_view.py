@@ -5,7 +5,7 @@ from django.views.generic.base import TemplateView
 from edcs_vac083.models import Demographic
 
 
-class DashboardView(TemplateView):
+class HomeView(TemplateView):
     template_name = f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/home.html"
 
     def get_context_data(self, **kwargs):

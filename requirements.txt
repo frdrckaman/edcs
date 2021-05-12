@@ -12,6 +12,7 @@ Django==3.1.7
 django-audit-fields==0.3.2
 django-defender==0.8.0
 django-environ==0.4.5
+django-ipware==2.1.0
 django-logentry-admin==1.0.6
 django-redis==4.12.1
 django-revision==0.1.20
@@ -32,6 +33,7 @@ model-bakery==1.2.1
 mypy-extensions==0.4.3
 packaging==20.9
 pathspec==0.8.1
+Pillow==8.2.0
 pipreqs==0.4.10
 pluggy==0.13.1
 py==1.10.0
@@ -58,5 +60,5 @@ virtualenv==20.4.3
 waitress==2.0.0
 WebOb==1.8.7
 WebTest==2.0.35
+wifi-password==1.0.7
 yarg==0.1.9
-

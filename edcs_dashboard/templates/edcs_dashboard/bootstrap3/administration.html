@@ -1,0 +1,50 @@
+{% extends 'edcs_dashboard/bootstrap3/base.html' %}
+{% block content %}
+    <div id="">
+        <br> <br>
+        <div id="s" class="screen_wide sidebar_off">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="widgets">
+                             {% for name, url_name in col_one.items %}
+                                 <a class="button" href="{% url url_name|default:'home_url' %}">
+                                     <div class="icon">
+                                         <span class="i-cogs"></span>
+                                     </div>
+                                     <div class="info">
+                                         <span>{{ name }}</span>
+                                         <p></p>
+                                     </div>
+                                 </a>
+                             {% endfor %}
+                             {% for name, url_name in col_two.items %}
+                                 <a class="button" href="{% url url_name|default:'home_url' %}">
+                                     <div class="icon">
+                                         <span class="i-cogs"></span>
+                                     </div>
+                                     <div class="info">
+                                         <span>{{ name }}</span>
+                                         <p></p>
+                                     </div>
+                                 </a>
+                             {% endfor %}
+                             {% for name, url_name in col_three.items %}
+                                 <a class="button" href="{% url url_name|default:'home_url' %}">
+                                     <div class="icon">
+                                         <span class="i-cogs"></span>
+                                     </div>
+                                     <div class="info">
+                                         <span>{{ name }}</span>
+                                         <p></p>
+                                     </div>
+                                 </a>
+                             {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
