@@ -150,7 +150,7 @@
                     <div class="breadLine">
                         <div class="arrow"></div>
                         <div class="adminControl active">
-                            Hi, Frdrck
+                            Hi, {{ user.first_name }}
                         </div>
                     </div>
                     <div class="admin">
@@ -158,12 +158,12 @@
                             <img src="{% static 'img/users/blank.png' %}" class="img-thumbnail"/>
                         </div>
                         <ul class="control">
-                            <li><span class="glyphicon glyphicon-comment"></span> <a href="#">Messages</a> <a href="#" class="caption red">12</a></li>
-                            <li><span class="glyphicon glyphicon-cog"></span> <a href="#">Settings</a></li>
-                            <li><span class="glyphicon glyphicon-share-alt"></span> <a href="#">Logout</a></li>
+                            <li><span class="glyphicon glyphicon-comment"></span> <a href="#">Messages</a> <a href="#" class="caption red">0</a></li>
+                            <li><span class="glyphicon glyphicon-cog"></span> <a href="{% url 'administration_url' %}">Settings</a></li>
+                            <li><span class="glyphicon glyphicon-share-alt"></span> <a href="{% url 'logout' %}">Logout</a></li>
                         </ul>
                         <div class="info">
-                            <span>Welcom back! Your last visit: 24.10.2012 in 19:55</span>
+                            <span>Welcom back! Your last visit: {{ user.last_login }}</span>
                         </div>
                     </div>
                 {% endblock user-info-menu %}
@@ -273,7 +273,7 @@
                     <div class="breadLine">
                         <!--------------------------------- start left items top page navigation-menu ----------------------------------->
                         <ul class="breadcrumb">
-                            <li><a href="#">Simple Admin</a> <span class="divider">></span></li>
+                            <li><a href="#">Edcs</a> <span class="divider">></span></li>
                             <li class="active">Dashboard</li>
                         </ul>
                         <!--------------------------------- end left items top page navigation-menu ----------------------------------->
