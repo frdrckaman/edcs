@@ -1,73 +1,143 @@
 {% extends 'edcs_dashboard/bootstrap3/base.html' %}
-{% load static %}
-{% block title %}<title> EDCS | Home </title>{% endblock title%}
-{% block content %}
-    <div id="layout">
-        <div id="sidebar">
-            <div class="user">
-                <div class="pic">
-                    <img src="{% static 'img/users/blank.png'%}" alt="Profile Picture"/>
-                </div>
-                <div class="info">
-                    <div class="name">
-                        <a href="{% url 'edcs_dashboard:home' %}">{{ user.username }}</a>
+{% block title %}<title> EDCS | Dashboard </title>{% endblock title %}
+{% block main-content %}
+    <div class="workplace">
+        <!-------------------------------------------- start top button icons ------------------------------------------>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widgetButtons">
+                    <div class="bb"><a href="#" class="tipb" title="Add Screening"><span class="ibw-plus"></span></a></div>
+                    <div class="bb"><a href="#" class="tipb" title="Enrolled Patients"><span class="ibw-users"></span></a></div>
+                    <div class="bb">
+                        <a href="#" class="tipb" title="Queries"><span class="ibw-cancel"></span></a>
+                        <div class="caption red">1</div>
                     </div>
-                    <div class="buttons">
-                        <a href="#"><span class="i-cog"></span> Settings</a>
-                        <a href="#"><span class="i-chat"></span> Messages</a>
-                        <a href="{% url 'logout' %}" class="fr"><span class="i-forward"></span> Logout</a>
+                    <div class="bb">
+                        <a href="#" class="tipb" title="Notifications"><span class="ibw-mail"></span></a>
+                        <div class="caption green">1</div>
+                    </div>
+                    <div class="bb"><a href="#" class="tipb" title="Log Out"><span class="ibw-lock"></span></a></div>
+                </div>
+            </div>
+        </div>
+        <!-------------------------------------------- end top button icons ------------------------------------------>
+        <!--------------------------------------- start count widget -------------------------------------------->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="wBlock blue clearfix">
+                    <div class="dSpace">
+                        <h3>Screened</h3>
+                        <span class="number">60</span>
                     </div>
                 </div>
             </div>
-
-            <ul class="navigation">
-                <li class="active">
-                    <a href="#">Dashboard</a>
-                </li>
-            </ul>
-
-        </div>
-
-        <div id="content">
-            <div class="wrap">
-
-                <div class="head">
-                    <div class="info">
-                        <h1>Dashboard</h1>
-                        <ul class="breadcrumb">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">One more</a></li>
-                            <li class="active">Dashboard</li>
-                        </ul>
-                    </div>
-
-                    <div class="search">
-                        <form action="#" method="post">
-                            <input type="text" class="form-control" placeholder="search..."/>
-                            <button type="submit"><span class="i-calendar"></span></button>
-                            <button type="submit"><span class="i-magnifier"></span></button>
-                        </form>
+            <div class="col-md-4">
+                <div class="wBlock green clearfix">
+                    <div class="dSpace">
+                        <h3>Enrolled</h3>
+                        <span class="number">58</span>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="block">
-                                <div class="head">
-                                    <h2>Patients</h2>
-                                    <ul class="buttons">
-                                        <li><a href="#" class="block_toggle"><span class="i-arrow-down-3"></span></a></li>
-                                        <li><a href="#" class="block_remove"><span class="i-cancel-2"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div class="content">
-                                    <div id="chart-dashboard" style="height: 200px; margin-top: 10px;"></div>
-                                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="wBlock red clearfix">
+                    <div class="dSpace">
+                        <h3> End of Study </h3>
+                        <span class="number">60</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--------------------------------------- end count widget -------------------------------------------->
+        <div class="dr"><span></span></div>
+        <div class="row">
+            <!-------------------- start news appointment widget --------------------->
+            <div class="col-md-4">
+                <div class="head clearfix">
+                    <div class="isw-edit"></div>
+                    <h1> News and Updates </h1>
+                    <ul class="buttons">
+                        <li>
+                            <a href="#" class="isw-text_document"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="isw-settings"></a>
+                            <ul class="dd-list">
+                                <li><a href="#"><span class="isw-list"></span> Show all</a></li>
+                                <li><a href="#"><span class="isw-edit"></span> Add new</a></li>
+                                <li><a href="#"><span class="isw-refresh"></span> Refresh</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block news scrollBox">
+                    <div class="scroll" style="height: 270px;">
+                        <div class="item">
+                            <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+                            <p>Phasellus ut diam quis dolor mollis tristique. Suspendisse vestibulum convallis felis vitae facilisis. Praesent eu nisi vestibulum erat lacinia sollicitudin. Cras nec risus dolor, ut tristique neque. Donec mauris sapien, pellentesque at porta id, varius eu tellus.</p>
+                            <span class="date">02.11.2012 14:23</span>
+                            <div class="controls">
+                                <a href="#" class="glyphicon glyphicon-pencil tip" title="Edit"></a>
+                                <a href="#" class="glyphicon glyphicon-trash tip" title="Remove"></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+                            <p>Phasellus ut diam quis dolor mollis tristique. Suspendisse vestibulum convallis felis vitae facilisis. Praesent eu nisi vestibulum erat lacinia sollicitudin. Cras nec risus dolor, ut tristique neque. Donec mauris sapien, pellentesque at porta id, varius eu tellus.</p>
+                            <span class="date">02.11.2012 14:23</span>
+                            <div class="controls">
+                                <a href="#" class="glyphicon glyphicon-pencil tip" title="Edit"></a>
+                                <a href="#" class="glyphicon glyphicon-trash tip" title="Remove"></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-------------------- end news appointment widget --------------------->
+
+            <!-------------------- start today appointment widget --------------------->
+            <div class="col-md-8">
+                <div class="head clearfix">
+                    <div class="isw-grid"></div>
+                    <h1>Simple table</h1>
+                    <ul class="buttons">
+                        <li><a href="#" class="isw-download"></a></li>
+                        <li><a href="#" class="isw-attachment"></a></li>
+                        <li>
+                            <a href="#" class="isw-settings"></a>
+                            <ul class="dd-list">
+                                <li><a href="#"><span class="isw-plus"></span> New document</a></li>
+                                <li><a href="#"><span class="isw-edit"></span> Edit</a></li>
+                                <li><a href="#"><span class="isw-delete"></span> Delete</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block-fluid">
+                    <table cellpadding="0" cellspacing="0" width="100%" class="table">
+                        <thead>
+                        <tr>
+                            <th><input type="checkbox" name="checkall"/></th>
+                            <th width="25%">Study ID</th>
+                            <th width="25%">Clinic</th>
+                            <th width="25%">Last Visit</th>
+                            <th width="25%">Visit</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><input type="checkbox" name="checkbox"/></td>
+                            <td>101-020-00001-8</td>
+                            <td>CTC-Clinic</td>
+                            <td>2021-01-02</td>
+                            <td><span class="label label-success">Month-3</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-------------------- end today appointment widget --------------------->
         </div>
+        <div class="dr"><span></span></div>
     </div>
-{% endblock content %}
+{% endblock main-content %}

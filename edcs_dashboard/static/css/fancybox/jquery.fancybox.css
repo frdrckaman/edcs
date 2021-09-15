@@ -1,4 +1,4 @@
-/*! fancyBox v2.1.4 fancyapps.com | fancyapps.com/fancybox/#license */
+/*! fancyBox v2.1.0 fancyapps.com | fancyapps.com/fancybox/#license */
 .fancybox-wrap,
 .fancybox-skin,
 .fancybox-outer,
@@ -28,7 +28,10 @@
 	position: relative;
 	background: #f9f9f9;
 	color: #444;
-	text-shadow: none;	
+	text-shadow: none;
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+	        border-radius: 4px;
 }
 
 .fancybox-opened {
@@ -73,7 +76,7 @@
 }
 
 #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
-	background-image: url('../../img/fancybox/fancybox_sprite.png');
+	background-image: url('fancybox_sprite.png');
 }
 
 #fancybox-loading {
@@ -91,15 +94,15 @@
 #fancybox-loading div {
 	width: 44px;
 	height: 44px;
-	background: url('../../img/fancybox/fancybox_loading.gif') center center no-repeat;
+	background: url('fancybox_loading.gif') center center no-repeat;
 }
 
 .fancybox-close {
 	position: absolute;
-	top: -10px;
-	right: -10px;
-	width: 20px;
-	height: 20px;
+	top: -18px;
+	right: -18px;
+	width: 36px;
+	height: 36px;
 	cursor: pointer;
 	z-index: 8040;
 }
@@ -111,7 +114,7 @@
 	height: 100%;
 	cursor: pointer;
 	text-decoration: none;
-	background: transparent url('../../img/fancybox/blank.gif'); /* helps IE */
+	background: transparent url('blank.gif'); /* helps IE */
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	z-index: 8040;
 }
@@ -151,12 +154,9 @@
 
 .fancybox-tmp {
 	position: absolute;
-	top: -99999px;
-	left: -99999px;
+	top: -9999px;
+	left: -9999px;
 	visibility: hidden;
-	max-width: 99999px;
-	max-height: 99999px;
-	overflow: visible !important;
 }
 
 /* Overlay helper */
@@ -172,7 +172,7 @@
 	overflow: hidden;
 	display: none;
 	z-index: 8010;
-	background: url('../../img/fancybox/fancybox_overlay.png');
+	background: url('fancybox_overlay.png');
 }
 
 .fancybox-overlay-fixed {
@@ -214,7 +214,10 @@
 	margin-right: -100%;
 	padding: 2px 20px;
 	background: transparent; /* Fallback for web browsers that doesn't support RGBa */
-	background: rgba(0, 0, 0, 0.8);	
+	background: rgba(0, 0, 0, 0.8);
+	-webkit-border-radius: 15px;
+	   -moz-border-radius: 15px;
+	        border-radius: 15px;
 	text-shadow: 0 1px 2px #222;
 	color: #FFF;
 	font-weight: bold;

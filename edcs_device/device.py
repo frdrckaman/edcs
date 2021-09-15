@@ -15,8 +15,8 @@ class DeviceRoleError(ValidationError):
 
 class Device:
 
-    default_central_server_id = "99"
-    default_device_id = "99"
+    default_central_server_id = "337331"
+    default_device_id = "337331"
 
     def __init__(
         self,

@@ -1,101 +1,5 @@
 $(document).ready(function(){
     
-    if($("#morris-line-example").length > 0){
-        Morris.Line({
-          element: 'morris-line-example',
-          data: [
-            { y: '2006', a: 100, b: 90 },
-            { y: '2007', a: 75,  b: 65 },
-            { y: '2008', a: 50,  b: 40 },
-            { y: '2009', a: 75,  b: 65 },
-            { y: '2010', a: 50,  b: 40 },
-            { y: '2011', a: 75,  b: 65 },
-            { y: '2012', a: 100, b: 90 }
-          ],
-          xkey: 'y',
-          ykeys: ['a', 'b'],
-          labels: ['Series A', 'Series B'],
-          resize: true,
-          lineColors: ['#436182', '#5bb75b']
-        });
-
-
-        Morris.Area({
-            element: 'morris-area-example',
-            data: [
-                { y: '2006', a: 100, b: 90 },
-                { y: '2007', a: 75,  b: 65 },
-                { y: '2008', a: 50,  b: 40 },
-                { y: '2009', a: 75,  b: 65 },
-                { y: '2010', a: 50,  b: 40 },
-                { y: '2011', a: 75,  b: 65 },
-                { y: '2012', a: 100, b: 90 }
-            ],
-            xkey: 'y',
-            ykeys: ['a', 'b'],
-            labels: ['Series A', 'Series B'],
-            resize: true,
-            lineColors: ['#436182', '#5bb75b']
-        });
-
-
-        Morris.Bar({
-            element: 'morris-bar-example',
-            data: [
-                { y: '2006', a: 100, b: 90 },
-                { y: '2007', a: 75,  b: 65 },
-                { y: '2008', a: 50,  b: 40 },
-                { y: '2009', a: 75,  b: 65 },
-                { y: '2010', a: 50,  b: 40 },
-                { y: '2011', a: 75,  b: 65 },
-                { y: '2012', a: 100, b: 90 }
-            ],
-            xkey: 'y',
-            ykeys: ['a', 'b'],
-            labels: ['Series A', 'Series B'],
-            barColors: ['#436182', '#5bb75b']
-        });
-
-
-        Morris.Donut({
-            element: 'morris-donut-example',
-            data: [
-                {label: "Download Sales", value: 12},
-                {label: "In-Store Sales", value: 30},
-                {label: "Mail-Order Sales", value: 20}
-            ],
-            colors: ['#436182', '#5bb75b', '#da4f49']
-        });    
-    }
-    
-    if($("#chart-dashboard").length > 0){
-        var vNew = [], vRet = [], vTotal = [];
-
-        vNew = [[0, 2385],[1,2127],[2,1432]];
-        vRet = [[0,1553],[1,1301],[2,819]];
-        vTotal = [[0,3938],[1,3428],[2,2251]];
-
-        window.cd = Morris.Line({
-          element: 'chart-dashboard',
-          data: [            
-            { y: '2014-06', a: 1432, b: 442, c: 1874 },
-            { y: '2014-07', a: 1121, b: 680, c: 1801 },
-            { y: '2014-08', a: 738, b: 435, c: 1173 },            
-            { y: '2014-09', a: 1432, b: 819, c: 2251 },
-            { y: '2014-10', a: 2385, b: 1553, c: 3938 },
-            { y: '2014-11', a: 2127, b: 1301, c: 3428 }
-          ],
-          xkey: 'y',
-          ykeys: ['a', 'b', 'c'],
-          labels: ['New', 'Returned', 'Total'],
-          resize: true,
-          lineColors: ['#436182','#da4f49','#faa732']
-        });
-        $(".c_layout,.c_screen").on("click",function(){
-            window.cd.redraw();
-        });
-    }    
-    
     if($("#chart_activity").length > 0){
         
         var stuff = [], contacts = [];
@@ -209,43 +113,6 @@ $(document).ready(function(){
             
     }
 
-
-    if($("#chart-widget").length > 0){
-        var val1 = [], val2 = [], val3 = [];
-
-        for (var i=0; i < 7; i++) {
-            val1.push([i, Math.random() * i]);
-            val2.push([i, Math.random() * i]);
-            val3.push([i, Math.random() * i]);
-        }
-
-        $.plot($("#chart-widget"), [ { data: val1, label: "purchases"}, { data: val2, label: "visits"}, { data: val3, label: "returns"} ], {
-                series: {lines: { show: true }, points: { show: true }},
-                grid: { hoverable: true, clickable: true },
-                legend: {show: false},
-                xaxis: {show: null}, 
-                yaxis: {show: null}                
-        });
-    }
-    if($("#chart-widget2").length > 0){       
-        
-        var data = [];        	               		
-	data[0] = { label: "", data: 14 };
-        data[1] = { label: "", data: 24 };
-        data[2] = { label: "", data: 32 };
-        data[3] = { label: "", data: 30 };
-
-        $.plot($("#chart-widget2"), data, 
-	{
-            series: {
-                pie: { show: true }
-            },
-            legend: { show: true }
-	});
-
-    }
-
-
     function update() {
         plot.setData([ getRandomData() ]);
         // since the axes don't change, we don't need to call plot.setupGrid()
@@ -277,23 +144,22 @@ $(document).ready(function(){
     }
 
     function showTooltip(x, y, contents) {
-        $('<div class="ct">' + contents + '</div>').css({
+        $('<div class="ct">' + contents + '</div>').css( {
             position: 'absolute',
-            'z-index': '10',
             display: 'none',
             top: y,
             left: x + 10,
-            border: '2px solid #000',
+            border: '2px solid #333',
             padding: '2px',
-            'background-color': '#111',
-            'border-radius': '3px',
-            color: '#FFF'            
+            'background-color': '#ffffff',
+            'border-radius': '2px',
+            color: '#333'            
         }).appendTo("body").fadeIn(200);
     }    
 
     var previousPoint = null;
     
-    $("#chart-1, #chart-widget").bind("plothover", function (event, pos, item) {
+    $("#chart-1").bind("plothover", function (event, pos, item) {
         
         $("#x").text(pos.x.toFixed(2));
         $("#y").text(pos.y.toFixed(2));
@@ -315,7 +181,106 @@ $(document).ready(function(){
         }
 
     });
-   
-   
-   
+    
+    $('.mChartBar').sparkline('html',{ enableTagOptions: true });
+    
+    if($("#lineChart").length > 0){       
+               
+       var lctx = $("#lineChart").get(0).getContext("2d");
+       $("#lineChart").attr('width',$("#lineChart").parent('div').width()).attr('height',300);
+       
+       lineChart = new Chart(lctx).Line({
+            labels : ["January","February","March","April","May","June","July"],
+            datasets : [
+                    {
+                            fillColor : "rgba(220,220,220,0.5)",
+                            strokeColor : "rgba(220,220,220,1)",
+                            pointColor : "rgba(220,220,220,1)",
+                            pointStrokeColor : "#fff",
+                            data : [65,59,90,81,56,55,40]
+                    },
+                    {
+                            fillColor : "rgba(151,187,205,0.5)",
+                            strokeColor : "rgba(151,187,205,1)",
+                            pointColor : "rgba(151,187,205,1)",
+                            pointStrokeColor : "#fff",
+                            data : [28,48,40,19,96,27,100]
+                    }
+            ]
+        });
+                
+    }
+
+    if($("#barChart").length > 0){       
+               
+       var bctx = $("#barChart").get(0).getContext("2d");
+       $("#barChart").attr('width',$("#barChart").parent('div').width()).attr('height',300);
+       
+       barChart = new Chart(bctx).Bar({
+            labels : ["January","February","March","April","May","June","July"],
+            datasets : [
+                    {
+                            fillColor : "rgba(220,220,220,0.5)",
+                            strokeColor : "rgba(220,220,220,1)",
+                            data : [65,59,90,81,56,55,40]
+                    },
+                    {
+                            fillColor : "rgba(151,187,205,0.5)",
+                            strokeColor : "rgba(151,187,205,1)",
+                            data : [28,48,40,19,96,27,100]
+                    }
+            ]
+        });
+                
+    }
+
+    if($("#pieChart").length > 0){       
+               
+       var pctx = $("#pieChart").get(0).getContext("2d");
+       $("#pieChart").attr('width',$("#pieChart").parent('div').width()).attr('height',300);
+       
+       barChart = new Chart(pctx).Pie([
+                {
+                        value: 30,
+                        color:"#F38630"
+                },
+                {
+                        value : 50,
+                        color : "#E0E4CC"
+                },
+                {
+                        value : 100,
+                        color : "#69D2E7"
+                }			
+        ]);
+                
+    }
+
+    if($("#radarChart").length > 0){       
+               
+       var rctx = $("#radarChart").get(0).getContext("2d");
+       $("#radarChart").attr('width',$("#radarChart").parent('div').width()).attr('height',300);
+       
+       radarChart = new Chart(rctx).Radar({
+            labels : ["Eating","Drinking","Sleeping","Designing","Coding","Partying","Running"],
+            datasets : [
+                    {
+                            fillColor : "rgba(220,220,220,0.5)",
+                            strokeColor : "rgba(220,220,220,1)",
+                            pointColor : "rgba(220,220,220,1)",
+                            pointStrokeColor : "#fff",
+                            data : [65,59,90,81,56,55,40]
+                    },
+                    {
+                            fillColor : "rgba(151,187,205,0.5)",
+                            strokeColor : "rgba(151,187,205,1)",
+                            pointColor : "rgba(151,187,205,1)",
+                            pointStrokeColor : "#fff",
+                            data : [28,48,40,19,96,27,100]
+                    }
+            ]
+        });
+                
+    }
 });
+
