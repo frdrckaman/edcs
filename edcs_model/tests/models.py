@@ -1,7 +1,7 @@
 import arrow
 from dateutil.relativedelta import relativedelta
 from django.db import models
-# from edc_sites.models import SiteModelMixin
+from edcs_sites.models import SiteModelMixin
 
 from ..models import (
     BaseModel,

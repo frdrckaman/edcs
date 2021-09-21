@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 import environ
+from multisite import SiteID
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from edc_utils import get_datetime_from_env
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
     'django_audit_fields.apps.AppConfig',
     'logentry_admin',
     'defender',
+    'multisite',
     'simple_history',
     'edcs_auth.apps.EdcsAuthConfig',
     'edcs_dashboard.apps.EdcsDashboardConfig',
@@ -63,12 +65,15 @@ INSTALLED_APPS = [
     # 'edcs_utils.apps.EdcsUtilsConfig',
     'edcs_notification.apps.EdcsNotificationConfig',
     'edcs_export.apps.EdcsExportConfig',
+    'edcs_sites.apps.AppConfig',
 ]
 
 MIDDLEWARE = [
+    'multisite.middleware.DynamicSiteMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    # 'django.contrib.sites.middleware.CurrentSiteMiddleware'
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'defender.middleware.FailedLoginMiddleware',
@@ -187,7 +192,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-SITE_ID = 1
+SITE_ID = SiteID(default=1)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
