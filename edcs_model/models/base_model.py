@@ -6,7 +6,7 @@ from .url_model_mixin import UrlModelMixin
 
 class BaseModel(UrlModelMixin, AuditModelMixin, models.Model):
 
-    """Base model class for all EDCS models. Adds created and modified'
+    """Base model class for all EDC models. Adds created and modified'
     values for user, date and hostname (computer).
     """
 
@@ -18,3 +18,4 @@ class BaseModel(UrlModelMixin, AuditModelMixin, models.Model):
 
     class Meta(AuditModelMixin.Meta):
         abstract = True
+        default_permissions = ("add", "change", "delete", "view", "export", "import")

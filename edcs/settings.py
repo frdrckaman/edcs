@@ -3,6 +3,8 @@ from pathlib import Path
 import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from edc_utils import get_datetime_from_env
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 ENV_DIR = str(Path(os.path.join(BASE_DIR, ".env")))
 
@@ -57,8 +59,8 @@ INSTALLED_APPS = [
     'edcs_auth.apps.EdcsAuthConfig',
     'edcs_dashboard.apps.EdcsDashboardConfig',
     'edcs_device.apps.AppConfig',
-    'edcs_model.apps.EdcsModelConfig',
-    'edcs_utils.apps.EdcsUtilsConfig',
+    'edcs_model.apps.AppConfig',
+    # 'edcs_utils.apps.EdcsUtilsConfig',
     'edcs_notification.apps.EdcsNotificationConfig',
     'edcs_export.apps.EdcsExportConfig',
 ]
@@ -147,6 +149,14 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
+
+EDCS_PROTOCOL = env.str('EDCS_PROTOCOL')
+EDCS_PROTOCOL_TITLE = env.str('EDCS_PROTOCOL_TITLE')
+EDCS_PROTOCOL_NUMBER = env.str('EDCS_PROTOCOL_NUMBER')
+EDCS_PROTOCOL_INSTITUTION_NAME = env.str('EDCS_PROTOCOL_INSTITUTION_NAME')
+EDCS_PROTOCOL_PROJECT_NAME = env.str('EDCS_PROTOCOL_PROJECT_NAME')
+EDCS_PROTOCOL_STUDY_OPEN_DATETIME = get_datetime_from_env(*env.list("EDCS_PROTOCOL_STUDY_OPEN_DATETIME"))
+EDCS_PROTOCOL_STUDY_CLOSE_DATETIME = get_datetime_from_env(*env.list("EDCS_PROTOCOL_STUDY_CLOSE_DATETIME"))
 
 GIT_DIR = BASE_DIR
 

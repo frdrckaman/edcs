@@ -1,7 +1,7 @@
 from django.db import models
 
 from ..choices import REPORT_STATUS
-from ..validators import datetime_not_future
+from .validators import datetime_not_future
 
 
 class ReportStatusModelMixin(models.Model):
@@ -16,7 +16,7 @@ class ReportStatusModelMixin(models.Model):
         blank=True,
         null=True,
         validators=[datetime_not_future],
-        verbose_name=("Date and time report closed."),
+        verbose_name="Date and time report closed.",
     )
 
     class Meta:

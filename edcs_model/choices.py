@@ -1,5 +1,4 @@
-from edcs_constants.constants import OPEN, CLOSED
-
+from edcs_constants.constants import CLOSED, OPEN
 
 REPORT_STATUS = (
     (OPEN, "Open. Some information is still pending."),
