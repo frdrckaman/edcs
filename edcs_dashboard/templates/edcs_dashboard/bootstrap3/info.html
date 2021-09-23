@@ -1,0 +1,70 @@
+<ul class="buttons">
+    <li>
+        <a href="#" class="link_bcPopupList"><span class="glyphicon glyphicon-info-sign"></span><span class="text"><strong>System Info</strong></span></a>
+        <div id="bcPopupList" class="popup">
+            <div class="head clearfix">
+                <div class="arrow"></div>
+                <span class="isw-settings"></span>
+                <span class="name">About EDCS</span>
+            </div>
+            <div class="body-fluid users">
+                <div class="item clearfix">
+                    <div class="info">
+                        <a href="#" class="name">Project Name : </a>
+                        <span>{{ project_name }}</span>
+                    </div>
+                </div>
+                <div class="item clearfix">
+                    <div class="info">
+                        <a href="#" class="name">Institution : </a>
+                        <span>{{ institution }}</span>
+                    </div>
+                </div>
+                <div class="item clearfix">
+                    <div class="info">
+                        <a href="#" class="name">Copyright &copy : </a>
+                        <span>{{ copyright }}</span>
+                    </div>
+                </div>
+                <div class="item clearfix">
+                    <div class="info">
+                        <a href="#" class="name">License : </a>
+                        <span>{{ license }}</span>
+                    </div>
+                </div>
+                <div class="item clearfix">
+                    <div class="info">
+                        <a href="#" class="name">Version : </a>
+                        <span>{{ revision }}</span>
+                    </div>
+                </div>
+                <div class="item clearfix">
+                    <div class="info">
+                        <a href="#" class="name">Disclaimer : </a>
+                        <span>{{ disclaimer }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <button class="btn btn-default link_bcPopupList" type="button">Close</button>
+            </div>
+        </div>
+    </li>
+    <li>
+        <a href="#" class="link_bcPopupSearch"><span class="glyphicon glyphicon-search"></span><span class="text">Search</span></a>
+        <div id="bcPopupSearch" class="popup">
+            <div class="head clearfix">
+                <div class="arrow"></div>
+                <span class="isw-zoom"></span>
+                <span class="name">Search</span>
+            </div>
+            <div class="body search">
+                <input type="text" placeholder="Some text for search..." name="search"/>
+            </div>
+            <div class="footer">
+                <button class="btn btn-default" type="button">Search</button>
+                <button class="btn btn-danger link_bcPopupSearch" type="button">Close</button>
+            </div>
+        </div>
+    </li>
+</ul>

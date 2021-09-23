@@ -40,7 +40,7 @@ class Protocol:
             )
 
         self.protocol_title = getattr(
-            settings, "EDC_PROTOCOL_TITLE", "Protocol Title (set EDCS_PROTOCOL_TITLE)"
+            settings, "EDCS_PROTOCOL_TITLE", "Protocol Title (set EDCS_PROTOCOL_TITLE)"
         )
 
         self.email_contacts = getattr(settings, "EMAIL_CONTACTS", {})
@@ -59,7 +59,7 @@ class Protocol:
         self.protocol_name = self.project_name
         self.disclaimer = "For research purposes only."
         self.copyright = f"2020-{get_utcnow().year}"
-        self.license = "GNU GENERAL PUBLIC LICENSE Version 3"
+        self.license = "GNU GENERAL PUBLIC LICENSE V3"
 
         self.default_url_name = "home_url"
         self.physical_address = Address()

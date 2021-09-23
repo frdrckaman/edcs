@@ -19,3 +19,4 @@ class HomeView(TemplateView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
+
