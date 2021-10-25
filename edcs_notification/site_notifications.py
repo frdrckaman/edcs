@@ -102,7 +102,7 @@ class SiteNotifications:
         named notification does not exist. See notification.notify()
         """
         notification_model_cls = (apps or django_apps).get_model(
-            "edc_notification.notification"
+            "edcs_notification.notification"
         )
 
         # flag all notifications as disabled and re-enable as required
@@ -135,7 +135,7 @@ class SiteNotifications:
     def delete_unregistered_notifications(apps=None):
         """Delete orphaned notification model instances."""
         notification_model_cls = (apps or django_apps).get_model(
-            "edc_notification.notification"
+            "edcs_notification.notification"
         )
         return notification_model_cls.objects.exclude(
             name__in=[n.name for n in site_notifications.registry.values()]

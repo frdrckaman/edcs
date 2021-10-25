@@ -1,5 +1,5 @@
 import sys
-from django.apps import AppConfig
+from django.apps import AppConfig as DjangoAppConfig
 from django.core.checks.registry import register
 from django.core.management.color import color_style
 from django.db.models.signals import post_migrate
@@ -16,7 +16,7 @@ def post_migrate_update_notifications(sender=None, **kwargs):
     site_notifications.create_mailing_lists(verbose=True)
 
 
-class EdcsNotificationConfig(AppConfig):
+class AppConfig(DjangoAppConfig):
     name = 'edcs_notification'
     verbose_name = 'Edcs notification'
     include_in_administration_section = True

@@ -1,5 +1,5 @@
-from django.apps import AppConfig
+from django.apps import AppConfig as DjangoAppConfig
 
 
-class EdcsModelAdminConfig(AppConfig):
+class AppConfig(DjangoAppConfig):
     name = "edcs_model_admin"

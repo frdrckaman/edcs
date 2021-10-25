@@ -1,6 +1,6 @@
 import sys
 
-from django.apps import AppConfig
+from django.apps import AppConfig as DjangoAppConfig
 from django.core.checks import register
 from django.core.management import color_style
 from django.db.models.signals import post_migrate
@@ -23,7 +23,7 @@ def post_migrate_user_roles(sender=None, **kwargs):  # noqa
     )
 
 
-class EdcsAuthConfig(AppConfig):
+class AppConfig(DjangoAppConfig):
     name = "edcs_auth"
     verbose_name = "Edcs Authentication"
 

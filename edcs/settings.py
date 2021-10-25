@@ -14,6 +14,7 @@ env = environ.Env(
     DEBUG_TOOLBAR=(bool, False),
     DJANGO_EDCS_BOOTSTRAP=(int, 3),
     DATABASE_SQLITE_ENABLED=(bool, False),
+    DJANGO_EMAIL_ENABLED=(bool, False),
 )
 
 environ.Env.read_env(ENV_DIR)
@@ -58,13 +59,14 @@ INSTALLED_APPS = [
     'defender',
     'multisite',
     'simple_history',
-    'edcs_auth.apps.EdcsAuthConfig',
-    'edcs_dashboard.apps.EdcsDashboardConfig',
+    'edcs_auth.apps.AppConfig',
+    'edcs_dashboard.apps.AppConfig',
     'edcs_device.apps.AppConfig',
     'edcs_model.apps.AppConfig',
+    'edcs_identifier.apps.AppConfig',
     # 'edcs_utils.apps.EdcsUtilsConfig',
-    'edcs_notification.apps.EdcsNotificationConfig',
-    'edcs_export.apps.EdcsExportConfig',
+    'edcs_notification.apps.AppConfig',
+    'edcs_export.apps.AppConfig',
     'edcs_sites.apps.AppConfig',
 ]
 
@@ -162,6 +164,8 @@ EDCS_PROTOCOL_INSTITUTION_NAME = env.str('EDCS_PROTOCOL_INSTITUTION_NAME')
 EDCS_PROTOCOL_PROJECT_NAME = env.str('EDCS_PROTOCOL_PROJECT_NAME')
 EDCS_PROTOCOL_STUDY_OPEN_DATETIME = get_datetime_from_env(*env.list("EDCS_PROTOCOL_STUDY_OPEN_DATETIME"))
 EDCS_PROTOCOL_STUDY_CLOSE_DATETIME = get_datetime_from_env(*env.list("EDCS_PROTOCOL_STUDY_CLOSE_DATETIME"))
+
+EMAIL_ENABLED = env("DJANGO_EMAIL_ENABLED")
 
 GIT_DIR = BASE_DIR
 
