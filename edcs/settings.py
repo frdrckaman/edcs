@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'edcs_device.apps.AppConfig',
     'edcs_model.apps.AppConfig',
     'edcs_identifier.apps.AppConfig',
+    'edcs_screening.apps.AppConfig',
     # 'edcs_utils.apps.EdcsUtilsConfig',
     'edcs_notification.apps.AppConfig',
     'edcs_export.apps.AppConfig',
