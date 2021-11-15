@@ -45,7 +45,7 @@ class AdministrationViewMixin(ContextMixin):
         Format is {verbose_name: url_name}
 
         To be included must be a registered namespace. To main apps
-        urls.py add paths. For example for `ambition_export`:
+        urls.py add paths. For example for `edcs_export`:
 
             urlpatterns = [
             ...

@@ -13,19 +13,19 @@ class EdcsAdminSite(DjangoAdminSite):
 
     """
     Add to your project urls.py
-        path("edc_action_item/", edc_action_item.urls),
+        path("edcs_action_item/", edc_action_item.urls),
 
     -OR-
     To include this in the administration section set
     `AppConfig.include_in_administration_section = True`
-    in your apps.py. (See also View `edc_dashboard.administration.py`).
+    in your apps.py. (See also View `edcs_dashboard.administration.py`).
 
     If set to `include_in_administration_section=True`, add a local `urls.py`
 
         from django.urls.conf import path
         from django.views.generic import RedirectView
 
-        app_name = "edc_action_item"
+        app_name = "edcs_action_item"
 
         urlpatterns = [
             path("", RedirectView.as_view(url="admin/"), name="home_url"),
@@ -33,8 +33,8 @@ class EdcsAdminSite(DjangoAdminSite):
 
     and then add to your project urls.py
 
-        path("edc_action_item/admin/", edc_action_item_admin.urls),
-        path("edc_action_item/", include("edc_action_item.urls")),
+        path("edcs_action_item/admin/", edc_action_item_admin.urls),
+        path("edcs_action_item/", include("edc_action_item.urls")),
 
     """
 

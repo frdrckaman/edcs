@@ -39,7 +39,7 @@ class SubjectScreening(
         max_length=50,
     )
     patient_know_dob = models.CharField(
-        verbose_name="Patients hospital identification number:",
+        verbose_name="Does the patient know his/her date of birth?",
         choices=YES_NO,
         max_length=50,
     )
