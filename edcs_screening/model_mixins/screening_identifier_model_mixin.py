@@ -1,10 +1,11 @@
 import re
 
 from django.db import models
-from edc_constants.constants import UUID_PATTERN
-from edc_identifier import is_subject_identifier_or_raise
-from edc_identifier.model_mixins import NonUniqueSubjectIdentifierModelMixin
-from edc_search.model_mixins import SearchSlugModelMixin
+from edcs_identifier.model_mixins import NonUniqueSubjectIdentifierModelMixin
+from edcs_search.model_mixins import SearchSlugModelMixin
+
+from edcs_constants.constants import UUID_PATTERN
+from edcs_identifier import is_subject_identifier_or_raise
 
 from ..screening_identifier import ScreeningIdentifier
 from ..stubs import SubjectScreeningModelStub
@@ -41,7 +42,9 @@ class ScreeningIdentifierModelMixin(
             # validate it is either a valid subject identifier or a
             # uuid/uuid.hex
             if not re.match(UUID_PATTERN, self.subject_identifier):
-                is_subject_identifier_or_raise(self.subject_identifier, reference_obj=self)
+                is_subject_identifier_or_raise(
+                    self.subject_identifier, reference_obj=self
+                )
         return self.subject_identifier
 
     def make_new_identifier(self) -> str:

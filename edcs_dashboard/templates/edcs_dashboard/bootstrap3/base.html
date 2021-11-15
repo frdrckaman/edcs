@@ -62,7 +62,10 @@
         {% block head %}
             <div class="header">
                 <!------------------------------- begin system logo ------------------------------------------->
-                <a class="logo" href="{% url 'edcs_dashboard:home' %}"><img src="{% static 'img/logo.png' %}" alt="edcs-logo" title="edcs"/></a>
+                <a class="logo" href="{% url 'edcs_dashboard:home' %}">
+{#                    <img src="{% static 'img/logo.png' %}" alt="edcs-logo" title="edcs"/>#}
+                    <p style="font-weight: bold;color: #FFFFFF; font-size: x-large">EDCS</p>
+                </a>
                 <!------------------------------- end system logo ------------------------------------------->
                 <!------------------------------- start template theme settings ------------------------------------------->
                 <ul class="header_menu">

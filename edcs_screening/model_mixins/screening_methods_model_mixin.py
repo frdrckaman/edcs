@@ -2,7 +2,8 @@ from datetime import date
 
 from dateutil.relativedelta import relativedelta
 from django.db import models
-from edc_utils.date import get_utcnow
+
+from edcs_utils.date import get_utcnow
 
 from ..stubs import SubjectScreeningModelStub
 
