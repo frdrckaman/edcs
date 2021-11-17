@@ -270,6 +270,13 @@ HIV_RESULT = (
     ),
 )
 
+HIV_RESULT_DWTA_DONT_KNOW = (
+    (POS, "HIV Positive "),
+    (NEG, "HIV Negative"),
+    ("decline_to_answer", "Decline to answer"),
+    ("dont_know", "I dont know"),
+)
+
 """do not change without inspecting implication to check_omang_field() in utils.py"""
 IDENTITY_TYPE = (
     (OMANG, "Omang"),
@@ -487,6 +494,19 @@ YES_NO_DONT_KNOW_NA = (
     (NO, NO),
     ("Dont_know", "Do not know"),
     (NOT_APPLICABLE, "Not applicable"),
+)
+
+YES_NO_DWTA_DONT_KNOW = (
+    (YES, YES),
+    (NO, NO),
+    ("decline_to_answer", "Decline to answer"),
+    ("dont_know", "Do not know"),
+)
+
+YES_NO_DECLINED_TO_ANSWER = (
+    (YES, YES),
+    (NO, NO),
+    ("decline_to_answer", "Decline to answer"),
 )
 
 YES_NO_DOESNT_WORK = ((YES, YES), (NO, NO), ("Doesnt_work", "Doesn't work"))
