@@ -21,7 +21,7 @@ class LungCancerLabInvestigation(
         null=True,
     )
 
-    dna_methylation_age = models.IntegerField(
+    dna_methylation_age = models.CharField(
         verbose_name="Was the DNA methylation age done?", max_length=45, choices=YES_NO
     )
 

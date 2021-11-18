@@ -368,6 +368,20 @@ QN7AP = (
     ("50_70_days_month", "50-75% of the days in a month"),
     ("75_100_days_month", "75%-100% of the days in a month"),
 )
+QN28AP = (
+    ("electricity", "Electricity"),
+    ("lpg_natural_gas ", "LPG/Natural gas "),
+    ("biogas ", "Biogas "),
+    ("kerosene", "Kerosene"),
+    ("coal_lignite", "Coal/lignite"),
+    ("charcoal", "Charcoal"),
+    ("wood", "Wood"),
+    ("straw_shrubs_grass ", "Straw/shrubs/grass "),
+    ("agricultural_crop", "Agricultural crop"),
+    ("animal_dung", "Animal dung"),
+    ("other", "Other"),
+    ("dont_know", "I dont know"),
+)
 
 QN30AP = (
     ("earth_sand_clay_mud_dung", "Earth/sand/clay/mud/dung"),
