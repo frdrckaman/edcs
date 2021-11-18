@@ -285,7 +285,7 @@ QN100 = (
     ("no_sputum", "No sputum"),
 )
 
-QN9101 = (
+QN101 = (
     ("tb_positive", "TB positive"),
     ("tb_negative", "TB negative (No TB)"),
     ("inconclusive_results", "Inconclusive results"),

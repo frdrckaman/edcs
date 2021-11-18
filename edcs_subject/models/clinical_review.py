@@ -1,8 +1,15 @@
 from django.db import models
 from django.utils.safestring import mark_safe
-from edcs_constants.choices import YES_NO, YES_NO_DWTA_DONT_KNOW, HIV_RESULT_DWTA_DONT_KNOW, YES_NO_DECLINED_TO_ANSWER
+
+from edcs_constants.choices import (
+    HIV_RESULT_DWTA_DONT_KNOW,
+    YES_NO,
+    YES_NO_DECLINED_TO_ANSWER,
+    YES_NO_DWTA_DONT_KNOW,
+)
 from edcs_model import models as edcs_models
-from ..choices import MISS_ARV, LUNG_DISEASE
+
+from ..choices import LUNG_DISEASE, MISS_ARV, QN100, QN101, QN102
 
 
 class ClinicalReview(
@@ -22,18 +29,14 @@ class ClinicalReview(
     )
 
     hiv_dx = models.CharField(
-        verbose_name=mark_safe(
-            "What was the result of your most recent HIV test?"
-        ),
+        verbose_name=mark_safe("What was the result of your most recent HIV test?"),
         max_length=15,
         choices=HIV_RESULT_DWTA_DONT_KNOW,
         null=True,
         blank=True,
     )
     arv = models.CharField(
-        verbose_name=mark_safe(
-            "If positive, are you taking ARVs?"
-        ),
+        verbose_name=mark_safe("If positive, are you taking ARVs?"),
         max_length=15,
         choices=HIV_RESULT_DWTA_DONT_KNOW,
         null=True,
@@ -47,9 +50,7 @@ class ClinicalReview(
     )
 
     arv_regularly = models.CharField(
-        verbose_name=mark_safe(
-            "Do you take your ARVs regularly? "
-        ),
+        verbose_name=mark_safe("Do you take your ARVs regularly? "),
         max_length=15,
         choices=YES_NO,
         null=True,
@@ -57,9 +58,7 @@ class ClinicalReview(
     )
 
     miss_taking_arv = models.CharField(
-        verbose_name=mark_safe(
-            "If no, how often do you miss taking ARVs?"
-        ),
+        verbose_name=mark_safe("If no, how often do you miss taking ARVs?"),
         max_length=15,
         choices=MISS_ARV,
         null=True,
@@ -70,7 +69,7 @@ class ClinicalReview(
 
     lung_diseases_dx = models.CharField(
         verbose_name="Have you ever been diagnosed with a chronic lung disease like Asthma, COPD, and Interstitial "
-                     "lung disease?",
+        "lung disease?",
         max_length=15,
         choices=LUNG_DISEASE,
     )
@@ -143,9 +142,33 @@ class ClinicalReview(
     )
 
     malignancy = models.CharField(
-        verbose_name="If is yes, what medications are you using currently?",
+        verbose_name="Have you ever had any other malignancy?",
         max_length=45,
         choices=YES_NO_DWTA_DONT_KNOW,
+    )
+
+    tb_test = models.CharField(
+        verbose_name="Were you tested for TB?",
+        max_length=45,
+        choices=YES_NO,
+    )
+
+    provide_sputum_tb_dx = models.CharField(
+        verbose_name="If No, has the patient provided sputum for TB diagnosis?",
+        max_length=45,
+        choices=QN100,
+    )
+
+    tb_status = models.CharField(
+        verbose_name="What is the patients TB status?",
+        max_length=45,
+        choices=QN101,
+    )
+
+    lung_cancer_dx = models.CharField(
+        verbose_name="What is the patient’s lung cancer diagnosis?",
+        max_length=45,
+        choices=QN102,
     )
 
     class Meta(edcs_models.BaseUuidModel.Meta):
