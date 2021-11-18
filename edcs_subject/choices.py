@@ -179,7 +179,7 @@ QN72 = (
     ("other", "Other"),
 )
 
-SYMPTOMS = (
+COVID_SYMPTOMS = (
     ("headache", "Headache"),
     ("fever", "Fever"),
     ("muscle_ache", "Muscle ache"),

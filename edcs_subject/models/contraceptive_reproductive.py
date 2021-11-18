@@ -16,7 +16,7 @@ class ContraceptiveUseReproductiveHistory(
         choices=QN60,
     )
 
-    age_have_first_child = models.DateField(
+    age_have_first_child = models.CharField(
         verbose_name="At what age did you have your first child?",
         max_length=45,
         choices=QN61,
@@ -34,17 +34,17 @@ class ContraceptiveUseReproductiveHistory(
         choices=YES_NO_DECLINED_TO_ANSWER,
     )
 
-    use_oral_contraceptives = models.IntegerField(
+    use_oral_contraceptives = models.CharField(
         verbose_name="Have you ever used oral contraceptives?",
         max_length=45,
         choices=QN64,
     )
-    how_long_use_oral_contraceptives = models.IntegerField(
+    how_long_use_oral_contraceptives = models.CharField(
         verbose_name="If yes, how long have you been using oral contraceptives?",
         max_length=45,
         choices=QN65,
     )
-    when_stop_use_contraceptives = models.IntegerField(
+    when_stop_use_contraceptives = models.CharField(
         verbose_name="For those who have stopped using oral contraceptive, when did you stop?",
         max_length=45,
         choices=QN66,
