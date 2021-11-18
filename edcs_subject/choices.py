@@ -116,7 +116,7 @@ ALCOHOL_CONSUMPTION = (
 )
 
 ALCOHOL_CONSUMPTION_FREQUENCY = (
-    ("daily", "Daily"),
+    ("daily", "1-Daily"),
     ("every_other_day", "Every other day"),
     ("weekly", "Weekly (Not daily )"),
     ("monthly", "Monthly (Not weekly)"),
@@ -135,7 +135,7 @@ QN61 = (
     ("less_than_20yrs", "≤ 20years"),
     ("20_29yrs", "20-29 years"),
     ("30_39yrs", "30-39 years"),
-    ("greater_than_39yrs", "≥ 39 years")
+    ("greater_than_39yrs", "≥ 39 years"),
 )
 
 QN62 = (
@@ -143,7 +143,7 @@ QN62 = (
     ("less_than_25yrs", "≤ 25years"),
     ("25_29_yrs", "25-29 years"),
     ("30_39yrs", "30-39 years"),
-    ("greater_than_39yrs", "≥ 39 years")
+    ("greater_than_39yrs", "≥ 39 years"),
 )
 
 QN64 = (
@@ -166,7 +166,7 @@ QN66 = (
 QN70 = (
     ("less_than_46yrs", "≤ 46 years"),
     ("46_50yrs", "46-50 years"),
-    ("greater_than_51yrs", "≥ 51 years")
+    ("greater_than_51yrs", "≥ 51 years"),
 )
 
 QN72 = (
@@ -202,48 +202,47 @@ QN82 = (
 )
 
 COVID_VACCINE = (
-        ("dont_know_type", "Don’t know type"),
-        ("pfizer_biontech_moderna", "Pfizer/BioNTech Moderna"),
-        ("oxford_astraZeneca", "Oxford/AstraZeneca"),
-        ("janssen_johnson_Johnson", "Janssen\Johnson&Johnson"),
-        ("novavax", "Novavax"),
-        ("sinovac", "Sinovac"),
-        ("sputnik", "Sputnik"),
-        ("valneva", "Valneva"),
-        ("sinopharm", "Sinopharm"),
+    ("dont_know_type", "Don’t know type"),
+    ("pfizer_biontech_moderna", "Pfizer/BioNTech Moderna"),
+    ("oxford_astraZeneca", "Oxford/AstraZeneca"),
+    ("janssen_johnson_Johnson", "Janssen\Johnson&Johnson"),
+    ("novavax", "Novavax"),
+    ("sinovac", "Sinovac"),
+    ("sputnik", "Sputnik"),
+    ("valneva", "Valneva"),
+    ("sinopharm", "Sinopharm"),
 )
 
 QN87 = (
     ("government_uganda", "Government of Uganda"),
     ("research_study", "Research study/trial "),
-    ("other", "Others")
+    ("other", "Others"),
 )
 
-QN88 = (
-    ("one", "One"),
-    ("two", "Two"),
-    ("three_more", "Three or More")
-)
+QN88 = (("one", "One"), ("two", "Two"), ("three_more", "Three or More"))
 
 QN90 = (
-        ("cough_dont_go_away", "A cough that doesn't go away after 2 or 3 weeks"),
-        ("long_standing_cough", "A long-standing cough that gets worse"),
-        ("coughing_blood", "Coughing up blood or rust-colored sputum (spit or phlegm)"),
-        ("chest_infections", "Chest infections that keep coming back such as bronchitis, pneumonia etc"),
-        ("chest_pain", "Chest pain that is often worsen when breathing or coughing"),
-        ("persistent_breathlessness", "Persistent breathlessness"),
-        ("persistent_tiredness", "Persistent tiredness or lack of energy"),
-        ("wheezing", "Wheezing"),
-        ("shortness_of_breath", "Shortness of breath"),
-        ("unexplained_weight_loss", "Unexplained weight loss"),
-        ("other", "Others")
+    ("cough_dont_go_away", "A cough that doesn't go away after 2 or 3 weeks"),
+    ("long_standing_cough", "A long-standing cough that gets worse"),
+    ("coughing_blood", "Coughing up blood or rust-colored sputum (spit or phlegm)"),
+    (
+        "chest_infections",
+        "Chest infections that keep coming back such as bronchitis, pneumonia etc",
+    ),
+    ("chest_pain", "Chest pain that is often worsen when breathing or coughing"),
+    ("persistent_breathlessness", "Persistent breathlessness"),
+    ("persistent_tiredness", "Persistent tiredness or lack of energy"),
+    ("wheezing", "Wheezing"),
+    ("shortness_of_breath", "Shortness of breath"),
+    ("unexplained_weight_loss", "Unexplained weight loss"),
+    ("other", "Others"),
 )
 
 QN91 = (
     ("less_than_1month", "Less than 1 month"),
     ("1_3months", "1-3 months"),
     ("3_6months", "3-6 months"),
-    ("greater_than_6months", ">6 months")
+    ("greater_than_6months", ">6 months"),
 )
 
 QN92 = (
@@ -251,7 +250,7 @@ QN92 = (
     ("", "Gradual onset"),
     ("", "Progressive in severity"),
     ("", "Intermittent in severity"),
-    ("other", "Others")
+    ("other", "Others"),
 )
 
 QN94 = (
@@ -261,7 +260,7 @@ QN94 = (
     ("sister", "Sister"),
     ("grandparent_mother_side", "Grandparent from mother’s side"),
     ("grandparent_father_side", "Grandparent from father’s side"),
-    ("other", "Others")
+    ("other", "Others"),
 )
 
 QN95 = (
@@ -277,7 +276,7 @@ QN98 = (
     ("lung_cancer_biopsy", "Lung cancer biopsy"),
     ("sputum_tb_dx", "Sputum for TB diagnosis"),
     ("other", "Others"),
-    ("none_of_above", "None of the above")
+    ("none_of_above", "None of the above"),
 )
 
 QN100 = (
@@ -326,4 +325,3 @@ QN110 = (
     ("b", "B"),
     ("c", "C"),
 )
-
