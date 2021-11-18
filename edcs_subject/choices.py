@@ -325,3 +325,144 @@ QN110 = (
     ("b", "B"),
     ("c", "C"),
 )
+
+QN1AP = (
+    ("electricity", "Electricity"),
+    ("lpg_natural_gas ", "LPG/Natural gas "),
+    ("biogas ", "Biogas "),
+    ("kerosene", "Kerosene"),
+    ("coal_lignite", "Coal/lignite"),
+    ("charcoal", "Charcoal"),
+    ("wood", "Wood"),
+    ("straw_shrubs_grass ", "Straw/shrubs/grass "),
+    ("agricultural_crop", "Agricultural crop"),
+    ("animal_dung", "Animal dung"),
+    ("other", "Other"),
+    ("no_food_cooked", "No food cooked in household"),
+)
+
+QN2AP = (
+    ("Economical", "Economical"),
+    ("Convenient", "Convenient"),
+    ("easily_available", "Easily available"),
+    ("good_health", "Good for health"),
+    ("looks_better", "Looks better"),
+)
+
+QN3AP = (
+    ("in_house", "In the house"),
+    ("separate_building", "In a separate building"),
+    ("outdoors", "Outdoors"),
+    ("other", "Other"),
+)
+
+QN5AP = (
+    ("yes_all_times", "Yes, all the times"),
+    ("yes_sometimes", "Yes, sometimes"),
+    ("no", "No"),
+)
+
+QN7AP = (
+    ("25_days_month", "At least 25% of the days in a month"),
+    ("25_50_days_month", "25%-50% of the days in a month"),
+    ("50_70_days_month", "50-75% of the days in a month"),
+    ("75_100_days_month", "75%-100% of the days in a month"),
+)
+
+QN30AP = (
+    ("earth_sand_clay_mud_dung", "Earth/sand/clay/mud/dung"),
+    ("wood", "Wood"),
+    ("ceramic_tiles_vinyl", "Ceramic tiles or vinyl"),
+    ("cement_concrete", "Cement/concrete"),
+    ("other", "Other"),
+)
+
+QN31AP = (
+    ("no_roof", "No roof"),
+    ("thatch_straw", "Thatch/straw"),
+    ("mud", "Mud"),
+    ("metal", "Metal"),
+    ("wood", "Wood"),
+    ("brick", "Brick"),
+    ("tiles", "Tiles"),
+    ("slate", "Slate"),
+    ("other", "Others"),
+)
+
+QN32AP = (
+    ("no_walls", "No walls"),
+    ("mud", "Mud"),
+    ("wood", "Wood"),
+    ("cement_concrete", "Cement/concrete"),
+    ("stone", "Stone"),
+    ("metal", "Metal"),
+    ("other", "Others"),
+)
+
+QN34AP = (
+    ("daily", "Daily"),
+    ("two_day_week", "Two days a week"),
+    ("three_day_week", "Three days a week"),
+    ("four", "Four"),
+    ("five", "Five"),
+    ("six", "Six"),
+    ("weekly", "Weekly (i.e., once in 7 days)"),
+    ("monthly", "Monthly"),
+    ("less_one_month", "Less than once a month"),
+    ("never", "Never"),
+)
+
+QN36AP = (
+    ("no_roof", "No roof"),
+    ("thatch_straw", "Thatch/straw"),
+    ("mud", "Mud"),
+    ("metal", "Metal"),
+    ("wood", "Wood"),
+    ("brick", "Brick"),
+    ("tiles", "Tiles"),
+    ("slate", "Slate"),
+    ("other", "Other"),
+)
+
+QN39AP = (
+    ("daily", "Daily"),
+    ("two_day_week", "Two days a week"),
+    ("three_day_week", "Three days a week"),
+    ("four_day_week", "Four days a week"),
+    ("five_day_week", "Five days a week "),
+    ("six_day_week", "Six days a week"),
+    ("weekly", "Weekly (i.e., once in 7 days)"),
+    ("monthly", "Monthly (Once a month)"),
+    ("never", "Never"),
+)
+
+QN44EAP = (
+    ("child", "Child"),
+    ("husband", "Husband"),
+    ("wife", "Wife"),
+    ("other_member_household", "Other member of the house hold"),
+)
+
+QN49EAP = (
+    ("electricity", "Electricity"),
+    ("lpg_natural_gas ", "LPG/Natural gas "),
+    ("biogas ", "Biogas "),
+    ("kerosene", "Kerosene"),
+    ("coal_lignite", "Coal/lignite"),
+    ("charcoal", "Charcoal"),
+    ("wood", "Wood"),
+    ("straw_shrubs_grass ", "Straw/shrubs/grass "),
+    ("agricultural_crop", "Agricultural crop"),
+    ("animal_dung", "Animal dung"),
+    ("other", "Other"),
+)
+
+QN50EAP = (
+    ("kerosene_stove", "Kerosene stove"),
+    ("gas_stove", "Gas stove"),
+    ("open_fire", "Open fire"),
+    ("open_fire_stove", "Open fire or stove with chimney or hood"),
+    ("close_stove", "Closed stove with chimney"),
+    ("electric_heaters", "Electric heaters"),
+    ("other", "Other"),
+)
