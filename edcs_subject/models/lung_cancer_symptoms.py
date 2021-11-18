@@ -16,7 +16,7 @@ class SignSymptomLungCancer(
         choices=QN90,
     )
 
-    symptoms_how_long = models.DateField(
+    symptoms_how_long = models.CharField(
         verbose_name="For how long have you been sick with the above symptoms?",
         max_length=45,
         choices=QN91,
