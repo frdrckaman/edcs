@@ -3,9 +3,7 @@ from django.db import models
 from edcs_constants.choices import YES_NO
 from edcs_model import models as edcs_models
 
-from ..choices import (
-    QN44EAP,
-)
+from ..choices import QN44EAP
 
 
 class EffectAirPollution(
@@ -31,7 +29,7 @@ class EffectAirPollution(
         null=True,
     )
 
-    variation_btn_fuel = models.IntegerField(
+    variation_btn_fuel = models.CharField(
         verbose_name="Is there any seasonal variation between primary and secondary fuel used for cooking?",
         max_length=15,
         choices=YES_NO,

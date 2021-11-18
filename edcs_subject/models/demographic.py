@@ -107,7 +107,6 @@ class DemographicCharacteristic(
 
     household_monthly_income = models.IntegerField(
         verbose_name="What is the average monthly combined income for the entire household ",
-        max_length=15,
         help_text="(from ALL sources, including employment, selling crops, extra income etc.)? Amount in shillings",
     )
 

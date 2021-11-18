@@ -49,12 +49,10 @@ class AlcoholTobaccoUse(
     )
     age_start_smoking = models.IntegerField(
         verbose_name="If past smoker, at what age did you first start smoking?",
-        max_length=15,
         help_text="in years",
     )
     age_stop_smoking = models.IntegerField(
         verbose_name="If past smoker, at what age did you stop smoking?",
-        max_length=15,
         help_text="in years",
     )
     someone_else_smoke = models.CharField(

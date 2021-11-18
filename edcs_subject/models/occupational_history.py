@@ -35,7 +35,8 @@ class OccupationalHistory(
     )
 
     activities_expose_to_smoke = models.TextField(
-        verbose_name="Are there any activities or daily events that expose you to smoke or dust on a daily basis that we have not asked you about, if true list them",
+        verbose_name="Are there any activities or daily events that expose you to smoke or dust on a daily basis"
+        " that we have not asked you about, if true list them",
         blank=True,
         null=True,
     )

@@ -3,20 +3,7 @@ from django.db import models
 from edcs_constants.choices import YES_NO
 from edcs_model import models as edcs_models
 
-from ..choices import (
-    QN1AP,
-    QN2AP,
-    QN3AP,
-    QN5AP,
-    QN7AP,
-    QN28AP,
-    QN30AP,
-    QN31AP,
-    QN32AP,
-    QN34AP,
-    QN36AP,
-    QN39AP,
-)
+from ..choices import QN1AP, QN2AP, QN3AP, QN5AP, QN7AP, QN28AP
 
 
 class CookingFuel(
@@ -43,9 +30,6 @@ class CookingFuel(
 
     no_cooking_household = models.IntegerField(
         verbose_name="How many times does your household typically cook in a day?",
-        max_length=15,
-        blank=True,
-        null=True,
     )
 
     sleep_where_cook = models.CharField(
@@ -160,7 +144,6 @@ class CookingFuel(
     )
     distance_from_neighbor = models.IntegerField(
         verbose_name="Estimate the distance from your household to your nearest neighbor in meters?",
-        max_length=45,
     )
     neighbor_use_cooking = models.CharField(
         verbose_name="What is the MAIN type of fuel that most of your neighbors use?",

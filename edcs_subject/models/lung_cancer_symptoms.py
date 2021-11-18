@@ -48,7 +48,6 @@ class SignSymptomLungCancer(
     time_take_referred_cancer_facilities = models.IntegerField(
         verbose_name="From the very first time you sought care from the health facility to the time you were"
         " referred to the cancer treatment facility, how long did it take?",
-        max_length=45,
         help_text="(Ask the patient to show you his/her referral documents. Duration in days)",
     )
 

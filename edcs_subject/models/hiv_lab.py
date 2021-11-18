@@ -19,12 +19,10 @@ class HivLabInvestigation(
 
     baseline_cd4 = models.IntegerField(
         verbose_name="Baseline CD4 counts",
-        max_length=45,
     )
 
     baseline_viral_load = models.IntegerField(
         verbose_name="Baseline Viral Load",
-        max_length=45,
     )
 
     hiv_stage = models.CharField(
