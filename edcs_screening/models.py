@@ -4,6 +4,7 @@ from edcs_constants.choices import YES_NO
 from edcs_model.models import BaseUuidModel
 from edcs_screening.model_mixins import ScreeningModelMixin
 from edcs_screening.screening_identifier import ScreeningIdentifier
+
 from .choices import CLINIC, PATIENT_CATEGORY
 
 # from ..eligibility import check_eligible_final
@@ -43,11 +44,13 @@ class SubjectScreening(
         verbose_name="Clinic patient is from?:",
         max_length=50,
         choices=CLINIC,
+        null=True,
     )
     patient_category = models.CharField(
         verbose_name="Patient Category?:",
         max_length=50,
-        choices=PATIENT_CATEGORY
+        choices=PATIENT_CATEGORY,
+        null=True,
     )
 
     patient_know_dob = models.CharField(

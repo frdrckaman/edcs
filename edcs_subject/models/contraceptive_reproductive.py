@@ -51,7 +51,7 @@ class ContraceptiveUseReproductiveHistory(
     )
     post_menopausal_hormone_therapy = models.CharField(
         verbose_name="Have you ever used post-menopausal hormone therapy?",
-        max_length=15,
+        max_length=45,
         choices=YES_NO_DECLINED_TO_ANSWER,
     )
     how_long_post_menopausal_hormone_therapy = models.CharField(

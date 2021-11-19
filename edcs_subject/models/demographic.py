@@ -20,7 +20,7 @@ class DemographicCharacteristic(
 
     martial_status = models.CharField(
         verbose_name="Marital status?",
-        max_length=15,
+        max_length=45,
         choices=YES_NO_DWTA_DONT_KNOW,
     )
 

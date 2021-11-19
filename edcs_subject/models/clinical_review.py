@@ -18,7 +18,7 @@ class ClinicalReview(
 
     hiv_test = models.CharField(
         verbose_name="Have you ever been tested for HIV?",
-        max_length=15,
+        max_length=45,
         choices=YES_NO_DWTA_DONT_KNOW,
     )
 
@@ -30,14 +30,14 @@ class ClinicalReview(
 
     hiv_dx = models.CharField(
         verbose_name=mark_safe("What was the result of your most recent HIV test?"),
-        max_length=15,
+        max_length=45,
         choices=HIV_RESULT_DWTA_DONT_KNOW,
         null=True,
         blank=True,
     )
     arv = models.CharField(
         verbose_name=mark_safe("If positive, are you taking ARVs?"),
-        max_length=15,
+        max_length=45,
         choices=HIV_RESULT_DWTA_DONT_KNOW,
         null=True,
         blank=True,
@@ -59,7 +59,7 @@ class ClinicalReview(
 
     miss_taking_arv = models.CharField(
         verbose_name=mark_safe("If no, how often do you miss taking ARVs?"),
-        max_length=15,
+        max_length=45,
         choices=MISS_ARV,
         null=True,
         blank=True,
@@ -70,7 +70,7 @@ class ClinicalReview(
     lung_diseases_dx = models.CharField(
         verbose_name="Have you ever been diagnosed with a chronic lung disease like Asthma, COPD, and Interstitial "
         "lung disease?",
-        max_length=15,
+        max_length=45,
         choices=LUNG_DISEASE,
     )
 
@@ -83,6 +83,7 @@ class ClinicalReview(
     use_lung_diseases_medication = models.CharField(
         verbose_name="Are you using any medications?",
         choices=YES_NO_DECLINED_TO_ANSWER,
+        max_length=80,
         null=True,
         blank=True,
     )
@@ -95,7 +96,7 @@ class ClinicalReview(
 
     htn_dx = models.CharField(
         verbose_name="Have you ever been diagnosed with Hypertension?",
-        max_length=15,
+        max_length=45,
         choices=YES_NO,
     )
 
@@ -107,7 +108,7 @@ class ClinicalReview(
 
     use_htn_medication = models.CharField(
         verbose_name="Have you ever been diagnosed with Hypertension?",
-        max_length=15,
+        max_length=45,
         choices=YES_NO_DECLINED_TO_ANSWER,
     )
 
@@ -131,7 +132,7 @@ class ClinicalReview(
 
     use_dm_medication = models.CharField(
         verbose_name="Have you ever been diagnosed with Hypertension?",
-        max_length=15,
+        max_length=45,
         choices=YES_NO_DECLINED_TO_ANSWER,
     )
 

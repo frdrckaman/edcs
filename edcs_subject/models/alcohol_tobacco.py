@@ -19,7 +19,7 @@ class AlcoholTobaccoUse(
 
     smoke_tobacco = models.CharField(
         verbose_name="Do you smoke tobacco products?",
-        max_length=15,
+        max_length=45,
         choices=SMOKE_TOBACCO_PRODUCTS,
     )
 
@@ -45,7 +45,6 @@ class AlcoholTobaccoUse(
 
     no_tobacco_product_smoked = models.IntegerField(
         verbose_name="On average, how many of these products do you/did you smoke?",
-        max_length=15,
     )
     age_start_smoking = models.IntegerField(
         verbose_name="If past smoker, at what age did you first start smoking?",

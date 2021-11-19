@@ -1,10 +1,11 @@
 import os
 from pathlib import Path
+
 import environ
-from multisite import SiteID
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from edc_utils import get_datetime_from_env
+from multisite import SiteID
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 ENV_DIR = str(Path(os.path.join(BASE_DIR, ".env")))
@@ -46,43 +47,44 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
     "django.contrib.sites",
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django_revision.apps.AppConfig',
-    'django_audit_fields.apps.AppConfig',
-    'logentry_admin',
-    'defender',
-    'multisite',
-    'simple_history',
-    'edcs_auth.apps.AppConfig',
-    'edcs_dashboard.apps.AppConfig',
-    'edcs_device.apps.AppConfig',
-    'edcs_model.apps.AppConfig',
-    'edcs_identifier.apps.AppConfig',
-    'edcs_screening.apps.AppConfig',
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django_revision.apps.AppConfig",
+    "django_audit_fields.apps.AppConfig",
+    "logentry_admin",
+    "defender",
+    "multisite",
+    "simple_history",
+    "edcs_auth.apps.AppConfig",
+    "edcs_dashboard.apps.AppConfig",
+    "edcs_device.apps.AppConfig",
+    "edcs_model.apps.AppConfig",
+    "edcs_identifier.apps.AppConfig",
+    "edcs_screening.apps.AppConfig",
+    "edcs_subject.apps.AppConfig",
     # 'edcs_utils.apps.EdcsUtilsConfig',
-    'edcs_notification.apps.AppConfig',
-    'edcs_export.apps.AppConfig',
-    'edcs_sites.apps.AppConfig',
+    "edcs_notification.apps.AppConfig",
+    "edcs_export.apps.AppConfig",
+    "edcs_sites.apps.AppConfig",
 ]
 
 MIDDLEWARE = [
-    'multisite.middleware.DynamicSiteMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
+    "multisite.middleware.DynamicSiteMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
     # 'django.contrib.sites.middleware.CurrentSiteMiddleware'
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'defender.middleware.FailedLoginMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'simple_history.middleware.HistoryRequestMiddleware',
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "defender.middleware.FailedLoginMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "simple_history.middleware.HistoryRequestMiddleware",
 ]
 
 MIDDLEWARE.extend(
@@ -91,34 +93,34 @@ MIDDLEWARE.extend(
     ]
 )
 
-ROOT_URLCONF = 'edcs.urls'
+ROOT_URLCONF = "edcs.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'edcs.wsgi.application'
+WSGI_APPLICATION = "edcs.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
@@ -152,19 +154,25 @@ elif env.str("DJANGO_CACHE") == "memcached":
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+    },
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
-EDCS_PROTOCOL = env.str('EDCS_PROTOCOL')
-EDCS_PROTOCOL_TITLE = env.str('EDCS_PROTOCOL_TITLE')
-EDCS_PROTOCOL_NUMBER = env.str('EDCS_PROTOCOL_NUMBER')
-EDCS_PROTOCOL_INSTITUTION_NAME = env.str('EDCS_PROTOCOL_INSTITUTION_NAME')
-EDCS_PROTOCOL_PROJECT_NAME = env.str('EDCS_PROTOCOL_PROJECT_NAME')
-EDCS_PROTOCOL_STUDY_OPEN_DATETIME = get_datetime_from_env(*env.list("EDCS_PROTOCOL_STUDY_OPEN_DATETIME"))
-EDCS_PROTOCOL_STUDY_CLOSE_DATETIME = get_datetime_from_env(*env.list("EDCS_PROTOCOL_STUDY_CLOSE_DATETIME"))
+EDCS_PROTOCOL = env.str("EDCS_PROTOCOL")
+EDCS_PROTOCOL_TITLE = env.str("EDCS_PROTOCOL_TITLE")
+EDCS_PROTOCOL_NUMBER = env.str("EDCS_PROTOCOL_NUMBER")
+EDCS_PROTOCOL_INSTITUTION_NAME = env.str("EDCS_PROTOCOL_INSTITUTION_NAME")
+EDCS_PROTOCOL_PROJECT_NAME = env.str("EDCS_PROTOCOL_PROJECT_NAME")
+EDCS_PROTOCOL_STUDY_OPEN_DATETIME = get_datetime_from_env(
+    *env.list("EDCS_PROTOCOL_STUDY_OPEN_DATETIME")
+)
+EDCS_PROTOCOL_STUDY_CLOSE_DATETIME = get_datetime_from_env(
+    *env.list("EDCS_PROTOCOL_STUDY_CLOSE_DATETIME")
+)
 
 EMAIL_ENABLED = env("DJANGO_EMAIL_ENABLED")
 
@@ -187,9 +195,9 @@ DEFENDER_LOGIN_FAILURE_LIMIT = 5
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -202,4 +210,4 @@ SITE_ID = SiteID(default=1)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"

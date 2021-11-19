@@ -7,7 +7,7 @@ class HomeLocatorForm(
     edcs_models.BaseUuidModel,
 ):
 
-    ward = models.IntegerField(
+    ward = models.CharField(
         verbose_name="Ward",
         max_length=45,
     )
