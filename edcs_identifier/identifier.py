@@ -23,7 +23,7 @@ class Identifier:
     ) -> None:
         self.identifier_as_list: list = []
         self.prefix: str = prefix or self.prefix or ""
-        edc_device_app_config = django_apps.get_app_config("edc_device")
+        edc_device_app_config = django_apps.get_app_config("edcs_device")
         self.device_id = edc_device_app_config.device_id
         self.identifier = (
             last_identifier or self.last_identifier or f"{self.prefix}{self.seed}"

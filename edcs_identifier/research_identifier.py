@@ -43,7 +43,7 @@ class ResearchIdentifier:
         if not self.identifier_type:
             raise IdentifierError("Invalid identifier_type. Got None")
         self.template = template or self.template
-        app_config = django_apps.get_app_config("edc_device")
+        app_config = django_apps.get_app_config("edcs_device")
         self.device_id = device_id or app_config.device_id
         self.protocol_number = protocol_number or Protocol().protocol_number
         self.site = site or Site.objects.get_current()

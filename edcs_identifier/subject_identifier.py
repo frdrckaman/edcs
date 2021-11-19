@@ -21,7 +21,7 @@ class SubjectIdentifier(ResearchIdentifier):
         """Creates a registered subject instance for this
         subject identifier.
         """
-        model = django_apps.get_app_config("edc_registration").model
+        model = django_apps.get_app_config("edcs_registration").model
         model.objects.create(
             subject_identifier=self.identifier,
             site=self.site,

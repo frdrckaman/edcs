@@ -1,4 +1,4 @@
-from .air_pollution_follow_up import AirPollutionFollowUp
+from .air_pollution_followup import AirPollutionFollowUp
 from .alcohol_tobacco import AlcoholTobaccoUse
 from .clinical_review import ClinicalReview
 from .contraceptive_reproductive import ContraceptiveUseReproductiveHistory

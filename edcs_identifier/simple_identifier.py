@@ -111,7 +111,7 @@ class SimpleUniqueIdentifier:
     random_string_length: int = 5
     identifier_type: str = "simple_identifier"
     identifier_attr: str = "identifier"
-    model: str = "edc_identifier.identifiermodel"
+    model: str = "edcs_identifier.identifiermodel"
     template: str = "{device_id}{random_string}"
     identifier_prefix: Optional[str] = None
     identifier_cls = SimpleIdentifier
@@ -139,7 +139,7 @@ class SimpleUniqueIdentifier:
                 f"Expected identifier_prefix of length=2. Got {len(identifier_prefix)}"
             )
         self.make_human_readable = make_human_readable or self.make_human_readable
-        self.device_id = django_apps.get_app_config("edc_device").device_id
+        self.device_id = django_apps.get_app_config("edcs_device").device_id
         self.model_cls.objects.create(
             identifier_type=self.identifier_type,
             sequence_number=1,

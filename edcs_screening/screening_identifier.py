@@ -1,4 +1,4 @@
-from edc_identifier.simple_identifier import SimpleUniqueIdentifier
+from edcs_identifier.simple_identifier import SimpleUniqueIdentifier
 
 
 class ScreeningIdentifier(SimpleUniqueIdentifier):
