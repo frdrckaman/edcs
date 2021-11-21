@@ -47,5 +47,5 @@ class AirPollutionFollowUp(
     )
 
     class Meta(edcs_models.BaseUuidModel.Meta):
-        verbose_name = "Effect of Air Pollution"
-        verbose_name_plural = "Effect of Air Pollution"
+        verbose_name = "Air Pollution Follow Up"
+        verbose_name_plural = "Air Pollution Follow Up"

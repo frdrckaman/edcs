@@ -38,15 +38,11 @@ class ClinicalReview(
         verbose_name=mark_safe("What was the result of your most recent HIV test?"),
         max_length=45,
         choices=HIV_RESULT_DWTA_DONT_KNOW,
-        null=True,
-        blank=True,
     )
     arv = models.CharField(
         verbose_name=mark_safe("If positive, are you taking ARVs?"),
         max_length=45,
         choices=HIV_RESULT_DWTA_DONT_KNOW,
-        null=True,
-        blank=True,
     )
 
     arv_start_date = models.DateField(
@@ -59,16 +55,12 @@ class ClinicalReview(
         verbose_name=mark_safe("Do you take your ARVs regularly? "),
         max_length=15,
         choices=YES_NO,
-        null=True,
-        blank=True,
     )
 
     miss_taking_arv = models.CharField(
         verbose_name=mark_safe("If no, how often do you miss taking ARVs?"),
         max_length=45,
         choices=MISS_ARV,
-        null=True,
-        blank=True,
     )
 
     miss_taking_arv_other = edcs_models.OtherCharField()
@@ -90,8 +82,6 @@ class ClinicalReview(
         verbose_name="Are you using any medications?",
         choices=YES_NO_DECLINED_TO_ANSWER,
         max_length=80,
-        null=True,
-        blank=True,
     )
 
     lung_diseases_medication = models.TextField(

@@ -116,5 +116,5 @@ class DemographicCharacteristic(
     )
 
     class Meta(edcs_models.BaseUuidModel.Meta):
-        verbose_name = "Clinical Review"
-        verbose_name_plural = "Clinical Reviews"
+        verbose_name = "Demographic and Socio-Economic Characteristics"
+        verbose_name_plural = "Demographic and Socio-Economic Characteristics"

@@ -30,7 +30,6 @@ class CovidInfectionHistoryAdmin(SimpleHistoryAdmin):
                     "swab_test_results",
                     "date_first_positive_test",
                     "date_last_negative_test",
-                    "swab_test_results",
                     "covid_vaccine",
                     "vaccine_provider",
                     "no_covid_vaccine",
@@ -47,7 +46,6 @@ class CovidInfectionHistoryAdmin(SimpleHistoryAdmin):
         "think_had_covid",
         "swab_test",
         "swab_test_results",
-        "swab_test_results",
         "no_covid_vaccine",
     )
 
@@ -55,7 +53,6 @@ class CovidInfectionHistoryAdmin(SimpleHistoryAdmin):
         "report_datetime",
         "think_had_covid",
         "swab_test",
-        "swab_test_results",
         "swab_test_results",
         "no_covid_vaccine",
     )
