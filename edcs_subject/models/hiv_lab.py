@@ -2,6 +2,7 @@ from django.db import models
 
 from edcs_constants.choices import YES_NO
 from edcs_model import models as edcs_models
+from edcs_utils import get_utcnow
 
 from ..choices import QN103, QN106, QN110
 
@@ -9,6 +10,11 @@ from ..choices import QN103, QN106, QN110
 class HivLabInvestigation(
     edcs_models.BaseUuidModel,
 ):
+    report_datetime = models.DateTimeField(
+        verbose_name="Report Date and Time",
+        default=get_utcnow,
+        help_text="Date and time of report.",
+    )
 
     hiv_status = models.CharField(
         verbose_name="If the patient’s status is unknown or Negative, tested more than two months ago, please counsel "

@@ -1,6 +1,7 @@
 from django.db import models
 
 from edcs_model import models as edcs_models
+from edcs_utils import get_utcnow
 
 from ..choices import QN49EAP, QN50EAP
 
@@ -8,6 +9,11 @@ from ..choices import QN49EAP, QN50EAP
 class AirPollutionFollowUp(
     edcs_models.BaseUuidModel,
 ):
+    report_datetime = models.DateTimeField(
+        verbose_name="Report Date and Time",
+        default=get_utcnow,
+        help_text="Date and time of report.",
+    )
 
     hour_wear_device = models.IntegerField(
         verbose_name="In the past 48 hours how many hours did you wear devices?",

@@ -10,7 +10,7 @@ class NotificationModelAdminMixin:
     user subscribed to.
 
     Requires to be declared together with `ModelAdminFormInstructionsMixin`
-    from module `edc_model_admin`.
+    from module `edcs_model_admin`.
     """
 
     def get_notification_instructions(self, request=None):

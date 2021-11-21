@@ -8,6 +8,7 @@ from edcs_constants.choices import (
     YES_NO_DWTA_DONT_KNOW,
 )
 from edcs_model import models as edcs_models
+from edcs_utils import get_utcnow
 
 from ..choices import LUNG_DISEASE, MISS_ARV, QN100, QN101, QN102
 
@@ -15,6 +16,11 @@ from ..choices import LUNG_DISEASE, MISS_ARV, QN100, QN101, QN102
 class ClinicalReview(
     edcs_models.BaseUuidModel,
 ):
+    report_datetime = models.DateTimeField(
+        verbose_name="Report Date and Time",
+        default=get_utcnow,
+        help_text="Date and time of report.",
+    )
 
     hiv_test = models.CharField(
         verbose_name="Have you ever been tested for HIV?",

@@ -2,6 +2,7 @@ from django.db import models
 
 from edcs_constants.choices import YES_NO_DECLINED_TO_ANSWER
 from edcs_model import models as edcs_models
+from edcs_utils import get_utcnow
 
 from ..choices import QN60, QN61, QN62, QN64, QN65, QN66, QN70
 
@@ -9,6 +10,11 @@ from ..choices import QN60, QN61, QN62, QN64, QN65, QN66, QN70
 class ContraceptiveUseReproductiveHistory(
     edcs_models.BaseUuidModel,
 ):
+    report_datetime = models.DateTimeField(
+        verbose_name="Report Date and Time",
+        default=get_utcnow,
+        help_text="Date and time of report.",
+    )
 
     age_attain_menarche = models.CharField(
         verbose_name="At what age did you attain your menarche?",

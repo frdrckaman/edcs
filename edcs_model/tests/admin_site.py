@@ -10,7 +10,7 @@ class EdcModelAdminSite(AdminSite):
     site_url = "/administration/"
 
 
-edc_model_admin = EdcModelAdminSite(name="edc_model_admin")
+edc_model_admin = EdcModelAdminSite(name="edcs_model_admin")
 
 
 @register(BasicModel, site=edc_model_admin)

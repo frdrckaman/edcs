@@ -14,7 +14,7 @@ class ModelAdminFormInstructionsMixin:
             {{ block.super }}
         {% endblock %}
 
-    See also edc_admin_modify.py for the inclusion tags registered
+    See also edcs_admin_modify.py for the inclusion tags registered
     `instructions` and `additional_instructions` and the templates
     involved. These templates can be overridden just as django
     non-admin templates.

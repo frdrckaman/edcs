@@ -2,6 +2,7 @@ from django.db import models
 
 from edcs_constants.choices import YES_NO
 from edcs_model import models as edcs_models
+from edcs_utils import get_utcnow
 
 from ..choices import (
     ALCOHOL_CONSUMPTION,
@@ -16,6 +17,11 @@ from ..choices import (
 class AlcoholTobaccoUse(
     edcs_models.BaseUuidModel,
 ):
+    report_datetime = models.DateTimeField(
+        verbose_name="Report Date and Time",
+        default=get_utcnow,
+        help_text="Date and time of report.",
+    )
 
     smoke_tobacco = models.CharField(
         verbose_name="Do you smoke tobacco products?",
