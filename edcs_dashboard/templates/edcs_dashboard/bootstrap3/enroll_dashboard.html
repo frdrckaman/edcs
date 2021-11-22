@@ -1,0 +1,215 @@
+{% extends 'edcs_dashboard/bootstrap3/base.html' %}
+{% block main-content %}
+     <div class="workplace">
+
+         <div class="row">
+             <!----------------------------- start action item menu -------------------------------->
+             <div class="col-md-12">
+                 <nav class="navbar" role="navigation">
+                     <div class="container-fluid">
+                         <div class="navbar-header">
+                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                 <span class="sr-only">Toggle navigation</span>
+                                 <span class="icon-bar"></span>
+                                 <span class="icon-bar"></span>
+                                 <span class="icon-bar"></span>
+                             </button>
+                             <a class="navbar-brand" href="#"></a>
+                         </div>
+
+                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                             <ul class="nav navbar-nav navbar-right">
+                                 <li class="dropdown">
+                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Action Linked PRN <span class="caret"></span></a>
+                                     <ul class="dropdown-menu" role="menu">
+                                         <li><a href="#">Death Report</a></li>
+                                         <li><a href="#">Adverse Event</a></li>
+                                         <li><a href="#">Subject Transfer</a></li>
+                                         <li><a href="#">Protocol Deviation/Violation</a></li>
+                                     </ul>
+                                 </li>
+                                 <li class="dropdown">
+                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">PRN CRFs<span class="caret"></span></a>
+                                     <ul class="dropdown-menu" role="menu">
+                                         <li><a href="#">CD4 Result</a></li>
+                                         <li><a href="#">Viral Load</a></li>
+                                     </ul>
+                                 </li>
+                                 <li class="dropdown">
+                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">PRN Requisition <span class="caret"></span></a>
+                                     <ul class="dropdown-menu" role="menu">
+                                         <li><a href="#">CD4</a></li>
+                                     </ul>
+                                 </li>
+                                 <li><a href="#">End of Study</a></li>
+                             </ul>
+                         </div>
+
+                     </div>
+                 </nav>
+             </div>
+             <!----------------------------- end action item menu -------------------------------->
+
+             <!-------------------- start screening patients --------------------->
+             <div class="col-md-8">
+                 <div class="head clearfix">
+                     <div class="isw-grid"></div>
+                     <h1>Enrolled Patients</h1>
+                 </div>
+                 <div class="block-fluid">
+                     <table cellpadding="0" cellspacing="0" width="100%" class="table">
+                         <thead>
+                         <tr>
+                             <th width="3%">#Code</th>
+                             <th width="40%">Dashboard</th>
+                             <th width="15%">Visit</th>
+                             <th width="15%">Modified</th>
+                             <th width="15%">Expected</th>
+                         </tr>
+                         </thead>
+                         <tbody>
+                             <tr>
+                                 <td>1000</td>
+                                 <td>
+                                     <a href="#" class="btn btn-sm btn-default tip" title="Edit Appointment">
+                                         <span class="glyphicon glyphicon-pencil glyphicon glyphicon-white"></span> Appt
+                                     </a>
+                                     <a href="#" class="btn btn-sm btn-default tip" title="Unscheduled Appointment">
+                                         <span class="glyphicon glyphicon-user glyphicon glyphicon-white"></span>
+                                     </a>
+                                     <a href="#" class="btn btn-sm btn-default tip" title="Visit Report">
+                                         Visit Report
+                                     </a>
+                                     <a href="#" class="btn btn-sm btn-default tip" title="Start Visit">
+                                         Start Visit
+                                     </a>
+                                     <a href="#" class="btn btn-sm btn-warning tip" title="Start Visit">
+                                         Start <span class="glyphicon glyphicon-plus glyphicon glyphicon-white"></span>
+                                     </a>
+                                     <a href="#" class="btn btn-sm btn-default tip" title="Visit Done">
+                                         Done
+                                     </a>
+                                     <a href="{% url 'edcs_dashboard:crf-list' %}" class="btn btn-sm btn-info tip" title="Open CRFs">
+                                         Forms <span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span>
+                                     </a>
+                                 </td>
+                                 <td>Day 1</td>
+                                 <td>05/09/2021</td>
+                                 <td>05/09/2021</td>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+             <!-------------------- end screening patients --------------------->
+
+             <div class="col-md-4">
+                 <div class="head clearfix">
+                     <div class="isw-user"></div>
+                     <h1>Info</h1>
+                 </div>
+                 <!------------------------------------- start patient info -------------------------------------->
+                 <div class="block-fluid accordion">
+                     <h3></h3>
+                     <div>
+                         <div class="row">
+                             <div class="container-fluid">
+                                 <div class="col-md-12 clearfix" >
+                                     <div class="block-fluid sNavigation">
+                                         <ul>
+                                             <li><a href="#" style="font-weight: bolder"><span class="glyphicon glyphicon-qrcode"></span> 101-258-00001-1</a><span class="arrow"></span></li>
+                                             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Male</a><span class="arrow"></span></li>
+                                             <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> 1991-09-01 30yrs</a><span class="arrow"></span></li>
+                                             <li><a href="#"><span class="glyphicon glyphicon-tags"></span> HIV / HP</a><span class="arrow"></span></li>
+                                         </ul>
+                                     </div>
+
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+
+                 </div>
+                 <!------------------------------------- end patient info -------------------------------------->
+
+                 <!------------------------------------- start prn form -------------------------------------->
+                 <div class="head clearfix">
+                     <div class="isw-text_document"></div>
+                     <h1>PRN ACTION</h1>
+                 </div>
+                 &nbsp;
+                 <div class="btn-group">
+                     <button data-toggle="dropdown" style="width: 100%" class="btn btn-default btn-warning dropdown-toggle">
+                         Protocol Deviation <span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                         <li><a href="#">Add Protocol Deviation</a></li>
+                         <li><a href="#">Action Item</a></li>
+                     </ul>
+                 </div>
+                 <div class="btn-group">
+                     <button data-toggle="dropdown" style="width: 100%" class="btn btn-default btn-warning dropdown-toggle">
+                         Protocol Deviation <span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                         <li><a href="#">Add Protocol Deviation</a></li>
+                         <li><a href="#">Action Item</a></li>
+                     </ul>
+                 </div>
+                 <div class="btn-group">
+                     <button data-toggle="dropdown" style="width: 100%" class="btn btn-default btn-warning dropdown-toggle">
+                         Protocol Deviation <span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                         <li><a href="#">Add Protocol Deviation</a></li>
+                         <li><a href="#">Action Item</a></li>
+                     </ul>
+                 </div>
+                 <div class="btn-group">
+                     <button data-toggle="dropdown" style="width: 100%" class="btn btn-default btn-warning dropdown-toggle">
+                         Protocol Deviation <span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                         <li><a href="#">Add Protocol Deviation</a></li>
+                         <li><a href="#">Action Item</a></li>
+                     </ul>
+                 </div>
+                 <div class="btn-group">
+                     <button data-toggle="dropdown" style="width: 100%" class="btn btn-default btn-warning dropdown-toggle">
+                         Protocol Deviation <span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                         <li><a href="#">Add Protocol Deviation</a></li>
+                         <li><a href="#">Action Item</a></li>
+                     </ul>
+                 </div>
+                 &nbsp;
+                 <!------------------------------------- end prn form -------------------------------------->
+
+                 <!------------------------------------- start consent form -------------------------------------->
+                 <div class="head clearfix">
+                     <div class="isw-documents"></div>
+                     <h1>CONSENTS</h1>
+                 </div>
+                 <div class="block-fluid accordion">
+                     <h3></h3>
+                     <div>
+                         <div class="row">
+                             <div class="container-fluid">
+                                 <div class="col-md-12 clearfix" >
+                                     <div class="block-fluid sNavigation">
+                                         <ul>
+                                             <li><a href="#" style="color: #2e6da4;font-weight: bolder"><span class="glyphicon glyphicon-thumbs-up glyphicon glyphicon-blue"></span> Consented 07/09/2021 15:51 Tue</a><span class="arrow"></span></li>
+                                         </ul>
+                                     </div>
+
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <!------------------------------------- end consent form -------------------------------------->
+             </div>
+
+         </div>
+
+
+         <div class="dr"><span></span></div>
+
+     </div>
+{% endblock main-content %}

@@ -1,0 +1,61 @@
+{% extends 'edcs_dashboard/bootstrap3/base.html' %}
+{% block main-content %}
+<div class="workplace">
+    <div class="row">
+        <!-------------------- start screening patients --------------------->
+        <div class="col-md-12">
+            <div class="head clearfix">
+                <div class="isw-grid"></div>
+                <h1>Enrolled Patients</h1>
+                <ul class="buttons">
+                    <li><a href="#" class="isw-download"></a></li>
+                    <li><a href="#" class="isw-attachment"></a></li>
+                    <li>
+                        <a href="#" class="isw-settings"></a>
+                        <ul class="dd-list">
+                            <li><a href="#"><span class="isw-plus"></span> New document</a></li>
+                            <li><a href="#"><span class="isw-edit"></span> Edit</a></li>
+                            <li><a href="#"><span class="isw-delete"></span> Delete</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="block-fluid">
+                <table cellpadding="0" cellspacing="0" width="100%" class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th width="40%">Dashboard</th>
+                        <th width="15%">Study ID</th>
+                        <th width="5%">Initials</th>
+                        <th width="15%">Age/Born</th>
+                        <th width="15%">Consented</th>
+                        <th width="10%">Modified</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <a href="#" class="btn btn-sm btn-default tip" title="Edit Consent">
+                                <span class="glyphicon glyphicon-pencil glyphicon glyphicon-white"></span>
+                            </a>
+                            <a href="{% url 'edcs_dashboard:enroll-dashboard' %}" class="btn btn-sm btn-info tip" title="Open CRFs">
+                                Dashboard <span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span>
+                            </a>
+                        </td>
+                        <td>101-258-00001-1</td>
+                        <td>FLA</td>
+                        <td>30yrs 05/09/1991</td>
+                        <td>05/09/2021</td>
+                        <td>2021-01-02</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-------------------- end screening patients --------------------->
+    </div>
+    <div class="dr"><span></span></div>
+</div>
+{% endblock main-content %}

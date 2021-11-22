@@ -169,16 +169,16 @@
                         </li>
                         <li class="openable">
                             <a href="#">
-                                <span class="isw-empty_document"></span><span class="text">Screening</span>
+                                <span class="isw-empty_document"></span><span class="text">Add Screening</span>
                             </a>
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a href="http://localhost:8000/admin/edcs_screening/subjectscreening/add/">
                                         <span class="glyphicon glyphicon-plus"></span><span class="text">Add Screening</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="http://localhost:8000/admin/edcs_screening/subjectscreening/">
                                         <span class="glyphicon glyphicon-th-list"></span><span class="text">Patients Screened</span>
                                     </a>
                                 </li>
@@ -186,7 +186,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{% url 'edcs_dashboard:enroll-list' %}">
                                 <span class="isw-sync"></span><span class="text">Enrollment</span>
                             </a>
                         </li>
