@@ -1,7 +1,7 @@
 from .crf import Crf
 from .forms_collection import FormsCollection
 
-crfs_d1 = FormsCollection(
+enrollment_crf = FormsCollection(
     Crf(show_order=100, model="edcs_subject.clinicalreview"),
     Crf(show_order=110, model="edcs_subject.demographiccharacteristic"),
     Crf(show_order=120, model="edcs_subject.hivLabinvestigation", required=False),
@@ -14,8 +14,8 @@ crfs_d1 = FormsCollection(
     Crf(show_order=160, model="edcs_subject.alcoholtobaccouse"),
     Crf(show_order=165, model="edcs_subject.cookingfuel"),
     Crf(show_order=170, model="edcs_subject.housekitchensurrounding"),
-    Crf(show_order=170, model="edcs_subject.effectairpollution"),
-    Crf(show_order=170, model="edcs_subject.airpollutionfollowup"),
-    Crf(show_order=170, model="edcs_subject.homelocatorform"),
-    name="day1",
+    Crf(show_order=172, model="edcs_subject.effectairpollution"),
+    Crf(show_order=174, model="edcs_subject.airpollutionfollowup"),
+    Crf(show_order=176, model="edcs_subject.homelocatorform"),
+    name="Enrollment CRFs",
 )
