@@ -1,15 +1,14 @@
 from django.db import models
 
 from edcs_constants.choices import YES_NO
+from edcs_crf.crf_model_mixins import CrfModelMixin
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
 from ..choices import COVID_SYMPTOMS, COVID_VACCINE, QN82, QN87, QN88
 
 
-class CovidInfectionHistory(
-    edcs_models.BaseUuidModel,
-):
+class CovidInfectionHistory(CrfModelMixin, edcs_models.BaseUuidModel):
     report_datetime = models.DateTimeField(
         verbose_name="Report Date and Time",
         default=get_utcnow,
