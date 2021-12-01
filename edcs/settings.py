@@ -16,6 +16,7 @@ env = environ.Env(
     DJANGO_EDCS_BOOTSTRAP=(int, 3),
     DATABASE_SQLITE_ENABLED=(bool, False),
     DJANGO_EMAIL_ENABLED=(bool, False),
+    DJANGO_AUTO_CREATE_KEYS=(bool, False),
 )
 
 environ.Env.read_env(ENV_DIR)
@@ -60,6 +61,7 @@ INSTALLED_APPS = [
     "defender",
     "multisite",
     "simple_history",
+    "django_crypto_fields.apps.AppConfig",
     "edcs_auth.apps.AppConfig",
     "edcs_dashboard.apps.AppConfig",
     "edcs_device.apps.AppConfig",
@@ -67,6 +69,7 @@ INSTALLED_APPS = [
     "edcs_identifier.apps.AppConfig",
     "edcs_screening.apps.AppConfig",
     "edcs_subject.apps.AppConfig",
+    "edcs_consent.apps.AppConfig",
     # 'edcs_utils.apps.EdcsUtilsConfig',
     "edcs_notification.apps.AppConfig",
     "edcs_export.apps.AppConfig",
@@ -173,6 +176,12 @@ EDCS_PROTOCOL_STUDY_OPEN_DATETIME = get_datetime_from_env(
 EDCS_PROTOCOL_STUDY_CLOSE_DATETIME = get_datetime_from_env(
     *env.list("EDCS_PROTOCOL_STUDY_CLOSE_DATETIME")
 )
+
+KEY_PATH = env.str("DJANGO_KEY_FOLDER")
+
+ETC_DIR = env.str("DJANGO_ETC_FOLDER")
+
+AUTO_CREATE_KEYS = env("DJANGO_AUTO_CREATE_KEYS")
 
 EMAIL_ENABLED = env("DJANGO_EMAIL_ENABLED")
 
