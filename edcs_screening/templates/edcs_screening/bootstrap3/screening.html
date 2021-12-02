@@ -1,0 +1,74 @@
+{% extends 'edcs_dashboard/bootstrap3/base.html' %}
+{% block main-content %}
+    <div class="workplace">
+            <a href="{% url screening_url %}" class="btn btn-sm btn-success tip" title="Screen Patient">
+                <span class="glyphicon glyphicon-plus glyphicon glyphicon-white"></span> Add Subject Screening
+            </a>
+
+            <div class="row">
+                <!-------------------- start screening patients --------------------->
+                <div class="col-md-12">
+                    <div class="head clearfix">
+                        <div class="isw-grid"></div>
+                        <h1>Screened Patients</h1>
+                        <ul class="buttons">
+                            <li><a href="#" class="isw-download"></a></li>
+                            <li><a href="#" class="isw-attachment"></a></li>
+                            <li>
+                                <a href="#" class="isw-settings"></a>
+                                <ul class="dd-list">
+                                    <li><a href="#"><span class="isw-plus"></span> New document</a></li>
+                                    <li><a href="#"><span class="isw-edit"></span> Edit</a></li>
+                                    <li><a href="#"><span class="isw-delete"></span> Delete</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="block-fluid">
+                        <table cellpadding="0" cellspacing="0" width="100%" class="table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th width="20%">Dashboard</th>
+                                <th width="10%">Screening ID</th>
+                                <th width="5%">Initials</th>
+                                <th width="5%">Age</th>
+                                <th width="15%">Condition</th>
+                                <th width="25%">Study ID</th>
+                                <th width="5%">User</th>
+                                <th width="25%">Modified</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#" class="btn btn-sm btn-default tip" title="Edit Screening">
+                                        <span class="glyphicon glyphicon-pencil glyphicon glyphicon-white"></span>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-warning tip" title="Open CRFs">
+                                        Consent <span class="glyphicon glyphicon-file glyphicon glyphicon-white"></span>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-info tip" title="Open CRFs">
+                                        Dashboard <span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span>
+                                    </a>
+                                </td>
+                                <td>SJYV-D5SF</td>
+                                <td>FLA</td>
+                                <td>30</td>
+                                <td>HIV</td>
+                                <td>101-258-00001-1</td>
+                                <td>frd</td>
+                                <td>2021-01-02</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-------------------- end screening patients --------------------->
+            </div>
+
+            <div class="dr"><span></span></div>
+
+        </div>
+{% endblock main-content %}

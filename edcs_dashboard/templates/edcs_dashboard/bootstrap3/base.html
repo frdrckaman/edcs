@@ -167,23 +167,11 @@
                                 <span class="isw-grid"></span><span class="text">Dashboard</span>
                             </a>
                         </li>
-                        <li class="openable">
-                            <a href="#">
-                                <span class="isw-empty_document"></span><span class="text">Add Screening</span>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a href="http://localhost:8000/admin/edcs_screening/subjectscreening/add/">
-                                        <span class="glyphicon glyphicon-plus"></span><span class="text">Add Screening</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://localhost:8000/admin/edcs_screening/subjectscreening/">
-                                        <span class="glyphicon glyphicon-th-list"></span><span class="text">Patients Screened</span>
-                                    </a>
-                                </li>
 
-                            </ul>
+                        <li>
+                            <a href="{% url 'edcs_screening:screening_dashboard' %}">
+                                <span class="isw-empty_document"></span><span class="text">Screening</span>
+                            </a>
                         </li>
                         <li>
                             <a href="{% url 'edcs_dashboard:enroll-list' %}">
