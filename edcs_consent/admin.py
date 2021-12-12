@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from edcs_consent.modeladmin_mixins import ModelAdminConsentMixin
-from edc_identifier import SubjectIdentifierError, is_subject_identifier_or_raise
+from edcs_identifier import SubjectIdentifierError, is_subject_identifier_or_raise
 from edcs_model_admin import SimpleHistoryAdmin, audit_fieldset_tuple
 # from edcs_model_admin.dashboard import ModelAdminSubjectDashboardMixin
 
