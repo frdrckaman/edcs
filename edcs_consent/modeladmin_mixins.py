@@ -2,7 +2,7 @@ from django.apps import apps as django_apps
 from django.conf import settings
 from django.contrib import admin
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
-from edc_identifier import SubjectIdentifierError, is_subject_identifier_or_raise
+from edcs_identifier import SubjectIdentifierError, is_subject_identifier_or_raise
 
 # from .actions import flag_as_verified_against_paper, unflag_as_verified_against_paper
 
