@@ -3,9 +3,10 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.utils.decorators import method_decorator
 from django.views.generic.base import TemplateView
 from edcs_screening.models import SubjectScreening
+from .screening_listboard import ListboardView
 
 
-class ScreeningDashboardView(TemplateView):
+class ScreeningDashboardView(ListboardView, TemplateView):
     template_name = f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/screening.html"
 
     def get_context_data(self, **kwargs):
