@@ -1,4 +1,4 @@
-from .listboard_view import ListboardView
+from edcs_dashboard.views.dashboard_list.listboard_view import ListboardView
 
 
 class ListboardView(ListboardView):
