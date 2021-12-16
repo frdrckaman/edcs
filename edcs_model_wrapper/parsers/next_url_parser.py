@@ -14,7 +14,7 @@ class NextUrlParser:
 
     """A class to set `next_url`.
 
-    `next_url` is  a qyerystring that follows the format of edc_model model
+    `next_url` is  a qyerystring that follows the format of edcs_model model
         admin mixin for redirecting the model admin on save
         to a url other than the default changelist.
         * Note: This is not a url but parameters need to reverse
