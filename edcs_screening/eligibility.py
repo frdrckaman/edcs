@@ -1,84 +1,80 @@
-from .age_evaluator import AgeEvaluator
-from .gender_evaluator import GenderEvaluator
+from django.utils.safestring import mark_safe
+from edcs_constants.constants import NO, TBD, YES
+from edcs_utils.date import get_utcnow
 
 
-class EligibilityError(Exception):
+class SubjectScreeningEligibilityError(Exception):
     pass
 
 
-class Eligibility:
+class EligibilityPartOneError(Exception):
+    pass
 
-    """Eligible if all criteria evaluate True.
 
-    Any key in `additional_criteria` has value True if eligible.
-    """
+class EligibilityPartTwoError(Exception):
+    pass
 
-    # default to M or F
-    gender_evaluator_cls = GenderEvaluator
 
-    # default to eligible if >=18
-    age_evaluator = AgeEvaluator(age_lower=18, age_lower_inclusive=True)
+class EligibilityPartThreeError(Exception):
+    pass
 
-    custom_reasons_dict: dict = {}
 
-    def __init__(
-        self,
-        age: int = None,
-        gender: str = None,
-        pregnant: bool = None,
-        breast_feeding: bool = None,
-        **additional_criteria,
-    ) -> None:
+def check_eligible_final(obj):
+    """Updates model instance fields `eligible` and `reasons_ineligible`."""
+    reasons_ineligible = []
 
-        self.criteria = dict(**additional_criteria)
-        if len(self.criteria) == 0:
-            raise EligibilityError("No criteria provided.")
+    if obj.unsuitable_for_study == YES:
+        obj.eligible = False
+        reasons_ineligible.append("Subject unsuitable")
+    else:
+        obj.eligible = True if calculate_eligible_final(obj) == YES else False
 
-        self.gender_evaluator = self.gender_evaluator_cls(
-            gender=gender, pregnant=pregnant, breast_feeding=breast_feeding
-        )
-        self.criteria.update(age=self.age_evaluator.eligible(age))
-        self.criteria.update(gender=self.gender_evaluator.eligible)
-
-        # hook for custom checks
-        self.criteria.update(**self.extra_eligibility_criteria)
-
-        # eligible if all criteria are True
-        self.eligible = all([v for v in self.criteria.values()])
-
-        if self.eligible:
-            self.reasons_ineligible = None
+    if obj.eligible:
+        obj.reasons_ineligible = None
+    else:
+        if obj.qualifying_condition == NO:
+            reasons_ineligible.append("No qualifying condition")
+        if obj.lives_nearby == NO:
+            reasons_ineligible.append("Not in catchment area")
+        if obj.requires_acute_care == YES:
+            reasons_ineligible.append("Requires acute care")
+        if reasons_ineligible:
+            obj.reasons_ineligible = "|".join(reasons_ineligible)
         else:
-            self.reasons_ineligible = {k: v for k, v in self.criteria.items() if not v}
-            for k, v in self.criteria.items():
-                if not v:
-                    if k in self.get_custom_reasons_dict():
-                        self.reasons_ineligible.update(
-                            {k: self.get_custom_reasons_dict().get(k)}
-                        )
-                    elif k not in ["age", "gender"]:
-                        self.reasons_ineligible.update({k: k})
-            if not self.age_evaluator.eligible(age):
-                self.reasons_ineligible.update(age=self.age_evaluator.reasons_ineligible)
-            if not self.gender_evaluator.eligible:
-                self.reasons_ineligible.update(
-                    gender=f"{' and '.join(self.gender_evaluator.reasons_ineligible)}."
-                )
+            obj.reasons_ineligible = None
+    obj.eligibility_datetime = get_utcnow()
 
-    def __str__(self):
-        return self.eligible
 
-    @property
-    def extra_eligibility_criteria(self) -> dict:
-        return {}
+def calculate_eligible_final(obj):
+    """Returns YES, NO or TBD."""
+    if (
+        obj.qualifying_condition in [YES, NO]
+        and obj.lives_nearby in [YES, NO]
+        and obj.requires_acute_care in [YES, NO]
+    ):
+        eligible = (
+            obj.qualifying_condition == YES
+            and obj.lives_nearby == YES
+            and obj.requires_acute_care == NO
+        )
+        return NO if not eligible else YES
+    return TBD
 
-    def get_custom_reasons_dict(self) -> dict:
-        """Returns a dictionary of custom reasons for named criteria."""
-        for k in self.custom_reasons_dict:
-            if k in self.custom_reasons_dict and k not in self.criteria:
-                raise EligibilityError(
-                    f"Custom reasons refer to invalid named criteria, Got '{k}'. "
-                    f"Expected one of {list(self.criteria)}. "
-                    f"See {repr(self)}."
-                )
-        return self.custom_reasons_dict
+
+def format_reasons_ineligible(*str_values):
+    reasons = None
+    str_values = [x for x in str_values if x is not None]
+    if str_values:
+        str_values = "".join(str_values)
+        reasons = mark_safe(str_values.replace("|", "<BR>"))
+    return reasons
+
+
+def eligibility_display_label(obj):
+    if obj.eligible:
+        display_label = "ELIGIBLE"
+    elif calculate_eligible_final == TBD:
+        display_label = "PENDING"
+    else:
+        display_label = "not eligible"
+    return display_label
