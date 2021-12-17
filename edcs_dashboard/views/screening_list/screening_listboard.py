@@ -6,7 +6,7 @@ from edcs_screening.models import SubjectScreening
 from ...model_wrappers import SubjectScreeningModelWrapper
 
 
-class ListboardView(ListboardView):
+class ScreeningListBoardView(ListboardView):
 
     listboard_url = "screening_listboard_url"
     listboard_model = "edcs_screening.subjectscreening"

@@ -1,6 +1,3 @@
-import uuid
-from pprint import pprint
-
 from django.apps import apps as django_apps
 from django.utils.translation import gettext as _
 

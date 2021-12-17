@@ -1,2 +1,2 @@
-from .screening_listboard import ListboardView
+from .screening_listboard import ScreeningListBoardView
 from .filters import ListboardViewFilters
