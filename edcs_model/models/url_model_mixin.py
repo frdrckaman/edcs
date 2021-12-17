@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from django.apps import apps as django_apps
 from django.contrib.admin import sites
 from django.db import models
@@ -10,7 +12,6 @@ class UrlModelMixinNoReverseMatch(Exception):
 
 
 class UrlModelMixin(models.Model):
-
     ADMIN_SITE_NAME = None  # default is '{app_label}_admin'
 
     def get_absolute_url(self) -> str:
@@ -27,6 +28,12 @@ class UrlModelMixin(models.Model):
                 f"app specific admin site."
             )
         return absolute_url
+
+    def admin_url(self, sid=None):
+        mode = "change" if sid else "add"
+        update_url = (f"{self.admin_site_name}:"
+                      f"{self._meta.app_label}_{self._meta.object_name.lower()}_{mode}")
+        return reverse(update_url, args=(str(sid),))
 
     @property
     def admin_url_name(self) -> str:
