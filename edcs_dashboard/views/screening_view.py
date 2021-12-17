@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic.base import TemplateView
-from edcs_dashboard.views.screening_list.screening_listboard import ScreeningListBoardView
+from .screening_list.screening_listboard import ScreeningListBoardView
 
 
 class ScreeningDashboardView(ScreeningListBoardView, TemplateView):

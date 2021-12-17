@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 from django import template
 from django.conf import settings
-from edc_constants.constants import NO, TBD, YES
+from edcs_constants.constants import NO, TBD, YES
 from edcs_dashboard.url_names import url_names
 
 from edcs_screening.eligibility import (
