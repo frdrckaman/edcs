@@ -37,34 +37,36 @@
                                 <th width="15%">Condition</th>
                                 <th width="25%">Study ID</th>
                                 <th width="5%">User</th>
-                                <th width="25%">Modified</th>
+                                <th width="25%">Report Date</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <a href="#" class="btn btn-sm btn-default tip" title="Edit Screening">
-                                        <span class="glyphicon glyphicon-pencil glyphicon glyphicon-white"></span>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-warning tip" title="Consent">
-                                        Consent <span class="glyphicon glyphicon-file glyphicon glyphicon-white"></span>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-danger tip" title="Eligibility">
-                                        Not Eligible <span class="glyphicon glyphicon-alert glyphicon glyphicon-white"></span>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-info tip" title="Open CRFs">
-                                        Dashboard <span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span>
-                                    </a>
-                                </td>
-                                <td>SJYV-D5SF</td>
-                                <td>FLA</td>
-                                <td>30</td>
-                                <td>HIV</td>
-                                <td>101-258-00001-1</td>
-                                <td>frd</td>
-                                <td>2021-01-02</td>
-                            </tr>
+                            {% for item in object_list  %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>
+                                        <a href="#" class="btn btn-sm btn-default tip" title="Edit Screening">
+                                            <span class="glyphicon glyphicon-pencil glyphicon glyphicon-white"></span>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-warning tip" title="Consent">
+                                            Consent <span class="glyphicon glyphicon-file glyphicon glyphicon-white"></span>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-danger tip" title="Eligibility">
+                                            Not Eligible <span class="glyphicon glyphicon-alert glyphicon glyphicon-white"></span>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-info tip" title="Open CRFs">
+                                            Dashboard <span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span>
+                                        </a>
+                                    </td>
+                                    <td>{{ item.screening_identifier }}</td>
+                                    <td>FLA</td>
+                                    <td>{{ item.age_in_years }}</td>
+                                    <td>HIV</td>
+                                    <td>101-258-00001-1</td>
+                                    <td>{{ item.user_created }}</td>
+                                    <td>{{ item.report_datetime }}</td>
+                                </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>
