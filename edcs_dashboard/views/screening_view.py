@@ -9,15 +9,6 @@ class ScreeningDashboardView(ListboardView, TemplateView):
 
     template_name = f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/screening.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context.update(
-            edcs_packages=["not available"],
-            third_party_packages=["not available"],
-            installed_apps=settings.INSTALLED_APPS,
-        )
-        return context
-
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
