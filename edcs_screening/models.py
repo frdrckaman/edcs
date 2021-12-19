@@ -1,4 +1,6 @@
+from django.core.validators import RegexValidator, MinLengthValidator, MaxLengthValidator
 from django.db import models
+from django_crypto_fields.fields import EncryptedCharField
 
 from edcs_constants.choices import YES_NO
 from edcs_model.models import BaseUuidModel
@@ -64,6 +66,15 @@ class SubjectScreening(
     hospital_id = models.CharField(
         verbose_name="Patients hospital identification number:",
         max_length=50,
+    )
+    initials = EncryptedCharField(
+        validators=[
+            RegexValidator("[A-Z]{1,3}", "Invalid format"),
+            MinLengthValidator(2),
+            MaxLengthValidator(3),
+        ],
+        help_text="Use UPPERCASE letters only. May be 2 or 3 letters.",
+        blank=False,
     )
     tb_diagnosis = models.CharField(
         verbose_name="Does the patient have a positive TB diagnosis?",

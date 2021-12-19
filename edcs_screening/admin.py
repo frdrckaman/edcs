@@ -28,7 +28,8 @@ class SubjectScreeningAdmin(SimpleHistoryAdmin):
                     "patient_know_dob",
                     "age_in_years",
                     "gender",
-                    "hospital_id"
+                    "hospital_id",
+                    "initials"
                 ),
             },
         ],
