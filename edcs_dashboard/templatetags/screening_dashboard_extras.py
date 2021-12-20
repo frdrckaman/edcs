@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from bs4 import BeautifulSoup
 from django import template
 from django.conf import settings
@@ -16,16 +18,13 @@ register = template.Library()
     f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"buttons/screening_button.html",
     takes_context=True,
 )
-def screening_button(context, model_wrapper):
+def screening_button(result):
     title = "Edit subject's screening form"
     return dict(
-        perms=context["perms"],
-        screening_identifier=model_wrapper.object.screening_identifier,
-        href=model_wrapper.href,
+        # perms=context["perms"],
+        screening_identifier=result.get('screening_identifier'),
+        href=result.get('href'),
         title=title,
-        YES=YES,
-        NO=NO,
-        TBD=TBD,
     )
 
 

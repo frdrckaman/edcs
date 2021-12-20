@@ -45,9 +45,10 @@
                                 <tr>
                                     <td>{{ forloop.counter }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-sm btn-default tip" title="Edit Screening">
-                                            <span class="glyphicon glyphicon-pencil glyphicon glyphicon-white"></span>
-                                        </a>
+{#                                        <a href="#" class="btn btn-sm btn-default tip" title="Edit Screening">#}
+{#                                            <span class="glyphicon glyphicon-pencil glyphicon glyphicon-white"></span>#}
+{#                                        </a>#}
+                                        {% screening_button item %}
                                         <a href="#" class="btn btn-sm btn-warning tip" title="Consent">
                                             Consent <span class="glyphicon glyphicon-file glyphicon glyphicon-white"></span>
                                         </a>
