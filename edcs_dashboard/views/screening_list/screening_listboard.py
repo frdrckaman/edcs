@@ -6,6 +6,7 @@ class ScreeningListBoardView(ListboardView):
     listboard_url = "screening_listboard_url"
     listboard_model = "edcs_screening.subjectscreening"
     ordering = "-report_datetime"
+    listboard_dashboard = "dashboard/screening/"
 
     # paginate_by = 10
 

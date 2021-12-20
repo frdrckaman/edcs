@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from django.apps import apps as django_apps
 from django.utils.translation import gettext as _
 
@@ -11,6 +13,7 @@ class BaseListboardView:
     empty_queryset_message = _("Nothing to display.")
     listboard_url = None  # an existing key in request.context_data
     listboard_back_url = None
+    listboard_dashboard = None
 
     listboard_model = None  # label_lower model name or model class
     listboard_model_manager_name = "_default_manager"
@@ -31,9 +34,12 @@ class BaseListboardView:
         data = obj.objects.all().order_by(self.ordering).values()
         if data is not None:
             for item in data:
-                item['href'] = self.listboard_model_cls().admin_url(item['id'])
+                item['href'] = self.next_url(self.listboard_model_cls().admin_url(item['id']))
                 values.append(item)
         return values
+
+    def next_url(self, href):
+        return '?next='.join([href, self.listboard_dashboard])
 
     @property
     def listboard_model_cls(self):
