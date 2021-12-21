@@ -2,13 +2,14 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 from django_audit_fields import audit_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
+from edcs_model_admin.model_admin_form_auto_number_mixin import ModelAdminFormAutoNumberMixin
 
 from .admin_site import edcs_screening_admin
 from .models import SubjectScreening
 
 
 @admin.register(SubjectScreening, site=edcs_screening_admin)
-class SubjectScreeningAdmin(SimpleHistoryAdmin):
+class SubjectScreeningAdmin(ModelAdminFormAutoNumberMixin, SimpleHistoryAdmin):
     fieldsets = (
         [
             None,

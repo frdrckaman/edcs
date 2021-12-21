@@ -18,7 +18,7 @@ register = template.Library()
     f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"buttons/screening_button.html",
     takes_context=True,
 )
-def screening_button(result):
+def screening_button(context, result):
     title = "Edit subject's screening form"
     return dict(
         # perms=context["perms"],
