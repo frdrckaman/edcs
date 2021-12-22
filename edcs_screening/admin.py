@@ -53,7 +53,6 @@ class SubjectScreeningAdmin(ModelAdminFormAutoNumberMixin, SimpleHistoryAdmin):
                     "weight_loss",
                     "abnormal_chest_xrays",
                     "non_resolving_infection",
-                    "family_diagnosed",
                     "malignancy",
                     "diagnosed_lung_cancer",
                 ),
@@ -98,7 +97,6 @@ class SubjectScreeningAdmin(ModelAdminFormAutoNumberMixin, SimpleHistoryAdmin):
         "weight_loss": admin.VERTICAL,
         "abnormal_chest_xrays": admin.VERTICAL,
         "non_resolving_infection": admin.VERTICAL,
-        "family_diagnosed": admin.VERTICAL,
         "malignancy": admin.VERTICAL,
         "diagnosed_lung_cancer": admin.VERTICAL,
     }

@@ -42,19 +42,6 @@ class SubjectScreening(
         verbose_name="District:",
         max_length=50,
     )
-    clinic = models.CharField(
-        verbose_name="Clinic patient is from?:",
-        max_length=50,
-        choices=CLINIC,
-        null=True,
-    )
-    patient_category = models.CharField(
-        verbose_name="Patient Category?:",
-        max_length=50,
-        choices=PATIENT_CATEGORY,
-        null=True,
-    )
-
     patient_know_dob = models.CharField(
         verbose_name="Does the patient know his/her date of birth?",
         choices=YES_NO,
@@ -63,7 +50,7 @@ class SubjectScreening(
     patient_dob = models.DateTimeField(
         verbose_name="What is patient date of birth?", null=True, editable=False
     )
-    hospital_id = models.CharField(
+    hospital_id = EncryptedCharField(
         verbose_name="Patients hospital identification number:",
         max_length=50,
     )
@@ -76,44 +63,21 @@ class SubjectScreening(
         help_text="Use UPPERCASE letters only. May be 2 or 3 letters.",
         blank=False,
     )
+    '''Exclusion criteria'''
     tb_diagnosis = models.CharField(
         verbose_name="Does the patient have a positive TB diagnosis?",
         max_length=25,
         choices=YES_NO,
     )
-
+    '''Exclusion criteria'''
+    malignancy = models.CharField(
+        verbose_name="Have you ever had any other malignancy? ",
+        max_length=25,
+        choices=YES_NO,
+    )
+    '''Exclusion criteria'''
     above_eighteen = models.CharField(
         verbose_name="Is the patient 18 years and above?",
-        max_length=25,
-        choices=YES_NO,
-    )
-    lung_cancer_suspect = models.CharField(
-        verbose_name="Has the patient been suspected to have lung cancer on the basis of clinical presentation?",
-        max_length=25,
-        choices=YES_NO,
-    )
-    cough = models.CharField(
-        verbose_name="Has the patient had cough that doesn't go away after 2 or 3 weeks?",
-        max_length=25,
-        choices=YES_NO,
-    )
-    long_standing_cough = models.CharField(
-        verbose_name="Has the patient had a long-standing cough that gets worse?",
-        max_length=25,
-        choices=YES_NO,
-    )
-    cough_blood = models.CharField(
-        verbose_name="Has the patient been coughing up blood or rust-colored sputum (spit or phlegm)?",
-        max_length=25,
-        choices=YES_NO,
-    )
-    chest_infections = models.CharField(
-        verbose_name="Has the patient had chest infections that keep coming back such as bronchitis, pneumonia?",
-        max_length=25,
-        choices=YES_NO,
-    )
-    chest_pain = models.CharField(
-        verbose_name="Has the patient had chest pain that is often worsen when breathing or coughing?",
         max_length=25,
         choices=YES_NO,
     )
@@ -152,17 +116,38 @@ class SubjectScreening(
         max_length=25,
         choices=YES_NO,
     )
-    family_diagnosed = models.CharField(
-        verbose_name="Has any member of your family been diagnosed with either breast cancer, colon cancer, "
-        "lung cancer, ovarian cancer, prostate cancer, thyroid or uterine cancer?",
+
+    lung_cancer_suspect = models.CharField(
+        verbose_name="Has the patient been suspected to have lung cancer on the basis of clinical presentation?",
         max_length=25,
         choices=YES_NO,
     )
-    malignancy = models.CharField(
-        verbose_name="Have you ever had any other malignancy? ",
+    cough = models.CharField(
+        verbose_name="Has the patient had cough that doesn't go away after 2 or 3 weeks?",
         max_length=25,
         choices=YES_NO,
     )
+    long_standing_cough = models.CharField(
+        verbose_name="Has the patient had a long-standing cough that gets worse?",
+        max_length=25,
+        choices=YES_NO,
+    )
+    cough_blood = models.CharField(
+        verbose_name="Has the patient been coughing up blood or rust-colored sputum (spit or phlegm)?",
+        max_length=25,
+        choices=YES_NO,
+    )
+    chest_infections = models.CharField(
+        verbose_name="Has the patient had chest infections that keep coming back such as bronchitis, pneumonia?",
+        max_length=25,
+        choices=YES_NO,
+    )
+    chest_pain = models.CharField(
+        verbose_name="Has the patient had chest pain that is often worsen when breathing or coughing?",
+        max_length=25,
+        choices=YES_NO,
+    )
+    '''Exclusion criteria'''
     diagnosed_lung_cancer = models.CharField(
         verbose_name="Have you ever been diagnosed with lung cancer?",
         max_length=25,

@@ -49,7 +49,8 @@ class ScreeningFieldsModeMixin(SiteModelMixin, models.Model):
     gender = models.CharField(choices=GENDER, max_length=10)
 
     age_in_years = models.IntegerField(
-        validators=[MinValueValidator(0), MaxValueValidator(110)]
+        validators=[MinValueValidator(0), MaxValueValidator(110)],
+        help_text="Estimated age  in years if patient doesn’t know",
     )
 
     eligible = models.BooleanField(default=False, editable=False)
