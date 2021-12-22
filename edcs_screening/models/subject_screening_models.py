@@ -7,8 +7,6 @@ from edcs_model.models import BaseUuidModel
 from edcs_screening.model_mixins import ScreeningModelMixin
 from edcs_screening.screening_identifier import ScreeningIdentifier
 
-from .choices import CLINIC, PATIENT_CATEGORY
-
 # from ..eligibility import check_eligible_final
 
 

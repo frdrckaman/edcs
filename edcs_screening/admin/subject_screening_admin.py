@@ -4,8 +4,8 @@ from django_audit_fields import audit_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 from edcs_model_admin.model_admin_form_auto_number_mixin import ModelAdminFormAutoNumberMixin
 
-from .admin_site import edcs_screening_admin
-from .models import SubjectScreening
+from edcs_screening.admin_site import edcs_screening_admin
+from edcs_screening.models import SubjectScreening
 
 
 @admin.register(SubjectScreening, site=edcs_screening_admin)
