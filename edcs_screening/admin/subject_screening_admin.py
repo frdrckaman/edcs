@@ -5,11 +5,13 @@ from edcs_model_admin import SimpleHistoryAdmin
 from edcs_model_admin.model_admin_form_auto_number_mixin import ModelAdminFormAutoNumberMixin
 
 from edcs_screening.admin_site import edcs_screening_admin
+from edcs_screening.forms.subject_screening_form import SubjectScreeningForm
 from edcs_screening.models import SubjectScreening
 
 
 @admin.register(SubjectScreening, site=edcs_screening_admin)
 class SubjectScreeningAdmin(ModelAdminFormAutoNumberMixin, SimpleHistoryAdmin):
+    form = SubjectScreeningForm
     fieldsets = (
         [
             None,
@@ -27,6 +29,7 @@ class SubjectScreeningAdmin(ModelAdminFormAutoNumberMixin, SimpleHistoryAdmin):
                     "region",
                     "district",
                     "patient_know_dob",
+                    "patient_dob",
                     "age_in_years",
                     "gender",
                     "hospital_id",

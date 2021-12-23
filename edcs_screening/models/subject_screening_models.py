@@ -45,12 +45,15 @@ class SubjectScreening(
         choices=YES_NO,
         max_length=50,
     )
-    patient_dob = models.DateTimeField(
-        verbose_name="What is patient date of birth?", null=True, editable=False
+    patient_dob = models.DateField(
+        verbose_name="What is patient date of birth?",
+        null=True,
+        blank=True,
     )
     hospital_id = EncryptedCharField(
         verbose_name="Patients hospital identification number:",
         max_length=50,
+        blank=False,
     )
     initials = EncryptedCharField(
         validators=[
