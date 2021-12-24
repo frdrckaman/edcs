@@ -53,6 +53,41 @@ class ScreeningFieldsModeMixin(SiteModelMixin, models.Model):
         help_text="Estimated age  in years if patient doesn’t know",
     )
 
+    consent_ability = models.CharField(
+        verbose_name="Participant or legal guardian/representative able and "
+                     "willing to give informed consent.",
+        max_length=25,
+        choices=YES_NO,
+    )
+
+    unsuitable_for_study = models.CharField(
+        verbose_name=(
+            "Is there any other reason the patient is "
+            "deemed to not be suitable for the study?"
+        ),
+        max_length=5,
+        choices=YES_NO,
+        default=NO,
+        help_text="If YES, patient NOT eligible, please give reason below.",
+    )
+
+    reasons_unsuitable = models.TextField(
+        verbose_name="Reason not suitable for the study",
+        max_length=150,
+        null=True,
+        blank=True,
+    )
+
+    unsuitable_agreed = models.CharField(
+        verbose_name=(
+            "Does the study coordinator agree that the patient "
+            "is not suitable for the study?"
+        ),
+        max_length=5,
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE,
+    )
+
     eligible = models.BooleanField(default=False, editable=False)
 
     reasons_ineligible = models.TextField(

@@ -23,21 +23,21 @@ def check_eligible_final(obj):
     """Updates model instance fields `eligible` and `reasons_ineligible`."""
     reasons_ineligible = []
 
-    if obj.unsuitable_for_study == YES:
+    if obj.tb_diagnosis == YES or obj.malignancy == YES or obj.diagnosed_lung_cancer == YES:
         obj.eligible = False
-        reasons_ineligible.append("Subject unsuitable")
+        # reasons_ineligible.append("Subject unsuitable")
     else:
         obj.eligible = True if calculate_eligible_final(obj) == YES else False
 
     if obj.eligible:
         obj.reasons_ineligible = None
     else:
-        if obj.qualifying_condition == NO:
-            reasons_ineligible.append("No qualifying condition")
-        if obj.lives_nearby == NO:
-            reasons_ineligible.append("Not in catchment area")
-        if obj.requires_acute_care == YES:
-            reasons_ineligible.append("Requires acute care")
+        if obj.tb_diagnosis == YES:
+            reasons_ineligible.append("Patient have a positive TB diagnosis")
+        if obj.malignancy == YES:
+            reasons_ineligible.append("Patient had malignancy")
+        if obj.diagnosed_lung_cancer == YES:
+            reasons_ineligible.append("Patient diagnosed with lung cancer")
         if reasons_ineligible:
             obj.reasons_ineligible = "|".join(reasons_ineligible)
         else:
@@ -48,14 +48,22 @@ def check_eligible_final(obj):
 def calculate_eligible_final(obj):
     """Returns YES, NO or TBD."""
     if (
-        obj.qualifying_condition in [YES, NO]
-        and obj.lives_nearby in [YES, NO]
-        and obj.requires_acute_care in [YES, NO]
+        obj.abnormal_chest_xrays in [YES, NO]
+        and obj.non_resolving_infection in [YES, NO]
+        and obj.lung_cancer_suspect in [YES, NO]
+        and obj.cough in [YES, NO]
+        and obj.long_standing_cough in [YES, NO]
+        and obj.cough_blood in [YES, NO]
+        and obj.chest_infections in [YES, NO]
     ):
         eligible = (
-            obj.qualifying_condition == YES
-            and obj.lives_nearby == YES
-            and obj.requires_acute_care == NO
+            obj.abnormal_chest_xrays == YES
+            and obj.non_resolving_infection == YES
+            and obj.lung_cancer_suspect == YES
+            and obj.cough == YES
+            and obj.long_standing_cough == YES
+            and obj.cough_blood == YES
+            and obj.chest_infections == YES
         )
         return NO if not eligible else YES
     return TBD

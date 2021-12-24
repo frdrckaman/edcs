@@ -28,6 +28,7 @@ def screening_button(context, result):
     )
 
 
+# TODO convert result into object instead of the list
 @register.inclusion_tag(
     f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"buttons/eligibility_button.html"
 )

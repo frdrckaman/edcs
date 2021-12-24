@@ -7,7 +7,7 @@ from edcs_model.models import BaseUuidModel
 from edcs_screening.model_mixins import ScreeningModelMixin
 from edcs_screening.screening_identifier import ScreeningIdentifier
 
-# from ..eligibility import check_eligible_final
+from ..eligibility import check_eligible_final
 
 
 class SubjectScreeningModelError(Exception):
@@ -154,6 +154,10 @@ class SubjectScreening(
         max_length=25,
         choices=YES_NO,
     )
+
+    def save(self, *args, **kwargs):
+        check_eligible_final(self)
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = "Subject Screening"
