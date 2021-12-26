@@ -46,16 +46,9 @@
                                     <td>{{ forloop.counter }}</td>
                                     <td>
                                         {% screening_button item %}
-{#                                        {% screening_button item %}#}
-                                        <a href="#" class="btn btn-sm btn-warning tip" title="Consent">
-                                            Consent <span class="glyphicon glyphicon-file glyphicon glyphicon-white"></span>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-danger tip" title="Eligibility">
-                                            Not Eligible <span class="glyphicon glyphicon-alert glyphicon glyphicon-white"></span>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-info tip" title="Open CRFs">
-                                            Dashboard <span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span>
-                                        </a>
+                                        {% eligibility_button item %}
+                                        {% add_consent_button item %}
+                                        {% dashboard_button item %}
                                     </td>
                                     <td>{{ item.screening_identifier }}</td>
                                     <td>{{ item.initials }}</td>

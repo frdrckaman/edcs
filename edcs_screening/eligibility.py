@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from django.utils.safestring import mark_safe
 from edcs_constants.constants import NO, TBD, YES
 from edcs_utils.date import get_utcnow
@@ -79,10 +81,14 @@ def format_reasons_ineligible(*str_values):
 
 
 def eligibility_display_label(obj):
+    # pprint(obj.eligible)
     if obj.eligible:
         display_label = "ELIGIBLE"
+        pprint('frd')
     elif calculate_eligible_final == TBD:
         display_label = "PENDING"
+        pprint('rck')
     else:
-        display_label = "not eligible"
+        display_label = "Not eligible"
+    pprint(display_label)
     return display_label

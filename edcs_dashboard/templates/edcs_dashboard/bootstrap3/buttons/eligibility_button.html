@@ -1,3 +1,5 @@
-<a href="#" class="btn btn-sm btn-danger tip" title="Eligibility">
-    Not Eligible <span class="glyphicon glyphicon-alert glyphicon glyphicon-white"></span>
-</a>
+{% if not eligible %}
+    <a href="#" class="btn btn-sm btn-danger tip" title="{{ comment }}">
+        {{ display_label }} <span class="glyphicon glyphicon-alert glyphicon glyphicon-white"></span>
+    </a>
+{% endif %}

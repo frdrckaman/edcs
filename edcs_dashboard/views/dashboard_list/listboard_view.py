@@ -63,3 +63,8 @@ class ListboardView(BaseListboardView):
     @classmethod
     def get_urlname(cls):
         return cls.listboard_url
+
+
+class Struct:
+    def __init__(self, **entries):
+        self.__dict__.update(entries)
