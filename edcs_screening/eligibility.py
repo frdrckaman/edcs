@@ -81,14 +81,10 @@ def format_reasons_ineligible(*str_values):
 
 
 def eligibility_display_label(obj):
-    # pprint(obj.eligible)
     if obj.eligible:
         display_label = "ELIGIBLE"
-        pprint('frd')
     elif calculate_eligible_final == TBD:
         display_label = "PENDING"
-        pprint('rck')
     else:
         display_label = "Not eligible"
-    pprint(display_label)
     return display_label
