@@ -35,6 +35,7 @@ class BaseListboardView:
         if data is not None:
             for item in data:
                 item['href'] = self.next_url(self.listboard_model_cls().admin_url(item['id']))
+                pprint(item['href'])
                 values.append(item)
         return values
 

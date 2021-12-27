@@ -1,4 +1,8 @@
+from pprint import pprint
+
 from django.contrib import admin
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.utils.safestring import mark_safe
 from django_audit_fields import audit_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
@@ -106,6 +110,16 @@ class SubjectScreeningAdmin(ModelAdminFormAutoNumberMixin, SimpleHistoryAdmin):
 
     def post_url_on_delete_kwargs(self, request, obj):
         return {}
+
+    def response_post_save_change(self, request, obj):
+        # return render(request, 'edcs_dashboard/bootstrap3/screening.html')
+        next = request.GET.get('next', None)
+        pprint(next)
+        return redirect('/dashboard/screening/')
+        # self.request = next
+        # pprint(request)
+        # return HttpResponseRedirect(next)
+        # # pprint(next)
 
     def demographics(self, obj=None):
         return mark_safe(

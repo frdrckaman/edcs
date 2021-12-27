@@ -45,6 +45,7 @@
                                 <tr>
                                     <td>{{ forloop.counter }}</td>
                                     <td>
+                                        <!-- optimize this instead of entering item everytime -->
                                         {% screening_button item %}
                                         {% eligibility_button item %}
                                         {% add_consent_button item %}
