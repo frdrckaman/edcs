@@ -1,4 +1,4 @@
-from django.urls.conf import re_path, path
+from django.urls.conf import path
 
 from edcs_dashboard.views import HomeView
 from .admin_site import edcs_export_admin

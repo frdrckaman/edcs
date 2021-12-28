@@ -78,6 +78,7 @@ INSTALLED_APPS = [
     "edcs_subject.apps.AppConfig",
     "edcs_consent.apps.AppConfig",
     # 'edcs_utils.apps.EdcsUtilsConfig',
+    "edcs_registration.apps.AppConfig",
     "edcs_notification.apps.AppConfig",
     "edcs_export.apps.AppConfig",
     "edcs_sites.apps.AppConfig",

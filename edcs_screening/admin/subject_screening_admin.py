@@ -10,6 +10,7 @@ from edcs_model_admin.model_admin_form_auto_number_mixin import ModelAdminFormAu
 from edcs_screening.admin_site import edcs_screening_admin
 from edcs_screening.forms.subject_screening_form import SubjectScreeningForm
 from edcs_screening.models import SubjectScreening
+# from edcs_model_admin.dashboard import ModelAdminSubjectDashboardMixin
 
 
 @admin.register(SubjectScreening, site=edcs_screening_admin)

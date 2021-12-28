@@ -17,9 +17,9 @@ class TemplatesModelAdminMixin:
 
     show_object_tools = False
 
-    add_form_template = "edcs_model_admin/admin/change_form.html"
-    change_form_template = "edcs_model_admin/admin/change_form.html"
-    change_list_template = "edcs_model_admin/admin/change_list.html"
+    # add_form_template = "edcs_model_admin/admin/change_form.html"
+    # change_form_template = "edcs_model_admin/admin/change_form.html"
+    # change_list_template = "edcs_model_admin/admin/change_list.html"
 
     def changelist_view(self, request, extra_context=None):
         extra_context = {} if not extra_context else extra_context
