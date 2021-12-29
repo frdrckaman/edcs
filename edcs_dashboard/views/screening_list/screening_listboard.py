@@ -13,8 +13,9 @@ class ScreeningListBoardView(ListboardView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(
-            subject_screening_add_url=self.get_subject_screening_add_url(),
+            subject_screening_add_url=self.next_add_screening,
             object_list=self.object_list(SubjectScreening),
+            # add_screening=
         )
         return context
 
@@ -24,3 +25,8 @@ class ScreeningListBoardView(ListboardView):
     @property
     def screening_data(self):
         return SubjectScreening.objects.all().order_by(self.ordering).values()
+
+    @property
+    def next_add_screening(self):
+        nxt = '?next='.join([self.get_subject_screening_add_url(), self.listboard_dashboard])
+        return nxt

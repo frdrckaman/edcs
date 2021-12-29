@@ -108,18 +108,23 @@ class SubjectScreeningAdmin(ModelAdminFormAutoNumberMixin, SimpleHistoryAdmin):
         "diagnosed_lung_cancer": admin.VERTICAL,
     }
 
-    def post_url_on_delete_kwargs(self, request, obj):
-        return {}
+    def response_post_save_add(self, request, obj):
+        next = request.GET.get('next', None)
+        self.clear_message(request)
+        return redirect(next)
 
     def response_post_save_change(self, request, obj):
         next = request.GET.get('next', None)
-        storage = messages.get_messages(request)
-        for message in storage:
-            pass
-        storage.used = True
+        self.clear_message(request)
         return redirect(next)
 
     def demographics(self, obj=None):
         return mark_safe(
             f"{obj.get_gender_display()} {obj.age_in_years}yrs "
         )
+
+    def clear_message(self, request):
+        storage = messages.get_messages(request)
+        for msg in storage:
+            pass
+        storage.used = True
