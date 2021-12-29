@@ -1,6 +1,6 @@
 from pprint import pprint
 
-from django.contrib import admin
+from django.contrib import admin, messages
 from django.shortcuts import redirect
 from django.utils.safestring import mark_safe
 from django_audit_fields import audit_fieldset_tuple
@@ -10,7 +10,7 @@ from edcs_model_admin.model_admin_form_auto_number_mixin import ModelAdminFormAu
 from edcs_screening.admin_site import edcs_screening_admin
 from edcs_screening.forms.subject_screening_form import SubjectScreeningForm
 from edcs_screening.models import SubjectScreening
-# from edcs_model_admin.dashboard import ModelAdminSubjectDashboardMixin
+from edcs_model_admin.dashboard import ModelAdminSubjectDashboardMixin
 
 
 @admin.register(SubjectScreening, site=edcs_screening_admin)
@@ -113,6 +113,10 @@ class SubjectScreeningAdmin(ModelAdminFormAutoNumberMixin, SimpleHistoryAdmin):
 
     def response_post_save_change(self, request, obj):
         next = request.GET.get('next', None)
+        storage = messages.get_messages(request)
+        for message in storage:
+            pass
+        storage.used = True
         return redirect(next)
 
     def demographics(self, obj=None):

@@ -34,13 +34,12 @@ class BaseListboardView:
         data = obj.objects.all().order_by(self.ordering).values()
         if data is not None:
             for item in data:
-                item['href'] = self.next_url(self.listboard_model_cls().admin_url(item['id']))
-                pprint(item['href'])
+                item['href'] = self.next_url(self.listboard_model_cls().admin_url(item['id']), item['screening_identifier'])
                 values.append(item)
         return values
 
-    def next_url(self, href):
-        return '?next='.join([href, self.listboard_dashboard])
+    def next_url(self, href, screening_identifier):
+        return '?next='.join([href, self.listboard_dashboard + '&screening_identifier=' + screening_identifier])
 
     @property
     def listboard_model_cls(self):

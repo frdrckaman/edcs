@@ -35,19 +35,21 @@ class ModelAdminSubjectDashboardMixin(
     date_hierarchy = "modified"
     empty_value_display = "-"
     list_per_page = 10
-    subject_dashboard_url_name = "subject_dashboard_url"
-    subject_listboard_url_name = "subject_listboard_url"
+    subject_dashboard_url_name = "edcs_dashboard:screening_dashboard"
+    subject_listboard_url_name = "edcs_dashboard:screening_dashboard"
     show_cancel = True
     show_dashboard_in_list_display_pos = None
 
     def get_subject_dashboard_url_name(self):
-        return url_names.get(self.subject_dashboard_url_name)
+        # return url_names.get(self.subject_dashboard_url_name)
+        return self.subject_dashboard_url_name
 
     def get_subject_dashboard_url_kwargs(self, obj):
         return dict(subject_identifier=obj.subject_identifier)
 
     def get_subject_listboard_url_name(self):
-        return url_names.get(self.subject_listboard_url_name)
+        # return url_names.get(self.subject_listboard_url_name)
+        return self.subject_listboard_url_name
 
     def get_post_url_on_delete_name(self, *args):
         return self.get_subject_dashboard_url_name()
@@ -56,12 +58,13 @@ class ModelAdminSubjectDashboardMixin(
         return self.get_subject_dashboard_url_kwargs(obj)
 
     def dashboard(self, obj=None, label=None):
+        pass
         url = reverse(
             self.get_subject_dashboard_url_name(),
             kwargs=self.get_subject_dashboard_url_kwargs(obj),
         )
         context = dict(title=_("Go to subject's dashboard"), url=url, label=label)
-        return render_to_string("dashboard_button.html", context=context)
+        return render_to_string("", context=context)
 
     def get_list_display(self, request):
         list_display = super().get_list_display(request)
