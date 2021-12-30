@@ -5,6 +5,7 @@ from edcs_screening.models import SubjectScreening
 class ScreeningListBoardView(ListboardView):
     listboard_url = "screening_listboard_url"
     listboard_model = "edcs_screening.subjectscreening"
+    model_consent = "edcs_consent.subjectconsent"
     ordering = "-report_datetime"
     listboard_dashboard = "edcs_dashboard:screening_dashboard"
 
@@ -21,6 +22,9 @@ class ScreeningListBoardView(ListboardView):
 
     def get_subject_screening_add_url(self):
         return self.listboard_model_cls().get_absolute_url()
+
+    def get_subject_consent_add_url(self):
+        return self.listboard_model_consent().get_absolute_url()
 
     @property
     def screening_data(self):

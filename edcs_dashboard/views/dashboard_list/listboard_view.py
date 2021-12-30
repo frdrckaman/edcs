@@ -16,6 +16,7 @@ class BaseListboardView:
     listboard_dashboard = None
 
     listboard_model = None  # label_lower model name or model class
+    model_consent = None
     listboard_model_manager_name = "_default_manager"
 
     model_wrapper_cls = None
@@ -35,6 +36,7 @@ class BaseListboardView:
         if data is not None:
             for item in data:
                 item['href'] = self.next_url(self.listboard_model_cls().admin_url(item['id']), item['screening_identifier'])
+                item['subject_consent_add_url'] = self.next_url(self.listboard_model_consent().get_absolute_url(), item['screening_identifier'])
                 values.append(item)
         return values
 
@@ -55,6 +57,17 @@ class BaseListboardView:
             return django_apps.get_model(self.listboard_model)
         except (ValueError, AttributeError):
             return self.listboard_model
+
+    @property
+    def listboard_model_consent(self):
+        if not self.model_consent:
+            raise ListboardViewError(
+                f"Listboard consent model not declared. Got None. See {repr(self)}"
+            )
+        try:
+            return django_apps.get_model(self.model_consent)
+        except (ValueError, AttributeError):
+            return self.model_consent
 
 
 class ListboardView(BaseListboardView):

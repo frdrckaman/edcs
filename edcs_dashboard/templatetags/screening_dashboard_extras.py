@@ -65,6 +65,7 @@ def add_consent_button(context, result):
         eligible=obj.eligible,
         perms=context["perms"],
         screening_identifier=obj.screening_identifier,
+        subject_consent_add_url=obj.subject_consent_add_url,
         consented=obj.consented,
         href='',
         consent_version='',
