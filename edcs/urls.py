@@ -7,7 +7,7 @@ from edcs_identifier.admin_site import edcs_identifier_admin
 from edcs_notification.admin_site import edcs_notification_admin
 from edcs_screening.admin_site import edcs_screening_admin
 from edcs_subject.admin_site import edcs_subject_admin
-from edcs_consent.admin import edcs_consent_admin
+from edcs_consent.admin_site import edcs_consent_admin
 from edcs_registration.admin import edcs_registration_admin
 
 urlpatterns = [
