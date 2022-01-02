@@ -38,28 +38,29 @@ class ConsentModelFormMixin(BaseModelForm):
         if consent_datetime:
             options = dict(
                 consent_model=self._meta.model._meta.label_lower,
-                consent_group=self._meta.model._meta.consent_group,
+                # consent_group=self._meta.model._meta.consent_group,
                 report_datetime=consent_datetime,
             )
-            consent = site_consents.get_consent(**options)
-            if consent.updates_versions:
-                ConsentHelper(
-                    model_cls=self._meta.model,
-                    update_previous=False,
-                    **cleaned_data,
-                )
+            # consent = site_consents.get_consent(**options)
+            # if consent.updates_versions:
+            #     ConsentHelper(
+            #         model_cls=self._meta.model,
+            #         update_previous=False,
+            #         **cleaned_data,
+            #     )
         return cleaned_data
 
     @property
     def consent_config(self):
         cleaned_data = self.cleaned_data
         try:
-            consent_config = site_consents.get_consent(
-                report_datetime=cleaned_data.get("consent_datetime")
-                or self.instance.consent_datetime,
-                consent_model=self._meta.model._meta.label_lower,
-                consent_group=self._meta.model._meta.consent_group,
-            )
+            # consent_config = site_consents.get_consent(
+            #     report_datetime=cleaned_data.get("consent_datetime")
+            #     or self.instance.consent_datetime,
+            #     consent_model=self._meta.model._meta.label_lower,
+            #     # consent_group=self._meta.model._meta.consent_group,
+            # )
+            consent_config = cleaned_data
         except (ConsentObjectDoesNotExist, SiteConsentError) as e:
             raise forms.ValidationError(e)
         return consent_config
@@ -87,23 +88,25 @@ class ConsentModelFormMixin(BaseModelForm):
 
     def validate_min_age(self) -> None:
         if self.age:
-            if self.age.years < self.consent_config.age_min:
-                raise forms.ValidationError(
-                    "Subject's age is %(age)s. Subject is not eligible for "
-                    "consent. Minimum age of consent is %(min)s.",
-                    params={"age": self.age.years, "min": self.consent_config.age_min},
-                    code="invalid",
-                )
+            pass
+            # if self.age.years < self.consent_config.age_min:
+            #     raise forms.ValidationError(
+            #         "Subject's age is %(age)s. Subject is not eligible for "
+            #         "consent. Minimum age of consent is %(min)s.",
+            #         params={"age": self.age.years, "min": self.consent_config.age_min},
+            #         code="invalid",
+            #     )
 
     def validate_max_age(self) -> None:
         if self.age:
-            if self.age.years > self.consent_config.age_max:
-                raise forms.ValidationError(
-                    "Subject's age is %(age)s. Subject is not eligible for "
-                    "consent. Maximum age of consent is %(max)s.",
-                    params={"age": self.age.years, "max": self.consent_config.age_max},
-                    code="invalid",
-                )
+            pass
+            # if self.age.years > self.consent_config.age_max:
+            #     raise forms.ValidationError(
+            #         "Subject's age is %(age)s. Subject is not eligible for "
+            #         "consent. Maximum age of consent is %(max)s.",
+            #         params={"age": self.age.years, "max": self.consent_config.age_max},
+            #         code="invalid",
+            #     )
 
     def clean_with_registered_subject(self) -> None:
         cleaned_data = self.cleaned_data

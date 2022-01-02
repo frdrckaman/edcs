@@ -7,7 +7,7 @@ from .utils import get_registered_subject_model_cls
 
 
 @admin.register(get_registered_subject_model_cls(), site=edcs_registration_admin)
-class RegisteredSubjectAdmin(RegisteredSubjectModelAdminMixin, SimpleHistoryAdmin):
+class RegisteredSubjectAdmin(SimpleHistoryAdmin):
 
     ordering = ("subject_identifier",)
 

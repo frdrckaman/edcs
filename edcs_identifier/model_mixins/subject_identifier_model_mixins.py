@@ -75,7 +75,7 @@ class SubjectIdentifierMethodsModelMixin(models.Model):
     @property
     def registered_subject_model_cls(self):
         """Returns the registered subject model class."""
-        return django_apps.get_model("edc_registration.registeredsubject")
+        return django_apps.get_model("edcs_registration.registeredsubject")
 
     def get_or_create_identifier(self) -> str:
         """Returns a subject identifier either by retrieving and

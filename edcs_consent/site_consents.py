@@ -5,7 +5,7 @@ from django.apps import apps as django_apps
 from django.conf import settings
 from django.core.management.color import color_style
 from django.utils.module_loading import import_module, module_has_submodule
-from edc_utils import convert_php_dateformat
+from edcs_utils import convert_php_dateformat
 
 from .consent_object_validator import ConsentObjectValidator
 from .exceptions import ConsentObjectDoesNotExist
@@ -59,7 +59,7 @@ class SiteConsents:
                 f"No consent objects have been registered by site consents. "
                 f"Got {self.consents}, loaded={self.loaded}."
             )
-        app_config = django_apps.get_app_config("edc_consent")
+        app_config = django_apps.get_app_config("edcs_consent")
         consent_group = consent_group or app_config.default_consent_group
         registered_consents = self.registry.values()
         registered_consents = [
@@ -89,52 +89,53 @@ class SiteConsents:
         version=None,
         consent_group=None,
     ):
+        pass
         """Return consent object, not model, valid for the datetime."""
-        app_config = django_apps.get_app_config("edc_consent")
-        consent_group = consent_group or app_config.default_consent_group
-        registered_consents = self.registry.values()
-        if consent_group:
-            registered_consents = [c for c in registered_consents if c.group == consent_group]
-        if not registered_consents:
-            raise ConsentObjectDoesNotExist(
-                f"No matching consent in site consents. " f"Got consent_group={consent_group}."
-            )
-        if version:
-            registered_consents = [c for c in registered_consents if c.version == version]
-        if not registered_consents:
-            raise ConsentObjectDoesNotExist(
-                f"No matching consent in site consents. "
-                f"Got consent_group={consent_group}, version={version}."
-            )
-        if consent_model:
-            registered_consents = [c for c in registered_consents if c.model == consent_model]
-        if not registered_consents:
-            raise ConsentObjectDoesNotExist(
-                f"No matching consent in site consents. "
-                f"Got consent_group={consent_group}, version={version}, "
-                f"model={consent_model}."
-            )
-        registered_consents = [
-            c for c in registered_consents if c.start <= report_datetime <= c.end
-        ]
-        if not registered_consents:
-            raise ConsentObjectDoesNotExist(
-                f"No matching consent in site consents. "
-                f"Got consent_group={consent_group}, version={version}, "
-                f"model={consent_model}, report_datetime={report_datetime}."
-            )
-        elif len(registered_consents) > 1:
-            consents = list(set([c.name for c in registered_consents]))
-            formatted_report_datetime = report_datetime.strftime(
-                convert_php_dateformat(settings.SHORT_DATE_FORMAT)
-            )
-            raise ConsentError(
-                f"Multiple consents found, using consent model={consent_model}, "
-                f"date={formatted_report_datetime}, "
-                f"consent_group={consent_group}, version={version}. "
-                f"Got {consents}"
-            )
-        return registered_consents[0]
+        # app_config = django_apps.get_app_config("edcs_consent")
+        # consent_group = consent_group or app_config.default_consent_group
+        # registered_consents = self.registry.values()
+        # if consent_group:
+        #     registered_consents = [c for c in registered_consents if c.group == consent_group]
+        # if not registered_consents:
+        #     raise ConsentObjectDoesNotExist(
+        #         f"No matching consent in site consents. " f"Got consent_group={consent_group}."
+        #     )
+        # if version:
+        #     registered_consents = [c for c in registered_consents if c.version == version]
+        # if not registered_consents:
+        #     raise ConsentObjectDoesNotExist(
+        #         f"No matching consent in site consents. "
+        #         f"Got consent_group={consent_group}, version={version}."
+        #     )
+        # if consent_model:
+        #     registered_consents = [c for c in registered_consents if c.model == consent_model]
+        # if not registered_consents:
+        #     raise ConsentObjectDoesNotExist(
+        #         f"No matching consent in site consents. "
+        #         f"Got consent_group={consent_group}, version={version}, "
+        #         f"model={consent_model}."
+        #     )
+        # registered_consents = [
+        #     c for c in registered_consents if c.start <= report_datetime <= c.end
+        # ]
+        # if not registered_consents:
+        #     raise ConsentObjectDoesNotExist(
+        #         f"No matching consent in site consents. "
+        #         f"Got consent_group={consent_group}, version={version}, "
+        #         f"model={consent_model}, report_datetime={report_datetime}."
+        #     )
+        # elif len(registered_consents) > 1:
+        #     consents = list(set([c.name for c in registered_consents]))
+        #     formatted_report_datetime = report_datetime.strftime(
+        #         convert_php_dateformat(settings.SHORT_DATE_FORMAT)
+        #     )
+        #     raise ConsentError(
+        #         f"Multiple consents found, using consent model={consent_model}, "
+        #         f"date={formatted_report_datetime}, "
+        #         f"consent_group={consent_group}, version={version}. "
+        #         f"Got {consents}"
+        #     )
+        # return registered_consents[0]
 
     @staticmethod
     def autodiscover(module_name=None, verbose=True):

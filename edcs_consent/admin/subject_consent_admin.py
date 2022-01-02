@@ -4,10 +4,9 @@ from edcs_consent.modeladmin_mixins import ModelAdminConsentMixin
 from edcs_model_admin.model_admin_form_auto_number_mixin import ModelAdminFormAutoNumberMixin
 from edcs_identifier import SubjectIdentifierError, is_subject_identifier_or_raise
 from edcs_model_admin import SimpleHistoryAdmin, audit_fieldset_tuple
-
 from edcs_screening.models import SubjectScreening
-
 from ..admin_site import edcs_consent_admin
+from ..forms import SubjectConsentForm
 from ..models import SubjectConsent
 
 
@@ -15,7 +14,7 @@ from ..models import SubjectConsent
 class SubjectConsentAdmin(
     ModelAdminConsentMixin, ModelAdminFormAutoNumberMixin, SimpleHistoryAdmin
 ):
-    # form = SubjectConsentForm
+    form = SubjectConsentForm
 
     fieldsets = (
         (
