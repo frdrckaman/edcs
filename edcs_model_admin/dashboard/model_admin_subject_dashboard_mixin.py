@@ -59,12 +59,12 @@ class ModelAdminSubjectDashboardMixin(
 
     def dashboard(self, obj=None, label=None):
         pass
-        url = reverse(
-            self.get_subject_dashboard_url_name(),
-            kwargs=self.get_subject_dashboard_url_kwargs(obj),
-        )
-        context = dict(title=_("Go to subject's dashboard"), url=url, label=label)
-        return render_to_string("", context=context)
+        # url = reverse(
+        #     self.get_subject_dashboard_url_name(),
+        #     kwargs=self.get_subject_dashboard_url_kwargs(obj),
+        # )
+        # context = dict(title=_("Go to subject's dashboard"), url=url, label=label)
+        # return render_to_string("", context=context)
 
     def get_list_display(self, request):
         list_display = super().get_list_display(request)
@@ -85,7 +85,8 @@ class ModelAdminSubjectDashboardMixin(
             try:
                 url = reverse(
                     self.get_subject_dashboard_url_name(),
-                    kwargs=self.get_subject_dashboard_url_kwargs(obj),
+                    # TODO understand this function
+                    # kwargs=self.get_subject_dashboard_url_kwargs(obj),
                 )
             except NoReverseMatch as e:
                 if callable(super().view_on_site):
