@@ -1,5 +1,8 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
+from django.shortcuts import redirect
+from django.utils.safestring import mark_safe
+
 from edcs_consent.modeladmin_mixins import ModelAdminConsentMixin
 from edcs_model_admin.model_admin_form_auto_number_mixin import ModelAdminFormAutoNumberMixin
 from edcs_identifier import SubjectIdentifierError, is_subject_identifier_or_raise
@@ -73,6 +76,22 @@ class SubjectConsentAdmin(
         "language": admin.VERTICAL,
         "study_questions": admin.VERTICAL,
     }
+
+    def response_post_save_add(self, request, obj):
+        nxt = request.GET.get('next', None)
+        self.clear_message(request)
+        return redirect(nxt)
+
+    def response_post_save_change(self, request, obj):
+        nxt = request.GET.get('next', None)
+        self.clear_message(request)
+        return redirect(nxt)
+
+    def clear_message(self, request):
+        storage = messages.get_messages(request)
+        for msg in storage:
+            pass
+        storage.used = True
 
     # def delete_view(self, request, object_id, extra_context=None):
     #     """Prevent deletion if SubjectVisit objects exist."""

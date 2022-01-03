@@ -16,10 +16,12 @@ class AlreadyConsentedFormMixin:
             and self.instance.subject_identifier
             and not r.match(self.instance.subject_identifier)
         ):
-            url_name = url_names.get("subject_dashboard_url")
+            # TODO url to point to enrolled patient dashboard (replace edcs_dashboard:screening_dashboard)
+            url_name = "edcs_dashboard:screening_dashboard"
             url = reverse(
                 url_name,
-                kwargs={"subject_identifier": self.instance.subject_identifier},
+                # TODO url kwargs
+                # kwargs={"subject_identifier": self.instance.subject_identifier},
             )
             msg = mark_safe(
                 "Not allowed. Subject has already consented. "
