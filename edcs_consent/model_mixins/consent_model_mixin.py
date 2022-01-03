@@ -1,5 +1,4 @@
 from uuid import uuid4
-
 from django.db import models
 from django.db.models import options
 from django_crypto_fields.fields import EncryptedTextField
@@ -9,7 +8,6 @@ from edcs_sites.models import CurrentSiteManager
 from edcs_utils import age, formatted_age
 
 from ..field_mixins import VerificationFieldsMixin
-# from ..managers import ConsentManager, ObjectConsentManager
 
 if "consent_group" not in options.DEFAULT_NAMES:
     options.DEFAULT_NAMES = options.DEFAULT_NAMES + ("consent_group",)

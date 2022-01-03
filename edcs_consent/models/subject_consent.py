@@ -14,6 +14,7 @@ from edcs_constants.constants import NOT_APPLICABLE
 from edcs_identifier.model_mixins import NonUniqueSubjectIdentifierModelMixin
 from edcs_identifier.subject_identifier import SubjectIdentifier as BaseSubjectIdentifier
 from edcs_model.models import BaseUuidModel, HistoricalRecords
+from edcs_registration.model_mixins import UpdatesOrCreatesRegistrationModelMixin
 from edcs_search.model_mixins import SearchSlugManager
 from edcs_sites.models import SiteModelMixin
 from edcs_utils import get_utcnow
@@ -35,6 +36,7 @@ class SubjectConsentManager(SearchSlugManager, models.Manager):
 class SubjectConsent(
     ConsentModelMixin,
     SiteModelMixin,
+    UpdatesOrCreatesRegistrationModelMixin,
     NonUniqueSubjectIdentifierModelMixin,
     IdentityFieldsMixin,
     ReviewFieldsMixin,

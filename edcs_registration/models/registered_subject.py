@@ -16,7 +16,7 @@ from edcs_identifier.model_mixins import UniqueSubjectIdentifierModelMixin
 from edcs_model import models as edc_models
 # from edcs_model_fields.fields import IdentityTypeField, IsDateEstimatedField
 from edcs_sites.models import CurrentSiteManager, SiteModelMixin
-from edc_utils import get_uuid
+from edcs_utils import get_uuid
 
 from .managers import RegisteredSubjectManager
 
