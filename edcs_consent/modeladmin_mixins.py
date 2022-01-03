@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from edcs_identifier import SubjectIdentifierError, is_subject_identifier_or_raise
 
-# from .actions import flag_as_verified_against_paper, unflag_as_verified_against_paper
+from .actions import flag_as_verified_against_paper, unflag_as_verified_against_paper
 
 
 class ModelAdminConsentMixin(admin.ModelAdmin):
@@ -12,7 +12,7 @@ class ModelAdminConsentMixin(admin.ModelAdmin):
         self.get_radio_fields()
         super().__init__(*args)
 
-    # actions = [flag_as_verified_against_paper, unflag_as_verified_against_paper]
+    actions = [flag_as_verified_against_paper, unflag_as_verified_against_paper]
 
     def get_radio_fields(self):
         self.radio_fields.update(
