@@ -26,7 +26,7 @@ class SubjectConsentAdmin(
                 "fields": (
                     "subject_identifier",
                     "screening_identifier",
-                    "clinic_type",
+                    # "clinic_type",
                     "first_name",
                     "last_name",
                     "initials",
@@ -64,7 +64,7 @@ class SubjectConsentAdmin(
 
     radio_fields = {
         "assessment_score": admin.VERTICAL,
-        "clinic_type": admin.VERTICAL,
+        # "clinic_type": admin.VERTICAL,
         "consent_copy": admin.VERTICAL,
         "consent_reviewed": admin.VERTICAL,
         "consent_signature": admin.VERTICAL,
@@ -77,6 +77,7 @@ class SubjectConsentAdmin(
         "study_questions": admin.VERTICAL,
     }
 
+    # TODO generate next url that will direct to patient dashboard
     def response_post_save_add(self, request, obj):
         nxt = request.GET.get('next', None)
         self.clear_message(request)
