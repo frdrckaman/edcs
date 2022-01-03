@@ -18,7 +18,7 @@ from edcs_search.model_mixins import SearchSlugManager
 from edcs_sites.models import SiteModelMixin
 from edcs_utils import get_utcnow
 
-from ..choices import IDENTITY_TYPE, CLINIC_CHOICES
+from ..choices import IDENTITY_TYPE
 from ..model_mixins import SearchSlugModelMixin
 
 
@@ -61,13 +61,6 @@ class SubjectConsent(
     screening_datetime = models.DateTimeField(
         verbose_name="Screening datetime", null=True, editable=False
     )
-
-    # clinic_type = models.CharField(
-    #     verbose_name="From which type of clinic was the patient selected?",
-    #     max_length=25,
-    #     choices=CLINIC_CHOICES,
-    #     help_text="Should match that reported on the Screening form.",
-    # )
 
     gender = models.CharField(
         verbose_name="Gender",
