@@ -11,9 +11,6 @@ from .subject_consent import SubjectConsent
     dispatch_uid="subject_consent_on_post_save",
 )
 def subject_consent_on_post_save(sender, instance, raw, created, **kwargs):
-    """Creates an onschedule instance for this consented subject, if
-    it does not exist.
-    """
     if not raw:
         if not created:
             pass

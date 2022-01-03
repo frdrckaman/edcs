@@ -16,6 +16,7 @@ from edcs_identifier.subject_identifier import SubjectIdentifier as BaseSubjectI
 from edcs_model.models import BaseUuidModel, HistoricalRecords
 from edcs_search.model_mixins import SearchSlugManager
 from edcs_sites.models import SiteModelMixin
+from edcs_utils import get_utcnow
 
 from ..choices import IDENTITY_TYPE, CLINIC_CHOICES
 from ..model_mixins import SearchSlugModelMixin
@@ -93,6 +94,9 @@ class SubjectConsent(
         subject_screening = self.get_subject_screening()
         self.screening_datetime = subject_screening.report_datetime
         self.subject_type = "subject"
+        self.is_verified = True
+        self.is_verified_datetime = get_utcnow()
+        # self.verified_by = self.user.username
         self.citizen = NOT_APPLICABLE
         super().save(*args, **kwargs)
 
