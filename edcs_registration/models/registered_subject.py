@@ -15,6 +15,8 @@ from edcs_constants.constants import UUID_PATTERN
 from edcs_identifier.model_mixins import UniqueSubjectIdentifierModelMixin
 from edcs_model import models as edc_models
 # from edcs_model_fields.fields import IdentityTypeField, IsDateEstimatedField
+from edcs_model.fields import IdentityTypeField
+from edcs_model.models import IsDateEstimatedField
 from edcs_sites.models import CurrentSiteManager, SiteModelMixin
 from edcs_utils import get_uuid
 
@@ -58,9 +60,9 @@ class RegisteredSubject(
         help_text=_("Format is YYYY-MM-DD"),
     )
 
-    # is_dob_estimated = IsDateEstimatedField(
-    #     verbose_name=_("Is date of birth estimated?"), null=True, blank=False
-    # )
+    is_dob_estimated = IsDateEstimatedField(
+        verbose_name=_("Is date of birth estimated?"), null=True, blank=False
+    )
 
     gender = models.CharField(
         verbose_name="Gender", max_length=1, choices=GENDER, null=True, blank=False
@@ -84,7 +86,7 @@ class RegisteredSubject(
 
     identity = IdentityField(null=True, blank=True)
 
-    # identity_type = IdentityTypeField(null=True, blank=True)
+    identity_type = IdentityTypeField(null=True, blank=True)
 
     screening_identifier = models.CharField(max_length=36, null=True, blank=True)
 

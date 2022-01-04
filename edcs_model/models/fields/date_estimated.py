@@ -3,8 +3,8 @@ from django.utils.translation import gettext as _
 from edcs_constants.choices import DATE_ESTIMATED, DATE_ESTIMATED_NA
 from edcs_constants.constants import NOT_APPLICABLE
 
-class IsDateEstimatedField(CharField):
 
+class IsDateEstimatedField(CharField):
     """field to question if date is estimated"""
 
     description = _("Custom field to question if date is estimated")
@@ -27,7 +27,6 @@ class IsDateEstimatedField(CharField):
 
 
 class IsDateEstimatedFieldNa(CharField):
-
     """field to question if date is estimated"""
 
     description = _("Custom field to question if date is estimated")

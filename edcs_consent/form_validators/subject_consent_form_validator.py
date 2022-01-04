@@ -108,15 +108,15 @@ class SubjectConsentFormValidatorMixin(FormValidator):
 
     def validate_screening_dob(self) -> None:
         """Validate patient date of birth on the screening form."""
-        if self.dob != self.subject_screening.patient_dob:
+        if self.dob != self.subject_screening.patient_dob and self.subject_screening.patient_know_dob == 'Yes':
             raise forms.ValidationError(
-                    {
-                        "dob": "Date mismatch. The date of birth entered does "
-                        f"not match the date of birth entered at screening. "
-                        f"Expected {self.subject_screening.patient_dob}. "
-                        f"Got {self.dob}."
-                    }
-                )
+                {
+                    "dob": "Date mismatch. The date of birth entered does "
+                           f"not match the date of birth entered at screening. "
+                           f"Expected {self.subject_screening.patient_dob}. "
+                           f"Got {self.dob}."
+                }
+            )
 
     def validate_gender(self) -> None:
         """Validate gender matches that on the screening form."""
