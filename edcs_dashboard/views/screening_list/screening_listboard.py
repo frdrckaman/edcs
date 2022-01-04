@@ -15,8 +15,7 @@ class ScreeningListBoardView(ListboardView):
         context = super().get_context_data(**kwargs)
         context.update(
             subject_screening_add_url=self.next_add_screening,
-            object_list=self.object_list(SubjectScreening),
-            # add_screening=
+            object_list=self.object_list_screening(SubjectScreening),
         )
         return context
 

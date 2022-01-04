@@ -30,17 +30,19 @@ class BaseListboardView:
         context = super().get_context_data(**kwargs)
         return context
 
-    def object_list(self, obj):
+    def object_list_screening(self, obj):
         values = []
         data = obj.objects.all().order_by(self.ordering).values()
         if data is not None:
             for item in data:
-                item['href'] = self.next_url(self.listboard_model_cls().admin_url(item['id']), item['screening_identifier'])
-                item['subject_consent_add_url'] = self.next_url(self.listboard_model_consent().get_absolute_url(), item['screening_identifier'])
+                item['href'] = self.next_url_screening(
+                    self.listboard_model_cls().admin_url(item['id']), item['screening_identifier'])
+                item['subject_consent_add_url'] = self.next_url_screening(
+                    self.listboard_model_consent().get_absolute_url(), item['screening_identifier'])
                 values.append(item)
         return values
 
-    def next_url(self, href, screening_identifier):
+    def next_url_screening(self, href, screening_identifier):
         return '?next='.join([href, self.listboard_dashboard + '&screening_identifier=' + screening_identifier])
 
     @property
