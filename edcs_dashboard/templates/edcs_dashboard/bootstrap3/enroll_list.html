@@ -34,22 +34,24 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <a href="#" class="btn btn-sm btn-default tip" title="Consent" disabled>
-                                <span class="glyphicon glyphicon-pencil glyphicon glyphicon-white"></span>
-                            </a>
-                            <a href="{% url 'edcs_dashboard:enroll-dashboard' %}" class="btn btn-sm btn-info tip" title="Open CRFs">
-                                Dashboard <span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span>
-                            </a>
-                        </td>
-                        <td>101-258-00001-1</td>
-                        <td>FLA</td>
-                        <td>30yrs 05/09/1991</td>
-                        <td>05/09/2021</td>
-                        <td>2021-01-02</td>
-                    </tr>
+                        {% for subject in object_list %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>
+                                    <a href="#" class="btn btn-sm btn-default tip" title="Consent" disabled>
+                                        <span class="glyphicon glyphicon-pencil glyphicon glyphicon-white"></span>
+                                    </a>
+                                    <a href="{{ subject.href }}" class="btn btn-sm btn-info tip" title="Open CRFs">
+                                        Dashboard <span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span>
+                                    </a>
+                                </td>
+                                <td>{{ subject.subject_identifier }}</td>
+                                <td>{{ subject.initials }}</td>
+                                <td>{{ subject.age_in_years }}yrs {{ subject.dob|date:"SHORT_DATE_FORMAT" }}</td>
+                                <td>05/09/2021</td>
+                                <td>2021-01-02</td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

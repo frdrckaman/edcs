@@ -1,7 +1,10 @@
 from pprint import pprint
 
 from django.apps import apps as django_apps
+from django.urls import reverse
 from django.utils.translation import gettext as _
+
+from edcs_utils import age
 
 
 class ListboardViewError(Exception):
@@ -42,8 +45,25 @@ class BaseListboardView:
                 values.append(item)
         return values
 
+    def object_list_subject(self, obj):
+        values = []
+        data = obj.objects.all().order_by(self.ordering).values()
+        if data is not None:
+            for item in data:
+                item['href'] = self.next_url_subject(item['subject_identifier'])
+                if item['dob']:
+                    item['age_in_years'] = age(item['dob'], item['screening_datetime']).years
+                else:
+                    item['age_in_years'] = '-'
+                values.append(item)
+                # pprint(self.next_url_subject(item['subject_identifier']))
+        return values
+
     def next_url_screening(self, href, screening_identifier):
         return '?next='.join([href, self.listboard_dashboard + '&screening_identifier=' + screening_identifier])
+
+    def next_url_subject(self, subject_identifier):
+        return subject_identifier.join([reverse(self.listboard_dashboard), ''])
 
     @property
     def listboard_model_cls(self):
