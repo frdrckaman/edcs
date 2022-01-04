@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from django import forms
 from django.apps import apps as django_apps
 from django.conf import settings
@@ -21,6 +23,7 @@ class SubjectConsentFormValidatorMixin(FormValidator):
         self._subject_screening = None
         self._consent_datetime = None
         self.dob = self.cleaned_data.get("dob")
+        self.is_dob_estimated = self.cleaned_data.get("is_dob_estimated")
         self.gender = self.cleaned_data.get("gender")
         self.guardian_name = self.cleaned_data.get("guardian_name")
         self.screening_identifier = self.cleaned_data.get("screening_identifier")
@@ -31,6 +34,10 @@ class SubjectConsentFormValidatorMixin(FormValidator):
         self.validate_consent_datetime()
 
         self.validate_age()
+
+        self.validate_dob_estimated()
+
+        self.validate_screening_dob()
 
         self.validate_gender()
 
@@ -88,6 +95,28 @@ class SubjectConsentFormValidatorMixin(FormValidator):
                     f"Got {self.screening_age_in_years}."
                 }
             )
+
+    def validate_dob_estimated(self) -> None:
+        """Validate patient know date of birth on the screening form."""
+        if self.is_dob_estimated == '-' and self.subject_screening.patient_know_dob == 'No':
+            raise forms.ValidationError(
+                    {
+                        "is_dob_estimated": "Option can not NO, "
+                        f"because its specified during screening that patient does not know his/her date of birth."
+                    }
+                )
+
+    def validate_screening_dob(self) -> None:
+        """Validate patient date of birth on the screening form."""
+        if self.dob != self.subject_screening.patient_dob:
+            raise forms.ValidationError(
+                    {
+                        "dob": "Date mismatch. The date of birth entered does "
+                        f"not match the date of birth entered at screening. "
+                        f"Expected {self.subject_screening.patient_dob}. "
+                        f"Got {self.dob}."
+                    }
+                )
 
     def validate_gender(self) -> None:
         """Validate gender matches that on the screening form."""

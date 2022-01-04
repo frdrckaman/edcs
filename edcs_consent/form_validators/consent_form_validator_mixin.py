@@ -16,7 +16,7 @@ class ConsentFormValidatorMixin(FormValidator):
     consent_model = settings.SUBJECT_CONSENT_MODEL
 
     def get_consent_for_period_or_raise(self, report_datetime):
-        default_consent_group = django_apps.get_app_config("edc_consent").default_consent_group
+        default_consent_group = django_apps.get_app_config("edcs_consent").default_consent_group
         try:
             consent_object = site_consents.get_consent_for_period(
                 model=self.consent_model,
