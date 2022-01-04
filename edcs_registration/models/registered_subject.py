@@ -13,8 +13,7 @@ from django_crypto_fields.fields import (
 from edcs_constants.choices import GENDER
 from edcs_constants.constants import UUID_PATTERN
 from edcs_identifier.model_mixins import UniqueSubjectIdentifierModelMixin
-from edcs_model import models as edc_models
-# from edcs_model_fields.fields import IdentityTypeField, IsDateEstimatedField
+from edcs_model import models as edcs_models
 from edcs_model.fields import IdentityTypeField
 from edcs_model.models import IsDateEstimatedField
 from edcs_sites.models import CurrentSiteManager, SiteModelMixin
@@ -28,7 +27,7 @@ class RegisteredSubjectError(Exception):
 
 
 class RegisteredSubject(
-    UniqueSubjectIdentifierModelMixin, SiteModelMixin, edc_models.BaseUuidModel
+    UniqueSubjectIdentifierModelMixin, SiteModelMixin, edcs_models.BaseUuidModel
 ):
     """A model mixin for the RegisteredSubject model (only)."""
 
@@ -135,7 +134,7 @@ class RegisteredSubject(
 
     on_site = CurrentSiteManager()
 
-    history = edc_models.HistoricalRecords()
+    history = edcs_models.HistoricalRecords()
 
     objects = RegisteredSubjectManager()
 
@@ -241,7 +240,7 @@ class RegisteredSubject(
         if not self.subject_identifier:
             self.subject_identifier = self.subject_identifier_as_pk.hex
 
-    class Meta(edc_models.BaseUuidModel.Meta):
+    class Meta(edcs_models.BaseUuidModel.Meta):
         verbose_name = "Registered Subject"
         ordering = ["subject_identifier"]
         unique_together = ("first_name", "dob", "initials", "additional_key")
