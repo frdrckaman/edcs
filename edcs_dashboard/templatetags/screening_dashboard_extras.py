@@ -3,8 +3,7 @@ from pprint import pprint
 from bs4 import BeautifulSoup
 from django import template
 from django.conf import settings
-from edcs_constants.constants import NO, TBD, YES
-from edcs_dashboard.url_names import url_names
+from edcs_constants.constants import TBD
 from ..views.dashboard_list import Struct
 
 from edcs_screening.eligibility import (

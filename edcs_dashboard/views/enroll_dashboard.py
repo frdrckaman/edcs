@@ -11,12 +11,12 @@ class EnrollDashboardView(SubjectDashboardView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update(
-            edc_packages=["not available"],
-            third_party_packages=["not available"],
-            installed_apps=settings.INSTALLED_APPS,
-        )
-        pprint(self.kwargs['subject'])
+        # context.update(
+        #     edc_packages=["not available"],
+        #     third_party_packages=["not available"],
+        #     installed_apps=settings.INSTALLED_APPS,
+        # )
+        # pprint(self.kwargs['subject'])
         return context
 
     @method_decorator(login_required)
