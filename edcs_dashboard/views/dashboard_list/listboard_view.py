@@ -56,14 +56,13 @@ class BaseListboardView:
                 else:
                     item['age_in_years'] = '-'
                 values.append(item)
-                # pprint(self.next_url_subject(item['subject_identifier']))
         return values
 
     def next_url_screening(self, href, screening_identifier):
         return '?next='.join([href, self.listboard_dashboard + '&screening_identifier=' + screening_identifier])
 
     def next_url_subject(self, subject_identifier):
-        return subject_identifier.join([reverse(self.listboard_dashboard), ''])
+        return reverse(self.listboard_dashboard, args=[subject_identifier])
 
     @property
     def listboard_model_cls(self):
