@@ -8,6 +8,7 @@ class ScreeningListBoardView(ListboardView):
     model_consent = "edcs_consent.subjectconsent"
     ordering = "-report_datetime"
     listboard_dashboard = "edcs_dashboard:screening_dashboard"
+    subject_list_dashboard = "edcs_dashboard:enroll-dashboard"
 
     # paginate_by = 10
 

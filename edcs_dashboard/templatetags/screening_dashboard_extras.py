@@ -21,9 +21,10 @@ register = template.Library()
 )
 def screening_button(context, result):
     title = "Edit subject's screening form"
+    obj = Struct(**result)
     return dict(
         # perms=context["perms"],
-        screening_identifier=result.get('screening_identifier'),
+        screening_identifier=obj.screening_identifier,
         href=result.get('href'),
         title=title,
     )
@@ -91,10 +92,11 @@ def refusal_button(context, model_wrapper):
     f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"buttons/dashboard_button.html"
 )
 def dashboard_button(result):
+    title = "Go to Subject's Dashboard"
     obj = Struct(**result)
-    subject_dashboard_url = None
     return dict(
         consented=obj.consented,
-        subject_dashboard_url=subject_dashboard_url,
+        subject_dashboard_url=obj.subject_dashboard_url,
         subject_identifier=None,
+        title=title,
     )

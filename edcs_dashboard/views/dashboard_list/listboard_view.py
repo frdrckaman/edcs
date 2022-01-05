@@ -21,6 +21,7 @@ class BaseListboardView:
     listboard_model = None  # label_lower model name or model class
     model_consent = None
     listboard_model_manager_name = "_default_manager"
+    subject_list_dashboard = None
 
     model_wrapper_cls = None
     ordering = "-created"
@@ -42,6 +43,11 @@ class BaseListboardView:
                     self.listboard_model_cls().admin_url(item['id']), item['screening_identifier'])
                 item['subject_consent_add_url'] = self.next_url_screening(
                     self.listboard_model_consent().get_absolute_url(), item['screening_identifier'])
+                if item['consented']:
+                    item['subject_dashboard_url'] = reverse(self.subject_list_dashboard,
+                                                            args=[item['subject_identifier']])
+                else:
+                    item['subject_dashboard_url'] = None
                 values.append(item)
         return values
 
@@ -101,4 +107,10 @@ class ListboardView(BaseListboardView):
 
 class Struct:
     def __init__(self, **entries):
+        self.reasons_ineligible = None
+        self.eligible = None
+        self.screening_identifier = None
+        self.subject_consent_add_url = None
+        self.consented = None
+        self.subject_dashboard_url = None
         self.__dict__.update(entries)
