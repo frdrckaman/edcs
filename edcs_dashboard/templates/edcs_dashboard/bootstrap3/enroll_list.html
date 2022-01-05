@@ -25,12 +25,12 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th width="40%">Dashboard</th>
+                        <th width="30%">Dashboard</th>
                         <th width="15%">Study ID</th>
-                        <th width="5%">Initials</th>
+                        <th width="10%">Subject</th>
                         <th width="15%">Age/Born</th>
                         <th width="15%">Consented</th>
-                        <th width="10%">Modified</th>
+                        <th width="15%">Screened</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -46,10 +46,10 @@
                                     </a>
                                 </td>
                                 <td>{{ subject.subject_identifier }}</td>
-                                <td>{{ subject.initials }}</td>
+                                <td>{{ subject.first_name }} {{ subject.initials }}</td>
                                 <td>{{ subject.age_in_years }}yrs {{ subject.dob|date:"SHORT_DATE_FORMAT" }}</td>
-                                <td>05/09/2021</td>
-                                <td>2021-01-02</td>
+                                <td>{{ subject.consent_datetime }}</td>
+                                <td>{{ subject.screening_datetime }}</td>
                             </tr>
                         {% endfor %}
                     </tbody>
