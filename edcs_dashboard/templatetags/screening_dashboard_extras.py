@@ -16,13 +16,11 @@ register = template.Library()
 
 @register.inclusion_tag(
     f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"buttons/screening_button.html",
-    takes_context=True,
 )
-def screening_button(context, result):
+def screening_button(result):
     title = "Edit subject's screening form"
     obj = Struct(**result)
     return dict(
-        # perms=context["perms"],
         screening_identifier=obj.screening_identifier,
         href=result.get('href'),
         title=title,
@@ -55,34 +53,17 @@ def eligibility_button(result):
 
 @register.inclusion_tag(
     f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/buttons/add_consent_button.html",
-    takes_context=True,
 )
-def add_consent_button(context, result):
+def add_consent_button(result):
     title = ["Consent subject to participate."]
     obj = Struct(**result)
-    consent_version = None
     return dict(
         eligible=obj.eligible,
-        perms=context["perms"],
         screening_identifier=obj.screening_identifier,
         subject_consent_add_url=obj.subject_consent_add_url,
         consented=obj.consented,
         href='',
         consent_version='',
-        title=" ".join(title),
-    )
-
-
-@register.inclusion_tag(
-    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/buttons/refusal_button.html",
-    takes_context=True,
-)
-def refusal_button(context, model_wrapper):
-    title = ["Capture subject's primary reason for not joining."]
-    return dict(
-        perms=context["perms"],
-        screening_identifier=model_wrapper.object.screening_identifier,
-        href=model_wrapper.refusal.href,
         title=" ".join(title),
     )
 
