@@ -1,4 +1,5 @@
 {% extends 'edcs_dashboard/bootstrap3/base.html' %}
+{% load subject_dashboard_extras %}
 {% block main-content %}
      <div class="workplace">
 
@@ -102,107 +103,16 @@
                  </div>
              </div>
              <!-------------------- end screening patients --------------------->
+                 {% side_info_panel object_list %}
+             <!------------------------------------- end patient info -------------------------------------->
 
-             <div class="col-md-4">
-                 <div class="head clearfix">
-                     <div class="isw-user"></div>
-                     <h1>Info</h1>
-                 </div>
-                 <!------------------------------------- start patient info -------------------------------------->
-                 <div class="block-fluid accordion">
-                     <h3></h3>
-                     <div>
-                         <div class="row">
-                             <div class="container-fluid">
-                                 <div class="col-md-12 clearfix" >
-                                     <div class="block-fluid sNavigation">
-                                         <ul>
-                                             <li><a href="#" style="font-weight: bolder"><span class="glyphicon glyphicon-qrcode"></span> 101-258-00001-1</a><span class="arrow"></span></li>
-                                             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Male</a><span class="arrow"></span></li>
-                                             <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> 1991-09-01 30yrs</a><span class="arrow"></span></li>
-                                             <li><a href="#"><span class="glyphicon glyphicon-tags"></span> HIV / HP</a><span class="arrow"></span></li>
-                                         </ul>
-                                     </div>
+             <!------------------------------------- start prn form -------------------------------------->
 
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <!------------------------------------- end patient info -------------------------------------->
+             <!------------------------------------- end prn form -------------------------------------->
 
-                 <!------------------------------------- start prn form -------------------------------------->
-                 <div class="head clearfix">
-                     <div class="isw-text_document"></div>
-                     <h1>PRN ACTION</h1>
-                 </div>
-                 &nbsp;
-                 <div class="btn-group">
-                     <button data-toggle="dropdown" style="width: 100%" class="btn btn-default btn-warning dropdown-toggle">
-                         Protocol Deviation <span class="caret"></span></button>
-                     <ul class="dropdown-menu">
-                         <li><a href="#">Add Protocol Deviation</a></li>
-                         <li><a href="#">Action Item</a></li>
-                     </ul>
-                 </div>
-                 <div class="btn-group">
-                     <button data-toggle="dropdown" style="width: 100%" class="btn btn-default btn-warning dropdown-toggle">
-                         Protocol Deviation <span class="caret"></span></button>
-                     <ul class="dropdown-menu">
-                         <li><a href="#">Add Protocol Deviation</a></li>
-                         <li><a href="#">Action Item</a></li>
-                     </ul>
-                 </div>
-                 <div class="btn-group">
-                     <button data-toggle="dropdown" style="width: 100%" class="btn btn-default btn-warning dropdown-toggle">
-                         Protocol Deviation <span class="caret"></span></button>
-                     <ul class="dropdown-menu">
-                         <li><a href="#">Add Protocol Deviation</a></li>
-                         <li><a href="#">Action Item</a></li>
-                     </ul>
-                 </div>
-                 <div class="btn-group">
-                     <button data-toggle="dropdown" style="width: 100%" class="btn btn-default btn-warning dropdown-toggle">
-                         Protocol Deviation <span class="caret"></span></button>
-                     <ul class="dropdown-menu">
-                         <li><a href="#">Add Protocol Deviation</a></li>
-                         <li><a href="#">Action Item</a></li>
-                     </ul>
-                 </div>
-                 <div class="btn-group">
-                     <button data-toggle="dropdown" style="width: 100%" class="btn btn-default btn-warning dropdown-toggle">
-                         Protocol Deviation <span class="caret"></span></button>
-                     <ul class="dropdown-menu">
-                         <li><a href="#">Add Protocol Deviation</a></li>
-                         <li><a href="#">Action Item</a></li>
-                     </ul>
-                 </div>
-                 &nbsp;
-                 <!------------------------------------- end prn form -------------------------------------->
-
-                 <!------------------------------------- start consent form -------------------------------------->
-                 <div class="head clearfix">
-                     <div class="isw-documents"></div>
-                     <h1>CONSENTS</h1>
-                 </div>
-                 <div class="block-fluid accordion">
-                     <h3></h3>
-                     <div>
-                         <div class="row">
-                             <div class="container-fluid">
-                                 <div class="col-md-12 clearfix" >
-                                     <div class="block-fluid sNavigation">
-                                         <ul>
-                                             <li><a href="#" style="color: #2e6da4;font-weight: bolder"><span class="glyphicon glyphicon-thumbs-up glyphicon glyphicon-blue"></span> Consented 07/09/2021 15:51 Tue</a><span class="arrow"></span></li>
-                                         </ul>
-                                     </div>
-
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <!------------------------------------- end consent form -------------------------------------->
+             <!------------------------------------- start consent form -------------------------------------->
+                {% consent_panel consent_url %}
+             <!------------------------------------- end consent form -------------------------------------->
              </div>
 
          </div>

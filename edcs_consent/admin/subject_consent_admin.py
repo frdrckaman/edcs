@@ -1,6 +1,7 @@
 from django.contrib import admin, messages
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from django.shortcuts import redirect
+from django.urls import reverse
 from django.utils.safestring import mark_safe
 
 from edcs_consent.modeladmin_mixins import ModelAdminConsentMixin
@@ -82,7 +83,10 @@ class SubjectConsentAdmin(
         return redirect(nxt)
 
     def response_post_save_change(self, request, obj):
-        nxt = request.GET.get('next', None)
+        if request.GET.get('subject'):
+            nxt = reverse(request.GET.get('next'), args=[request.GET.get('subject')])
+        else:
+            nxt = request.GET.get('next', None)
         self.clear_message(request)
         return redirect(nxt)
 
