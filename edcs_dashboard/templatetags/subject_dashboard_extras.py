@@ -1,9 +1,7 @@
 import datetime
-from pprint import pprint
-from bs4 import BeautifulSoup
 from django import template
 from django.conf import settings
-from edcs_utils import get_dob, age
+from edcs_utils import age
 
 register = template.Library()
 
@@ -13,12 +11,13 @@ register = template.Library()
     f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"menu/side-info-panel.html",
 )
 def side_info_panel(result):
-    pprint(age(result.dob, datetime.datetime.now()).years)
     return dict(
         subject_identifier=result.subject_identifier,
         gender=result.gender,
         dob=result.dob.strftime("%Y-%m-%d"),
         age=age(result.dob, datetime.datetime.now()).years,
+        initials=result.initials,
+        identity=result.identity
     )
 
 

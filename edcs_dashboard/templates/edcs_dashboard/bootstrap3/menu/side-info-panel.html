@@ -12,10 +12,11 @@
                     <div class="col-md-12 clearfix" >
                         <div class="block-fluid sNavigation">
                             <ul>
-                                <li><a href="#" style="font-weight: bolder"><span class="glyphicon glyphicon-qrcode"></span> 101-258-00001-1</a><span class="arrow"></span></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Male</a><span class="arrow"></span></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> 1991-09-01 30yrs</a><span class="arrow"></span></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-tags"></span> HIV / HP</a><span class="arrow"></span></li>
+                                <li><a href="#" style="font-weight: bolder"><span class="glyphicon glyphicon-qrcode"></span>&nbsp; {{ subject_identifier }} </a><span class="arrow"></span></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp; {% if gender == 'M' %} Male {% else %} Female {% endif %}</a><span class="arrow"></span></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-calendar"></span>&nbsp; {{ dob }} &nbsp; ( {{ age }}yrs )</a><span class="arrow"></span></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span>&nbsp; {{ identity }} {{ initials }} </a><span class="arrow"></span></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-tags"></span>&nbsp; Cancer Patient</a><span class="arrow"></span></li>
                             </ul>
                         </div>
                     </div>
