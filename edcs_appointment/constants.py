@@ -1,0 +1,8 @@
+CANCELLED_APPT = "cancelled"
+CLINIC = "clinic"
+COMPLETE_APPT = "done"
+INCOMPLETE_APPT = "incomplete"
+IN_PROGRESS_APPT = "in_progress"
+NEW_APPT = "new"
+SCHEDULED_APPT = "scheduled"
+UNSCHEDULED_APPT = "unscheduled"
