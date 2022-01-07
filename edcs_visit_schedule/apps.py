@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class EdcsVisitSchedulesConfig(AppConfig):
-    name = 'edcs_visit_schedules'
+    name = 'edcs_visit_schedule'
