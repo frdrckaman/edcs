@@ -1,5 +1,8 @@
-from django.apps import AppConfig
+from django.apps.config import AppConfig as DjangoAppConfig
 
 
-class EdcsVisitSchedulesConfig(AppConfig):
-    name = 'edcs_visit_schedule'
+class AppConfig(DjangoAppConfig):
+    name = "edcs_visit_schedule"
+    verbose_name = "Edcs Visit Schedules"
+    validate_models = True
+    include_in_administration_section = True

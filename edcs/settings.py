@@ -80,6 +80,7 @@ INSTALLED_APPS = [
     # 'edcs_utils.apps.EdcsUtilsConfig',
     "edcs_registration.apps.AppConfig",
     "edcs_notification.apps.AppConfig",
+    "edcs_visit_schedule.apps.AppConfig",
     "edcs_export.apps.AppConfig",
     "edcs_sites.apps.AppConfig",
 ]

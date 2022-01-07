@@ -8,7 +8,8 @@ from edcs_notification.admin_site import edcs_notification_admin
 from edcs_screening.admin_site import edcs_screening_admin
 from edcs_subject.admin_site import edcs_subject_admin
 from edcs_consent.admin_site import edcs_consent_admin
-from edcs_registration.admin import edcs_registration_admin
+from edcs_registration.admin_site import edcs_registration_admin
+from edcs_visit_schedule.admin_site import edcs_visit_schedule_admin
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -19,6 +20,7 @@ urlpatterns = [
     path("admin/", edcs_subject_admin.urls),
     path("admin/", edcs_consent_admin.urls),
     path("admin/", edcs_registration_admin.urls),
+    path("admin/", edcs_visit_schedule_admin.urls),
     path("dashboard/", include("edcs_dashboard.urls")),
     path("edcs_device/", include("edcs_device.urls")),
     path("edcs_notification/", include("edcs_notification.urls")),
@@ -28,6 +30,7 @@ urlpatterns = [
     path("edcs_subject/", include("edcs_subject.urls")),
     path("edcs_consent/", include("edcs_consent.urls")),
     path("edcs_registration/", include("edcs_registration.urls")),
+    path("edcs_visit_schedule/", include("edcs_visit_schedule.urls")),
     # path("defender/", include("defender.urls")),
     # path("home/", DashboardView.as_view(), name="home_url"),
     path("administration/", AdministrationView.as_view(), name="administration_url"),
