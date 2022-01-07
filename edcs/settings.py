@@ -4,7 +4,7 @@ from pathlib import Path
 import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-from edc_utils import get_datetime_from_env
+from edcs_utils import get_datetime_from_env
 from multisite import SiteID
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -83,6 +83,7 @@ INSTALLED_APPS = [
     "edcs_visit_schedule.apps.AppConfig",
     "edcs_export.apps.AppConfig",
     "edcs_sites.apps.AppConfig",
+    "edcs_facility.apps.AppConfig",
 ]
 
 MIDDLEWARE = [
