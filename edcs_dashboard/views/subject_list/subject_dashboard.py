@@ -12,7 +12,6 @@ class SubjectDashboardView(ListboardView, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        pprint(self.next_url_screening)
         context.update(
             consent_url=self.next_url_consent,
             object_list=self.get_consent_data,
