@@ -62,35 +62,10 @@ visit00 = Visit(
     rbase=relativedelta(days=0),
     rlower=relativedelta(days=0),
     rupper=relativedelta(days=0),
-    # requisitions=requisitions_d1,
     crfs=enrollment_crf,
     facility_name="5-day-clinic",
 )
 
-
-# visit06 = Visit(
-#     code=MONTH6,
-#     title="Month 6",
-#     timepoint=6,
-#     rbase=relativedelta(months=6),
-#     rlower=relativedelta(months=1),
-#     rupper=relativedelta(months=5),
-#     requisitions=requisitions_6m,
-#     crfs=crfs_6m,
-#     facility_name="5-day-clinic",
-# )
-
-# visit12 = Visit(
-#     code=MONTH12,
-#     title="Month 12",
-#     timepoint=12,
-#     rbase=relativedelta(months=12),
-#     rlower=relativedelta(months=1),
-#     rupper=relativedelta(months=3),
-#     requisitions=requisitions_12m,
-#     crfs=crfs_12m,
-#     facility_name="5-day-clinic",
-# )
 
 schedule_enrolment.add_visit(visit=visit00)
 # schedule_hiv.add_visit(visit=visit06)
