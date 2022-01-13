@@ -11,15 +11,10 @@ class AlreadyRegisteredVisit(Exception):
 
 class Command(BaseCommand):
     help = 'Closes the specified poll for voting'
-    pprint(visits)
-
-    # create instance of model and save to the database
-    # for visit in visits:
-    # schedule = VisitSchedule(**visit)
-    # schedule.save()
-
-    # def add_arguments(self, parser):
-    #     parser.add_argument('poll_ids', nargs='+', type=int)
+    # pprint(visits)
 
     def handle(self, *args, **options):
-        pass
+        # create instance of model and save to the database
+        for visit in visits:
+            schedule = VisitSchedule(**visit)
+            schedule.save()
