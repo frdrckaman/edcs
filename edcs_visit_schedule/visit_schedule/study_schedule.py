@@ -1,3 +1,5 @@
+visits = []
+
 visit00 = {
     "visit_code": "1000",
     "visit_name": "1000",
@@ -7,6 +9,8 @@ visit00 = {
     "timepoint": 0,
 }
 
+visits.append(visit00)
+
 visit03 = {
     "visit_code": "1003",
     "visit_name": "1003",
@@ -15,6 +19,7 @@ visit03 = {
     "schedule_name": "subject_followup",
     "timepoint": 3,
 }
+visits.append(visit03)
 
 visit06 = {
     "visit_code": "1006",
@@ -33,3 +38,5 @@ visit09 = {
     "schedule_name": "subject_followup",
     "timepoint": 9,
 }
+
+visits.append(visit09)
