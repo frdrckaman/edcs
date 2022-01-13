@@ -69,8 +69,9 @@
                          </tr>
                          </thead>
                          <tbody>
+                         {% for appointment in appointments %}
                              <tr>
-                                 <td>1000</td>
+                                 <td>{{ appointment.visit_code }}</td>
                                  <td>
                                      <a href="#" class="btn btn-sm btn-default tip" title="Edit Appointment">
                                          <span class="glyphicon glyphicon-pencil glyphicon glyphicon-white"></span> Appt
@@ -94,10 +95,11 @@
                                          Forms <span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span>
                                      </a>
                                  </td>
-                                 <td>Day 1</td>
+                                 <td>{{ appointment.visit_title }}</td>
                                  <td>05/09/2021</td>
                                  <td>05/09/2021</td>
                              </tr>
+                         {% endfor %}
                          </tbody>
                      </table>
                  </div>
