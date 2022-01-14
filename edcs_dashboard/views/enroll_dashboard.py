@@ -15,7 +15,6 @@ class EnrollDashboardView(SubjectDashboardView):
         context.update(
             appointments=VisitSchedule.objects.all(),
         )
-        # pprint(self.listboard_model_cls().get_absolute_url())
         return context
 
     @method_decorator(login_required)
