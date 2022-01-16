@@ -60,12 +60,12 @@ def calculate_eligible_final(obj):
     ):
         eligible = (
             obj.abnormal_chest_xrays == YES
-            and obj.non_resolving_infection == YES
-            and obj.lung_cancer_suspect == YES
-            and obj.cough == YES
-            and obj.long_standing_cough == YES
-            and obj.cough_blood == YES
-            and obj.chest_infections == YES
+            or obj.non_resolving_infection == YES
+            or obj.lung_cancer_suspect == YES
+            or obj.cough == YES
+            or obj.long_standing_cough == YES
+            or obj.cough_blood == YES
+            or obj.chest_infections == YES
         )
         return NO if not eligible else YES
     return TBD
