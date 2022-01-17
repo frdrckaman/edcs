@@ -8,7 +8,6 @@ from django.core.validators import (
     RegexValidator,
 )
 from django.db import models
-from django_crypto_fields.fields import EncryptedCharField
 
 from edcs_constants.choices import GENDER, YES_NO, YES_NO_NA
 from edcs_constants.constants import NO, NOT_APPLICABLE
