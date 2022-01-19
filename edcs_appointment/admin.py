@@ -1,9 +1,15 @@
-from django.contrib import admin
+from django.contrib import admin, messages
+from django.shortcuts import redirect
+from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django_audit_fields import audit_fieldset_tuple
 
 from edcs_model_admin import SimpleHistoryAdmin
 from edcs_model_admin.dashboard import ModelAdminDashboardMixin
+from edcs_visit_schedule.fieldsets import (
+    visit_schedule_fields,
+    visit_schedule_fieldset_tuple
+)
 
 from .admin_site import edcs_appointment_admin
 from .models import Appointment
@@ -66,6 +72,7 @@ class AppointmentAdmin(ModelAdminDashboardMixin, SimpleHistoryAdmin):
                 }
             ),
         ],
+        visit_schedule_fieldset_tuple,
         audit_fieldset_tuple,
     )
 
@@ -81,7 +88,7 @@ class AppointmentAdmin(ModelAdminDashboardMixin, SimpleHistoryAdmin):
         readonly_fields = super().get_readonly_fields(request, obj=obj)
         return (
             list(readonly_fields)
-            # + list(visit_schedule_fields)
+            + list(visit_schedule_fields)
             + [
                 "subject_identifier",
                 "timepoint",
@@ -90,6 +97,21 @@ class AppointmentAdmin(ModelAdminDashboardMixin, SimpleHistoryAdmin):
                 "facility_name",
             ]
         )
+
+    def response_post_save_change(self, request, obj):
+        next = request.GET.get('next', None)
+        args = request.GET.get('subject', None)
+        self.clear_message(request)
+        return redirect(self.next(next, args))
+
+    def clear_message(self, request):
+        storage = messages.get_messages(request)
+        for msg in storage:
+            pass
+        storage.used = True
+
+    def next(self, next, args):
+        return reverse(next, args=[args])
 
     # def has_delete_permission(self, request, obj=None):
     #     """Override to remove delete permissions if OnSchedule

@@ -14,7 +14,7 @@ from edcs_model_admin import (
 
 class ModelAdminDashboardMixin(
     TemplatesModelAdminMixin,
-    ModelAdminNextUrlRedirectMixin,
+    # ModelAdminNextUrlRedirectMixin,
     # NotificationModelAdminMixin,
     ModelAdminFormInstructionsMixin,
     ModelAdminFormAutoNumberMixin,
