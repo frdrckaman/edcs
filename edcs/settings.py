@@ -2,10 +2,10 @@ import os
 from pathlib import Path
 
 import environ
+from multisite import SiteID
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from edcs_utils import get_datetime_from_env
-from multisite import SiteID
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 ENV_DIR = str(Path(os.path.join(BASE_DIR, ".env")))
@@ -176,6 +176,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
+EDCS_APPOINTMENT_INTERVAL = env("EDCS_APPOINTMENT_INTERVAL")
 EDCS_PROTOCOL = env.str("EDCS_PROTOCOL")
 EDCS_PROTOCOL_TITLE = env.str("EDCS_PROTOCOL_TITLE")
 EDCS_PROTOCOL_NUMBER = env.str("EDCS_PROTOCOL_NUMBER")
