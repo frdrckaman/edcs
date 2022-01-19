@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
+from django_audit_fields import audit_fieldset_tuple
 
-from edcs_model_admin import SimpleHistoryAdmin, audit_fieldset_tuple
+from edcs_model_admin import SimpleHistoryAdmin
 from edcs_model_admin.dashboard import ModelAdminDashboardMixin
 
 from .admin_site import edcs_appointment_admin
@@ -36,7 +37,7 @@ class AppointmentAdmin(ModelAdminDashboardMixin, SimpleHistoryAdmin):
     )
 
     fieldsets = (
-        (
+        [
             None,
             (
                 {
@@ -50,8 +51,8 @@ class AppointmentAdmin(ModelAdminDashboardMixin, SimpleHistoryAdmin):
                     )
                 }
             ),
-        ),
-        (
+        ],
+        [
             "Timepoint",
             (
                 {
@@ -64,8 +65,7 @@ class AppointmentAdmin(ModelAdminDashboardMixin, SimpleHistoryAdmin):
                     ),
                 }
             ),
-        ),
-        # visit_schedule_fieldset_tuple,
+        ],
         audit_fieldset_tuple,
     )
 
