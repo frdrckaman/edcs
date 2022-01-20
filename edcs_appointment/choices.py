@@ -5,7 +5,7 @@ from .constants import (
     INCOMPLETE_APPT,
     NEW_APPT,
     SCHEDULED_APPT,
-    UNSCHEDULED_APPT,
+    UNSCHEDULED_APPT, OPEN_TIMEPOINT, CLOSED_TIMEPOINT, NEW_TIMEPOINT, START_TIMEPOINT, INCOMPLETE_TIMEPOINT,
 )
 
 # choices for the model, see also `get_appt_reason_choices`
@@ -31,3 +31,11 @@ APPT_TYPE = (
 )
 
 INFO_PROVIDER = (("subject", "Subject"), ("other", "Other person"))
+
+TIMEPOINT_STATUS = (
+    (NEW_TIMEPOINT, "New"),
+    (START_TIMEPOINT, "Start"),
+    (OPEN_TIMEPOINT, "Open"),
+    (INCOMPLETE_TIMEPOINT, "Incomplete"),
+    (CLOSED_TIMEPOINT, "Closed"),
+)
