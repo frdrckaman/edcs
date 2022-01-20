@@ -10,7 +10,7 @@ from edcs_identifier.model_mixins import NonUniqueSubjectIdentifierFieldMixin
 from edcs_visit_schedule.model_mixins import VisitScheduleModelMixin
 
 from ..choices import APPT_STATUS, APPT_TYPE, DEFAULT_APPT_REASON_CHOICES
-from ..constants import NEW_APPT
+from ..constants import NEW_APPT, SCHEDULED_APPT
 from ..exceptions import UnknownVisitCode
 from ..managers import AppointmentManager
 from ..stubs import AppointmentModelStub
@@ -84,6 +84,7 @@ class AppointmentModelMixin(
         verbose_name="Reason for appointment",
         max_length=25,
         choices=DEFAULT_APPT_REASON_CHOICES,
+        default=SCHEDULED_APPT,
         help_text=(
             "The visit report's `reason for visit` will be validated against this. "
             "Refer to the protocol's documentation for the definition of a `scheduled` visit."

@@ -1,3 +1,6 @@
+from edcs_constants.constants import NOT_APPLICABLE, OTHER
+from edcs_subject.constants import SCHEDULED, UNSCHEDULED, MISSED_VISIT
+
 MISS_ARV = (
     ("at_least_once_every_week", "At least once every week"),
     ("at_least_once_a_month", "At least once in a month"),
@@ -479,4 +482,36 @@ QN50EAP = (
     ("close_stove", "Closed stove with chimney"),
     ("electric_heaters", "Electric heaters"),
     ("other", "Other"),
+)
+
+INFO_SOURCE = (
+    ("patient", "Patient"),
+    ("patient_and_outpatient", "Patient, hospital notes and/or outpatient card"),
+    ("patient_representive", "Patient Representative (e.family member, friend)"),
+    ("hospital_notes", "Hospital notes"),
+    ("outpatient_cards", "Outpatient cards"),
+    ("collateral_history", "Collateral History from relative/guardian"),
+    (NOT_APPLICABLE, "Not applicable"),
+    (OTHER, "Other"),
+)
+
+VISIT_REASON = (
+    (SCHEDULED, "Scheduled visit (study)"),
+    (UNSCHEDULED, "Routine / Unscheduled visit (non-study)"),
+    (MISSED_VISIT, "Missed visit"),
+)
+
+VISIT_UNSCHEDULED_REASON = (
+    ("routine_non_study", "Routine appointment (non-study)"),
+    ("patient_unwell_outpatient", "Patient unwell"),
+    ("drug_refill", "Drug refill only"),
+    (OTHER, "Other"),
+    (NOT_APPLICABLE, "Not applicable"),
+)
+
+VISIT_REASON_UNSCHEDULED = (
+    ("patient_unwell_outpatient", "Patient unwell (outpatient)"),
+    ("patient_hospitalised", "Patient hospitalised"),
+    (OTHER, "Other"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
