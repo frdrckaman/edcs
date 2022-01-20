@@ -16,12 +16,13 @@ from ..managers import AppointmentManager
 from ..stubs import AppointmentModelStub
 from .appointment_methods_model_mixin import AppointmentMethodsModelMixin
 from .window_period_model_mixin import WindowPeriodModelMixin
+from .timepoint_model_mixin import TimepointModelMixin
 
 
 class AppointmentModelMixin(
     NonUniqueSubjectIdentifierFieldMixin,
     AppointmentMethodsModelMixin,
-    # TimepointModelMixin,
+    TimepointModelMixin,
     WindowPeriodModelMixin,
     VisitScheduleModelMixin,
     # OffstudyVisitModelMixin,
