@@ -53,6 +53,7 @@ def start_visit(context, visit):
     return dict(
         href=next_url(appointment.admin_url(appointment.id), nxt),
         title=title,
+        status=appointment.appt_status
     )
 
 
