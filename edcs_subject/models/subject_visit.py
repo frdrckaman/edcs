@@ -5,7 +5,7 @@ from edcs_model import models as edc_models
 from edcs_sites.models import CurrentSiteManager as BaseCurrentSiteManager
 from edcs_sites.models import SiteModelMixin
 
-from ..choices import INFO_SOURCE, VISIT_REASON
+from ..choices import INFO_SOURCE, VISIT_REASON, VISIT_UNSCHEDULED_REASON
 
 
 class CurrentSiteManager(BaseCurrentSiteManager):
@@ -13,9 +13,8 @@ class CurrentSiteManager(BaseCurrentSiteManager):
 
 
 class SubjectVisit(
-    VisitModelMixin,
-    ReferenceModelMixin,
-    CreatesMetadataModelMixin,
+    # VisitModelMixin,
+    # ReferenceModelMixin,
     SiteModelMixin,
     RequiresConsentFieldsModelMixin,
     edc_models.BaseUuidModel,
@@ -29,11 +28,6 @@ class SubjectVisit(
         verbose_name="What is the reason for this visit report?",
         max_length=25,
         choices=VISIT_REASON,
-        help_text=(
-            "Only baseline (0m), 6m and 12m are considered "
-            "`scheduled` visits as per the INTE protocol."
-            f"If `missed' complete CRF {SubjectVisitMissed._meta.verbose_name}."
-        ),
     )
 
     reason_unscheduled = models.CharField(
@@ -43,19 +37,7 @@ class SubjectVisit(
         default=NOT_APPLICABLE,
     )
 
-    clinic_services = models.ManyToManyField(
-        ClinicServices,
-        verbose_name="Why is the patient at the clinic today?",
-        related_name="visit_clinic_services",
-    )
-
     clinic_services_other = edc_models.OtherCharField()
-
-    health_services = models.ManyToManyField(
-        HealthServices,
-        verbose_name="Which health service(s) is the patient here for today?",
-        related_name="visit_health_services",
-    )
 
     info_source = models.CharField(
         verbose_name="What is the main source of this information?",
@@ -65,9 +47,12 @@ class SubjectVisit(
 
     on_site = CurrentSiteManager()
 
-    objects = VisitModelManager()
+    # objects = VisitModelManager()
 
     history = edc_models.HistoricalRecords()
 
-    class Meta(VisitModelMixin.Meta, edc_models.BaseUuidModel.Meta):
+    # class Meta(VisitModelMixin.Meta, edc_models.BaseUuidModel.Meta):
+    #     pass
+
+    class Meta(edc_models.BaseUuidModel.Meta):
         pass

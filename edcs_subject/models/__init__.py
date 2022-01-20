@@ -13,3 +13,4 @@ from .lung_cancer_symptoms import SignSymptomLungCancer
 from .lung_cancer_treatment import LungCancerTreatment
 from .occupational_history import OccupationalHistory
 from .house_kitchen import HouseKitchenSurrounding
+from .subject_visit import SubjectVisit

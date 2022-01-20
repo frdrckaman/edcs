@@ -1,0 +1,1 @@
+from .visit_model_admin_mixin import VisitModelAdminMixin
