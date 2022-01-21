@@ -13,3 +13,4 @@ from .lung_cancer_lab_admin import LungCancerLabInvestigationAdmin
 from .lung_cancer_symptoms_admin import SignSymptomLungCancerAdmin
 from .lung_cancer_treatment_admin import LungCancerTreatmentAdmin
 from .occupational_history_admin import OccupationalHistoryAdmin
+from .subject_visit_admin import SubjectVisit
