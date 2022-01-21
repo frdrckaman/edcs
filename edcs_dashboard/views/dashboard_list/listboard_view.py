@@ -17,6 +17,7 @@ class BaseListboardView:
     listboard_url = None  # an existing key in request.context_data
     listboard_back_url = None
     listboard_dashboard = None
+    subjectvisit_model = None
 
     listboard_model = None  # label_lower model name or model class
     model_consent = None
@@ -95,6 +96,17 @@ class BaseListboardView:
             return django_apps.get_model(self.model_consent)
         except (ValueError, AttributeError):
             return self.model_consent
+
+    @property
+    def listboard_model_visit(self):
+        if not self.subjectvisit_model:
+            raise ListboardViewError(
+                f"Listboard consent model not declared. Got None. See {repr(self)}"
+            )
+        try:
+            return django_apps.get_model(self.subjectvisit_model)
+        except (ValueError, AttributeError):
+            return self.subjectvisit_model
 
 
 class ListboardView(BaseListboardView):

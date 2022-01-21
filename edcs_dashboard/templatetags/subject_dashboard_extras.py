@@ -3,8 +3,10 @@ from pprint import pprint
 
 from django import template
 from django.conf import settings
+from django.apps import apps as django_apps
 
 from edcs_appointment.models import Appointment
+from edcs_subject.models import SubjectVisit
 from edcs_utils import age
 
 register = template.Library()
@@ -59,3 +61,22 @@ def start_visit(context, visit):
 
 def next_url(url, nxt):
     return "?next=".join([url, nxt])
+
+
+@register.inclusion_tag(
+    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/"
+    f"buttons/start_button.html",
+    takes_context=True,
+)
+def start_button(context, appt):
+    listboard_dashboard = "edcs_dashboard:enroll-dashboard"
+    title = "Start Appointment"
+
+    nxt = listboard_dashboard + "&subject=" + context.get("subject") + "&appointment=" + str(appt.id)
+    pprint(context.get("subject_visit"))
+
+    return dict(
+        href=next_url(context.get("subject_visit"), nxt),
+        title=title,
+        # status=appointment.appt_status
+    )

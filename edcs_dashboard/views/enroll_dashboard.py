@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from edcs_dashboard.views.subject_list import SubjectDashboardView
 from edcs_visit_schedule.models.visit_schedule import VisitSchedule
+from edcs_subject.models import SubjectVisit
 
 
 class EnrollDashboardView(SubjectDashboardView):
@@ -14,6 +15,7 @@ class EnrollDashboardView(SubjectDashboardView):
         context = super().get_context_data(**kwargs)
         context.update(
             appointments=VisitSchedule.objects.all(),
+            # subject_visit=SubjectVisit.get_absolute_url()
         )
         return context
 

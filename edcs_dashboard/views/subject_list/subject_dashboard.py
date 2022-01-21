@@ -8,6 +8,7 @@ from edcs_consent.models import SubjectConsent
 class SubjectDashboardView(ListboardView, TemplateView):
     listboard_url = "subject_listboard_url"
     listboard_model = "edcs_consent.subjectconsent"
+    subjectvisit_model = "edcs_subject.subjectvisit"
     listboard_dashboard = "edcs_dashboard:enroll-dashboard"
 
     def get_context_data(self, **kwargs):
@@ -15,6 +16,7 @@ class SubjectDashboardView(ListboardView, TemplateView):
         context.update(
             consent_url=self.next_url_consent,
             object_list=self.get_consent_data,
+            subject_visit=self.get_subject_visit_url
         )
         return context
 
@@ -26,6 +28,10 @@ class SubjectDashboardView(ListboardView, TemplateView):
     @property
     def get_consent_url(self):
         return self.listboard_model_cls().admin_url(self.get_consent_data.id)
+
+    @property
+    def get_subject_visit_url(self):
+        return self.listboard_model_visit().get_absolute_url()
 
     @property
     def next_url_consent(self):
