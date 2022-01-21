@@ -52,8 +52,8 @@ class SubjectVisit(
 
     history = edcs_models.HistoricalRecords()
 
-    # class Meta(VisitModelMixin.Meta, edc_models.BaseUuidModel.Meta):
-    #     pass
-
-    class Meta(edcs_models.BaseUuidModel.Meta):
+    class Meta(VisitModelMixin.Meta, edcs_models.BaseUuidModel.Meta):
         pass
+
+    # class Meta(edcs_models.BaseUuidModel.Meta):
+    #     pass

@@ -58,7 +58,7 @@ class VisitModelMixin(
         )
 
     # noinspection PyTypeHints
-    natural_key.dependencies = ["edc_appointment.appointment"]  # type:ignore
+    natural_key.dependencies = ["edcs_appointment.appointment"]  # type:ignore
 
     @property
     def timepoint(self: SubjectVisitModelStub) -> int:
