@@ -1,9 +1,10 @@
 from django.db import models
 from edcs_consent.model_mixins import RequiresConsentFieldsModelMixin
 from edcs_constants.constants import NOT_APPLICABLE
-from edcs_model import models as edc_models
+from edcs_model import models as edcs_models
 from edcs_sites.models import CurrentSiteManager as BaseCurrentSiteManager
 from edcs_sites.models import SiteModelMixin
+from edcs_visit_schedule.model_mixins import VisitModelMixin
 
 from ..choices import INFO_SOURCE, VISIT_REASON, VISIT_UNSCHEDULED_REASON
 
@@ -13,11 +14,11 @@ class CurrentSiteManager(BaseCurrentSiteManager):
 
 
 class SubjectVisit(
-    # VisitModelMixin,
+    VisitModelMixin,
     # ReferenceModelMixin,
     SiteModelMixin,
     RequiresConsentFieldsModelMixin,
-    edc_models.BaseUuidModel,
+    edcs_models.BaseUuidModel,
 ):
     """A model completed by the user that captures the covering
     information for the data collected for this timepoint/appointment,
@@ -37,7 +38,7 @@ class SubjectVisit(
         default=NOT_APPLICABLE,
     )
 
-    clinic_services_other = edc_models.OtherCharField()
+    clinic_services_other = edcs_models.OtherCharField()
 
     info_source = models.CharField(
         verbose_name="What is the main source of this information?",
@@ -49,10 +50,10 @@ class SubjectVisit(
 
     # objects = VisitModelManager()
 
-    history = edc_models.HistoricalRecords()
+    history = edcs_models.HistoricalRecords()
 
     # class Meta(VisitModelMixin.Meta, edc_models.BaseUuidModel.Meta):
     #     pass
 
-    class Meta(edc_models.BaseUuidModel.Meta):
+    class Meta(edcs_models.BaseUuidModel.Meta):
         pass

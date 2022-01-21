@@ -10,3 +10,5 @@ from .visit_schedule_model_mixins import (
     VisitScheduleMethodsModelMixin,
     VisitScheduleModelMixin,
 )
+from .visit_model_mixin import VisitModelMixin
+from .visit_model_fields_mixin import VisitModelFieldsMixin

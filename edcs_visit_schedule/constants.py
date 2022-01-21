@@ -29,3 +29,13 @@ WEEKS = "weeks"
 YEARS = "years"
 SCHEDULE_ENROLMENT = "schedule_enrolment"
 SCHEDULE_FOLLOWUP = "schedule_followup"
+MISSED_VISIT = "missed"
+COMPLETED_PROTOCOL_VISIT = "completed protocol"
+DEFERRED_VISIT = "deferred"
+LOST_VISIT = "lost"
+NO_FOLLOW_UP_REASONS = [
+    # MISSED_VISIT,
+    LOST_VISIT,
+    DEFERRED_VISIT,
+    COMPLETED_PROTOCOL_VISIT,
+]
