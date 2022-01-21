@@ -24,7 +24,7 @@ class TimepointModelMixin(models.Model):
     enabled_as_timepoint = True
 
     timepoint_status = models.CharField(
-        max_length=15, choices=TIMEPOINT_STATUS, default=NEW_TIMEPOINT
+        max_length=15, choices=TIMEPOINT_STATUS, null=True
     )
 
     timepoint_opened_datetime = models.DateTimeField(

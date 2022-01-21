@@ -84,7 +84,6 @@ class AppointmentModelMixin(
         verbose_name="Reason for appointment",
         max_length=25,
         choices=DEFAULT_APPT_REASON_CHOICES,
-        default=SCHEDULED_APPT,
         help_text=(
             "The visit report's `reason for visit` will be validated against this. "
             "Refer to the protocol's documentation for the definition of a `scheduled` visit."

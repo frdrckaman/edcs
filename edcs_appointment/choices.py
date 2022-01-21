@@ -6,6 +6,7 @@ from .constants import (
     NEW_APPT,
     SCHEDULED_APPT,
     UNSCHEDULED_APPT, OPEN_TIMEPOINT, CLOSED_TIMEPOINT, NEW_TIMEPOINT, START_TIMEPOINT, INCOMPLETE_TIMEPOINT,
+    START_APPT,
 )
 
 # choices for the model, see also `get_appt_reason_choices`
@@ -16,7 +17,7 @@ DEFAULT_APPT_REASON_CHOICES = (
 
 
 APPT_STATUS = (
-    (NEW_APPT, "New"),
+    (START_APPT, "Start"),
     (IN_PROGRESS_APPT, "In Progress"),
     (INCOMPLETE_APPT, "Incomplete"),
     (COMPLETE_APPT, "Done"),
