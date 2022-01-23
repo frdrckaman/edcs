@@ -12,6 +12,7 @@ from edcs_visit_schedule.fieldsets import (
 )
 
 from .admin_site import edcs_appointment_admin
+from .forms import AppointmentForm
 from .models import Appointment
 
 

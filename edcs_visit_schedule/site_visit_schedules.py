@@ -31,12 +31,13 @@ class SiteVisitSchedules:
 
     @property
     def registry(self):
-        if not self.loaded:
-            raise RegistryNotLoaded(
-                "Registry not loaded. Is AppConfig for 'edc_visit_schedule' "
-                "declared in settings?."
-            )
-        return self._registry
+        pass
+        # if not self.loaded:
+        #     raise RegistryNotLoaded(
+        #         "Registry not loaded. Is AppConfig for 'edcs_visit_schedule' "
+        #         "declared in settings?."
+        #     )
+        # return self._registry
 
     def register(self, visit_schedule):
         self.loaded = True
