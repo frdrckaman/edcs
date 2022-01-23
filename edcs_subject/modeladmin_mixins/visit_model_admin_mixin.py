@@ -110,8 +110,6 @@ class VisitModelAdminMixin:
             kwargs["queryset"] = db_field.related_model._default_manager.using(db).filter(
                 pk=request.GET.get("appointment")
             )
-            # kwargs["queryset"] = Appointment.objects.get(id=request.GET.get("appointment"))
-            pprint(kwargs["queryset"])
         else:
             kwargs["queryset"] = db_field.related_model._default_manager.none()
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
