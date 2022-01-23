@@ -97,7 +97,7 @@ class AppointmentModelMixin(
     objects = AppointmentManager()
 
     def __str__(self) -> str:
-        return f"{self.visit_code}.{self.visit_code_sequence}"
+        return f"{self.visit_code}"
 
     def natural_key(self) -> tuple:
         return (

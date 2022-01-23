@@ -1,9 +1,5 @@
-from pprint import pprint
-
 from django.contrib import admin
-
-from edcs_appointment.models import Appointment
-from edcs_constants.constants import OTHER
+from edc_constants.constants import OTHER
 from edcs_model_admin.model_admin_audit_fields_mixin import audit_fieldset_tuple
 from edcs_visit_schedule.fieldsets import (
     visit_schedule_fields,
@@ -11,7 +7,7 @@ from edcs_visit_schedule.fieldsets import (
 )
 
 from ..constants import UNSCHEDULED
-from edcs_visit_schedule.stubs import SubjectVisitModelStub
+from ..stubs import SubjectVisitModelStub
 
 
 class VisitModelAdminMixin:
@@ -110,8 +106,6 @@ class VisitModelAdminMixin:
             kwargs["queryset"] = db_field.related_model._default_manager.using(db).filter(
                 pk=request.GET.get("appointment")
             )
-            # kwargs["queryset"] = Appointment.objects.get(id=request.GET.get("appointment"))
-            pprint(kwargs["queryset"])
         else:
             kwargs["queryset"] = db_field.related_model._default_manager.none()
         return super().formfield_for_foreignkey(db_field, request, **kwargs)

@@ -71,9 +71,10 @@ def next_url(url, nxt):
 def start_button(context, appt):
     listboard_dashboard = "edcs_dashboard:enroll-dashboard"
     title = "Start Appointment"
+    appointment = Appointment.objects.get(subject_identifier=context.get("subject"), visit_code=appt.visit_code)
 
-    nxt = listboard_dashboard + "&subject=" + context.get("subject") + "&appointment=" + str(appt.id)
-    pprint(context.get("subject_visit"))
+    nxt = listboard_dashboard + "&subject=" + context.get("subject") + "&appointment=" + str(appointment.id)
+    # pprint(context.get("subject_visit"))
 
     return dict(
         href=next_url(context.get("subject_visit"), nxt),
