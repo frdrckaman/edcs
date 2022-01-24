@@ -14,8 +14,8 @@ from ..constants import UNSCHEDULED
 from edcs_visit_schedule.stubs import SubjectVisitModelStub
 
 
+# TODO USE THIS CLASS FROM EDCS_VISIT_SCHEDULE (DUPLICATE)
 class VisitModelAdminMixin:
-
     """ModelAdmin subclass for models with a ForeignKey to
     'appointment', such as your visit model(s).
 

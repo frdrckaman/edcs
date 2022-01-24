@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from django.db import models
 from django.db.models.deletion import PROTECT
 from edcs_appointment.constants import COMPLETE_APPT, IN_PROGRESS_APPT
