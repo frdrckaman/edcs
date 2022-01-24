@@ -46,7 +46,6 @@ class SubjectVisitAdmin(VisitModelAdminMixin, ModelAdminMixin, SimpleHistoryAdmi
         "info_source": admin.VERTICAL,
     }
 
-
     def response_post_save_add(self, request, obj):
         next = request.GET.get('next', None)
         args = request.GET.get('subject', None)
