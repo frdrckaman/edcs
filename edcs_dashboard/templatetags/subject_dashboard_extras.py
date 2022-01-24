@@ -3,10 +3,8 @@ from pprint import pprint
 
 from django import template
 from django.conf import settings
-from django.apps import apps as django_apps
 
 from edcs_appointment.models import Appointment
-from edcs_subject.models import SubjectVisit
 from edcs_utils import age
 
 register = template.Library()
@@ -74,10 +72,8 @@ def start_button(context, appt):
     appointment = Appointment.objects.get(subject_identifier=context.get("subject"), visit_code=appt.visit_code)
 
     nxt = listboard_dashboard + "&subject=" + context.get("subject") + "&appointment=" + str(appointment.id)
-    # pprint(context.get("subject_visit"))
 
     return dict(
         href=next_url(context.get("subject_visit"), nxt),
         title=title,
-        # status=appointment.appt_status
     )
