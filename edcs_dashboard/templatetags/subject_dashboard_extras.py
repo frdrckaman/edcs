@@ -110,3 +110,19 @@ def done_button(context):
         title=title,
         # appt_status=appointment.appt_status
     )
+
+
+@register.inclusion_tag(
+    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/"
+    f"buttons/appointment_button.html",
+    takes_context=True,
+)
+def appointment_button(context):
+    listboard_dashboard = "edcs_dashboard:enroll-dashboard"
+    title = "Subject's Appointment"
+
+    return dict(
+        # href=next_url(context.get("subject_visit"), nxt),
+        title=title,
+        # appt_status=appointment.appt_status
+    )
