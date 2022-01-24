@@ -54,6 +54,3 @@ class SubjectVisit(
 
     class Meta(VisitModelMixin.Meta, edcs_models.BaseUuidModel.Meta):
         pass
-
-    # class Meta(edcs_models.BaseUuidModel.Meta):
-    #     pass
