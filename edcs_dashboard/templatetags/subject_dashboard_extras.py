@@ -78,3 +78,35 @@ def start_button(context, appt):
         title=title,
         appt_status=appointment.appt_status
     )
+
+
+@register.inclusion_tag(
+    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/"
+    f"buttons/forms_button.html",
+    takes_context=True,
+)
+def form_button(context):
+    listboard_dashboard = "edcs_dashboard:enroll-dashboard"
+    title = "Subject Form's"
+
+    return dict(
+        # href=next_url(context.get("subject_visit"), nxt),
+        title=title,
+        # appt_status=appointment.appt_status
+    )
+
+
+@register.inclusion_tag(
+    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/"
+    f"buttons/done_button.html",
+    takes_context=True,
+)
+def done_button(context):
+    listboard_dashboard = "edcs_dashboard:enroll-dashboard"
+    title = "Done"
+
+    return dict(
+        # href=next_url(context.get("subject_visit"), nxt),
+        title=title,
+        # appt_status=appointment.appt_status
+    )

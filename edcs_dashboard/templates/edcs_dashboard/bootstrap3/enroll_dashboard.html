@@ -80,13 +80,13 @@
 
                                      {% start_button  appointment%}
 
-                                     <a href="#" class="btn btn-sm btn-default tip" title="Visit Done">
-                                         Done
-                                     </a>
+                                     {% done_button  %}
 
-                                     <a href="{% url 'edcs_dashboard:crf-list' %}" class="btn btn-sm btn-info tip" title="Open CRFs">
-                                         Forms <span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span>
-                                     </a>
+                                     {% form_button %}
+
+{#                                     <a href="{% url 'edcs_dashboard:crf-list' %}" class="btn btn-sm btn-info tip" title="Open CRFs">#}
+{#                                         Forms <span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span>#}
+{#                                     </a>#}
                                  </td>
                                  <td>{{ appointment.visit_title }}</td>
                                  <td>05/09/2021</td>

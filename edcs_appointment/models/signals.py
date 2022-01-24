@@ -3,6 +3,7 @@ from django.dispatch import receiver
 
 from edcs_subject.models import SubjectVisit
 from .appointment import Appointment
+from ..constants import START_APPT, OPEN_TIMEPOINT, IN_PROGRESS_APPT
 
 
 @receiver(
@@ -13,7 +14,8 @@ from .appointment import Appointment
 )
 def subject_visit_on_post_save(sender, instance, raw, created, **kwargs):
     appointment = Appointment.objects.get(id=instance.appointment.id)
-    if appointment.appt_status == 'start':
-        appointment.appt_status = 'open'
-        appointment.save_base(update_fields=["appt_status"])
+    if appointment.appt_status == START_APPT:
+        appointment.appt_status = IN_PROGRESS_APPT
+        appointment.timepoint_status = OPEN_TIMEPOINT
+        appointment.save_base(update_fields=["appt_status", "timepoint_status"])
 
