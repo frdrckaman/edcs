@@ -1,3 +1,5 @@
-<a href="{{ href }}" class="btn btn-sm btn-warning tip" title="Start Visit">
-    Start <span class="glyphicon glyphicon-plus glyphicon glyphicon-white"></span>
-</a>
+{% if appt_status == 'start' %}
+    <a href="{{ href }}" class="btn btn-sm btn-warning tip" title="Start Visit">
+        Start <span class="glyphicon glyphicon-plus glyphicon glyphicon-white"></span>
+    </a>
+{% endif %}

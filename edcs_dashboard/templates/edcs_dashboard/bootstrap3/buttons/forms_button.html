@@ -1,3 +1,5 @@
-<a href="#" class="btn btn-sm btn-info tip" title="Open CRFs">
-    Forms <span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span>
-</a>
+{% if appt_status == 'open' %}
+    <a href="#" class="btn btn-sm btn-info tip" title="Open CRFs">
+        Forms <span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span>
+    </a>
+{% endif %}

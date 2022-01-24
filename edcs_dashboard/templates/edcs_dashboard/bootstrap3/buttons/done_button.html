@@ -1,3 +1,5 @@
-<a href="#" class="btn btn-sm btn-default tip" title="Visit Done">
-    Done
-</a>
+{% if appt_status == 'done' %}
+    <a href="#" class="btn btn-sm btn-default tip" title="Visit Done">
+        Done
+    </a>
+{% endif %}

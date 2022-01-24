@@ -76,4 +76,5 @@ def start_button(context, appt):
     return dict(
         href=next_url(context.get("subject_visit"), nxt),
         title=title,
+        appt_status=appointment.appt_status
     )
