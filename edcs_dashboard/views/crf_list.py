@@ -12,9 +12,6 @@ class CrfListView(CrfListBoardView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(
-            edc_packages=["not available"],
-            third_party_packages=["not available"],
-            installed_apps=settings.INSTALLED_APPS,
             crfs=enrollment_crf,
         )
         return context
