@@ -3,6 +3,7 @@ from pprint import pprint
 
 from django import template
 from django.conf import settings
+from django.urls import reverse
 
 from edcs_appointment.constants import NEW_APPT, IN_PROGRESS_APPT, OPEN_TIMEPOINT
 from edcs_appointment.models import Appointment
@@ -94,7 +95,7 @@ def start_button(context, appt):
     takes_context=True,
 )
 def form_button(context, visit_code):
-    listboard_dashboard = "edcs_dashboard:enroll-dashboard"
+    listboard_dashboard = "edcs_dashboard:crf-list"
     title = "Subject Form's"
     appt_status = False
     appt = appointment(context.get("subject"), visit_code)
@@ -104,7 +105,8 @@ def form_button(context, visit_code):
 
     return dict(
         title=title,
-        appt_status=appt_status
+        appt_status=appt_status,
+        href=reverse(listboard_dashboard, args=[context.get("subject"), appt.id])
     )
 
 
