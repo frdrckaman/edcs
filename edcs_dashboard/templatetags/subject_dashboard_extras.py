@@ -4,6 +4,7 @@ from pprint import pprint
 from django import template
 from django.conf import settings
 
+from edcs_appointment.constants import NEW_APPT
 from edcs_appointment.models import Appointment
 from edcs_utils import age
 
@@ -124,14 +125,15 @@ def done_button(context):
     f"buttons/appointment_button.html",
     takes_context=True,
 )
-def appointment_button(context):
-    listboard_dashboard = "edcs_dashboard:enroll-dashboard"
+def appointment_button(context, visit_code):
     title = "Subject's Appointment"
+    disabled = None
+    if appointment(context.get("subject"), visit_code).appt_status == NEW_APPT:
+        disabled = "disabled"
 
     return dict(
-        # href=next_url(context.get("subject_visit"), nxt),
         title=title,
-        # appt_status=appointment.appt_status
+        disabled=disabled,
     )
 
 
