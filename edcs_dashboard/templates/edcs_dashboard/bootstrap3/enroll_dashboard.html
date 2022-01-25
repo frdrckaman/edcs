@@ -64,20 +64,20 @@
                              <th width="3%">#Code</th>
                              <th width="40%">Dashboard</th>
                              <th width="15%">Visit</th>
-                             <th width="15%">Modified</th>
                              <th width="15%">Expected</th>
+                             <th width="15%">Modified</th>
                          </tr>
                          </thead>
                          <tbody>
-                         {% for appointment in appointments %}
+                         {% for schedule in schedules %}
                              <tr>
-                                 <td>{{ appointment.visit_code }}</td>
+                                 <td>{{ schedule.visit_code }}</td>
                                  <td>
                                      {% appointment_button %}
 
-                                     {% start_visit  appointment.visit_code %}
+                                     {% start_visit  schedule.visit_code %}
 
-                                     {% start_button  appointment%}
+                                     {% start_button  schedule %}
 
                                      {% done_button  %}
 
@@ -87,8 +87,8 @@
 {#                                         Forms <span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span>#}
 {#                                     </a>#}
                                  </td>
-                                 <td>{{ appointment.visit_title }}</td>
-                                 <td>05/09/2021</td>
+                                 <td>{{ schedule.visit_title }}</td>
+                                 <td>{{ schedule.appt_datatime }}</td>
                                  <td>05/09/2021</td>
                              </tr>
                          {% endfor %}
