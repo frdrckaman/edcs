@@ -61,6 +61,13 @@ def next_url(url, nxt):
     return "?next=".join([url, nxt])
 
 
+# TODO make all tags that query Appointment use this function
+def appointment(subject_identifier, visit_code):
+    return Appointment.objects.get(
+        subject_identifier=subject_identifier, visit_code=visit_code
+    )
+
+
 @register.inclusion_tag(
     f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/"
     f"buttons/start_button.html",
@@ -126,3 +133,13 @@ def appointment_button(context):
         title=title,
         # appt_status=appointment.appt_status
     )
+
+
+@register.simple_tag(takes_context=True)
+def expected_date(context, visit_code):
+    return appointment(context.get("subject"), visit_code).appt_datetime
+
+
+@register.simple_tag(takes_context=True)
+def modified_date(context, visit_code):
+    return appointment(context.get("subject"), visit_code).modified

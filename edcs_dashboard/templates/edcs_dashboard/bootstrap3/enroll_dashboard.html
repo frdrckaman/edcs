@@ -88,8 +88,10 @@
 {#                                     </a>#}
                                  </td>
                                  <td>{{ schedule.visit_title }}</td>
-                                 <td>{{ schedule.appt_datatime }}</td>
-                                 <td>05/09/2021</td>
+                                 {% expected_date schedule.visit_code as expectd%}
+                                 <td>{{ expectd|date:"d M Y" }}</td>
+                                 {% modified_date schedule.visit_code as modiified %}
+                                 <td>{{ modiified|date:"d M Y H:i:s" }}</td>
                              </tr>
                          {% endfor %}
                          </tbody>
