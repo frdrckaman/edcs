@@ -1,12 +1,12 @@
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.views.generic.base import TemplateView
 
 from edcs_crf.crfs import enrollment_crf
+from edcs_dashboard.views.subject_list import CrfListBoardView
 
 
-class CrfListView(TemplateView):
+class CrfListView(CrfListBoardView):
     template_name = f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/crf_list.html"
 
     def get_context_data(self, **kwargs):

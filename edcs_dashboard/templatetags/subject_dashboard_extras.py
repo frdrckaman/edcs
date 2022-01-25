@@ -4,7 +4,7 @@ from pprint import pprint
 from django import template
 from django.conf import settings
 
-from edcs_appointment.constants import NEW_APPT
+from edcs_appointment.constants import NEW_APPT, IN_PROGRESS_APPT, OPEN_TIMEPOINT
 from edcs_appointment.models import Appointment
 from edcs_utils import age
 
@@ -93,14 +93,18 @@ def start_button(context, appt):
     f"buttons/forms_button.html",
     takes_context=True,
 )
-def form_button(context):
+def form_button(context, visit_code):
     listboard_dashboard = "edcs_dashboard:enroll-dashboard"
     title = "Subject Form's"
+    appt_status = False
+    appt = appointment(context.get("subject"), visit_code)
+
+    if appt.appt_status == IN_PROGRESS_APPT and appt.timepoint_status == OPEN_TIMEPOINT:
+        appt_status = True
 
     return dict(
-        # href=next_url(context.get("subject_visit"), nxt),
         title=title,
-        # appt_status=appointment.appt_status
+        appt_status=appt_status
     )
 
 
@@ -110,13 +114,9 @@ def form_button(context):
     takes_context=True,
 )
 def done_button(context):
-    listboard_dashboard = "edcs_dashboard:enroll-dashboard"
     title = "Done"
-
     return dict(
-        # href=next_url(context.get("subject_visit"), nxt),
         title=title,
-        # appt_status=appointment.appt_status
     )
 
 
@@ -130,7 +130,6 @@ def appointment_button(context, visit_code):
     disabled = None
     if appointment(context.get("subject"), visit_code).appt_status == NEW_APPT:
         disabled = "disabled"
-
     return dict(
         title=title,
         disabled=disabled,
