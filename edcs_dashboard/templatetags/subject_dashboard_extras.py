@@ -29,11 +29,13 @@ def side_info_panel(result):
 
 @register.inclusion_tag(
     f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"menu/consent-panel.html",
+    takes_context=True,
 )
-def consent_panel(result):
+def consent_panel(context):
     title = "Subject's Consent Form"
     return dict(
-        href=result,
+        href=context.get('consent_url'),
+        consent_date=context.get('consent_date'),
         title=title,
     )
 

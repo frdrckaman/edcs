@@ -15,6 +15,7 @@ class SubjectDashboardView(ListboardView, TemplateView):
         context = super().get_context_data(**kwargs)
         context.update(
             consent_url=self.next_url_consent,
+            consent_date=self.get_consent_date,
             object_list=self.get_consent_data,
             subject_visit=self.get_subject_visit_url
         )
@@ -24,6 +25,10 @@ class SubjectDashboardView(ListboardView, TemplateView):
     def get_consent_data(self):
         consent = SubjectConsent.objects.get(subject_identifier=self.kwargs['subject'])
         return consent
+
+    @property
+    def get_consent_date(self):
+        return self.get_consent_data.created
 
     @property
     def get_consent_url(self):
