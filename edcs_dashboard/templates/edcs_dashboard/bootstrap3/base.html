@@ -1,3 +1,4 @@
+{% load edcs_menu %}
 {% load static %}
 {% load edcs_info %}
 <!DOCTYPE html>
@@ -9,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <![endif]-->
 
+    {#    Get project name from .env#}
     {% block title %}<title> EDCS </title>{% endblock title %}
 
     <link rel="icon" type="image/ico" href="{% static 'favicon.ico' %}"/>
@@ -68,7 +70,7 @@
                 </a>
                 <!------------------------------- end system logo ------------------------------------------->
                 <!------------------------------- start template theme settings ------------------------------------------->
-                {% include 'edcs_dashboard/bootstrap3/menu/template-theme-settings.html' %}
+                {% theme_settings %}
                 <!------------------------------- end template theme settings ------------------------------------------->
             </div>
         {% endblock head %}
