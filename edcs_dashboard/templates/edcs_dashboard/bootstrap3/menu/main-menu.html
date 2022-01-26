@@ -1,0 +1,59 @@
+<ul class="navigation">
+    <li class="active">
+        <a href="{% url 'edcs_dashboard:home' %}">
+            <span class="isw-grid"></span><span class="text">Dashboard</span>
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'edcs_dashboard:screening_dashboard' %}">
+            <span class="isw-empty_document"></span><span class="text">Screening</span>
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'edcs_dashboard:enroll-list' %}">
+            <span class="isw-sync"></span><span class="text">Enrollment</span>
+        </a>
+    </li>
+    <li class="openable">
+        <a href="#">
+            <span class="isw-attachment"></span><span class="text">Data Management</span>
+        </a>
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="glyphicon glyphicon-warning-sign"></span><span class="text">Data Query</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="glyphicon glyphicon-list"></span><span class="text">Data Dictionary</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="glyphicon glyphicon-list-alt"></span><span class="text">Visit Schedule</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">
+            <span class="isw-download"></span><span class="text">Export Data</span>
+        </a>
+    </li>
+</ul>
+
+                    <div class="dr"><span></span></div>
+
+                    <div class="widget-fluid"><div id="menuDatepicker"></div></div>
+
+                    <div class="dr"><span></span></div>
+                    <div class="widget">
+                        <div class="input-group">
+                            <input id="appendedInputButton" class="form-control" type="text">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="button">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dr"><span></span></div>

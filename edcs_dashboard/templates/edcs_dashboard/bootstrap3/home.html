@@ -4,23 +4,7 @@
 {% block main-content %}
     <div class="workplace">
         <!-------------------------------------------- start top button icons ------------------------------------------>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="widgetButtons">
-                    <div class="bb"><a href="#" class="tipb" title="Add Screening"><span class="ibw-plus"></span></a></div>
-                    <div class="bb"><a href="#" class="tipb" title="Enrolled Patients"><span class="ibw-users"></span></a></div>
-                    <div class="bb">
-                        <a href="#" class="tipb" title="Queries"><span class="ibw-cancel"></span></a>
-                        <div class="caption red">1</div>
-                    </div>
-                    <div class="bb">
-                        <a href="#" class="tipb" title="Notifications"><span class="ibw-mail"></span></a>
-                        <div class="caption green">1</div>
-                    </div>
-                    <div class="bb"><a href="#" class="tipb" title="Log Out"><span class="ibw-lock"></span></a></div>
-                </div>
-            </div>
-        </div>
+        {% include 'edcs_dashboard/bootstrap3/menu/top-button-icons.html' %}
         <!-------------------------------------------- end top button icons ------------------------------------------>
         <!--------------------------------------- start count widget -------------------------------------------->
         <div class="row">
@@ -52,36 +36,9 @@
         <!--------------------------------------- end count widget -------------------------------------------->
         <div class="dr"><span></span></div>
         <div class="row">
-            <!-------------------- start news appointment widget --------------------->
-            <div class="col-md-4">
-                <div class="head clearfix">
-                    <div class="isw-edit"></div>
-                    <h1> News and Updates </h1>
-{#                    <ul class="buttons">#}
-{#                        <li>#}
-{#                            <a href="#" class="isw-text_document"></a>#}
-{#                        </li>#}
-{#                        <li>#}
-{#                            <a href="#" class="isw-settings"></a>#}
-{#                            <ul class="dd-list">#}
-{#                                <li><a href="#"><span class="isw-list"></span> Show all</a></li>#}
-{#                                <li><a href="#"><span class="isw-edit"></span> Add new</a></li>#}
-{#                                <li><a href="#"><span class="isw-refresh"></span> Refresh</a></li>#}
-{#                            </ul>#}
-{#                        </li>#}
-{#                    </ul>#}
-                </div>
-{#                <div class="block news scrollBox">#}
-{#                    <div class="scroll" style="height: 270px;">#}
-{#                        <div class="item">#}
-{#                            <a href="#">Running System Live demo.</a>#}
-{#                            <p>Phasellus ut diam quis dolor mollis tristique. Suspendisse vestibulum convallis felis vitae facilisis. Praesent eu nisi vestibulum erat lacinia sollicitudin. Cras nec risus dolor, ut tristique neque. Donec mauris sapien, pellentesque at porta id, varius eu tellus.</p>#}
-{#                            <span class="date">02.11.2012 14:23</span>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-            </div>
-            <!-------------------- end news appointment widget --------------------->
+            <!-------------------- start news & update widget --------------------->
+            {% include 'edcs_dashboard/bootstrap3/menu/news-update.html' %}
+            <!-------------------- end news & updates widget --------------------->
 
             <!-------------------- start today appointment widget --------------------->
             <div class="col-md-8">
@@ -113,13 +70,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td><input type="checkbox" name="checkbox"/></td>
-                            <td>101-020-00001-8</td>
-                            <td>CTC-Clinic</td>
-                            <td>2021-01-02</td>
-                            <td><span class="label label-success">Month-3</span></td>
-                        </tr>
+{#                        <tr>#}
+{#                            <td><input type="checkbox" name="checkbox"/></td>#}
+{#                            <td>101-020-00001-8</td>#}
+{#                            <td>CTC-Clinic</td>#}
+{#                            <td>2021-01-02</td>#}
+{#                            <td><span class="label label-success">Month-3</span></td>#}
+{#                        </tr>#}
                         </tbody>
                     </table>
                 </div>
