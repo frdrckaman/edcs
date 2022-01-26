@@ -6,8 +6,6 @@ from django.conf import settings
 from django.template.defaultfilters import stringfilter
 from django.urls.base import reverse
 from edcs_utils import AgeValueError, age, get_utcnow
-from edcs_registration.models import RegisteredSubject
-from edcs_screening.models import SubjectScreening
 
 register = template.Library()
 
@@ -143,13 +141,3 @@ def paginator_row(context):
 @register.filter(name="has_group")
 def has_group(user, group_name):
     return user.groups.filter(name=group_name).exists()
-
-
-@register.simple_tag
-def subject_enrolled():
-    return RegisteredSubject.objects.all().count()
-
-
-@register.simple_tag
-def subject_screened():
-    return SubjectScreening.objects.all().count()

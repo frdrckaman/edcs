@@ -1,10 +1,10 @@
 {% extends 'edcs_dashboard/bootstrap3/base.html' %}
-{% load edcs_dashboard_extras %}
+{% load edcs_menu %}
 {% block title %}<title> EDCS | Dashboard </title>{% endblock title %}
 {% block main-content %}
     <div class="workplace">
         <!-------------------------------------------- start top button icons ------------------------------------------>
-        {% include 'edcs_dashboard/bootstrap3/menu/top-button-icons.html' %}
+        {% top_button_icon %}
         <!-------------------------------------------- end top button icons ------------------------------------------>
         <!--------------------------------------- start count widget -------------------------------------------->
         <div class="row">
@@ -37,7 +37,7 @@
         <div class="dr"><span></span></div>
         <div class="row">
             <!-------------------- start news & update widget --------------------->
-            {% include 'edcs_dashboard/bootstrap3/menu/news-update.html' %}
+            {% news_updates %}
             <!-------------------- end news & updates widget --------------------->
 
             <!-------------------- start today appointment widget --------------------->
