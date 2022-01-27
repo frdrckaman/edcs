@@ -23,11 +23,11 @@ def add_edit_crf(context, url):
     appointment = context.get("appointment")
 
     subject_visit = SubjectVisit.objects.get(appointment_id=appointment)
-    nxt = listboard_dashboard + "&subject=" + subject_identifier + "&appointment=" + appointment + "subject_visit=" + str(subject_visit.id)
-
-    pprint(next_url(reverse(url), nxt))
+    nxt = listboard_dashboard + "&subject=" + subject_identifier + "&appointment=" + appointment + "subject_visit=" \
+          + str(subject_visit.id)
 
     title = "Add"
+
     return dict(
         title=title,
         href=next_url(reverse(url), nxt)
