@@ -1,23 +1,17 @@
 from django.contrib import admin
 from django_audit_fields import audit_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
+from .modeladmin_mixins import CrfModelAdminMixin
 
 from ..admin_site import edcs_subject_admin
 from ..models import ClinicalReview
 
 
 @admin.register(ClinicalReview, site=edcs_subject_admin)
-class SubjectClinicalReviewAdmin(SimpleHistoryAdmin):
+class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     fieldsets = (
-        [
-            None,
-            {
-                "fields": (
-                    "report_datetime",
-                ),
-            },
-         ],
-        [
+        (None, {"fields": ("subject_visit", "report_datetime")}),
+        (
             "HIV",
             {
                 "fields": (
@@ -31,8 +25,8 @@ class SubjectClinicalReviewAdmin(SimpleHistoryAdmin):
                     "miss_taking_arv_other",
                 ),
             },
-        ],
-        [
+        ),
+        (
             "LUNG DISEASES",
             {
                 "fields": (
@@ -41,8 +35,8 @@ class SubjectClinicalReviewAdmin(SimpleHistoryAdmin):
                     "use_lung_diseases_medication",
                 ),
             },
-        ],
-        [
+        ),
+        (
             "HYPERTENSION",
             {
                 "fields": (
@@ -52,8 +46,8 @@ class SubjectClinicalReviewAdmin(SimpleHistoryAdmin):
                     "htn_medication",
                 ),
             },
-        ],
-        [
+        ),
+        (
             "DIABETES",
             {
                 "fields": (
@@ -63,8 +57,8 @@ class SubjectClinicalReviewAdmin(SimpleHistoryAdmin):
                     "dm_medication",
                 ),
             },
-        ],
-        [
+        ),
+        (
             "TUBERCULOSIS",
             {
                 "fields": (
@@ -73,8 +67,8 @@ class SubjectClinicalReviewAdmin(SimpleHistoryAdmin):
                     "tb_status",
                 ),
             },
-        ],
-        [
+        ),
+        (
             "MALIGNANCY AND LUNG CANCER",
             {
                 "fields": (
@@ -82,7 +76,7 @@ class SubjectClinicalReviewAdmin(SimpleHistoryAdmin):
                     "lung_cancer_dx",
                 ),
             },
-        ],
+        ),
 
         audit_fieldset_tuple,
     )
