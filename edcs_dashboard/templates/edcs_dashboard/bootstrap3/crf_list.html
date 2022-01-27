@@ -1,4 +1,5 @@
 {% extends 'edcs_dashboard/bootstrap3/base.html' %}
+{% load crf_dashboard_extras %}
 {% load subject_dashboard_extras %}
 {% block main-content %}
     <div class="workplace">
@@ -72,9 +73,7 @@
                                         <td>{{ forloop.counter }}</td>
                                         <td>{{ crf.verbose_name}}</td>
                                         <td>
-                                            <a href="{% url  crf.model_cls.admin_url_name %}" class="btn btn-sm btn-warning tip" title="Add Clinical Reviews">
-                                                <span class="glyphicon glyphicon-plus glyphicon glyphicon-white"></span> Add
-                                            </a>
+                                            {% add_edit_crf crf.model_cls.admin_url_name %}
                                         </td>
                                     </tr>
                                 {% endfor %}
