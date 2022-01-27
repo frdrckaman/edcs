@@ -7,7 +7,7 @@ from edcs_constants.choices import (
     YES_NO_DECLINED_TO_ANSWER,
     YES_NO_DWTA_DONT_KNOW,
 )
-from edcs_crf.crf_model_mixins import CrfModelMixin
+from ..model_mixins import CrfModelMixin
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
