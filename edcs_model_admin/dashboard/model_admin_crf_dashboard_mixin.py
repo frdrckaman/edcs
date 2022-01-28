@@ -1,9 +1,11 @@
+from edcs_fieldsets.fieldsets_modeladmin_mixin import FieldsetsModelAdminMixin
 from edcs_visit_schedule.modeladmin_mixin import CrfModelAdminMixin
 
 from .model_admin_dashboard_mixin import ModelAdminDashboardMixin
 
 
 class ModelAdminCrfDashboardMixin(
+    FieldsetsModelAdminMixin,
     ModelAdminDashboardMixin,
     CrfModelAdminMixin,
 ):
