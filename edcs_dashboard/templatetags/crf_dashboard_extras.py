@@ -17,18 +17,30 @@ def next_url(url, nxt):
     f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"buttons/add_edit_crf_button.html",
     takes_context=True,
 )
-def add_edit_crf(context, url):
+def add_edit_crf(context, obj):
     listboard_dashboard = "edcs_dashboard:crf-list"
     subject_identifier = context.get("subject")
     appointment = context.get("appointment")
+    text = "Add "
+    icon = "glyphicon-plus"
+    btn = "btn-warning"
+    title = text + obj.verbose_name
 
     subject_visit = SubjectVisit.objects.get(appointment_id=appointment)
     nxt = listboard_dashboard + "&subject=" + subject_identifier + "&appointment=" + appointment + "&subject_visit=" \
           + str(subject_visit.id)
 
-    title = "Add"
+    if obj.get_subject_visit(subject_visit.id):
+        text = "Change "
+        icon = "glyphicon-pencil"
+        btn = "btn-success"
+        title = text + obj.verbose_name
 
+    # TODO Create condition for href if data available Add if not Change
     return dict(
         title=title,
-        href=next_url(reverse(url), nxt)
+        text=text,
+        icon=icon,
+        btn=btn,
+        href=next_url(reverse(obj.model_cls().admin_url_name), nxt)
     )

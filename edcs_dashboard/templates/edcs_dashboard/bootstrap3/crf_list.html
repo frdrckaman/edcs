@@ -3,94 +3,89 @@
 {% load subject_dashboard_extras %}
 {% block main-content %}
     <div class="workplace">
-
-            <div class="row">
-               <!----------------------------- start action item menu -------------------------------->
-                <div class="col-md-12">
-                    <nav class="navbar" role="navigation">
-                        <div class="container-fluid">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <a class="navbar-brand" href="#"></a>
-                            </div>
-
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Action Linked PRN <span class="caret"></span></a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Death Report</a></li>
-                                            <li><a href="#">Adverse Event</a></li>
-                                            <li><a href="#">Subject Transfer</a></li>
-                                            <li><a href="#">Protocol Deviation/Violation</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">PRN CRFs<span class="caret"></span></a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">CD4 Result</a></li>
-                                            <li><a href="#">Viral Load</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">PRN Requisition <span class="caret"></span></a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">CD4</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">End of Study</a></li>
-                                </ul>
-                            </div>
-
+        <div class="row">
+            <!----------------------------- start action item menu -------------------------------->
+            <div class="col-md-12">
+                <nav class="navbar" role="navigation">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#"></a>
                         </div>
-                    </nav>
-                </div>
-                <!----------------------------- end action item menu -------------------------------->
 
-                <!-------------------- start screening patients --------------------->
-                <div class="col-md-8">
-                    <div class="head clearfix">
-                        <div class="isw-grid"></div>
-                        <h1>CFRs</h1>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Action Linked PRN <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Death Report</a></li>
+                                        <li><a href="#">Adverse Event</a></li>
+                                        <li><a href="#">Subject Transfer</a></li>
+                                        <li><a href="#">Protocol Deviation/Violation</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">PRN CRFs<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">CD4 Result</a></li>
+                                        <li><a href="#">Viral Load</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">PRN Requisition <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">CD4</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">End of Study</a></li>
+                            </ul>
+                        </div>
+
                     </div>
-                    <div class="block-fluid">
-                        <table cellpadding="0" cellspacing="0" width="100%" class="table">
-                            <thead>
-                            <tr>
-                                <th width="3%">#</th>
-                                <th width="60%">Name</th>
-                                <th width="35%">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                {% for crf in crfs %}
-                                    <tr>
-                                        <td>{{ forloop.counter }}</td>
-                                        <td>{{ crf.verbose_name}}</td>
-                                        <td>
-                                            {% add_edit_crf crf.model_cls.admin_url_name %}
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!-------------------- end screening patients --------------------->
-
-                {% side_info_panel object_list %}
-
-                {% consent_panel %}
-
+                </nav>
             </div>
+            <!----------------------------- end action item menu -------------------------------->
 
+            <!-------------------- start screening patients --------------------->
+            <div class="col-md-8">
+                <div class="head clearfix">
+                    <div class="isw-grid"></div>
+                    <h1>CFRs</h1>
+                </div>
+                <div class="block-fluid">
+                    <table cellpadding="0" cellspacing="0" width="100%" class="table">
+                        <thead>
+                        <tr>
+                            <th width="3%">#</th>
+                            <th width="60%">Name</th>
+                            <th width="35%">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for crf in crfs %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ crf.verbose_name}} </td>
+                                <td>
+                                    {% add_edit_crf crf %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-------------------- end screening patients --------------------->
 
-            <div class="dr"><span></span></div>
+            {% side_info_panel object_list %}
 
+            {% consent_panel %}
         </div>
+        <div class="dr"><span></span></div>
+    </div>
 {% endblock main-content %}

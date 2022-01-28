@@ -42,6 +42,17 @@ class Crf:
     def get_model_cls(self):
         return self.model_cls
 
+    def check_subject_visit(self, subject_visit, value=False):
+        if self.model_cls.objects.filter(subject_visit_id=subject_visit).exists():
+            value = True
+        return value
+
+    def get_subject_visit(self, subject_visit=None, visit_data=None):
+        if self.check_subject_visit(subject_visit):
+            visit_data = self.model_cls.objects.get(subject_visit_id=subject_visit)
+        return visit_data
+
+
     @property
     def model_cls(self) -> Type[models.Model]:
         return django_apps.get_model(self.model)
