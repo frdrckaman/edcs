@@ -172,6 +172,6 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
         choices=QN102,
     )
 
-    class Meta(edcs_models.BaseUuidModel.Meta):
+    class Meta(CrfModelMixin.Meta, edcs_models.BaseUuidModel.Meta):
         verbose_name = "Clinical Review"
         verbose_name_plural = "Clinical Reviews"

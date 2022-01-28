@@ -36,7 +36,7 @@ class Holiday(models.Model):
                     Warning(
                         "Holiday table is empty. Run management command 'import_holidays'. "
                         "See edc_facility.Holidays",
-                        id="edc_facility.003",
+                        id="edcs_facility.003",
                     )
                 )
             elif cls.objects.filter(country=get_current_country()).count() == 0:
@@ -47,7 +47,7 @@ class Holiday(models.Model):
                         f"No Holidays have been defined for this country. "
                         f"See edc_facility.Holidays. Expected one of {countries}. "
                         f"Got country='{get_current_country()}'",
-                        id="edc_facility.004",
+                        id="edcs_facility.004",
                     )
                 )
         except (ProgrammingError, OperationalError):

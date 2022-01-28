@@ -6,7 +6,7 @@ import arrow
 from dateutil._common import weekday
 from dateutil.relativedelta import relativedelta
 from django.conf import settings
-from edc_utils import convert_php_dateformat, get_utcnow
+from edcs_utils import convert_php_dateformat, get_utcnow
 
 from .holidays import Holidays
 

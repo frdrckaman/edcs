@@ -1,5 +1,6 @@
 import copy
 import sys
+from pprint import pprint
 
 from django.apps import apps as django_apps
 from django.core.exceptions import ObjectDoesNotExist
@@ -31,13 +32,13 @@ class SiteVisitSchedules:
 
     @property
     def registry(self):
-        pass
-        # if not self.loaded:
-        #     raise RegistryNotLoaded(
-        #         "Registry not loaded. Is AppConfig for 'edcs_visit_schedule' "
-        #         "declared in settings?."
-        #     )
-        # return self._registry
+        # pass
+        if not self.loaded:
+            raise RegistryNotLoaded(
+                "Registry not loaded. Is AppConfig for 'edcs_visit_schedule' "
+                "declared in settings?."
+            )
+        return self._registry
 
     def register(self, visit_schedule):
         self.loaded = True
@@ -67,6 +68,7 @@ class SiteVisitSchedules:
         visit_schedule = self.registry.get(visit_schedule_name)
         if not visit_schedule:
             visit_schedule_names = "', '".join(self.registry.keys())
+            pprint(self.registry.keys())
             raise SiteVisitScheduleError(
                 f"Invalid visit schedule name. Got '{visit_schedule_name}'. "
                 f"Expected one of '{visit_schedule_names}'. See {repr(self)}."

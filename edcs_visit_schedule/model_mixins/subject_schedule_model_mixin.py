@@ -28,7 +28,8 @@ class SubjectScheduleModelMixin(models.Model):
         )
 
     def save(self, *args, **kwargs):
-        self.validate_subject_schedule_status()
+        # TODO Find a way to validate subjectVisit
+        # self.validate_subject_schedule_status()
         super().save(*args, **kwargs)
 
     class Meta:

@@ -14,7 +14,7 @@ class Holidays:
     country of facility.
     """
 
-    model = "edc_facility.holiday"
+    model = "edcs_facility.holiday"
 
     def __init__(self):
         if getattr(settings, "COUNTRY", None):
