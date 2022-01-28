@@ -1,5 +1,8 @@
-from django.contrib import admin
+from django.contrib import admin, messages
+from django.urls import reverse
 from django_audit_fields import audit_fieldset_tuple
+from django.shortcuts import redirect
+from django.utils.safestring import mark_safe
 
 from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
@@ -132,3 +135,20 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
     def post_url_on_delete_kwargs(self, request, obj):
         return {}
+
+    def response_post_save_add(self, request, obj):
+        self.clear_message(request)
+        return redirect(self.next(request))
+
+    def response_post_save_change(self, request, obj):
+        self.clear_message(request)
+        return redirect(self.next(request))
+
+    def clear_message(self, request):
+        storage = messages.get_messages(request)
+        for msg in storage:
+            pass
+        storage.used = True
+
+    def next(self, request):
+        return reverse(request.GET.get('next', None), args=[request.GET.get('subject'), request.GET.get('appointment')])
