@@ -85,6 +85,7 @@ INSTALLED_APPS = [
     "edcs_sites.apps.AppConfig",
     "edcs_facility.apps.AppConfig",
     "edcs_appointment.apps.AppConfig",
+    "edcs_crf.apps.AppConfig",
 ]
 
 MIDDLEWARE = [

@@ -1,4 +1,9 @@
-from django.contrib import admin
 from django.urls import path
+from django.views.generic import RedirectView
 
-urlpatterns = [path("admin/", admin.site.urls)]
+app_name = "edcs_crf"
+
+urlpatterns = [
+    path("", RedirectView.as_view(url=f"/{app_name}/admin/"), name="home_url"),
+]
+
