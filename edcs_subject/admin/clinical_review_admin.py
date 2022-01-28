@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django_audit_fields import audit_fieldset_tuple
+
+from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 from .modeladmin_mixins import CrfModelAdminMixin
 
@@ -77,7 +79,7 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                 ),
             },
         ),
-
+        crf_status_fieldset_tuple,
         audit_fieldset_tuple,
     )
 
@@ -125,6 +127,7 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "provide_sputum_tb_dx": admin.VERTICAL,
         "tb_status": admin.VERTICAL,
         "lung_cancer_dx": admin.VERTICAL,
+        "crf_status": admin.VERTICAL,
     }
 
     def post_url_on_delete_kwargs(self, request, obj):
