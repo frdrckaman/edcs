@@ -10,12 +10,12 @@ class CrfLookupError(Exception):
 
 class Crf:
     def __init__(
-        self,
-        show_order: int = None,
-        model: str = None,
-        required: bool = None,
-        additional: bool = None,
-        site_ids: List[int] = None,
+            self,
+            show_order: int = None,
+            model: str = None,
+            required: bool = None,
+            additional: bool = None,
+            site_ids: List[int] = None,
     ) -> None:
         self.additional = additional
         self.model = model.lower()
@@ -51,7 +51,6 @@ class Crf:
         if self.check_subject_visit(subject_visit):
             visit_data = self.model_cls.objects.get(subject_visit_id=subject_visit)
         return visit_data
-
 
     @property
     def model_cls(self) -> Type[models.Model]:

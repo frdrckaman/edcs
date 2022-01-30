@@ -2,7 +2,6 @@ from django.contrib import admin, messages
 from django.urls import reverse
 from django_audit_fields import audit_fieldset_tuple
 from django.shortcuts import redirect
-from django.utils.safestring import mark_safe
 
 from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin

@@ -27,20 +27,23 @@ def add_edit_crf(context, obj):
     title = text + obj.verbose_name
 
     subject_visit = SubjectVisit.objects.get(appointment_id=appointment)
+    subject_visit_data = obj.get_subject_visit(subject_visit.id)
+
     nxt = listboard_dashboard + "&subject=" + subject_identifier + "&appointment=" + appointment + "&subject_visit=" \
           + str(subject_visit.id)
+    href = next_url(reverse(obj.model_cls().admin_url_name), nxt)
 
-    if obj.get_subject_visit(subject_visit.id):
+    if subject_visit_data:
         text = "Change "
         icon = "glyphicon-pencil"
         btn = "btn-success"
         title = text + obj.verbose_name
+        href = next_url(obj.model_cls().admin_url(subject_visit_data.id), nxt)
 
-    # TODO Create condition for href if data available Add if not Change
     return dict(
         title=title,
         text=text,
         icon=icon,
         btn=btn,
-        href=next_url(reverse(obj.model_cls().admin_url_name), nxt)
+        href=href
     )
