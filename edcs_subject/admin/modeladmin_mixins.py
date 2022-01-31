@@ -1,16 +1,17 @@
-from edcs_crf.admin import CrfStatusModelAdminMixin, crf_status_fieldset_tuple
+from edcs_crf.admin import CrfStatusModelAdminMixin
 from edcs_model_admin import SimpleHistoryAdmin
 from edcs_model_admin.dashboard import (
     ModelAdminCrfDashboardMixin,
     ModelAdminSubjectDashboardMixin,
 )
+from ..modeladmin_mixins import SubjectAdminMethodsMixin
 
 
 class ModelAdminMixin(ModelAdminSubjectDashboardMixin):
     pass
 
 
-class CrfModelAdminMixin(CrfStatusModelAdminMixin, ModelAdminCrfDashboardMixin):
+class CrfModelAdminMixin(SubjectAdminMethodsMixin, CrfStatusModelAdminMixin, ModelAdminCrfDashboardMixin):
     pass
 
 

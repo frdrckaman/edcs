@@ -11,7 +11,7 @@ from ..models import ClinicalReview
 
 
 @admin.register(ClinicalReview, site=edcs_subject_admin)
-class SubjectClinicalReviewAdmin(SubjectAdminMethodsMixin, CrfModelAdminMixin, SimpleHistoryAdmin):
+class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),
         (
