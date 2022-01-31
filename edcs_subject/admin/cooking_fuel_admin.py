@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django_audit_fields import audit_fieldset_tuple
+
+from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 
 from .modeladmin_mixins import CrfModelAdminMixin
@@ -11,7 +13,7 @@ from ..models import CookingFuel
 class CookingFuelAdmin(SimpleHistoryAdmin):
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),
-        [
+        (
             "HIV",
             {
                 "fields": (
@@ -47,8 +49,8 @@ class CookingFuelAdmin(SimpleHistoryAdmin):
                     "smoke_from_neighbor",
                 ),
             },
-        ],
-
+        ),
+        crf_status_fieldset_tuple,
         audit_fieldset_tuple,
     )
 

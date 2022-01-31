@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django_audit_fields import audit_fieldset_tuple
+
+from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 
 from .modeladmin_mixins import CrfModelAdminMixin
@@ -31,7 +33,7 @@ class CovidInfectionHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                 ),
             },
         ),
-
+        crf_status_fieldset_tuple,
         audit_fieldset_tuple,
     )
 
