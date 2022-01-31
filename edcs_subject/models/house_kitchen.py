@@ -1,10 +1,10 @@
 from django.db import models
 
 from edcs_constants.choices import YES_NO
-from edcs_crf.crf_model_mixins import CrfModelMixin
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
+from ..model_mixins import CrfModelMixin
 from ..choices import QN30AP, QN31AP, QN32AP, QN34AP, QN36AP, QN39AP
 
 
