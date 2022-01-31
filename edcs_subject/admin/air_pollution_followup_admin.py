@@ -1,23 +1,18 @@
 from django.contrib import admin
 from django_audit_fields import audit_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
+from edcs_crf.admin import crf_status_fieldset_tuple
 
+from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
 from ..models import AirPollutionFollowUp
 
 
 @admin.register(AirPollutionFollowUp, site=edcs_subject_admin)
-class AirPollutionFollowUpAdmin(SimpleHistoryAdmin):
+class AirPollutionFollowUpAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     fieldsets = (
-        [
-            None,
-            {
-                "fields": (
-                    "report_datetime",
-                ),
-            },
-         ],
-        [
+        (None, {"fields": ("subject_visit", "report_datetime")}),
+        (
             "AIR POLLUTION FOLLOW UP ",
             {
                 "fields": (
@@ -29,8 +24,8 @@ class AirPollutionFollowUpAdmin(SimpleHistoryAdmin):
                     "distance_health_facility",
                 ),
             },
-        ],
-
+        ),
+        crf_status_fieldset_tuple,
         audit_fieldset_tuple,
     )
 

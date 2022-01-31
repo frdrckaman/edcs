@@ -1,23 +1,19 @@
 from django.contrib import admin
 from django_audit_fields import audit_fieldset_tuple
+
+from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 
+from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
 from ..models import AlcoholTobaccoUse
 
 
 @admin.register(AlcoholTobaccoUse, site=edcs_subject_admin)
-class AlcoholTobaccoUseAdmin(SimpleHistoryAdmin):
+class AlcoholTobaccoUseAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     fieldsets = (
-        [
-            None,
-            {
-                "fields": (
-                    "report_datetime",
-                ),
-            },
-         ],
-        [
+        (None, {"fields": ("subject_visit", "report_datetime")}),
+        (
             "TOBACCO",
             {
                 "fields": (
@@ -34,8 +30,8 @@ class AlcoholTobaccoUseAdmin(SimpleHistoryAdmin):
                     "smoke_inside_house_other",
                 ),
             },
-        ],
-        [
+        ),
+        (
             "ALCOHOL",
             {
                 "fields": (
@@ -44,8 +40,8 @@ class AlcoholTobaccoUseAdmin(SimpleHistoryAdmin):
                     "alcohol_consumption_frequency_other",
                 ),
             },
-        ],
-
+        ),
+        crf_status_fieldset_tuple,
         audit_fieldset_tuple,
     )
 

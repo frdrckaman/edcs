@@ -2,12 +2,13 @@ from django.contrib import admin
 from django_audit_fields import audit_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 
+from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
 from ..models import EffectAirPollution
 
 
 @admin.register(EffectAirPollution, site=edcs_subject_admin)
-class EffectAirPollutionAdmin(SimpleHistoryAdmin):
+class EffectAirPollutionAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     fieldsets = (
         [
             None,
