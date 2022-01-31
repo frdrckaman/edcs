@@ -77,7 +77,5 @@ class AlcoholTobaccoUseAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "smoke_inside_house": admin.VERTICAL,
         "consume_alcohol": admin.VERTICAL,
         "alcohol_consumption_frequency": admin.VERTICAL,
+        "crf_status": admin.VERTICAL,
     }
-
-    def post_url_on_delete_kwargs(self, request, obj):
-        return {}

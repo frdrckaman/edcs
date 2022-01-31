@@ -69,6 +69,7 @@ class SignSymptomLungCancerAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "family_member_relationship": admin.VERTICAL,
         "family_member_dx_cancer": admin.VERTICAL,
         "investigations_ordered": admin.VERTICAL,
+        "crf_status": admin.VERTICAL,
     }
 
     def post_url_on_delete_kwargs(self, request, obj):

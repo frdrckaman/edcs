@@ -91,7 +91,5 @@ class DemographicCharacteristicAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "material_build_roof": admin.VERTICAL,
         "use_in_cooking": admin.VERTICAL,
         "main_power_source": admin.VERTICAL,
+        "crf_status": admin.VERTICAL,
     }
-
-    def post_url_on_delete_kwargs(self, request, obj):
-        return {}

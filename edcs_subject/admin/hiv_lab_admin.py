@@ -62,7 +62,5 @@ class HivLabInvestigationAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "hiv_subtype_done": admin.VERTICAL,
         "hiv_subtype": admin.VERTICAL,
         "drug_resistance_testing_done": admin.VERTICAL,
+        "crf_status": admin.VERTICAL,
     }
-
-    def post_url_on_delete_kwargs(self, request, obj):
-        return {}

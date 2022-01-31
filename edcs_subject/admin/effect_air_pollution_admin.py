@@ -54,7 +54,5 @@ class EffectAirPollutionAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "family_member_sickness": admin.VERTICAL,
         "who_had_illness": admin.VERTICAL,
         "variation_btn_fuel": admin.VERTICAL,
+        "crf_status": admin.VERTICAL,
     }
-
-    def post_url_on_delete_kwargs(self, request, obj):
-        return {}

@@ -58,5 +58,6 @@ class HomeLocatorFormAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "report_datetime",
     )
 
-    def post_url_on_delete_kwargs(self, request, obj):
-        return {}
+    radio_fields = {
+        "crf_status": admin.VERTICAL,
+    }

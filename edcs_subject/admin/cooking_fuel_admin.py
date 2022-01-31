@@ -121,7 +121,5 @@ class CookingFuelAdmin(SimpleHistoryAdmin):
         "use_burn_crops": admin.VERTICAL,
         "neighbor_use_cooking": admin.VERTICAL,
         "smoke_from_neighbor": admin.VERTICAL,
+        "crf_status": admin.VERTICAL,
     }
-
-    def post_url_on_delete_kwargs(self, request, obj):
-        return {}

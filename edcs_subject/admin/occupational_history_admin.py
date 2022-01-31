@@ -57,6 +57,7 @@ class OccupationalHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "industries_worked_on": admin.VERTICAL,
         "history_working_mines": admin.VERTICAL,
         "how_long_work_mine": admin.VERTICAL,
+        "crf_status": admin.VERTICAL,
     }
 
     def post_url_on_delete_kwargs(self, request, obj):

@@ -52,6 +52,7 @@ class LungCancerTreatmentAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     radio_fields = {
         "lung_cancer_stage": admin.VERTICAL,
         "treatment": admin.VERTICAL,
+        "crf_status": admin.VERTICAL,
     }
 
     def post_url_on_delete_kwargs(self, request, obj):

@@ -68,7 +68,5 @@ class CovidInfectionHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "covid_vaccine": admin.VERTICAL,
         "vaccine_provider": admin.VERTICAL,
         "no_covid_vaccine": admin.VERTICAL,
+        "crf_status": admin.VERTICAL,
     }
-
-    def post_url_on_delete_kwargs(self, request, obj):
-        return {}

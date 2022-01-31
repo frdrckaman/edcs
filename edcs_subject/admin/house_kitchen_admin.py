@@ -83,6 +83,7 @@ class HouseKitchenSurroundingAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "material_exterior_wall_kitchen": admin.VERTICAL,
         "kitchen_swept": admin.VERTICAL,
         "kitchen_chimney": admin.VERTICAL,
+        "crf_status": admin.VERTICAL,
     }
 
     def post_url_on_delete_kwargs(self, request, obj):

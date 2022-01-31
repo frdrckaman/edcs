@@ -72,7 +72,5 @@ class ContraceptiveUseReproductiveHistoryAdmin(SimpleHistoryAdmin):
         "how_long_post_menopausal_hormone_therapy": admin.VERTICAL,
         "how_long_stop_post_menopausal_hormone_therapy": admin.VERTICAL,
         "age_attain_menopause": admin.VERTICAL,
+        "crf_status": admin.VERTICAL,
     }
-
-    def post_url_on_delete_kwargs(self, request, obj):
-        return {}

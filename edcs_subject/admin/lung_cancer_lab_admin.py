@@ -70,6 +70,7 @@ class LungCancerLabInvestigationAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     radio_fields = {
         "biopsy_tissues_mutation": admin.VERTICAL,
         "dna_methylation_age": admin.VERTICAL,
+        "crf_status": admin.VERTICAL,
     }
 
     def post_url_on_delete_kwargs(self, request, obj):
