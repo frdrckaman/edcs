@@ -10,15 +10,8 @@ from ..models import SignSymptomLungCancer
 @admin.register(SignSymptomLungCancer, site=edcs_subject_admin)
 class SignSymptomLungCancerAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     fieldsets = (
-        [
-            None,
-            {
-                "fields": (
-                    "report_datetime",
-                ),
-            },
-         ],
-        [
+        (None, {"fields": ("subject_visit", "report_datetime")}),
+        (
             "SIGNS AND SYMPTOMS OF LUNG CANCER",
             {
                 "fields": (
@@ -33,7 +26,7 @@ class SignSymptomLungCancerAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "non_investigations_ordered",
                 ),
             },
-        ],
+        ),
 
         audit_fieldset_tuple,
     )

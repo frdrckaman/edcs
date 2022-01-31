@@ -10,15 +10,8 @@ from ..models import DemographicCharacteristic
 @admin.register(DemographicCharacteristic, site=edcs_subject_admin)
 class DemographicCharacteristicAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     fieldsets = (
-        [
-            None,
-            {
-                "fields": (
-                    "report_datetime",
-                ),
-            },
-         ],
-        [
+        (None, {"fields": ("subject_visit", "report_datetime")}),
+        (
             "DEMOGRAPHIC CHARACTERISTIC",
             {
                 "fields": (
@@ -29,8 +22,8 @@ class DemographicCharacteristicAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "occupation_other",
                 ),
             },
-        ],
-        [
+        ),
+        (
             "SOCIAL-ECONOMIC CHARACTERISTICS",
             {
                 "fields": (
@@ -52,7 +45,7 @@ class DemographicCharacteristicAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "household_monthly_income",
                 ),
             },
-        ],
+        ),
 
         audit_fieldset_tuple,
     )

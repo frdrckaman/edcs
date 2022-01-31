@@ -10,15 +10,8 @@ from ..models import CovidInfectionHistory
 @admin.register(CovidInfectionHistory, site=edcs_subject_admin)
 class CovidInfectionHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     fieldsets = (
-        [
-            None,
-            {
-                "fields": (
-                    "report_datetime",
-                ),
-            },
-         ],
-        [
+        (None, {"fields": ("subject_visit", "report_datetime")}),
+        (
             "COVID-19 INFECTION HISTORY",
             {
                 "fields": (
@@ -37,7 +30,7 @@ class CovidInfectionHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "date_recent_vaccination",
                 ),
             },
-        ],
+        ),
 
         audit_fieldset_tuple,
     )

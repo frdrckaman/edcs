@@ -10,15 +10,8 @@ from ..models import HomeLocatorForm
 @admin.register(HomeLocatorForm, site=edcs_subject_admin)
 class HomeLocatorFormAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     fieldsets = (
-        [
-            None,
-            {
-                "fields": (
-                    "report_datetime",
-                ),
-            },
-         ],
-        [
+        (None, {"fields": ("subject_visit", "report_datetime")}),
+        (
             "HOME LOCATOR",
             {
                 "fields": (
@@ -36,7 +29,7 @@ class HomeLocatorFormAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "close_relatives_phone_number",
                 ),
             },
-        ],
+        ),
 
         audit_fieldset_tuple,
     )

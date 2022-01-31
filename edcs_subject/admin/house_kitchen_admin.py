@@ -10,15 +10,8 @@ from ..models import HouseKitchenSurrounding
 @admin.register(HouseKitchenSurrounding, site=edcs_subject_admin)
 class HouseKitchenSurroundingAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     fieldsets = (
-        [
-            None,
-            {
-                "fields": (
-                    "report_datetime",
-                ),
-            },
-         ],
-        [
+        (None, {"fields": ("subject_visit", "report_datetime")}),
+        (
             "HOUSE SURROUNDINGS",
             {
                 "fields": (
@@ -29,8 +22,8 @@ class HouseKitchenSurroundingAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "inside_swept",
                 ),
             },
-        ],
-        [
+        ),
+        (
             "KITCHEN SURROUNDINGS",
             {
                 "fields": (
@@ -44,7 +37,7 @@ class HouseKitchenSurroundingAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "kitchen_chimney",
                 ),
             },
-        ],
+        ),
 
         audit_fieldset_tuple,
     )

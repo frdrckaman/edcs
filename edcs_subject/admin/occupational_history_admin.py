@@ -10,15 +10,8 @@ from ..models import OccupationalHistory
 @admin.register(OccupationalHistory, site=edcs_subject_admin)
 class OccupationalHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     fieldsets = (
-        [
-            None,
-            {
-                "fields": (
-                    "report_datetime",
-                ),
-            },
-         ],
-        [
+        (None, {"fields": ("subject_visit", "report_datetime")}),
+        (
             "OCCUPATIONAL HISTORY",
             {
                 "fields": (
@@ -29,7 +22,7 @@ class OccupationalHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "activities_expose_to_smoke",
                 ),
             },
-        ],
+        ),
 
         audit_fieldset_tuple,
     )

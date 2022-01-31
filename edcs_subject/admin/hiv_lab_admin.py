@@ -10,15 +10,8 @@ from ..models import HivLabInvestigation
 @admin.register(HivLabInvestigation, site=edcs_subject_admin)
 class HivLabInvestigationAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     fieldsets = (
-        [
-            None,
-            {
-                "fields": (
-                    "report_datetime",
-                ),
-            },
-         ],
-        [
+        (None, {"fields": ("subject_visit", "report_datetime")}),
+        (
             "HIV LABORATORY INVESTIGATIONS",
             {
                 "fields": (
@@ -33,7 +26,7 @@ class HivLabInvestigationAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "treatment_other",
                 ),
             },
-        ],
+        ),
 
         audit_fieldset_tuple,
     )

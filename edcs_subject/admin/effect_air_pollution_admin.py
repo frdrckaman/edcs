@@ -10,15 +10,8 @@ from ..models import EffectAirPollution
 @admin.register(EffectAirPollution, site=edcs_subject_admin)
 class EffectAirPollutionAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     fieldsets = (
-        [
-            None,
-            {
-                "fields": (
-                    "report_datetime",
-                ),
-            },
-         ],
-        [
+        (None, {"fields": ("subject_visit", "report_datetime")}),
+        (
             "EFFECT OF AIR POLLUTION",
             {
                 "fields": (
@@ -29,7 +22,7 @@ class EffectAirPollutionAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "influence_variation_btn_fuel",
                 ),
             },
-        ],
+        ),
 
         audit_fieldset_tuple,
     )

@@ -10,14 +10,7 @@ from ..models import ContraceptiveUseReproductiveHistory
 @admin.register(ContraceptiveUseReproductiveHistory, site=edcs_subject_admin)
 class ContraceptiveUseReproductiveHistoryAdmin(SimpleHistoryAdmin):
     fieldsets = (
-        [
-            None,
-            {
-                "fields": (
-                    "report_datetime",
-                ),
-            },
-         ],
+        (None, {"fields": ("subject_visit", "report_datetime")}),
         [
             "CONTRACEPTIVE USE AND REPRODUCTIVE HISTORY",
             {

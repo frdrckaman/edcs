@@ -10,15 +10,8 @@ from ..models import LungCancerLabInvestigation
 @admin.register(LungCancerLabInvestigation, site=edcs_subject_admin)
 class LungCancerLabInvestigationAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     fieldsets = (
-        [
-            None,
-            {
-                "fields": (
-                    "report_datetime",
-                ),
-            },
-         ],
-        [
+        (None, {"fields": ("subject_visit", "report_datetime")}),
+        (
             "MUTATION ANALYSIS",
             {
                 "fields": (
@@ -26,8 +19,8 @@ class LungCancerLabInvestigationAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "mutation_detected",
                 ),
             },
-        ],
-        [
+        ),
+        (
             "DNA METYLATION AGE ANALYSIS",
             {
                 "fields": (
@@ -35,8 +28,8 @@ class LungCancerLabInvestigationAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "dna_methylation_result",
                 ),
             },
-        ],
-        [
+        ),
+        (
             "RADIOLOGY INVESTIGATIONS",
             {
                 "fields": (
@@ -45,7 +38,7 @@ class LungCancerLabInvestigationAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "luniris_score",
                 ),
             },
-        ],
+        ),
 
         audit_fieldset_tuple,
     )

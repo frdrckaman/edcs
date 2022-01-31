@@ -10,14 +10,7 @@ from ..models import CookingFuel
 @admin.register(CookingFuel, site=edcs_subject_admin)
 class CookingFuelAdmin(SimpleHistoryAdmin):
     fieldsets = (
-        [
-            None,
-            {
-                "fields": (
-                    "report_datetime",
-                ),
-            },
-         ],
+        (None, {"fields": ("subject_visit", "report_datetime")}),
         [
             "HIV",
             {
