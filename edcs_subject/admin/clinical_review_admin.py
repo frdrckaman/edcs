@@ -1,18 +1,17 @@
-from django.contrib import admin, messages
-from django.urls import reverse
+from django.contrib import admin
 from django_audit_fields import audit_fieldset_tuple
-from django.shortcuts import redirect
 
 from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 from .modeladmin_mixins import CrfModelAdminMixin
 
 from ..admin_site import edcs_subject_admin
+from ..modeladmin_mixins import SubjectAdminMethodsMixin
 from ..models import ClinicalReview
 
 
 @admin.register(ClinicalReview, site=edcs_subject_admin)
-class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
+class SubjectClinicalReviewAdmin(SubjectAdminMethodsMixin, CrfModelAdminMixin, SimpleHistoryAdmin):
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),
         (
@@ -131,23 +130,3 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "lung_cancer_dx": admin.VERTICAL,
         "crf_status": admin.VERTICAL,
     }
-
-    def post_url_on_delete_kwargs(self, request, obj):
-        return {}
-
-    def response_post_save_add(self, request, obj):
-        self.clear_message(request)
-        return redirect(self.next(request))
-
-    def response_post_save_change(self, request, obj):
-        self.clear_message(request)
-        return redirect(self.next(request))
-
-    def clear_message(self, request):
-        storage = messages.get_messages(request)
-        for msg in storage:
-            pass
-        storage.used = True
-
-    def next(self, request):
-        return reverse(request.GET.get('next', None), args=[request.GET.get('subject'), request.GET.get('appointment')])
