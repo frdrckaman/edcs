@@ -77,7 +77,6 @@ INSTALLED_APPS = [
     "edcs_screening.apps.AppConfig",
     "edcs_subject.apps.AppConfig",
     "edcs_consent.apps.AppConfig",
-    # 'edcs_utils.apps.EdcsUtilsConfig',
     "edcs_registration.apps.AppConfig",
     "edcs_notification.apps.AppConfig",
     "edcs_visit_schedule.apps.AppConfig",
