@@ -19,7 +19,3 @@ class SubjectListBoardView(ListboardView, TemplateView):
             object_list=self.object_list_subject(RegisteredSubject),
         )
         return context
-
-    # @property
-    # def subject_list_data(self):
-    #     return RegisteredSubject.objects.all().order_by(self.ordering).values()

@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from django.views.generic import TemplateView
 from edcs_dashboard.views.dashboard_list import ListboardView
 from edcs_consent.models import SubjectConsent
