@@ -1,3 +1,6 @@
+from pprint import pprint
+
+from django.core.paginator import Paginator
 from django.views.generic import TemplateView
 
 from edcs_dashboard.views.dashboard_list import ListboardView
@@ -15,7 +18,13 @@ class SubjectListBoardView(ListboardView, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        paginator = Paginator(RegisteredSubject, 10)
+        pprint(paginator)
+
+        page_number = None
+        page_obj = paginator
         context.update(
             object_list=self.object_list_subject(RegisteredSubject),
+            page_obj=page_obj,
         )
         return context

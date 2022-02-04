@@ -140,6 +140,18 @@ def appointment_button(context, visit_code):
     )
 
 
+@register.inclusion_tag(
+    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/"
+    f"paginator/paginator_row.html",
+    takes_context=True,
+)
+def pagination(context):
+    title = "Subject's Appointment"
+    return dict(
+        title=title,
+    )
+
+
 @register.simple_tag(takes_context=True)
 def expected_date(context, visit_code):
     return appointment(context.get("subject"), visit_code).appt_datetime

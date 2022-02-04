@@ -1,4 +1,5 @@
 {% extends 'edcs_dashboard/bootstrap3/base.html' %}
+{% load subject_dashboard_extras %}
 {% block main-content %}
 <div class="workplace">
     <div class="row">
@@ -56,6 +57,7 @@
                 </table>
             </div>
         </div>
+        {% pagination %}
         <!-------------------- end screening patients --------------------->
     </div>
     <div class="dr"><span></span></div>

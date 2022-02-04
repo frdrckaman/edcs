@@ -11,6 +11,7 @@ class ListboardViewError(Exception):
     pass
 
 
+# TODO Use ListView on this class
 class BaseListboardView:
     context_object_name = "results"
     empty_queryset_message = _("Nothing to display.")
