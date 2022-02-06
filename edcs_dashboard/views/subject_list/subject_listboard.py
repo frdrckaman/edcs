@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from django.core.paginator import Paginator
 from django.views.generic import TemplateView
 
@@ -7,6 +5,7 @@ from edcs_dashboard.views.dashboard_list import ListboardView
 from edcs_registration.models import RegisteredSubject
 
 
+# TODO create a ListView
 class SubjectListBoardView(ListboardView, TemplateView):
     listboard_url = "subject_listboard_url"
     listboard_model = "edcs_registration.registeredsubject"
@@ -19,7 +18,6 @@ class SubjectListBoardView(ListboardView, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         paginator = Paginator(RegisteredSubject, 10)
-        pprint(paginator)
 
         page_number = None
         page_obj = paginator
