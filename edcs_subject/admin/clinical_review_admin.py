@@ -62,20 +62,9 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
             },
         ),
         (
-            "TUBERCULOSIS",
+            "LUNG CANCER",
             {
                 "fields": (
-                    "tb_test",
-                    "provide_sputum_tb_dx",
-                    "tb_status",
-                ),
-            },
-        ),
-        (
-            "MALIGNANCY AND LUNG CANCER",
-            {
-                "fields": (
-                    "malignancy",
                     "lung_cancer_dx",
                 ),
             },
@@ -90,8 +79,6 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "lung_diseases_dx",
         "htn_dx",
         "dm_dx",
-        "tb_status",
-        "malignancy",
         "lung_cancer_dx",
         "created",
     )
@@ -102,8 +89,6 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "lung_diseases_dx",
         "htn_dx",
         "dm_dx",
-        "tb_status",
-        "malignancy",
         "lung_cancer_dx",
     )
 
@@ -122,11 +107,6 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "htn_dx": admin.VERTICAL,
         "use_htn_medication": admin.VERTICAL,
         "dm_dx": admin.VERTICAL,
-        "use_dm_medication": admin.VERTICAL,
-        "malignancy": admin.VERTICAL,
-        "tb_test": admin.VERTICAL,
-        "provide_sputum_tb_dx": admin.VERTICAL,
-        "tb_status": admin.VERTICAL,
         "lung_cancer_dx": admin.VERTICAL,
         "crf_status": admin.VERTICAL,
     }
