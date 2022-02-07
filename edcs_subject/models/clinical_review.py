@@ -7,11 +7,11 @@ from edcs_constants.choices import (
     YES_NO_DECLINED_TO_ANSWER,
     YES_NO_DWTA_DONT_KNOW,
 )
-from ..model_mixins import CrfModelMixin
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
 from ..choices import LUNG_DISEASE, MISS_ARV, QN100, QN101, QN102
+from ..model_mixins import CrfModelMixin
 
 
 class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
@@ -75,8 +75,19 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
         choices=LUNG_DISEASE,
     )
 
-    lung_diseases_date = models.DateField(
-        verbose_name="If yes, when were you diagnosed?",
+    copd_dx_date = models.DateField(
+        verbose_name="If yes COPD, when were you diagnosed?",
+        null=True,
+        blank=True,
+    )
+
+    asthma_dx_date = models.DateField(
+        verbose_name="If yes Asthma, when were you diagnosed?",
+        null=True,
+        blank=True,
+    )
+    interstitial_lung_disease_dx_date = models.DateField(
+        verbose_name="If yes Interstitial Lung Disease, when were you diagnosed?",
         null=True,
         blank=True,
     )
@@ -107,13 +118,13 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
     )
 
     use_htn_medication = models.CharField(
-        verbose_name="Have you ever been diagnosed with Hypertension?",
+        verbose_name="Are you using any medications?",
         max_length=45,
         choices=YES_NO_DECLINED_TO_ANSWER,
     )
 
     htn_medication = models.TextField(
-        verbose_name="If is yes, what medications are you using currently?",
+        verbose_name="If yes, what are you using currently?",
         null=True,
         blank=True,
     )
@@ -131,7 +142,7 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
     )
 
     use_dm_medication = models.CharField(
-        verbose_name="Have you ever been diagnosed with Hypertension?",
+        verbose_name="Are you using any medications?",
         max_length=45,
         choices=YES_NO_DECLINED_TO_ANSWER,
     )
@@ -142,29 +153,29 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
         blank=True,
     )
 
-    malignancy = models.CharField(
-        verbose_name="Have you ever had any other malignancy?",
-        max_length=45,
-        choices=YES_NO_DWTA_DONT_KNOW,
-    )
-
-    tb_test = models.CharField(
-        verbose_name="Were you tested for TB?",
-        max_length=45,
-        choices=YES_NO,
-    )
-
-    provide_sputum_tb_dx = models.CharField(
-        verbose_name="If No, has the patient provided sputum for TB diagnosis?",
-        max_length=45,
-        choices=QN100,
-    )
-
-    tb_status = models.CharField(
-        verbose_name="What is the patients TB status?",
-        max_length=45,
-        choices=QN101,
-    )
+    # malignancy = models.CharField(
+    #     verbose_name="Have you ever had any other malignancy?",
+    #     max_length=45,
+    #     choices=YES_NO_DWTA_DONT_KNOW,
+    # )
+    #
+    # tb_test = models.CharField(
+    #     verbose_name="Were you tested for TB?",
+    #     max_length=45,
+    #     choices=YES_NO,
+    # )
+    #
+    # provide_sputum_tb_dx = models.CharField(
+    #     verbose_name="If No, has the patient provided sputum for TB diagnosis?",
+    #     max_length=45,
+    #     choices=QN100,
+    # )
+    #
+    # tb_status = models.CharField(
+    #     verbose_name="What is the patients TB status?",
+    #     max_length=45,
+    #     choices=QN101,
+    # )
 
     lung_cancer_dx = models.CharField(
         verbose_name="What is the patient’s lung cancer diagnosis?",
