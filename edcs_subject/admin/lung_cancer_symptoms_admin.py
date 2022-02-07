@@ -22,7 +22,7 @@ class SignSymptomLungCancerAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "characterize_symptoms",
                     "family_member_same_symptoms",
                     "family_member_relationship",
-                    "family_member_dx_cancer",
+                    # "family_member_dx_cancer",
                     "time_take_referred_cancer_facilities",
                     "investigations_ordered",
                     "non_investigations_ordered",
@@ -40,7 +40,7 @@ class SignSymptomLungCancerAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "characterize_symptoms",
         "family_member_same_symptoms",
         "family_member_relationship",
-        "family_member_dx_cancer",
+        # "family_member_dx_cancer",
         "time_take_referred_cancer_facilities",
         "investigations_ordered",
     )
@@ -52,7 +52,7 @@ class SignSymptomLungCancerAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "characterize_symptoms",
         "family_member_same_symptoms",
         "family_member_relationship",
-        "family_member_dx_cancer",
+        # "family_member_dx_cancer",
         "time_take_referred_cancer_facilities",
         "investigations_ordered",
     )
@@ -67,7 +67,7 @@ class SignSymptomLungCancerAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "characterize_symptoms": admin.VERTICAL,
         "family_member_same_symptoms": admin.VERTICAL,
         "family_member_relationship": admin.VERTICAL,
-        "family_member_dx_cancer": admin.VERTICAL,
+        # "family_member_dx_cancer": admin.VERTICAL,
         "investigations_ordered": admin.VERTICAL,
         "crf_status": admin.VERTICAL,
     }

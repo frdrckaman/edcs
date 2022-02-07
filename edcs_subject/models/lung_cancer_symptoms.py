@@ -1,11 +1,11 @@
 from django.db import models
 
-from edcs_constants.choices import YES_NO_DWTA_DONT_KNOW
+from edcs_constants.choices import YES_NO_DWTA_DONT_KNOW, YES_NO_DECLINED_TO_ANSWER
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
 from ..model_mixins import CrfModelMixin
-from ..choices import QN90, QN91, QN92, QN94, QN95, QN98
+from ..choices import QN90, QN91, QN92, QN94, QN95, QN98, QN102
 
 
 class SignSymptomLungCancer(CrfModelMixin, edcs_models.BaseUuidModel):
@@ -20,6 +20,8 @@ class SignSymptomLungCancer(CrfModelMixin, edcs_models.BaseUuidModel):
         max_length=45,
         choices=QN90,
     )
+
+    what_brought_hospital_other = edcs_models.OtherCharField()
 
     symptoms_how_long = models.CharField(
         verbose_name="For how long have you been sick with the above symptoms?",
@@ -44,12 +46,22 @@ class SignSymptomLungCancer(CrfModelMixin, edcs_models.BaseUuidModel):
         max_length=45,
         choices=QN94,
     )
-    family_member_dx_cancer = models.CharField(
-        verbose_name="Has any member of your family been diagnosed with either breast cancer, colon cancer, "
-        "lung cancer, ovarian cancer, prostate cancer, thyroid or uterine cancer?",
+    chest_radiation = models.CharField(
+        verbose_name="",
         max_length=45,
-        choices=QN95,
+        null=True,
+        choices=YES_NO_DECLINED_TO_ANSWER
     )
+
+    no_chest_radiation = models.IntegerField(
+        verbose_name="If yes, how many times?"
+    )
+    # family_member_dx_cancer = models.CharField(
+    #     verbose_name="Has any member of your family been diagnosed with either breast cancer, colon cancer, "
+    #     "lung cancer, ovarian cancer, prostate cancer, thyroid or uterine cancer?",
+    #     max_length=45,
+    #     choices=QN95,
+    # )
     time_take_referred_cancer_facilities = models.IntegerField(
         verbose_name="From the very first time you sought care from the health facility to the time you were"
         " referred to the cancer treatment facility, how long did it take?",
@@ -64,6 +76,12 @@ class SignSymptomLungCancer(CrfModelMixin, edcs_models.BaseUuidModel):
 
     non_investigations_ordered = models.TextField(
         verbose_name="If none, state reason why?", blank=True, null=True
+    )
+
+    lung_cancer_dx = models.CharField(
+        verbose_name="What is the patient’s lung cancer diagnosis?",
+        max_length=45,
+        choices=QN102,
     )
 
     class Meta(edcs_models.BaseUuidModel.Meta):

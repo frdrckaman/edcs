@@ -61,14 +61,14 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                 ),
             },
         ),
-        (
-            "LUNG CANCER",
-            {
-                "fields": (
-                    "lung_cancer_dx",
-                ),
-            },
-        ),
+        # (
+        #     "LUNG CANCER",
+        #     {
+        #         "fields": (
+        #             "lung_cancer_dx",
+        #         ),
+        #     },
+        # ),
         crf_status_fieldset_tuple,
         audit_fieldset_tuple,
     )
@@ -79,7 +79,7 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "lung_diseases_dx",
         "htn_dx",
         "dm_dx",
-        "lung_cancer_dx",
+        # "lung_cancer_dx",
         "created",
     )
 
@@ -89,7 +89,7 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "lung_diseases_dx",
         "htn_dx",
         "dm_dx",
-        "lung_cancer_dx",
+        # "lung_cancer_dx",
     )
 
     search_fields = (
@@ -108,6 +108,6 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "use_htn_medication": admin.VERTICAL,
         "dm_dx": admin.VERTICAL,
         "use_dm_medication": admin.VERTICAL,
-        "lung_cancer_dx": admin.VERTICAL,
+        # "lung_cancer_dx": admin.VERTICAL,
         "crf_status": admin.VERTICAL,
     }

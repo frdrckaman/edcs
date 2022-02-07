@@ -177,11 +177,11 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
     #     choices=QN101,
     # )
 
-    lung_cancer_dx = models.CharField(
-        verbose_name="What is the patient’s lung cancer diagnosis?",
-        max_length=45,
-        choices=QN102,
-    )
+    # lung_cancer_dx = models.CharField(
+    #     verbose_name="What is the patient’s lung cancer diagnosis?",
+    #     max_length=45,
+    #     choices=QN102,
+    # )
 
     class Meta(CrfModelMixin.Meta, edcs_models.BaseUuidModel.Meta):
         verbose_name = "Clinical Review"

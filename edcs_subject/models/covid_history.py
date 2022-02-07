@@ -82,6 +82,8 @@ class CovidInfectionHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         choices=QN87,
     )
 
+    other_vaccine_provider = edcs_models.OtherCharField()
+
     no_covid_vaccine = models.CharField(
         verbose_name="How many doses have you received to date?",
         max_length=45,
