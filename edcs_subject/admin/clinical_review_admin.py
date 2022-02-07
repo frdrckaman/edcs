@@ -34,8 +34,8 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
             {
                 "fields": (
                     "lung_diseases_dx",
-                    "lung_diseases_date",
-                    "use_lung_diseases_medication",
+                    # "lung_diseases_date",
+                    # "use_lung_diseases_medication",
                 ),
             },
         ),
@@ -107,6 +107,7 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "htn_dx": admin.VERTICAL,
         "use_htn_medication": admin.VERTICAL,
         "dm_dx": admin.VERTICAL,
+        "use_dm_medication": admin.VERTICAL,
         "lung_cancer_dx": admin.VERTICAL,
         "crf_status": admin.VERTICAL,
     }

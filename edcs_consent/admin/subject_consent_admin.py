@@ -23,6 +23,8 @@ class SubjectConsentAdmin(
                 "fields": (
                     "subject_identifier",
                     "screening_identifier",
+                    "clinic_type",
+                    "patient_category",
                     "first_name",
                     "last_name",
                     "initials",
@@ -59,6 +61,8 @@ class SubjectConsentAdmin(
     search_fields = ("subject_identifier", "screening_identifier", "identity")
 
     radio_fields = {
+        "clinic_type": admin.VERTICAL,
+        "patient_category": admin.VERTICAL,
         "assessment_score": admin.VERTICAL,
         "consent_copy": admin.VERTICAL,
         "consent_reviewed": admin.VERTICAL,

@@ -15,6 +15,7 @@ from edcs_identifier.model_mixins import NonUniqueSubjectIdentifierModelMixin
 from edcs_identifier.subject_identifier import SubjectIdentifier as BaseSubjectIdentifier
 from edcs_model.models import BaseUuidModel, HistoricalRecords
 from edcs_registration.model_mixins import UpdatesOrCreatesRegistrationModelMixin
+from edcs_screening.choices import CLINIC, PATIENT_CATEGORY
 from edcs_search.model_mixins import SearchSlugManager
 from edcs_sites.models import SiteModelMixin
 from edcs_utils import get_utcnow
@@ -62,6 +63,20 @@ class SubjectConsent(
 
     screening_datetime = models.DateTimeField(
         verbose_name="Screening datetime", null=True, editable=False
+    )
+
+    clinic_type = models.CharField(
+        verbose_name="From which type of clinic was the patient selected?",
+        max_length=45,
+        choices=CLINIC,
+        null=True,
+    )
+
+    patient_category = models.CharField(
+        verbose_name="Patient Category?",
+        max_length=45,
+        null=True,
+        choices=PATIENT_CATEGORY
     )
 
     gender = models.CharField(
