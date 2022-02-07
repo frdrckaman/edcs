@@ -6,6 +6,7 @@ from edcs_constants.choices import YES_NO
 from edcs_model.models import BaseUuidModel
 from edcs_screening.model_mixins import ScreeningModelMixin
 from edcs_screening.screening_identifier import ScreeningIdentifier
+from ..choices import PATIENT_CATEGORY, CLINIC
 
 from ..eligibility import check_eligible_final
 
@@ -23,6 +24,18 @@ class SubjectScreening(
     BaseUuidModel,
 ):
     identifier_cls = ScreeningIdentifier
+
+    clinic_type = models.CharField(
+        verbose_name="From which type of clinic was the patient selected?",
+        max_length=45,
+        choices=CLINIC,
+    )
+
+    patient_category = models.CharField(
+        verbose_name="",
+        max_length=45,
+        choices=PATIENT_CATEGORY
+    )
 
     screening_consent = models.CharField(
         verbose_name=(
