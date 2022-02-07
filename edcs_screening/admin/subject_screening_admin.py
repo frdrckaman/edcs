@@ -19,6 +19,8 @@ class SubjectScreeningAdmin(ModelAdminDashboardMixin, SimpleHistoryAdmin):
                 "fields": (
                     "report_datetime",
                     "screening_consent",
+                    "clinic_type",
+                    "patient_category",
                 ),
             },
          ],
@@ -83,6 +85,8 @@ class SubjectScreeningAdmin(ModelAdminDashboardMixin, SimpleHistoryAdmin):
 
     radio_fields = {
         "screening_consent": admin.VERTICAL,
+        "clinic_type": admin.VERTICAL,
+        "patient_category": admin.VERTICAL,
         "gender": admin.VERTICAL,
         "patient_know_dob": admin.VERTICAL,
         "tb_diagnosis": admin.VERTICAL,
