@@ -4,7 +4,7 @@ from ..admin_site import edcs_auth_admin
 from ..models import Role
 
 
-@admin.register(Role, site=edcs_auth_admin)
+@admin.register(Role)
 class RoleAdmin(admin.ModelAdmin):
 
     fieldsets = (

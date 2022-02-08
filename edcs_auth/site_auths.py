@@ -128,7 +128,7 @@ class SiteAuths:
 
     @property
     def edc_auth_skip_site_auths(self):
-        return getattr(settings, "EDC_AUTH_SKIP_SITE_AUTHS", False)
+        return getattr(settings, "EDCS_AUTH_SKIP_SITE_AUTHS", False)
 
     def add_pre_update_func(self, func):
         self.registry["pre_update_funcs"].append(func)

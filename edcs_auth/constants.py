@@ -1,3 +1,5 @@
 ACCOUNT_MANAGER_ROLE = "account_manager"
+CLINIC_SUPER_ROLE = "clinic_super"
+CLINIC_ROLE = "clinic"
 CUSTOM_ROLE = "custom"
 STAFF_ROLE = "staff"
