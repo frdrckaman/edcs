@@ -6,7 +6,6 @@ from edcs_model_admin import SimpleHistoryAdmin
 from .modeladmin_mixins import CrfModelAdminMixin
 
 from ..admin_site import edcs_subject_admin
-from ..modeladmin_mixins import SubjectAdminMethodsMixin
 from ..models import ClinicalReview
 
 

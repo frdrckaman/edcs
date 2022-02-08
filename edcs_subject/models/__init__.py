@@ -1,5 +1,6 @@
 from .air_pollution_followup import AirPollutionFollowUp
 from .alcohol_tobacco import AlcoholTobaccoUse
+from .cancer_history import CancerHistory
 from .clinical_review import ClinicalReview
 from .contraceptive_reproductive import ContraceptiveUseReproductiveHistory
 from .cooking_fuel import CookingFuel

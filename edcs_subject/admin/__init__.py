@@ -1,6 +1,7 @@
 from .clinical_review_admin import SubjectClinicalReviewAdmin
 from .air_pollution_followup_admin import AirPollutionFollowUpAdmin
 from .alcohol_tobacco_admin import AlcoholTobaccoUseAdmin
+from .cancer_history_admin import CancerHistoryAdmin
 from .contraceptive_reproductive_admin import ContraceptiveUseReproductiveHistoryAdmin
 from .cooking_fuel_admin import CookingFuelAdmin
 from .covid_history_admin import CovidInfectionHistoryAdmin
@@ -13,4 +14,4 @@ from .lung_cancer_lab_admin import LungCancerLabInvestigationAdmin
 from .lung_cancer_symptoms_admin import SignSymptomLungCancerAdmin
 from .lung_cancer_treatment_admin import LungCancerTreatmentAdmin
 from .occupational_history_admin import OccupationalHistoryAdmin
-from .subject_visit_admin import SubjectVisit
+from .subject_visit_admin import SubjectVisitAdmin
