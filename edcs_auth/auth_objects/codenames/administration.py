@@ -1,1 +1,1 @@
-administration = [""]
+administration = []
