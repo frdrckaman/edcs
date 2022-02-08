@@ -29,14 +29,14 @@ def holiday_path_check(app_configs, **kwargs):
         errors.append(
             Warning(
                 "Holiday file not found! settings.HOLIDAY_FILE not defined. \n",
-                id="edc_facility.001",
+                id="edcs_facility.001",
             )
         )
     elif not path_exists:
         errors.append(
             Warning(
                 f"Holiday file not found! settings.HOLIDAY_FILE={holiday_path}. \n",
-                id="edc_facility.002",
+                id="edcs_facility.002",
             )
         )
     sys.stdout.write(style.SQL_KEYWORD("holiday_path_check ... done.\n"))
