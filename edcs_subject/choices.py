@@ -515,3 +515,19 @@ VISIT_REASON_UNSCHEDULED = (
     (OTHER, "Other"),
     (NOT_APPLICABLE, "Not applicable"),
 )
+
+FAMILY_MEMBERS = (
+    ("mother", "Mother"),
+    ("father", "Father"),
+    ("sister", "Sister"),
+    ("brother", "Brother"),
+    ("maternal_aunt", "Maternal Aunt"),
+    ("maternal_uncle", "Maternal Uncle"),
+    ("paternal_aunt", "Paternal Aunt"),
+    ("paternal_uncle", "Paternal Uncle"),
+    ("maternal_grandmother", "Maternal Grandmother"),
+    ("maternal_grandfather", "Maternal Grandfather"),
+    ("paternal_grandmother", "Paternal Grandmother"),
+    ("paternal_grandfather", "Paternal Grandfather"),
+    (OTHER, "Other"),
+)
