@@ -1,9 +1,10 @@
 from django.db import models
 from edcs_constants.choices import YES_NO
+from edcs_lists.models import FamilyMembers
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
-from ..choices import QN95, FAMILY_MEMBERS
+from ..choices import QN95
 from ..model_mixins import CrfModelMixin
 
 
@@ -32,12 +33,10 @@ class CancerHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="Indicate age of diagnosis",
     )
 
-    breast_cancer_family_member = models.CharField(
+    breast_cancer_family_member = models.ManyToManyField(
+        FamilyMembers,
         verbose_name="What is your relationship?",
-        max_length=45,
-        null=True,
-        choices=FAMILY_MEMBERS,
-        default=None,
+        related_name="breast_cancer_family_member",
     )
 
     breast_cancer_family_member_other = edcs_models.OtherCharField()
@@ -53,12 +52,10 @@ class CancerHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="Indicate age of diagnosis",
     )
 
-    colon_cancer_family_member = models.CharField(
+    colon_cancer_family_member = models.ManyToManyField(
+        FamilyMembers,
         verbose_name="What is your relationship?",
-        max_length=45,
-        null=True,
-        choices=FAMILY_MEMBERS,
-        default=None,
+        related_name="colon_cancer_family_member",
     )
 
     colon_cancer_family_member_other = edcs_models.OtherCharField()
@@ -74,12 +71,10 @@ class CancerHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="Indicate age of diagnosis",
     )
 
-    lung_cancer_family_member = models.CharField(
+    lung_cancer_family_member = models.ManyToManyField(
+        FamilyMembers,
         verbose_name="What is your relationship?",
-        max_length=45,
-        null=True,
-        choices=FAMILY_MEMBERS,
-        default=None,
+        related_name="lung_cancer_family_member",
     )
 
     lung_cancer_family_member_other = edcs_models.OtherCharField()
@@ -95,12 +90,10 @@ class CancerHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="Indicate age of diagnosis",
     )
 
-    ovarian_cancer_family_member = models.CharField(
+    ovarian_cancer_family_member = models.ManyToManyField(
+        FamilyMembers,
         verbose_name="What is your relationship?",
-        max_length=45,
-        null=True,
-        choices=FAMILY_MEMBERS,
-        default=None,
+        related_name="ovarian_cancer_family_member",
     )
 
     ovarian_cancer_family_member_other = edcs_models.OtherCharField()
@@ -116,12 +109,10 @@ class CancerHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="Indicate age of diagnosis",
     )
 
-    prostate_cancer_family_member = models.CharField(
+    prostate_cancer_family_member = models.ManyToManyField(
+        FamilyMembers,
         verbose_name="What is your relationship?",
-        max_length=45,
-        null=True,
-        choices=FAMILY_MEMBERS,
-        default=None,
+        related_name="prostate_cancer_family_member",
     )
 
     prostate_cancer_family_member_other = edcs_models.OtherCharField()
@@ -137,12 +128,10 @@ class CancerHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="Indicate age of diagnosis",
     )
 
-    thyroid_cancer_family_member = models.CharField(
+    thyroid_cancer_family_member = models.ManyToManyField(
+        FamilyMembers,
         verbose_name="What is your relationship?",
-        max_length=45,
-        null=True,
-        choices=FAMILY_MEMBERS,
-        default=None,
+        related_name="thyroid_cancer_family_member",
     )
 
     thyroid_cancer_family_member_other = edcs_models.OtherCharField()
@@ -158,12 +147,10 @@ class CancerHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="Indicate age of diagnosis",
     )
 
-    uterine_cancer_family_member = models.CharField(
+    uterine_cancer_family_member = models.ManyToManyField(
+        FamilyMembers,
         verbose_name="What is your relationship?",
-        max_length=45,
-        null=True,
-        choices=FAMILY_MEMBERS,
-        default=None,
+        related_name="uterine_cancer_family_member",
     )
 
     uterine_cancer_family_member_other = edcs_models.OtherCharField()

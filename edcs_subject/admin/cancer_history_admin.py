@@ -121,6 +121,16 @@ class CancerHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "uterine_cancer",
     )
 
+    filter_horizontal = [
+        "breast_cancer_family_member",
+        "colon_cancer_family_member",
+        "lung_cancer_family_member",
+        "ovarian_cancer_family_member",
+        "prostate_cancer_family_member",
+        "thyroid_cancer_family_member",
+        "uterine_cancer_family_member",
+    ]
+
     search_fields = (
         "report_datetime",
     )
