@@ -18,7 +18,7 @@ class OccupationalHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
             {
                 "fields": (
                     "history_working_industries",
-                    "industries_worked_on",
+                    "industries_worked",
                     "history_working_mines",
                     "how_long_work_mine",
                     "activities_expose_to_smoke",
@@ -32,7 +32,7 @@ class OccupationalHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     list_display = (
         "report_datetime",
         "history_working_industries",
-        "industries_worked_on",
+        "industries_worked",
         "history_working_mines",
         "how_long_work_mine",
         "activities_expose_to_smoke",
@@ -42,7 +42,7 @@ class OccupationalHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     list_filter = (
         "report_datetime",
         "history_working_industries",
-        "industries_worked_on",
+        "industries_worked",
         "history_working_mines",
         "how_long_work_mine",
         "activities_expose_to_smoke",
@@ -54,7 +54,7 @@ class OccupationalHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
     radio_fields = {
         "history_working_industries": admin.VERTICAL,
-        "industries_worked_on": admin.VERTICAL,
+        "industries_worked": admin.VERTICAL,
         "history_working_mines": admin.VERTICAL,
         "how_long_work_mine": admin.VERTICAL,
         "crf_status": admin.VERTICAL,

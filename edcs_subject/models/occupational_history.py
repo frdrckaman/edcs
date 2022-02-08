@@ -1,7 +1,6 @@
 from django.db import models
 
 from edcs_constants.choices import YES_NO_DECLINED_TO_ANSWER
-# from edcs_crf.crf_model_mixins import CrfModelMixin
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
@@ -22,11 +21,13 @@ class OccupationalHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         choices=YES_NO_DECLINED_TO_ANSWER,
     )
 
-    industries_worked_on = models.CharField(
+    industries_worked = models.CharField(
         verbose_name="If yes, what kind of industry did you work?",
         max_length=45,
         choices=QN72,
     )
+
+    industries_worked_other = edcs_models.OtherCharField()
 
     history_working_mines = models.CharField(
         verbose_name="Do you have history of working in the mines?",
