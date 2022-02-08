@@ -74,6 +74,8 @@ INSTALLED_APPS = [
     "edcs_device.apps.AppConfig",
     "edcs_model.apps.AppConfig",
     "edcs_identifier.apps.AppConfig",
+    "edcs_list_data.apps.AppConfig",
+    "edcs_lists.apps.AppConfig",
     "edcs_screening.apps.AppConfig",
     "edcs_subject.apps.AppConfig",
     "edcs_consent.apps.AppConfig",

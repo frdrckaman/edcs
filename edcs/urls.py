@@ -13,6 +13,7 @@ from edcs_registration.admin_site import edcs_registration_admin
 from edcs_visit_schedule.admin_site import edcs_visit_schedule_admin
 from edcs_appointment.admin_site import edcs_appointment_admin
 from edcs_crf.admin_site import edcs_crf_admin
+from edcs_lists.admin_site import edcs_lists_admin
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -27,6 +28,7 @@ urlpatterns = [
     path("admin/", edcs_consent_admin.urls),
     path("admin/", edcs_registration_admin.urls),
     path("admin/", edcs_visit_schedule_admin.urls),
+    path("admin/", edcs_lists_admin.urls),
     path("dashboard/", include("edcs_dashboard.urls")),
     path("edcs_device/", include("edcs_device.urls")),
     path("edcs_notification/", include("edcs_notification.urls")),
@@ -35,6 +37,7 @@ urlpatterns = [
     path("edcs_export/", include("edcs_export.urls")),
     path("edcs_facility/", include("edcs_facility.urls")),
     path("edcs_identifier/", include("edcs_identifier.urls")),
+    path("edcs_lists/", include("edcs_lists.urls")),
     path("edcs_screening/", include("edcs_screening.urls")),
     path("edcs_subject/", include("edcs_subject.urls")),
     path("edcs_consent/", include("edcs_consent.urls")),
