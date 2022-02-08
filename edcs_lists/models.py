@@ -5,3 +5,9 @@ class CovidSymptoms(ListModelMixin):
     class Meta(ListModelMixin.Meta):
         verbose_name = "Covid Symptoms"
         verbose_name_plural = "Covid Symptoms"
+
+
+class FamilyMembers(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Family Members"
+        verbose_name_plural = "Family Members"
