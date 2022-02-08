@@ -11,6 +11,7 @@ enrollment_crf = FormsCollection(
         show_order=140, model="edcs_subject.lungcancerlabinvestigation", required=False
     ),
     Crf(show_order=143, model="edcs_subject.lungCancertreatment"),
+    Crf(show_order=144, model="edcs_subject.cancerhistory"),
     Crf(show_order=145, model="edcs_subject.covidinfectionhistory", required=False),
     Crf(
         show_order=150,
