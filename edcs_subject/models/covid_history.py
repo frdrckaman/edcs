@@ -1,6 +1,7 @@
 from django.db import models
 
 from edcs_constants.choices import YES_NO
+from edcs_lists.models import CovidSymptoms
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
@@ -33,10 +34,10 @@ class CovidInfectionHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         choices=YES_NO,
     )
 
-    covid_symptoms = models.CharField(
+    covid_symptoms = models.ManyToManyField(
+        CovidSymptoms,
         verbose_name="If yes, what symptoms did you have when you first had COVID-19?",
-        max_length=45,
-        choices=COVID_SYMPTOMS,
+        related_name="covid_symptoms",
     )
 
     admitted_hospital = models.CharField(

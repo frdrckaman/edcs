@@ -53,6 +53,10 @@ class CovidInfectionHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "no_covid_vaccine",
     )
 
+    filter_horizontal = [
+        "covid_symptoms"
+    ]
+
     search_fields = (
         "report_datetime",
     )
@@ -60,7 +64,6 @@ class CovidInfectionHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     radio_fields = {
         "think_had_covid": admin.VERTICAL,
         "have_covid_symptoms": admin.VERTICAL,
-        "covid_symptoms": admin.VERTICAL,
         "admitted_hospital": admin.VERTICAL,
         "swab_test": admin.VERTICAL,
         "swab_test_results": admin.VERTICAL,
