@@ -47,7 +47,7 @@ class SingleSite:
         UAT server instance.
         """
         as_list = self._domain.split(".")
-        if getattr(settings, "EDC_SITES_UAT_DOMAIN", None):
+        if getattr(settings, "EDCS_SITES_UAT_DOMAIN", None):
             if "uat" not in as_list:
                 as_list.insert(1, "uat")  # after the site name
         else:

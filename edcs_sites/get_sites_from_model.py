@@ -4,7 +4,7 @@ from .single_site import SingleSite
 
 
 def get_sites_from_model():
-    site_model_cls = django_apps.get_model("edc_sites.edcsite")
+    site_model_cls = django_apps.get_model("edcs_sites.edcsite")
     return [
         SingleSite(
             obj.id,

@@ -17,6 +17,7 @@ env = environ.Env(
     DATABASE_SQLITE_ENABLED=(bool, False),
     DJANGO_EMAIL_ENABLED=(bool, False),
     DJANGO_AUTO_CREATE_KEYS=(bool, False),
+    EDCS_SITES_UAT_DOMAIN=(bool, True),
 )
 
 environ.Env.read_env(ENV_DIR)
@@ -190,6 +191,8 @@ EDCS_PROTOCOL_STUDY_OPEN_DATETIME = get_datetime_from_env(
 EDCS_PROTOCOL_STUDY_CLOSE_DATETIME = get_datetime_from_env(
     *env.list("EDCS_PROTOCOL_STUDY_CLOSE_DATETIME")
 )
+
+EDCS_SITES_UAT_DOMAIN = True
 
 KEY_PATH = env.str("DJANGO_KEY_FOLDER")
 
