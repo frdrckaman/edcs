@@ -50,7 +50,7 @@ SUBJECT_CONSENT_MODEL = env.str("EDCS_SUBJECT_CONSENT_MODEL")
 
 SUBJECT_VISIT_MODEL = env.str("EDCS_SUBJECT_VISIT_MODEL")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["tz.uat.edcs.org", "ug.uat.edcs.org", "localhost"]
 
 
 # Application definition
@@ -231,7 +231,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-SITE_ID = SiteID(default=1)
+SITE_ID = SiteID(default=10)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
