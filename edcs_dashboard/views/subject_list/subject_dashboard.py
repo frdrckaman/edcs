@@ -1,9 +1,11 @@
 from django.views.generic import TemplateView
+
+from edcs_dashboard.view_mixins import EdcsViewMixin
 from edcs_dashboard.views.dashboard_list import ListboardView
 from edcs_consent.models import SubjectConsent
 
 
-class SubjectDashboardView(ListboardView, TemplateView):
+class SubjectDashboardView(EdcsViewMixin, ListboardView, TemplateView):
     listboard_url = "subject_listboard_url"
     listboard_model = "edcs_consent.subjectconsent"
     subjectvisit_model = "edcs_subject.subjectvisit"

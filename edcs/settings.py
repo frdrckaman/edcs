@@ -60,12 +60,12 @@ INSTALLED_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
-    "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_revision.apps.AppConfig",
     "django_audit_fields.apps.AppConfig",
     "logentry_admin",
+    "django.contrib.sites",
     "defender",
     "multisite",
     "simple_history",
@@ -179,6 +179,8 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
+AUTHENTICATION_BACKENDS = ["edcs_auth.backends.ModelBackendWithSite"]
+
 EDCS_APPOINTMENT_INTERVAL = env("EDCS_APPOINTMENT_INTERVAL")
 EDCS_PROTOCOL = env.str("EDCS_PROTOCOL")
 EDCS_PROTOCOL_TITLE = env.str("EDCS_PROTOCOL_TITLE")
@@ -205,6 +207,8 @@ EMAIL_ENABLED = env("DJANGO_EMAIL_ENABLED")
 GIT_DIR = BASE_DIR
 
 APP_NAME = env.str("DJANGO_APP_NAME")
+
+CACHE_MULTISITE_KEY_PREFIX = APP_NAME
 
 ACCOUNT_EMAIL_VERIFICATION = "none"
 

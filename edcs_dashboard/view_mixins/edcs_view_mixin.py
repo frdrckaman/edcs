@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.views.generic.base import ContextMixin
 from django_revision.views import RevisionMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
-# from edcs_sites.view_mixins import SiteViewMixin
+from edcs_sites.view_mixins import SiteViewMixin
 from edcs_protocol import Protocol
 
 from .message_view_mixin import MessageViewMixin
@@ -17,7 +17,7 @@ class EdcsViewMixin(
     LoginRequiredMixin,
     MessageViewMixin,
     RevisionMixin,
-    # SiteViewMixin,
+    SiteViewMixin,
     TemplateRequestContextMixin,
     ContextMixin,
 ):

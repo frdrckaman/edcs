@@ -1,12 +1,13 @@
 from django.core.paginator import Paginator
 from django.views.generic import TemplateView
 
+from edcs_dashboard.view_mixins import EdcsViewMixin
 from edcs_dashboard.views.dashboard_list import ListboardView
 from edcs_registration.models import RegisteredSubject
 
 
 # TODO create a ListView
-class SubjectListBoardView(ListboardView, TemplateView):
+class SubjectListBoardView(EdcsViewMixin, ListboardView, TemplateView):
     listboard_url = "subject_listboard_url"
     listboard_model = "edcs_registration.registeredsubject"
     model_consent = "edcs_registration.registeredsubject"
