@@ -37,7 +37,7 @@
                                 <th width="10%">Study ID</th>
                                 <th width="5%">Created by</th>
                                 <th width="25%">Report Date</th>
-                                <th width="10%">Site</th>
+                                <th width="10%">Host</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -61,7 +61,7 @@
                                     {% endif %}
                                     <td>{{ item.user_created }}</td>
                                     <td>{{ item.report_datetime }}</td>
-                                    <td></td>
+                                    <td>{{ item.hostname_created }}</td>
                                 </tr>
                             {% endfor %}
                             </tbody>
