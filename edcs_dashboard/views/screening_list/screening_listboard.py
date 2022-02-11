@@ -1,13 +1,14 @@
 from pprint import pprint
 
 from django.contrib.sites.models import Site
-
+from django.views.generic.list import ListView
+from django.urls import reverse
 from edcs_dashboard.view_mixins import EdcsViewMixin
 from edcs_dashboard.views.dashboard_list import ListboardView
 from edcs_screening.models import SubjectScreening
 
 
-class ScreeningListBoardView(EdcsViewMixin, ListboardView):
+class ScreeningListBoardView(EdcsViewMixin, ListboardView, ListView):
     listboard_url = "screening_listboard_url"
     listboard_model = "edcs_screening.subjectscreening"
     model_consent = "edcs_consent.subjectconsent"
@@ -15,7 +16,12 @@ class ScreeningListBoardView(EdcsViewMixin, ListboardView):
     listboard_dashboard = "edcs_dashboard:screening_dashboard"
     subject_list_dashboard = "edcs_dashboard:enroll-dashboard"
 
-    # paginate_by = 10
+    # model = SubjectScreening
+
+    paginate_by = 3
+
+    def get_queryset(self):
+        return SubjectScreening.objects.all().order_by(self.ordering)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -23,11 +29,32 @@ class ScreeningListBoardView(EdcsViewMixin, ListboardView):
         # data = SubjectScreening.objects.filter(site_id=site_profile)
         # pprint(data)
         # pprint(context.get("site_profile"))
+        # pprint(self.get_wrapped_queryset(context.get(self.context_object_name)))
         context.update(
             subject_screening_add_url=self.next_add_screening,
-            object_list=self.object_list_screening(SubjectScreening),
+            object_list=self.get_wrapped_queryset(context.get(self.context_object_name)),
         )
         return context
+
+    def get_wrapped_queryset(self, queryset):
+        wrapped_objs = []
+        for obj_qry in queryset:
+            obj = self.get_model_dict(obj_qry)
+
+            obj['href'] = self.next_url_screening(
+                self.listboard_model_cls().admin_url(obj['id']), obj['screening_identifier'])
+            obj['subject_consent_add_url'] = self.next_url_screening(
+                self.listboard_model_consent().get_absolute_url(), obj['screening_identifier'])
+            if obj['consented']:
+                obj['subject_dashboard_url'] = reverse(self.subject_list_dashboard, args=[obj['subject_identifier']])
+            else:
+                obj['subject_dashboard_url'] = None
+            wrapped_objs.append(obj)
+        return wrapped_objs
+
+    @staticmethod
+    def get_model_dict(queryset):
+        return queryset.__dict__
 
     def get_subject_screening_add_url(self):
         return self.listboard_model_cls().get_absolute_url()

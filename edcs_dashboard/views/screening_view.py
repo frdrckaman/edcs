@@ -6,7 +6,7 @@ from django.views.generic.base import TemplateView
 from .screening_list.screening_listboard import ScreeningListBoardView
 
 
-class ScreeningDashboardView(ScreeningListBoardView, TemplateView):
+class ScreeningDashboardView(ScreeningListBoardView):
 
     template_name = f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/screening.html"
 

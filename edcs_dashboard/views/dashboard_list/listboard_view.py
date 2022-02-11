@@ -11,7 +11,6 @@ class ListboardViewError(Exception):
     pass
 
 
-# TODO Use ListView on this class
 class BaseListboardView:
     context_object_name = "results"
     empty_queryset_message = _("Nothing to display.")
@@ -28,30 +27,9 @@ class BaseListboardView:
     model_wrapper_cls = None
     ordering = "-created"
 
-    # orphans = 3
-    # paginate_by = 10
-    # paginator_url = None  # defaults to listboard_url
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-
-    def object_list_screening(self, obj):
-        values = []
-        data = obj.objects.all().order_by(self.ordering).values()
-        if data is not None:
-            for item in data:
-                item['href'] = self.next_url_screening(
-                    self.listboard_model_cls().admin_url(item['id']), item['screening_identifier'])
-                item['subject_consent_add_url'] = self.next_url_screening(
-                    self.listboard_model_consent().get_absolute_url(), item['screening_identifier'])
-                if item['consented']:
-                    item['subject_dashboard_url'] = reverse(self.subject_list_dashboard,
-                                                            args=[item['subject_identifier']])
-                else:
-                    item['subject_dashboard_url'] = None
-                values.append(item)
-        return values
 
     def object_list_subject(self, obj):
         values = []
