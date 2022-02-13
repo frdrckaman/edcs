@@ -146,10 +146,31 @@ def appointment_button(context, visit_code):
     takes_context=True,
 )
 def pagination(context):
-    title = "Subject's Appointment"
+    paginator = context.get("page_obj")
+    # first_url = paginator.number,
+    # previous_url = paginator.previous_page_number,
+    # next_page = paginator.next_page_number,
+    # last_url = paginator.paginator.num_pages,
     return dict(
-        title=title,
+        # page_obj=paginator,
+        # page=paginator.number,
+        # first_url=first_url,
+        # previous_url=previous_url,
+        # next_url=next_page,
+        # last_url=last_url,
+        # numbers=numbers,
     )
+
+
+def page_numbers(page, numpages):
+    page_numbers_ = None
+    if page and numpages:
+        min_n = page - 5
+        min_n = 1 if min_n <= 0 else min_n
+        max_n = min_n + 9
+        max_n = numpages if max_n >= numpages else max_n
+        page_numbers_ = [x for x in range(min_n, max_n + 1)]
+    return page_numbers_ or []
 
 
 @register.simple_tag(takes_context=True)

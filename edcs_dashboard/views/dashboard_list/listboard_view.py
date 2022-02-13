@@ -23,6 +23,7 @@ class BaseListboardView:
     model_consent = None
     listboard_model_manager_name = "_default_manager"
     subject_list_dashboard = None
+    paginator_url = None
 
     model_wrapper_cls = None
     ordering = "-created"
@@ -86,6 +87,10 @@ class BaseListboardView:
             return django_apps.get_model(self.subjectvisit_model)
         except (ValueError, AttributeError):
             return self.subjectvisit_model
+
+    @staticmethod
+    def get_model_dict(queryset):
+        return queryset.__dict__
 
 
 class ListboardView(BaseListboardView):

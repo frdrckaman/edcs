@@ -52,10 +52,6 @@ class ScreeningListBoardView(EdcsViewMixin, ListboardView, ListView):
             wrapped_objs.append(obj)
         return wrapped_objs
 
-    @staticmethod
-    def get_model_dict(queryset):
-        return queryset.__dict__
-
     def get_subject_screening_add_url(self):
         return self.listboard_model_cls().get_absolute_url()
 
