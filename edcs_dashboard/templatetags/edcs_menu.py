@@ -1,9 +1,7 @@
-import datetime
 from pprint import pprint
 
 from django import template
 from django.conf import settings
-from django.urls import reverse
 
 from edcs_registration.models import RegisteredSubject
 from edcs_screening.models import SubjectScreening
@@ -48,11 +46,8 @@ def main_menu(context):
     takes_context=True,
 )
 def bottom_summary(context):
-    title = None
-    pprint(context.get("site_profile"))
 
     return dict(
-        title=title,
         screened=enrolled(context),
         enrolled=screened(context),
     )
