@@ -49,11 +49,12 @@ def main_menu(context):
 )
 def bottom_summary(context):
     title = None
+    pprint(context.get("site_profile"))
 
     return dict(
         title=title,
-        screened=subject_enrolled,
-        enrolled=subject_screened,
+        screened=enrolled(context),
+        enrolled=screened(context),
     )
 
 
@@ -77,3 +78,27 @@ def news_updates(context):
     return dict(
         title=title,
     )
+
+
+@register.inclusion_tag(
+    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"menu/summary-menu.html",
+    takes_context=True,
+)
+def summary_menu(context):
+    return dict(
+        screened=screened(context),
+        enrolled=enrolled(context),
+    )
+
+
+def site_(context):
+    site_id = context.get('s_id') if not context.get('site_profile') else context.get('site_profile').site_id
+    return site_id
+
+
+def enrolled(context):
+    return RegisteredSubject.objects.filter(site_id=site_(context)).count()
+
+
+def screened(context):
+    return SubjectScreening.objects.filter(site_id=site_(context)).count()
