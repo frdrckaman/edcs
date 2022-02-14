@@ -1,12 +1,23 @@
-<div class="row-form clearfix">
-    <div class="col-md-offset-5 col-md-12">
-        <div class="btn-group">
-            <a href="{{ page_obj.number }}" class="btn btn-default" type="button">Prev</a>
-            <button class="btn btn-default" type="button">1</button>
-            <button class="btn btn-default" type="button">2</button>
-            <button class="btn btn-default" type="button">3</button>
-            <button class="btn btn-default" type="button">4</button>
-            <button class="btn btn-default" type="button">Next</button>
+{% if show_pagination %}
+    <div class="row-form clearfix">
+        <div class="pull-right">
+            <ul class="pagination justify-content-end">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                  <a class="page-link" href="{{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>
+                </li>
+                {% endif %}
+
+                {% for num in num_pages %}
+                    <li class="page-item {% if forloop.counter == page_obj.number %}active{% endif %} "><a class="page-link" href="{{ forloop.counter }}">{{ forloop.counter }}</a></li>
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                  <a class="page-link" href="{{ page_obj.next_page_number }}">Next</a>
+                </li>
+                {% endif %}
+            </ul>
         </div>
     </div>
-</div>
+{% endif %}

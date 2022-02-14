@@ -146,19 +146,15 @@ def appointment_button(context, visit_code):
     takes_context=True,
 )
 def pagination(context):
-    paginator = context.get("page_obj")
-    # first_url = paginator.number,
-    # previous_url = paginator.previous_page_number,
-    # next_page = paginator.next_page_number,
-    # last_url = paginator.paginator.num_pages,
+    page_obj = context.get("page_obj")
+    num_pages = "a" * page_obj.paginator.num_pages if page_obj else 1
+    show_pagination = True if page_obj.paginator.num_pages > 12 else False
+
     return dict(
-        # page_obj=paginator,
-        # pages=paginator.num_pages
-        # first_url=first_url,
-        # previous_url=previous_url,
-        # next_url=next_page,
-        # last_url=last_url,
-        # numbers=numbers,
+        page_obj=page_obj,
+        pages=page_obj.paginator.num_pages,
+        num_pages=num_pages,
+        show_pagination=show_pagination,
     )
 
 

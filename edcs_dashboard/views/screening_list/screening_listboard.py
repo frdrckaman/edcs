@@ -16,9 +16,7 @@ class ScreeningListBoardView(EdcsViewMixin, ListboardView, ListView):
     listboard_dashboard = "edcs_dashboard:screening_dashboard"
     subject_list_dashboard = "edcs_dashboard:enroll-dashboard"
 
-    # model = SubjectScreening
-
-    paginate_by = 3
+    paginate_by = 12
 
     def get_queryset(self):
         return SubjectScreening.objects.all().order_by(self.ordering)

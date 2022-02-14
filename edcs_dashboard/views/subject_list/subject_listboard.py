@@ -1,14 +1,10 @@
 from pprint import pprint
-
-from django.core.paginator import Paginator
 from django.views.generic.list import ListView
 
 from edcs_dashboard.view_mixins import EdcsViewMixin
 from edcs_dashboard.views.dashboard_list import ListboardView
 from edcs_registration.models import RegisteredSubject
 
-
-# TODO create a ListView
 from edcs_utils import age
 
 
@@ -19,7 +15,7 @@ class SubjectListBoardView(EdcsViewMixin, ListboardView, ListView):
     ordering = "-created"
     listboard_dashboard = "edcs_dashboard:enroll-dashboard"
 
-    paginate_by = 10
+    paginate_by = 12
 
     def get_queryset(self):
         return RegisteredSubject.objects.all().order_by(self.ordering)
