@@ -1,6 +1,3 @@
-from pprint import pprint
-
-from django.contrib.sites.models import Site
 from django.views.generic.list import ListView
 from django.urls import reverse
 from edcs_dashboard.view_mixins import EdcsViewMixin
@@ -15,22 +12,15 @@ class ScreeningListBoardView(EdcsViewMixin, ListboardView, ListView):
     ordering = "-report_datetime"
     listboard_dashboard = "edcs_dashboard:screening_dashboard"
     subject_list_dashboard = "edcs_dashboard:enroll-dashboard"
-
+    model = SubjectScreening
     paginate_by = 12
-
-    def get_queryset(self):
-        return SubjectScreening.objects.all().order_by(self.ordering)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # site_profile = context.get("site_profile").site_id
-        # data = SubjectScreening.objects.filter(site_id=site_profile)
-        # pprint(data)
-        # pprint(context.get("site_profile"))
-        # pprint(self.get_wrapped_queryset(context.get(self.context_object_name)))
+        queryset = SubjectScreening.objects.filter(site_id=context.get('site_profile').site_id).order_by(self.ordering)
         context.update(
             subject_screening_add_url=self.next_add_screening,
-            object_list=self.get_wrapped_queryset(context.get(self.context_object_name)),
+            object_list=self.get_wrapped_queryset(queryset),
         )
         return context
 
