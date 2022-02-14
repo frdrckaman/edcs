@@ -153,7 +153,7 @@ def pagination(context):
     # last_url = paginator.paginator.num_pages,
     return dict(
         # page_obj=paginator,
-        pages=paginator.num_pages
+        # pages=paginator.num_pages
         # first_url=first_url,
         # previous_url=previous_url,
         # next_url=next_page,
