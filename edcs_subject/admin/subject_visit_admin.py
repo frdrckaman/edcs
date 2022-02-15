@@ -6,10 +6,10 @@ from django.utils.safestring import mark_safe
 from edcs_model_admin import SimpleHistoryAdmin, audit_fieldset_tuple
 from edcs_visit_schedule.fieldsets import visit_schedule_fieldset_tuple
 from edcs_model_admin.dashboard import ModelAdminDashboardMixin
+from ..forms import SubjectVisitForm
 
 from ..modeladmin_mixins import VisitModelAdminMixin
 from ..admin_site import edcs_subject_admin
-# from ..forms import SubjectVisitForm
 from ..models import SubjectVisit
 
 
@@ -21,7 +21,7 @@ class ModelAdminMixin(ModelAdminDashboardMixin):
 class SubjectVisitAdmin(VisitModelAdminMixin, ModelAdminMixin, SimpleHistoryAdmin):
     show_dashboard_in_list_display_pos = 2
 
-    # form = SubjectVisitForm
+    form = SubjectVisitForm
 
     fieldsets = (
         (
