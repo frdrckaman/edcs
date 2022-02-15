@@ -37,8 +37,11 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
             {
                 "fields": (
                     "lung_diseases_dx",
-                    # "lung_diseases_date",
-                    # "use_lung_diseases_medication",
+                    "copd_dx_date",
+                    "asthma_dx_date",
+                    "interstitial_lung_disease_dx_date",
+                    "use_lung_diseases_medication",
+                    "lung_diseases_medication",
                 ),
             },
         ),
@@ -82,7 +85,6 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "lung_diseases_dx",
         "htn_dx",
         "dm_dx",
-        # "lung_cancer_dx",
         "created",
     )
 
@@ -92,7 +94,6 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "lung_diseases_dx",
         "htn_dx",
         "dm_dx",
-        # "lung_cancer_dx",
     )
 
     search_fields = (
