@@ -20,8 +20,8 @@ class SubjectVisitFormValidator(VisitFormValidator):
                 {"reason": "This is a schedule visit"}, code=INVALID_ERROR
             )
 
-        self.applicable_if(
-            OTHER, field="info_source", field_applicable="info_source_other"
+        self.required_if(
+            OTHER, field="info_source", field_required="info_source_other"
         )
 
 
