@@ -275,6 +275,7 @@ HIV_RESULT_DWTA_DONT_KNOW = (
     (NEG, "HIV Negative"),
     ("decline_to_answer", "Decline to answer"),
     ("dont_know", "I dont know"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 """do not change without inspecting implication to check_omang_field() in utils.py"""

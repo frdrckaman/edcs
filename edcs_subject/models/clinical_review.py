@@ -5,12 +5,13 @@ from edcs_constants.choices import (
     HIV_RESULT_DWTA_DONT_KNOW,
     YES_NO,
     YES_NO_DECLINED_TO_ANSWER,
-    YES_NO_DWTA_DONT_KNOW,
+    YES_NO_DWTA_DONT_KNOW, YES_NO_NA,
 )
+from edcs_constants.constants import NOT_APPLICABLE
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
-from ..choices import LUNG_DISEASE, MISS_ARV, QN100, QN101, QN102
+from ..choices import LUNG_DISEASE, MISS_ARV
 from ..model_mixins import CrfModelMixin
 
 
@@ -37,13 +38,13 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name=mark_safe("What was the result of your most recent HIV test?"),
         max_length=45,
         choices=HIV_RESULT_DWTA_DONT_KNOW,
-        default=None,
+        default=NOT_APPLICABLE,
     )
     arv = models.CharField(
         verbose_name=mark_safe("If positive, are you taking ARVs?"),
         max_length=45,
-        choices=HIV_RESULT_DWTA_DONT_KNOW,
-        default=None,
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE,
     )
 
     arv_start_date = models.DateField(
@@ -55,15 +56,15 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
     arv_regularly = models.CharField(
         verbose_name=mark_safe("Do you take your ARVs regularly? "),
         max_length=15,
-        choices=YES_NO,
-        default=None,
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE,
     )
 
     miss_taking_arv = models.CharField(
         verbose_name=mark_safe("If no, how often do you miss taking ARVs?"),
         max_length=45,
         choices=MISS_ARV,
-        default=None,
+        default=NOT_APPLICABLE,
     )
 
     miss_taking_arv_other = edcs_models.OtherCharField()
@@ -96,7 +97,6 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="Are you using any medications?",
         choices=YES_NO_DECLINED_TO_ANSWER,
         max_length=80,
-        default=None,
     )
 
     lung_diseases_medication = models.TextField(

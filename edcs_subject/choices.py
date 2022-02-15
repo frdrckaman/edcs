@@ -7,7 +7,8 @@ MISS_ARV = (
     ("at_least_once_3_months", "At least once in 3 months"),
     ("at_least_once_a_year", "At least once a year"),
     ("dont_remember", "I Do not remember"),
-    ("others", "Other"),
+    (OTHER, "Other"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 LUNG_DISEASE = (
