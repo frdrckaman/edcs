@@ -1,5 +1,5 @@
 from django import forms
-from edcs_constants.constants import NOT_APPLICABLE, OTHER
+from edcs_constants.constants import OTHER
 from edcs_form_validators import FormValidatorMixin, INVALID_ERROR
 from edcs_sites.forms import SiteModelFormMixin
 from ..constants import SCHEDULED

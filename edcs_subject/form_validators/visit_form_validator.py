@@ -1,12 +1,9 @@
 from django import forms
 from django.conf import settings
-from edcs_constants.constants import OTHER
-from edcs_form_validators import INVALID_ERROR, REQUIRED_ERROR, FormValidator
-
-from ..constants import SCHEDULED
+from edcs_form_validators import REQUIRED_ERROR, FormValidator
 
 EDCS_VISIT_TRACKING_ALLOW_MISSED_UNSCHEDULED = getattr(
-    settings, "EDC_VISIT_TRACKING_ALLOW_MISSED_UNSCHEDULED", False
+    settings, "EDCS_VISIT_TRACKING_ALLOW_MISSED_UNSCHEDULED", False
 )
 
 
