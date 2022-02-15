@@ -1,7 +1,7 @@
 from pprint import pprint
 
 from django import forms
-from edcs_constants.constants import NO, YES, POS, OTHER
+from edcs_constants.constants import NO, YES, POS, OTHER, COPD, INTERSTITIAL_LUNG_DISEASE, ASTHMA
 
 from edcs_form_validators import FormValidatorMixin
 from edcs_form_validators.form_validator import FormValidator
@@ -12,12 +12,12 @@ from ..models import ClinicalReview
 class ClinicalReviewFormValidator(FormValidator):
     def clean(self):
         super().clean()
-        # hiv
         arv = self.cleaned_data.get("arv")
         hiv_dx = self.cleaned_data.get("hiv_dx")
         arv_regularly = self.cleaned_data.get("arv_regularly")
         miss_taking_arv = self.cleaned_data.get("miss_taking_arv")
 
+        # hiv
         self.required_if(YES, field="hiv_test", field_required="hiv_test_date")
         self.applicable_if(YES, field="hiv_test", field_applicable="hiv_dx")
         self.applicable_if(POS, field="hiv_dx", field_applicable="arv")
@@ -26,46 +26,21 @@ class ClinicalReviewFormValidator(FormValidator):
         self.applicable_if(NO, field="arv_regularly", field_applicable="miss_taking_arv")
         self.applicable_if(OTHER, field="miss_taking_arv", field_applicable="miss_taking_arv_other")
 
-        # # htn
-        self.required_if(YES, field="htn_test", field_required="htn_test_date")
-        self.required_if(YES, field="htn_test", field_required="htn_reason")
-        self.applicable_if(YES, field="htn_test", field_applicable="htn_dx")
-        #
-        # # diabetes
-        # self.applicable_if_not_diagnosed(
-        #     diagnoses=diagnoses,
-        #     field_dx="dm_dx",
-        #     field_applicable="dm_test",
-        #     label="diabetes",
-        # )
-        # self.required_if(YES, field="dm_test", field_required="dm_test_date")
-        # self.required_if(YES, field="dm_test", field_required="dm_reason")
-        # self.applicable_if(YES, field="dm_test", field_applicable="dm_dx")
-        #
-        # self.required_if(
-        #     YES,
-        #     field="health_insurance",
-        #     field_required="health_insurance_monthly_pay",
-        #     field_required_evaluate_as_int=True,
-        # )
-        # self.required_if(
-        #     YES,
-        #     field="patient_club",
-        #     field_required="patient_club_monthly_pay",
-        #     field_required_evaluate_as_int=True,
-        # )
+        # lung diseases
+        self.required_if(COPD, field="lung_diseases_dx", field_required="copd_dx_date")
+        self.required_if(ASTHMA, field="lung_diseases_dx", field_required="asthma_dx_date")
+        self.required_if(INTERSTITIAL_LUNG_DISEASE, field="lung_diseases_dx", field_required="interstitial_lung_disease_dx_date")
+        self.required_if(YES, field="use_lung_diseases_medication", field_required="lung_diseases_medication")
 
-    # def raise_if_dx_and_applicable(self, clinic, cond):
-    #     if self.subject_screening.clinic_type in [clinic] and self.cleaned_data.get(
-    #         f"{cond}_test"
-    #     ) in [YES, NO]:
-    #         raise forms.ValidationError(
-    #             {
-    #                 f"{cond}_test": (
-    #                     f"Not applicable. Patient was recruited from the {cond.title} clinic."
-    #                 ),
-    #             }
-    #         )
+        # # htn
+        self.required_if(YES, field="htn_dx", field_required="htn_dx_date")
+        self.applicable_if(YES, field="htn_dx", field_applicable="use_htn_medication")
+        self.required_if(YES, field="use_htn_medication", field_required="htn_medication")
+
+        # diabetes
+        self.required_if(YES, field="dm_dx", field_required="dm_dx_date")
+        self.applicable_if(YES, field="dm_dx", field_applicable="use_dm_medication")
+        self.required_if(YES, field="use_dm_medication", field_required="dm_medication")
 
 
 class ClinicalReviewForm(FormValidatorMixin, forms.ModelForm):

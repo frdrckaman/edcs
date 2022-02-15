@@ -1,4 +1,4 @@
-from edcs_constants.constants import NOT_APPLICABLE, OTHER
+from edcs_constants.constants import NOT_APPLICABLE, OTHER, COPD, ASTHMA, INTERSTITIAL_LUNG_DISEASE, NO, DONT_KNOW
 from edcs_subject.constants import SCHEDULED, UNSCHEDULED, MISSED_VISIT
 
 MISS_ARV = (
@@ -12,12 +12,12 @@ MISS_ARV = (
 )
 
 LUNG_DISEASE = (
-    ("yes_copd", "Yes, COPD"),
-    ("yes_asthma", "Yes, Asthma"),
-    ("yes_interstitial_lung_disease", "Yes, Interstitial Lung Disease"),
-    ("No", "No"),
+    (COPD, "Yes, COPD"),
+    (ASTHMA, "Yes, Asthma"),
+    (INTERSTITIAL_LUNG_DISEASE, "Yes, Interstitial Lung Disease"),
+    (NO, "No"),
     ("decline_to_answer", "Decline to answer"),
-    ("Dont_know", "Do not know"),
+    (DONT_KNOW, "Do not know"),
 )
 EDUCATION = (
     ("never_been_in_school", "Never been in school"),
@@ -25,7 +25,7 @@ EDUCATION = (
     ("secondary_education", "Completed Secondary Education (‘’O’’ or ‘’A’’ level)"),
     ("vocational_training", "Vocational training"),
     ("tertiary_education", "Tertiary Education"),
-    ("others", "Other"),
+    (OTHER, "Other"),
 )
 
 OCCUPATION = (
@@ -36,13 +36,13 @@ OCCUPATION = (
     ("entrepreneur", "Entrepreneur"),
     ("unemployed", "Unemployed"),
     ("business_man", "Business man/woman"),
-    ("others", "Other"),
+    (OTHER, "Other"),
 )
 
 MATERIAL_BUILD_FLOOR = (
     ("soil_sand_mud", "Soil/ sand/ mud"),
     ("cement_concrete_tiles", "Cement/ concrete/ tiles"),
-    ("other", "Others"),
+    (OTHER, "Others"),
 )
 
 MATERIAL_BUILD_WALL = (
@@ -53,7 +53,7 @@ MATERIAL_BUILD_WALL = (
     ("stone_mud", "Stones and mud"),
     ("wood_timber", "Wood/timber"),
     ("cement_concrete_bricks", "Cement/ concrete blocks/ burnt blocks/bricks."),
-    ("other", "Others"),
+    (OTHER, "Others"),
 )
 
 MATERIAL_BUILD_ROOFING = (
@@ -72,14 +72,14 @@ COOKING = (
     ("animal_waste", "Animal waste"),
     ("plants_waste", "Plants waste"),
     ("dont_cook", "We do not cook"),
-    ("other", "Others"),
+    (OTHER, "Others"),
 )
 
 POWER_SOURCE = (
     ("electricity", "Electricity"),
     ("battery_torch", "Battery/ torch "),
     ("solar_energy", "Solar energy"),
-    ("other", "Others"),
+    (OTHER, "Others"),
 )
 
 SMOKE_TOBACCO_PRODUCTS = (
@@ -101,7 +101,7 @@ SMOKE_TOBACCO_PRODUCTS_FREQUENCY = (
     ("every_other_day", "Every other day"),
     ("weekly", "Weekly (Not daily)"),
     ("monthly", "Monthly(Not weekly)"),
-    ("others", "Others"),
+    (OTHER, "Others"),
 )
 
 SMOKE_INSIDE = (
@@ -110,7 +110,7 @@ SMOKE_INSIDE = (
     ("monthly", "Monthly"),
     ("less_than_monthly", "Less than monthly"),
     ("never", "Never"),
-    ("others", "Others"),
+    (OTHER, "Others"),
 )
 
 ALCOHOL_CONSUMPTION = (
@@ -124,7 +124,7 @@ ALCOHOL_CONSUMPTION_FREQUENCY = (
     ("every_other_day", "Every other day"),
     ("weekly", "Weekly (Not daily )"),
     ("monthly", "Monthly (Not weekly)"),
-    ("others", "Others"),
+    (OTHER, "Others"),
 )
 
 QN60 = (
@@ -180,7 +180,7 @@ QN72 = (
     ("drug_industry", "Drug industry"),
     ("milling_industry", "Milling industry"),
     ("construction_industry", "Construction industry"),
-    ("other", "Other"),
+    (OTHER, "Other"),
 )
 
 COVID_SYMPTOMS = (
@@ -220,7 +220,7 @@ COVID_VACCINE = (
 QN87 = (
     ("government_uganda", "Government of Uganda"),
     ("research_study", "Research study/trial "),
-    ("other", "Others"),
+    (OTHER, "Others"),
 )
 
 QN88 = (("one", "One"), ("two", "Two"), ("three_more", "Three or More"))
@@ -239,7 +239,7 @@ QN90 = (
     ("wheezing", "Wheezing"),
     ("shortness_of_breath", "Shortness of breath"),
     ("unexplained_weight_loss", "Unexplained weight loss"),
-    ("other", "Others"),
+    (OTHER, "Others"),
 )
 
 QN91 = (
@@ -254,7 +254,7 @@ QN92 = (
     ("", "Gradual onset"),
     ("", "Progressive in severity"),
     ("", "Intermittent in severity"),
-    ("other", "Others"),
+    (OTHER, "Others"),
 )
 
 QN94 = (
@@ -264,7 +264,7 @@ QN94 = (
     ("sister", "Sister"),
     ("grandparent_mother_side", "Grandparent from mother’s side"),
     ("grandparent_father_side", "Grandparent from father’s side"),
-    ("other", "Others"),
+    (OTHER, "Others"),
 )
 
 QN95 = (
@@ -315,7 +315,7 @@ QN105 = (
     ("immunotherapy", "Immunotherapy"),
     ("tyrosine_kinase_inhibitor", "Tyrosine kinase inhibitor "),
     ("1_2above", "1 & 2 above"),
-    ("other", "Others"),
+    (OTHER, "Others"),
 )
 
 QN106 = (
@@ -341,7 +341,7 @@ QN1AP = (
     ("straw_shrubs_grass ", "Straw/shrubs/grass "),
     ("agricultural_crop", "Agricultural crop"),
     ("animal_dung", "Animal dung"),
-    ("other", "Other"),
+    (OTHER, "Other"),
     ("no_food_cooked", "No food cooked in household"),
 )
 
@@ -357,7 +357,7 @@ QN3AP = (
     ("in_house", "In the house"),
     ("separate_building", "In a separate building"),
     ("outdoors", "Outdoors"),
-    ("other", "Other"),
+    (OTHER, "Other"),
 )
 
 QN5AP = (
@@ -383,7 +383,7 @@ QN28AP = (
     ("straw_shrubs_grass ", "Straw/shrubs/grass "),
     ("agricultural_crop", "Agricultural crop"),
     ("animal_dung", "Animal dung"),
-    ("other", "Other"),
+    (OTHER, "Other"),
     ("dont_know", "I dont know"),
 )
 
@@ -392,7 +392,7 @@ QN30AP = (
     ("wood", "Wood"),
     ("ceramic_tiles_vinyl", "Ceramic tiles or vinyl"),
     ("cement_concrete", "Cement/concrete"),
-    ("other", "Other"),
+    (OTHER, "Other"),
 )
 
 QN31AP = (
@@ -404,7 +404,7 @@ QN31AP = (
     ("brick", "Brick"),
     ("tiles", "Tiles"),
     ("slate", "Slate"),
-    ("other", "Others"),
+    (OTHER, "Others"),
 )
 
 QN32AP = (
@@ -414,7 +414,7 @@ QN32AP = (
     ("cement_concrete", "Cement/concrete"),
     ("stone", "Stone"),
     ("metal", "Metal"),
-    ("other", "Others"),
+    (OTHER, "Others"),
 )
 
 QN34AP = (
@@ -439,7 +439,7 @@ QN36AP = (
     ("brick", "Brick"),
     ("tiles", "Tiles"),
     ("slate", "Slate"),
-    ("other", "Other"),
+    (OTHER, "Other"),
 )
 
 QN39AP = (
@@ -472,7 +472,7 @@ QN49EAP = (
     ("straw_shrubs_grass ", "Straw/shrubs/grass "),
     ("agricultural_crop", "Agricultural crop"),
     ("animal_dung", "Animal dung"),
-    ("other", "Other"),
+    (OTHER, "Other"),
 )
 
 QN50EAP = (
@@ -482,7 +482,7 @@ QN50EAP = (
     ("open_fire_stove", "Open fire or stove with chimney or hood"),
     ("close_stove", "Closed stove with chimney"),
     ("electric_heaters", "Electric heaters"),
-    ("other", "Other"),
+    (OTHER, "Other"),
 )
 
 INFO_SOURCE = (

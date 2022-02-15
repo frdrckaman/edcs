@@ -510,6 +510,14 @@ YES_NO_DECLINED_TO_ANSWER = (
     ("decline_to_answer", "Decline to answer"),
 )
 
+YES_NO_DECLINED_TO_ANSWER_NA = (
+    (YES, YES),
+    (NO, NO),
+    ("decline_to_answer", "Decline to answer"),
+    (NOT_APPLICABLE, "Not applicable"),
+)
+
+
 YES_NO_DOESNT_WORK = ((YES, YES), (NO, NO), ("Doesnt_work", "Doesn't work"))
 
 WHYNOPARTICIPATE_CHOICE = (

@@ -5,7 +5,7 @@ from edcs_constants.choices import (
     HIV_RESULT_DWTA_DONT_KNOW,
     YES_NO,
     YES_NO_DECLINED_TO_ANSWER,
-    YES_NO_DWTA_DONT_KNOW, YES_NO_NA,
+    YES_NO_DWTA_DONT_KNOW, YES_NO_NA, YES_NO_DECLINED_TO_ANSWER_NA,
 )
 from edcs_constants.constants import NOT_APPLICABLE
 from edcs_model import models as edcs_models
@@ -95,8 +95,9 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
 
     use_lung_diseases_medication = models.CharField(
         verbose_name="Are you using any medications?",
-        choices=YES_NO_DECLINED_TO_ANSWER,
+        choices=YES_NO_DECLINED_TO_ANSWER_NA,
         max_length=80,
+        default=NOT_APPLICABLE,
     )
 
     lung_diseases_medication = models.TextField(
@@ -120,7 +121,8 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
     use_htn_medication = models.CharField(
         verbose_name="Are you using any medications?",
         max_length=45,
-        choices=YES_NO_DECLINED_TO_ANSWER,
+        choices=YES_NO_DECLINED_TO_ANSWER_NA,
+        default=NOT_APPLICABLE
     )
 
     htn_medication = models.TextField(
@@ -144,7 +146,7 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
     use_dm_medication = models.CharField(
         verbose_name="Are you using any medications?",
         max_length=45,
-        choices=YES_NO_DECLINED_TO_ANSWER,
+        choices=YES_NO_DECLINED_TO_ANSWER_NA,
     )
 
     dm_medication = models.TextField(
