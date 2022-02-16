@@ -1,5 +1,6 @@
 from django.db import models
-from edcs_constants.choices import YES_NO
+from edcs_constants.choices import YES_NO, YES_NO_NA
+from edcs_constants.constants import NOT_APPLICABLE
 from edcs_lists.models import FamilyMembers
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
@@ -25,18 +26,21 @@ class CancerHistory(CrfModelMixin, edcs_models.BaseUuidModel):
     breast_cancer = models.CharField(
         verbose_name="Breast Cancer",
         max_length=25,
-        choices=YES_NO,
-        default=None
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE
     )
-
+    #TODO age must not be -ve
     breast_cancer_age_dx = models.IntegerField(
         verbose_name="Indicate age of diagnosis",
+        null=True,
+        blank=True,
     )
 
     breast_cancer_family_member = models.ManyToManyField(
         FamilyMembers,
         verbose_name="What is your relationship?",
         related_name="breast_cancer_family_member",
+        blank=True,
     )
 
     breast_cancer_family_member_other = edcs_models.OtherCharField()
@@ -44,18 +48,21 @@ class CancerHistory(CrfModelMixin, edcs_models.BaseUuidModel):
     colon_cancer = models.CharField(
         verbose_name="Colon Cancer",
         max_length=25,
-        choices=YES_NO,
-        default=None
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE
     )
 
     colon_cancer_age_dx = models.IntegerField(
         verbose_name="Indicate age of diagnosis",
+        null=True,
+        blank=True,
     )
 
     colon_cancer_family_member = models.ManyToManyField(
         FamilyMembers,
         verbose_name="What is your relationship?",
         related_name="colon_cancer_family_member",
+        blank=True,
     )
 
     colon_cancer_family_member_other = edcs_models.OtherCharField()
@@ -63,18 +70,21 @@ class CancerHistory(CrfModelMixin, edcs_models.BaseUuidModel):
     lung_cancer = models.CharField(
         verbose_name="Lung Cancer",
         max_length=25,
-        choices=YES_NO,
-        default=None
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE
     )
 
     lung_cancer_age_dx = models.IntegerField(
         verbose_name="Indicate age of diagnosis",
+        null=True,
+        blank=True,
     )
 
     lung_cancer_family_member = models.ManyToManyField(
         FamilyMembers,
         verbose_name="What is your relationship?",
         related_name="lung_cancer_family_member",
+        blank=True,
     )
 
     lung_cancer_family_member_other = edcs_models.OtherCharField()
@@ -82,18 +92,21 @@ class CancerHistory(CrfModelMixin, edcs_models.BaseUuidModel):
     ovarian_cancer = models.CharField(
         verbose_name="Ovarian Cancer",
         max_length=25,
-        choices=YES_NO,
-        default=None
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE
     )
 
     ovarian_cancer_age_dx = models.IntegerField(
         verbose_name="Indicate age of diagnosis",
+        null=True,
+        blank=True,
     )
 
     ovarian_cancer_family_member = models.ManyToManyField(
         FamilyMembers,
         verbose_name="What is your relationship?",
         related_name="ovarian_cancer_family_member",
+        blank=True,
     )
 
     ovarian_cancer_family_member_other = edcs_models.OtherCharField()
@@ -101,18 +114,21 @@ class CancerHistory(CrfModelMixin, edcs_models.BaseUuidModel):
     prostate_cancer = models.CharField(
         verbose_name="Prostate Cancer",
         max_length=25,
-        choices=YES_NO,
-        default=None
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE
     )
 
     prostate_cancer_age_dx = models.IntegerField(
         verbose_name="Indicate age of diagnosis",
+        null=True,
+        blank=True,
     )
 
     prostate_cancer_family_member = models.ManyToManyField(
         FamilyMembers,
         verbose_name="What is your relationship?",
         related_name="prostate_cancer_family_member",
+        blank=True,
     )
 
     prostate_cancer_family_member_other = edcs_models.OtherCharField()
@@ -120,18 +136,21 @@ class CancerHistory(CrfModelMixin, edcs_models.BaseUuidModel):
     thyroid_cancer = models.CharField(
         verbose_name="Thyroid Cancer",
         max_length=25,
-        choices=YES_NO,
-        default=None
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE
     )
 
     thyroid_cancer_age_dx = models.IntegerField(
         verbose_name="Indicate age of diagnosis",
+        null=True,
+        blank=True,
     )
 
     thyroid_cancer_family_member = models.ManyToManyField(
         FamilyMembers,
         verbose_name="What is your relationship?",
         related_name="thyroid_cancer_family_member",
+        blank=True,
     )
 
     thyroid_cancer_family_member_other = edcs_models.OtherCharField()
@@ -139,18 +158,21 @@ class CancerHistory(CrfModelMixin, edcs_models.BaseUuidModel):
     uterine_cancer = models.CharField(
         verbose_name="Uterine Cancer",
         max_length=25,
-        choices=YES_NO,
-        default=None
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE
     )
 
     uterine_cancer_age_dx = models.IntegerField(
         verbose_name="Indicate age of diagnosis",
+        null=True,
+        blank=True,
     )
 
     uterine_cancer_family_member = models.ManyToManyField(
         FamilyMembers,
         verbose_name="What is your relationship?",
         related_name="uterine_cancer_family_member",
+        blank=True,
     )
 
     uterine_cancer_family_member_other = edcs_models.OtherCharField()

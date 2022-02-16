@@ -6,11 +6,15 @@ from edcs_model_admin import SimpleHistoryAdmin
 from .modeladmin_mixins import CrfModelAdminMixin
 
 from ..admin_site import edcs_subject_admin
+from ..forms.cancer_history_form import CancerHistoryForm
 from ..models import CancerHistory
 
 
 @admin.register(CancerHistory, site=edcs_subject_admin)
 class CancerHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
+
+    form = CancerHistoryForm
+
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),
         (
