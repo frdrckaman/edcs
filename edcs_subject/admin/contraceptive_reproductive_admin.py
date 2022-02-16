@@ -4,13 +4,17 @@ from django_audit_fields import audit_fieldset_tuple
 from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 
-from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
+from .modeladmin_mixins import CrfModelAdminMixin
+from ..forms import ContraceptiveUseReproductiveHistoryForm
 from ..models import ContraceptiveUseReproductiveHistory
 
 
 @admin.register(ContraceptiveUseReproductiveHistory, site=edcs_subject_admin)
-class ContraceptiveUseReproductiveHistoryAdmin(SimpleHistoryAdmin):
+class ContraceptiveUseReproductiveHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
+
+    form = ContraceptiveUseReproductiveHistoryForm
+
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),
         (

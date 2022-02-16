@@ -1,5 +1,5 @@
 from edcs_constants.constants import NOT_APPLICABLE, OTHER, COPD, ASTHMA, INTERSTITIAL_LUNG_DISEASE, NO, DONT_KNOW, \
-    NEVER, YES_PAST_SMOKER, YES_CURRENT_SMOKER, YES_CURRENT_CONSUMER, YES_PAST_CONSUMER
+    NEVER, YES_PAST_SMOKER, YES_CURRENT_SMOKER, YES_CURRENT_CONSUMER, YES_PAST_CONSUMER, YES_PAST_USER, YES_CURRENT_USER
 from edcs_subject.constants import SCHEDULED, UNSCHEDULED, MISSED_VISIT
 
 MISS_ARV = (
@@ -137,6 +137,7 @@ QN60 = (
     ("12_13yrs", "12-13 years"),
     ("14_15yrs", "14-15 years"),
     ("greater_than_16yrs", "≥ 16 years"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 QN61 = (
@@ -145,6 +146,7 @@ QN61 = (
     ("20_29yrs", "20-29 years"),
     ("30_39yrs", "30-39 years"),
     ("greater_than_39yrs", "≥ 39 years"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 QN62 = (
@@ -153,29 +155,34 @@ QN62 = (
     ("25_29_yrs", "25-29 years"),
     ("30_39yrs", "30-39 years"),
     ("greater_than_39yrs", "≥ 39 years"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 QN64 = (
-    ("yes_current_user", "Yes, Current user"),
-    ("yes_past_user", "Yes, Past user"),
-    ("No", "No"),
+    (YES_CURRENT_USER, "Yes, Current user"),
+    (YES_PAST_USER, "Yes, Past user"),
+    (NO, "No"),
     ("decline_to_answer", "Decline to answer"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 QN65 = (
     ("less_than_5yrs", "≤ 5 years"),
     ("greater_than_5yrs", "≥ 5 years"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 QN66 = (
     ("less_than_5yrs_ago", "≤ 5 years ago"),
     ("greater_than_5yrs_ago", "≥ 5 years ago"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 QN70 = (
     ("less_than_46yrs", "≤ 46 years"),
     ("46_50yrs", "46-50 years"),
     ("greater_than_51yrs", "≥ 51 years"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 QN72 = (
