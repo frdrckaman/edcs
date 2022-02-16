@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from django import forms
 from edcs_constants.constants import NO, YES, POS, OTHER, COPD, INTERSTITIAL_LUNG_DISEASE, ASTHMA
 

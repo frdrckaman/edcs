@@ -18,21 +18,26 @@ class AirPollutionFollowUp(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="In the past 48 hours how many hours did you wear devices?",
     )
 
-    who_had_illness = models.CharField(
+    fuel_type_used = models.CharField(
         verbose_name="What type of fuel did you use for cooking since we visited your home yesterday",
         max_length=45,
         choices=QN49EAP,
     )
 
-    fuel_before_changing = models.CharField(
+    fuel_type_used_other = edcs_models.OtherCharField()
+
+    stove_type_used = models.CharField(
         verbose_name="What type of stove did you use for cooking since we visited your home yesterday?",
         max_length=125,
         choices=QN50EAP,
     )
 
-    pollution_readings = models.CharField(
+    stove_type_used_other = edcs_models.OtherCharField()
+
+    pollution_readings = models.DecimalField(
         verbose_name="What is the air pollution readings",
-        max_length=125,
+        max_digits=6,
+        decimal_places=4
     )
 
     gps_coordinates = models.TextField(
@@ -40,8 +45,10 @@ class AirPollutionFollowUp(CrfModelMixin, edcs_models.BaseUuidModel):
         max_length=125,
     )
 
-    distance_health_facility = models.IntegerField(
+    distance_health_facility = models.DecimalField(
         verbose_name="Distance from patient’s home to the health facility",
+        max_digits=4,
+        decimal_places=2,
         help_text="(in km)",
     )
 

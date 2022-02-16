@@ -5,11 +5,15 @@ from edcs_crf.admin import crf_status_fieldset_tuple
 
 from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
+from ..forms import AirPollutionFollowupForm
 from ..models import AirPollutionFollowUp
 
 
 @admin.register(AirPollutionFollowUp, site=edcs_subject_admin)
 class AirPollutionFollowUpAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
+
+    form = AirPollutionFollowupForm
+
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),
         (
@@ -17,8 +21,10 @@ class AirPollutionFollowUpAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
             {
                 "fields": (
                     "hour_wear_device",
-                    "who_had_illness",
-                    "fuel_before_changing",
+                    "fuel_type_used",
+                    "fuel_type_used_other",
+                    "stove_type_used",
+                    "stove_type_used_other",
                     "pollution_readings",
                     "gps_coordinates",
                     "distance_health_facility",
@@ -31,9 +37,8 @@ class AirPollutionFollowUpAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
     list_display = (
         "report_datetime",
-        "hour_wear_device",
-        "who_had_illness",
-        "fuel_before_changing",
+        "fuel_type_used",
+        "stove_type_used",
         "pollution_readings",
         "gps_coordinates",
         "distance_health_facility",
@@ -42,9 +47,8 @@ class AirPollutionFollowUpAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
     list_filter = (
         "report_datetime",
-        "hour_wear_device",
-        "who_had_illness",
-        "fuel_before_changing",
+        "fuel_type_used",
+        "stove_type_used",
         "pollution_readings",
         "gps_coordinates",
         "distance_health_facility",
@@ -52,10 +56,13 @@ class AirPollutionFollowUpAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
     search_fields = (
         "report_datetime",
+        "fuel_type_used",
+        "stove_type_used",
+        "pollution_readings",
     )
 
     radio_fields = {
-        "who_had_illness": admin.VERTICAL,
-        "fuel_before_changing": admin.VERTICAL,
+        "fuel_type_used": admin.VERTICAL,
+        "stove_type_used": admin.VERTICAL,
         "crf_status": admin.VERTICAL,
     }
