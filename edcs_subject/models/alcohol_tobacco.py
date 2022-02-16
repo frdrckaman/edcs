@@ -1,6 +1,7 @@
 from django.db import models
 
 from edcs_constants.choices import YES_NO
+from edcs_constants.constants import NOT_APPLICABLE
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
@@ -28,10 +29,11 @@ class AlcoholTobaccoUse(CrfModelMixin, edcs_models.BaseUuidModel):
         choices=SMOKE_TOBACCO_PRODUCTS,
     )
 
-    tobacco_product = models.DateField(
+    tobacco_product = models.CharField(
         verbose_name="If currently/past smoker, which tobacco products do you/ did you smoke.",
         max_length=45,
         choices=TOBACCO_PRODUCTS,
+        default=NOT_APPLICABLE,
     )
 
     date_start_smoking = models.DateField(
@@ -44,20 +46,27 @@ class AlcoholTobaccoUse(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="How frequently do you smoke these products?",
         max_length=45,
         choices=SMOKE_TOBACCO_PRODUCTS_FREQUENCY,
+        default=NOT_APPLICABLE,
     )
 
     smoking_frequency_other = edcs_models.OtherCharField()
 
     no_tobacco_product_smoked = models.IntegerField(
         verbose_name="On average, how many of these products do you/did you smoke?",
+        null=True,
+        blank=True,
     )
     age_start_smoking = models.IntegerField(
         verbose_name="If past smoker, at what age did you first start smoking?",
         help_text="in years",
+        null=True,
+        blank=True,
     )
     age_stop_smoking = models.IntegerField(
         verbose_name="If past smoker, at what age did you stop smoking?",
         help_text="in years",
+        null=True,
+        blank=True,
     )
     someone_else_smoke = models.CharField(
         verbose_name="Is there anyone in your home/work places who smoke cigarette, cigars, shisha and pipes",
@@ -68,6 +77,7 @@ class AlcoholTobaccoUse(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="How often does anyone smoke inside your house?",
         max_length=45,
         choices=SMOKE_INSIDE,
+        default=NOT_APPLICABLE,
     )
 
     smoke_inside_house_other = edcs_models.OtherCharField()
@@ -82,6 +92,7 @@ class AlcoholTobaccoUse(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="How frequently do you consume alcohol?",
         max_length=45,
         choices=ALCOHOL_CONSUMPTION_FREQUENCY,
+        default=NOT_APPLICABLE
     )
 
     alcohol_consumption_frequency_other = edcs_models.OtherCharField()

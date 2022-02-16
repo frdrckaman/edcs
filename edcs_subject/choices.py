@@ -1,4 +1,5 @@
-from edcs_constants.constants import NOT_APPLICABLE, OTHER, COPD, ASTHMA, INTERSTITIAL_LUNG_DISEASE, NO, DONT_KNOW
+from edcs_constants.constants import NOT_APPLICABLE, OTHER, COPD, ASTHMA, INTERSTITIAL_LUNG_DISEASE, NO, DONT_KNOW, \
+    NEVER, YES_PAST_SMOKER, YES_CURRENT_SMOKER, YES_CURRENT_CONSUMER, YES_PAST_CONSUMER
 from edcs_subject.constants import SCHEDULED, UNSCHEDULED, MISSED_VISIT
 
 MISS_ARV = (
@@ -83,9 +84,9 @@ POWER_SOURCE = (
 )
 
 SMOKE_TOBACCO_PRODUCTS = (
-    ("yes_current_smoker", "Yes, Current smoker"),
-    ("yes_past_smoker", "Yes, past smoker"),
-    ("never", "Never"),
+    (YES_CURRENT_SMOKER, "Yes, Current smoker"),
+    (YES_PAST_SMOKER, "Yes, past smoker"),
+    (NEVER, "Never"),
 )
 
 TOBACCO_PRODUCTS = (
@@ -94,6 +95,7 @@ TOBACCO_PRODUCTS = (
     ("yes_shisha", "Yes, Shisha"),
     ("yes_pipes", "Yes, pipes"),
     ("none_of_above", "None of the above"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 SMOKE_TOBACCO_PRODUCTS_FREQUENCY = (
@@ -102,6 +104,7 @@ SMOKE_TOBACCO_PRODUCTS_FREQUENCY = (
     ("weekly", "Weekly (Not daily)"),
     ("monthly", "Monthly(Not weekly)"),
     (OTHER, "Others"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 SMOKE_INSIDE = (
@@ -111,12 +114,13 @@ SMOKE_INSIDE = (
     ("less_than_monthly", "Less than monthly"),
     ("never", "Never"),
     (OTHER, "Others"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 ALCOHOL_CONSUMPTION = (
-    ("yes_current_consumer", "Yes, Current consumer"),
-    ("yes_past_consumer", "Yes, past consumer"),
-    ("never", "Never"),
+    (YES_CURRENT_CONSUMER, "Yes, Current consumer"),
+    (YES_PAST_CONSUMER, "Yes, past consumer"),
+    (NEVER, "Never"),
 )
 
 ALCOHOL_CONSUMPTION_FREQUENCY = (
@@ -125,6 +129,7 @@ ALCOHOL_CONSUMPTION_FREQUENCY = (
     ("weekly", "Weekly (Not daily )"),
     ("monthly", "Monthly (Not weekly)"),
     (OTHER, "Others"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 QN60 = (
