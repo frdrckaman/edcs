@@ -7,9 +7,9 @@ enrollment_crf = FormsCollection(
     Crf(show_order=110, model="edcs_subject.demographiccharacteristic"),
     # Crf(show_order=120, model="edcs_subject.hivLabinvestigation", required=False),
     Crf(show_order=130, model="edcs_subject.signsymptomlungCancer", required=False),
-    Crf(
-        show_order=140, model="edcs_subject.lungcancerlabinvestigation", required=False
-    ),
+    # Crf(
+    #     show_order=140, model="edcs_subject.lungcancerlabinvestigation", required=False
+    # ),
     Crf(show_order=143, model="edcs_subject.lungCancertreatment"),
     Crf(show_order=144, model="edcs_subject.cancerhistory"),
     Crf(show_order=145, model="edcs_subject.covidinfectionhistory", required=False),
