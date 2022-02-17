@@ -1,5 +1,5 @@
 from django import forms
-from edcs_constants.constants import YES, OTHER, POSITIVE_TEST, NEGATIVE_TEST
+from edcs_constants.constants import OTHER
 
 from edcs_form_validators import FormValidatorMixin
 from edcs_form_validators.form_validator import FormValidator
