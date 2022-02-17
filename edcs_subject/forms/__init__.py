@@ -6,3 +6,4 @@ from .cancer_history_form import CancerHistoryForm
 from .contraceptive_reproductive_form import ContraceptiveUseReproductiveHistoryForm
 from .cooking_fuel_form import CookingFuelForm
 from .covid_history_form import CovidInfectionHistoryForm
+from .demographic_form import DemographicCharacteristicForm

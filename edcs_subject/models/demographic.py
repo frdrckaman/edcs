@@ -28,7 +28,7 @@ class DemographicCharacteristic(CrfModelMixin, edcs_models.BaseUuidModel):
         choices=YES_NO_DWTA_DONT_KNOW,
     )
 
-    education = models.DateField(
+    education = models.CharField(
         verbose_name="Education level?",
         max_length=45,
         choices=EDUCATION,

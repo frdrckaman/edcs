@@ -61,7 +61,7 @@ MATERIAL_BUILD_WALL = (
 MATERIAL_BUILD_ROOFING = (
     ("soil_sand_mud", "Iron sheet/roofing tiles"),
     ("grass_leaves_soil", "Grass/ leaves/ palm leaves/ soil"),
-    ("other_materials", "Other materials"),
+    (OTHER, "Others"),
 )
 
 COOKING = (
