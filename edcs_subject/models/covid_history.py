@@ -1,6 +1,7 @@
 from django.db import models
 
-from edcs_constants.choices import YES_NO
+from edcs_constants.choices import YES_NO, YES_NO_NA
+from edcs_constants.constants import NOT_APPLICABLE
 from edcs_lists.models import CovidSymptoms
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
@@ -26,24 +27,30 @@ class CovidInfectionHistory(CrfModelMixin, edcs_models.BaseUuidModel):
     date_think_had_covid = models.DateField(
         verbose_name="If yes, On what date did you first know or think you had COVID-19?",
         max_length=45,
+        null=True,
+        blank=True
     )
 
     have_covid_symptoms = models.CharField(
         verbose_name="Did you have any symptoms when you first knew or thought you had COVID-19?",
         max_length=45,
-        choices=YES_NO,
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE
     )
 
     covid_symptoms = models.ManyToManyField(
         CovidSymptoms,
         verbose_name="If yes, what symptoms did you have when you first had COVID-19?",
         related_name="covid_symptoms",
+        null=True,
+        blank=True
     )
 
     admitted_hospital = models.CharField(
-        verbose_name="Were you admitted to hospital when you thought you had COVID-19? ",
+        verbose_name="Were you admitted to hospital when you thought you had COVID-19?",
         max_length=45,
-        choices=YES_NO,
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE,
     )
     swab_test = models.CharField(
         verbose_name="Have you ever had a swab test of your nose and throat to test for COVID-19 infection? ",
@@ -54,16 +61,21 @@ class CovidInfectionHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes, What was the result/were the results of all swab tests you’ve had?",
         max_length=45,
         choices=QN82,
+        default=NOT_APPLICABLE
     )
 
     date_first_positive_test = models.DateField(
         verbose_name="If any positive test: What was the date of first positive test you’ve had?",
         max_length=45,
+        null=True,
+        blank=True
     )
 
     date_last_negative_test = models.DateField(
         verbose_name="If all tests negative: What was the date of last negative test you’ve had?",
         max_length=45,
+        null=True,
+        blank=True
     )
 
     covid_vaccinated = models.CharField(
@@ -75,12 +87,14 @@ class CovidInfectionHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes, what type of vaccination",
         max_length=45,
         choices=COVID_VACCINE,
+        default=NOT_APPLICABLE
     )
 
     vaccine_provider = models.CharField(
         verbose_name="If Yes who provided the vaccine",
         max_length=45,
         choices=QN87,
+        default=NOT_APPLICABLE
     )
 
     other_vaccine_provider = edcs_models.OtherCharField()
@@ -89,11 +103,14 @@ class CovidInfectionHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="How many doses have you received to date?",
         max_length=45,
         choices=QN88,
+        default=NOT_APPLICABLE
     )
 
     date_recent_vaccination = models.DateField(
         verbose_name="Date of most recent vaccination?",
         max_length=45,
+        null=True,
+        blank=True
     )
 
     class Meta(edcs_models.BaseUuidModel.Meta):

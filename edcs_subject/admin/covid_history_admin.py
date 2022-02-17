@@ -6,11 +6,15 @@ from edcs_model_admin import SimpleHistoryAdmin
 
 from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
+from ..forms import CovidInfectionHistoryForm
 from ..models import CovidInfectionHistory
 
 
 @admin.register(CovidInfectionHistory, site=edcs_subject_admin)
 class CovidInfectionHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
+
+    form = CovidInfectionHistoryForm
+
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),
         (
@@ -26,6 +30,7 @@ class CovidInfectionHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "swab_test_results",
                     "date_first_positive_test",
                     "date_last_negative_test",
+                    "covid_vaccinated",
                     "covid_vaccine",
                     "vaccine_provider",
                     "no_covid_vaccine",

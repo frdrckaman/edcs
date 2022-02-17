@@ -1,5 +1,6 @@
 from edcs_constants.constants import NOT_APPLICABLE, OTHER, COPD, ASTHMA, INTERSTITIAL_LUNG_DISEASE, NO, DONT_KNOW, \
-    NEVER, YES_PAST_SMOKER, YES_CURRENT_SMOKER, YES_CURRENT_CONSUMER, YES_PAST_CONSUMER, YES_PAST_USER, YES_CURRENT_USER
+    NEVER, YES_PAST_SMOKER, YES_CURRENT_SMOKER, YES_CURRENT_CONSUMER, YES_PAST_CONSUMER, YES_PAST_USER, \
+    YES_CURRENT_USER, NEGATIVE_TEST, POSITIVE_TEST
 from edcs_subject.constants import SCHEDULED, UNSCHEDULED, MISSED_VISIT
 
 MISS_ARV = (
@@ -211,10 +212,11 @@ COVID_SYMPTOMS = (
 )
 
 QN82 = (
-    ("positive_test", "One or more positive test(s) "),
-    ("negative_more_positive", "One or more negative tests, but none were positive"),
+    (POSITIVE_TEST, "One or more positive test(s) "),
+    (NEGATIVE_TEST, "One or more negative tests, but none were positive"),
     ("all_test_failed", "All tests failed"),
     ("waiting_results", "Waiting for all results"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 COVID_VACCINE = (
@@ -227,15 +229,17 @@ COVID_VACCINE = (
     ("sputnik", "Sputnik"),
     ("valneva", "Valneva"),
     ("sinopharm", "Sinopharm"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 QN87 = (
     ("government_uganda", "Government of Uganda"),
     ("research_study", "Research study/trial "),
     (OTHER, "Others"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
-QN88 = (("one", "One"), ("two", "Two"), ("three_more", "Three or More"))
+QN88 = (("one", "One"), ("two", "Two"), ("three_more", "Three or More"), (NOT_APPLICABLE, "Not applicable"),)
 
 QN90 = (
     ("cough_dont_go_away", "A cough that doesn't go away after 2 or 3 weeks"),
