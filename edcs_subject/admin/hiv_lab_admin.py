@@ -6,11 +6,15 @@ from edcs_model_admin import SimpleHistoryAdmin
 
 from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
+from ..forms import HivLabInvestigationForm
 from ..models import HivLabInvestigation
 
 
 @admin.register(HivLabInvestigation, site=edcs_subject_admin)
 class HivLabInvestigationAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
+
+    form = HivLabInvestigationForm
+
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),
         (

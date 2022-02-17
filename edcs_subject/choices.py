@@ -322,6 +322,7 @@ QN103 = (
     ("two", "Two (2)"),
     ("three", "Three (3)"),
     ("four", "Four (4)"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 QN105 = (
@@ -344,6 +345,7 @@ QN110 = (
     ("a", "A"),
     ("b", "B"),
     ("c", "C"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 QN1AP = (

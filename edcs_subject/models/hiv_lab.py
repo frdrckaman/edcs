@@ -1,6 +1,6 @@
 from django.db import models
 
-from edcs_constants.choices import YES_NO
+from edcs_constants.choices import YES_NO, YES_NO_NA
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
@@ -24,10 +24,14 @@ class HivLabInvestigation(CrfModelMixin, edcs_models.BaseUuidModel):
 
     baseline_cd4 = models.IntegerField(
         verbose_name="Baseline CD4 counts",
+        null=True,
+        blank=True,
     )
 
     baseline_viral_load = models.IntegerField(
         verbose_name="Baseline Viral Load",
+        null=True,
+        blank=True,
     )
 
     hiv_stage = models.CharField(
@@ -39,7 +43,7 @@ class HivLabInvestigation(CrfModelMixin, edcs_models.BaseUuidModel):
     hiv_subtype_done = models.CharField(
         verbose_name="Was the patient’s HIV subtype done?",
         max_length=45,
-        choices=YES_NO,
+        choices=YES_NO_NA,
     )
     hiv_subtype = models.CharField(
         verbose_name="Was the patient’s HIV subtype done?",
@@ -49,7 +53,7 @@ class HivLabInvestigation(CrfModelMixin, edcs_models.BaseUuidModel):
     drug_resistance_testing_done = models.CharField(
         verbose_name="Was the patient’s HIV subtype done?",
         max_length=45,
-        choices=YES_NO,
+        choices=YES_NO_NA,
     )
     drug_resistance = models.CharField(
         verbose_name="If yes, what is the patient’s HIV drug resistance results?",

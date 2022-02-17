@@ -8,3 +8,4 @@ from .cooking_fuel_form import CookingFuelForm
 from .covid_history_form import CovidInfectionHistoryForm
 from .demographic_form import DemographicCharacteristicForm
 from .effect_air_pollution_form import EffectAirPollutionForm
+from .hiv_lab_form import HivLabInvestigationForm
