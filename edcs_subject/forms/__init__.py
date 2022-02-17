@@ -4,3 +4,4 @@ from .air_pollution_followup_form import AirPollutionFollowupForm
 from .alcohol_tobacco_form import AlcoholTobaccoUseForm
 from .cancer_history_form import CancerHistoryForm
 from .contraceptive_reproductive_form import ContraceptiveUseReproductiveHistoryForm
+from .cooking_fuel_form import CookingFuelForm

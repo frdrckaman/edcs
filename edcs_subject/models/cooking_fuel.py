@@ -1,6 +1,7 @@
 from django.db import models
 
 from edcs_constants.choices import YES_NO
+from edcs_constants.constants import NOT_APPLICABLE
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
@@ -20,6 +21,8 @@ class CookingFuel(CrfModelMixin, edcs_models.BaseUuidModel):
         max_length=45,
         choices=QN1AP,
     )
+
+    main_use_cooking_other = edcs_models.OtherCharField()
 
     main_reason_use = models.CharField(
         verbose_name="What is the MAIN reason why you use this?",
@@ -51,6 +54,7 @@ class CookingFuel(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes, how many times do you use wood per month?",
         max_length=45,
         choices=QN7AP,
+        default=NOT_APPLICABLE,
     )
     use_kerosene = models.CharField(
         verbose_name="Do you use kerosene to cook?",
@@ -61,6 +65,7 @@ class CookingFuel(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes, how many times do you use kerosene per month?",
         max_length=45,
         choices=QN7AP,
+        default=NOT_APPLICABLE,
     )
     use_charcoal = models.CharField(
         verbose_name="Do you use charcoal to cook?",
@@ -71,6 +76,7 @@ class CookingFuel(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes, how many times do you use charcoal per month?",
         max_length=45,
         choices=QN7AP,
+        default=NOT_APPLICABLE,
     )
     use_coal = models.CharField(
         verbose_name="Do you use coal/ignite to cook",
@@ -81,6 +87,7 @@ class CookingFuel(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes, how many times do you use coal/ignite per month?",
         max_length=45,
         choices=QN7AP,
+        default=NOT_APPLICABLE,
     )
     use_straw = models.CharField(
         verbose_name="Do you use straw/shrubs/grass to cook?",
@@ -91,6 +98,7 @@ class CookingFuel(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes, how many times do you use straw/shrubs/grass per month?",
         max_length=45,
         choices=QN7AP,
+        default=NOT_APPLICABLE,
     )
     use_electricity = models.CharField(
         verbose_name="Do you use electricity to cook?",
@@ -101,6 +109,7 @@ class CookingFuel(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes, how many times do you use electricity per month?",
         max_length=45,
         choices=QN7AP,
+        default=NOT_APPLICABLE,
     )
     use_biogas = models.CharField(
         verbose_name="Do you use biogas for cook?",
@@ -111,6 +120,7 @@ class CookingFuel(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes, how many times do you use biogas per month?",
         max_length=45,
         choices=QN7AP,
+        default=NOT_APPLICABLE,
     )
     use_dung = models.CharField(
         verbose_name="Do you use animal dung to cook?",
@@ -121,6 +131,7 @@ class CookingFuel(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes, how many times do you use animal dung per month?",
         max_length=45,
         choices=QN7AP,
+        default=NOT_APPLICABLE,
     )
     use_paper = models.CharField(
         verbose_name="Do you use paper to cook?",
@@ -131,6 +142,7 @@ class CookingFuel(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes, how many times do you use paper per month?",
         max_length=45,
         choices=QN7AP,
+        default=NOT_APPLICABLE,
     )
     use_polythene = models.CharField(
         verbose_name="Do you use polythene to cook?",
@@ -141,6 +153,7 @@ class CookingFuel(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes, how many times do you use polythene per month?",
         max_length=45,
         choices=QN7AP,
+        default=NOT_APPLICABLE,
     )
     use_burn_crops = models.CharField(
         verbose_name="Do you often burn crops, wood, rubbish, polythene or other materials in the open?",
@@ -155,6 +168,9 @@ class CookingFuel(CrfModelMixin, edcs_models.BaseUuidModel):
         max_length=45,
         choices=QN28AP,
     )
+
+    neighbor_use_cooking_other = edcs_models.OtherCharField()
+
     smoke_from_neighbor = models.CharField(
         verbose_name="Does smoke from your neighbors cooking enter your house?",
         max_length=45,

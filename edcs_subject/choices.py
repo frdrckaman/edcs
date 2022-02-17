@@ -383,6 +383,7 @@ QN7AP = (
     ("25_50_days_month", "25%-50% of the days in a month"),
     ("50_70_days_month", "50-75% of the days in a month"),
     ("75_100_days_month", "75%-100% of the days in a month"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 QN28AP = (
     ("electricity", "Electricity"),

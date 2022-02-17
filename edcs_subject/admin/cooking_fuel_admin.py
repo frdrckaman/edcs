@@ -6,18 +6,23 @@ from edcs_model_admin import SimpleHistoryAdmin
 
 from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
+from ..forms import CookingFuelForm
 from ..models import CookingFuel
 
 
 @admin.register(CookingFuel, site=edcs_subject_admin)
-class CookingFuelAdmin(SimpleHistoryAdmin):
+class CookingFuelAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
+
+    form = CookingFuelForm
+
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),
         (
-            "HIV",
+            "COOKING FUEL",
             {
                 "fields": (
                     "main_use_cooking",
+                    "main_use_cooking_other",
                     "main_reason_use",
                     "cooking_done",
                     "cooking_done_other",
@@ -46,6 +51,7 @@ class CookingFuelAdmin(SimpleHistoryAdmin):
                     "use_burn_crops",
                     "distance_from_neighbor",
                     "neighbor_use_cooking",
+                    "neighbor_use_cooking_other",
                     "smoke_from_neighbor",
                 ),
             },
