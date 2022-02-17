@@ -15,6 +15,7 @@ list_data = {
         ("loss_taste", "Loss of taste"),
         ("no_loss_smell", "No Loss of smell"),
     ],
+
     "edcs_lists.familymembers": [
         ("mother", "Mother"),
         ("father", "Father"),
@@ -28,6 +29,20 @@ list_data = {
         ("maternal_grandfather", "Maternal Grandfather"),
         ("paternal_grandmother", "Paternal Grandmother"),
         ("paternal_grandfather", "Paternal Grandfather"),
+        (OTHER, "Other"),
+    ],
+
+    "edcs_lists.lungcancersymptoms": [
+        ("cough_3_week", "A cough that doesn't go away after 2 or 3 weeks"),
+        ("long_standing_cough", "A long-standing cough that gets worse"),
+        ("coughing_blood", "Coughing up blood or rust-colored sputum (spit or phlegm)"),
+        ("chest_infections", " Chest infections that keep coming back such as bronchitis, pneumonia etc"),
+        ("chest_pain_coughing", " Chest pain that is often worsen when breathing or coughing"),
+        ("persistent_breathlessness", "Persistent breathlessness"),
+        ("tiredness_lack_energy", "Persistent tiredness or lack of energy"),
+        ("wheezing", " Wheezing"),
+        ("shortness_of_breath", "Shortness of breath"),
+        ("unexplained_weight_loss", "Unexplained weight loss"),
         (OTHER, "Other"),
     ],
 }

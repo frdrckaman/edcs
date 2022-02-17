@@ -11,3 +11,9 @@ class FamilyMembers(ListModelMixin):
     class Meta(ListModelMixin.Meta):
         verbose_name = "Family Members"
         verbose_name_plural = "Family Members"
+
+
+class LungCancerSymptoms(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Lung Cancer Symptoms"
+        verbose_name_plural = "Lung Cancer Symptoms"

@@ -9,3 +9,4 @@ from .covid_history_form import CovidInfectionHistoryForm
 from .demographic_form import DemographicCharacteristicForm
 from .effect_air_pollution_form import EffectAirPollutionForm
 from .hiv_lab_form import HivLabInvestigationForm
+from .lung_cancer_symptoms_form import SignSymptomLungCancerForm
