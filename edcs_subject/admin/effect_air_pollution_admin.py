@@ -6,11 +6,15 @@ from edcs_model_admin import SimpleHistoryAdmin
 
 from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
+from ..forms import EffectAirPollutionForm
 from ..models import EffectAirPollution
 
 
 @admin.register(EffectAirPollution, site=edcs_subject_admin)
 class EffectAirPollutionAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
+
+    form = EffectAirPollutionForm
+
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),
         (

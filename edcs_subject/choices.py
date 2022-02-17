@@ -475,7 +475,8 @@ QN44EAP = (
     ("child", "Child"),
     ("husband", "Husband"),
     ("wife", "Wife"),
-    ("other_member_household", "Other member of the house hold"),
+    (OTHER, "Other member of the house hold"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 QN49EAP = (

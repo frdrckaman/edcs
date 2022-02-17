@@ -1,6 +1,7 @@
 from django.db import models
 
 from edcs_constants.choices import YES_NO
+from edcs_constants.constants import NOT_APPLICABLE
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
@@ -25,6 +26,7 @@ class EffectAirPollution(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes, please state, who had the illness",
         max_length=45,
         choices=QN44EAP,
+        default=NOT_APPLICABLE
     )
 
     fuel_before_changing = models.CharField(
