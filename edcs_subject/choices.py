@@ -1,6 +1,6 @@
 from edcs_constants.constants import NOT_APPLICABLE, OTHER, COPD, ASTHMA, INTERSTITIAL_LUNG_DISEASE, NO, DONT_KNOW, \
     NEVER, YES_PAST_SMOKER, YES_CURRENT_SMOKER, YES_CURRENT_CONSUMER, YES_PAST_CONSUMER, YES_PAST_USER, \
-    YES_CURRENT_USER, NEGATIVE_TEST, POSITIVE_TEST
+    YES_CURRENT_USER, NEGATIVE_TEST, POSITIVE_TEST, GREATER_THAN_6MONTHS, NONE_OF_ABOVE
 from edcs_subject.constants import SCHEDULED, UNSCHEDULED, MISSED_VISIT
 
 MISS_ARV = (
@@ -262,14 +262,14 @@ QN91 = (
     ("less_than_1month", "Less than 1 month"),
     ("1_3months", "1-3 months"),
     ("3_6months", "3-6 months"),
-    ("greater_than_6months", ">6 months"),
+    (GREATER_THAN_6MONTHS, ">6 months"),
 )
 
 QN92 = (
-    ("", "Sudden onset"),
-    ("", "Gradual onset"),
-    ("", "Progressive in severity"),
-    ("", "Intermittent in severity"),
+    ("sudden_onset", "Sudden onset"),
+    ("gradual_onset", "Gradual onset"),
+    ("progressive_severity", "Progressive in severity"),
+    ("intermittent_severity", "Intermittent in severity"),
     (OTHER, "Others"),
 )
 
@@ -280,6 +280,7 @@ QN94 = (
     ("sister", "Sister"),
     ("grandparent_mother_side", "Grandparent from mother’s side"),
     ("grandparent_father_side", "Grandparent from father’s side"),
+    (NOT_APPLICABLE, "Not applicable"),
     (OTHER, "Others"),
 )
 
@@ -295,8 +296,8 @@ QN98 = (
     ("ct_scan", "CT scan"),
     ("lung_cancer_biopsy", "Lung cancer biopsy"),
     ("sputum_tb_dx", "Sputum for TB diagnosis"),
-    ("other", "Others"),
-    ("none_of_above", "None of the above"),
+    (OTHER, "Others"),
+    (NONE_OF_ABOVE, "None of the above"),
 )
 
 QN100 = (
