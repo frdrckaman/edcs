@@ -1,6 +1,6 @@
 """Default sites module.
 
-Define ``sites.py`` in your own module and set EDC_SITES_MODULE_NAME
+Define ``sites.py`` in your own module and set EDCS_SITES_MODULE_NAME
 to the name of that module.
 
 """
@@ -29,16 +29,6 @@ fqdn = "edcs.org"
 
 # site_id, name, **kwargs
 all_sites = {
-    # default_country
-    # or "site": [
-    #     SingleSite(
-    #         1,
-    #         settings.APP_NAME,
-    #         country=default_country,
-    #         country_code=default_country_code,
-    #         domain=default_domain,
-    #     ),
-    # ],
     "tanzania": (
         SingleSite(
             10,
