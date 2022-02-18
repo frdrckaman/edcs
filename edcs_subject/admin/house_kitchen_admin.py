@@ -6,11 +6,15 @@ from edcs_model_admin import SimpleHistoryAdmin
 
 from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
+from ..forms import HouseKitchenSurroundingForm
 from ..models import HouseKitchenSurrounding
 
 
 @admin.register(HouseKitchenSurrounding, site=edcs_subject_admin)
 class HouseKitchenSurroundingAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
+
+    form = HouseKitchenSurroundingForm
+
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),
         (
