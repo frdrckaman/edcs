@@ -6,11 +6,15 @@ from edcs_model_admin import SimpleHistoryAdmin
 
 from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
+from ..forms import OccupationalHistoryForm
 from ..models import OccupationalHistory
 
 
 @admin.register(OccupationalHistory, site=edcs_subject_admin)
 class OccupationalHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
+
+    form = OccupationalHistoryForm
+
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),
         (
@@ -19,6 +23,7 @@ class OccupationalHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                 "fields": (
                     "history_working_industries",
                     "industries_worked",
+                    "industries_worked_other",
                     "history_working_mines",
                     "how_long_work_mine",
                     "activities_expose_to_smoke",

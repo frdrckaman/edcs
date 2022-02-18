@@ -193,6 +193,7 @@ QN72 = (
     ("drug_industry", "Drug industry"),
     ("milling_industry", "Milling industry"),
     ("construction_industry", "Construction industry"),
+    (NOT_APPLICABLE, "Not applicable"),
     (OTHER, "Other"),
 )
 

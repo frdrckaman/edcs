@@ -1,5 +1,5 @@
 from django import forms
-from edcs_constants.constants import OTHER, YES, GREATER_THAN_6MONTHS, NONE_OF_ABOVE, NOT_APPLICABLE
+from edcs_constants.constants import OTHER, NOT_APPLICABLE
 
 from edcs_form_validators import FormValidatorMixin
 from edcs_form_validators.form_validator import FormValidator
