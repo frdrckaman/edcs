@@ -334,6 +334,7 @@ QN105 = (
     ("tyrosine_kinase_inhibitor", "Tyrosine kinase inhibitor "),
     ("1_2above", "1 & 2 above"),
     (OTHER, "Others"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 QN106 = (

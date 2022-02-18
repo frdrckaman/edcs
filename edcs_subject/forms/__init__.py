@@ -12,3 +12,4 @@ from .hiv_lab_form import HivLabInvestigationForm
 from .lung_cancer_symptoms_form import SignSymptomLungCancerForm
 from .home_locator_form import HomeLocatorForm
 from .house_kitchen_form import HouseKitchenSurroundingForm
+from .lung_cancer_treatment_form import LungCancerTreatmentForm
