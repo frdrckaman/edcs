@@ -1,7 +1,7 @@
 from pprint import pprint
 
 from django.utils.safestring import mark_safe
-from edcs_constants.constants import NO, TBD, YES
+from edcs_constants.constants import NO, TBD, YES, OTHER_CANCER
 from edcs_utils.date import get_utcnow
 
 
@@ -25,7 +25,8 @@ def check_eligible_final(obj):
     """Updates model instance fields `eligible` and `reasons_ineligible`."""
     reasons_ineligible = []
 
-    if obj.tb_diagnosis == YES or obj.malignancy == YES or obj.diagnosed_lung_cancer == YES:
+    if obj.tb_diagnosis == YES or obj.malignancy == YES or \
+            (obj.patient_category == OTHER_CANCER and obj.diagnosed_lung_cancer == YES):
         obj.eligible = False
         # reasons_ineligible.append("Subject unsuitable")
     else:

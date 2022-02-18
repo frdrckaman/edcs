@@ -1,3 +1,5 @@
+from edcs_constants.constants import CANCER_FREE, OTHER_CANCER, LUNG_CANCER_SUSPECT
+
 CLINIC = (
     ("lung_cancer", "Lung cancer clinic/institute"),
     ("pathology", "Pathology"),
@@ -5,7 +7,7 @@ CLINIC = (
 )
 
 PATIENT_CATEGORY = (
-    ("lung_cancer_suspect", "Lung cancer suspect"),
-    ("other_cancers", "Other cancers"),
-    ("cancer_free", "Cancer free")
+    (LUNG_CANCER_SUSPECT, "Lung cancer suspect"),
+    (OTHER_CANCER, "Other cancers"),
+    (CANCER_FREE, "Cancer free")
 )
