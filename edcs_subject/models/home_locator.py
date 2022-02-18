@@ -6,7 +6,7 @@ from edcs_utils import get_utcnow
 from ..model_mixins import CrfModelMixin
 
 
-class HomeLocatorForm(CrfModelMixin, edcs_models.BaseUuidModel):
+class HomeLocator(CrfModelMixin, edcs_models.BaseUuidModel):
     report_datetime = models.DateTimeField(
         verbose_name="Report Date and Time",
         default=get_utcnow,

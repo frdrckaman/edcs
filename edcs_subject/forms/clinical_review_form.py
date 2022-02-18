@@ -10,10 +10,6 @@ from ..models import ClinicalReview
 class ClinicalReviewFormValidator(FormValidator):
     def clean(self):
         super().clean()
-        arv = self.cleaned_data.get("arv")
-        hiv_dx = self.cleaned_data.get("hiv_dx")
-        arv_regularly = self.cleaned_data.get("arv_regularly")
-        miss_taking_arv = self.cleaned_data.get("miss_taking_arv")
 
         # hiv
         self.required_if(YES, field="hiv_test", field_required="hiv_test_date")
@@ -22,7 +18,7 @@ class ClinicalReviewFormValidator(FormValidator):
         self.required_if(YES, field="arv", field_required="arv_start_date")
         self.applicable_if(YES, field="arv", field_applicable="arv_regularly")
         self.applicable_if(NO, field="arv_regularly", field_applicable="miss_taking_arv")
-        self.applicable_if(OTHER, field="miss_taking_arv", field_applicable="miss_taking_arv_other")
+        self.required_if(OTHER, field="miss_taking_arv", field_required="miss_taking_arv_other")
 
         # lung diseases
         self.required_if(COPD, field="lung_diseases_dx", field_required="copd_dx_date")

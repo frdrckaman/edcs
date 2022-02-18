@@ -6,11 +6,15 @@ from edcs_model_admin import SimpleHistoryAdmin
 
 from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
-from ..models import HomeLocatorForm
+from ..forms import HomeLocatorForm
+from ..models import HomeLocator
 
 
-@admin.register(HomeLocatorForm, site=edcs_subject_admin)
+@admin.register(HomeLocator, site=edcs_subject_admin)
 class HomeLocatorFormAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
+
+    form = HomeLocatorForm
+
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),
         (

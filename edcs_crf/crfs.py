@@ -24,6 +24,6 @@ enrollment_crf = FormsCollection(
     Crf(show_order=170, model="edcs_subject.housekitchensurrounding"),
     Crf(show_order=172, model="edcs_subject.effectairpollution"),
     Crf(show_order=174, model="edcs_subject.airpollutionfollowup"),
-    Crf(show_order=176, model="edcs_subject.homelocatorform"),
+    Crf(show_order=176, model="edcs_subject.homelocator"),
     name="Enrollment CRFs",
 )
