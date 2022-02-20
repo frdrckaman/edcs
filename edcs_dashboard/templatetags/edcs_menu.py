@@ -46,8 +46,8 @@ def main_menu(context):
 def bottom_summary(context):
 
     return dict(
-        screened=enrolled(context),
-        enrolled=screened(context),
+        enrolled=enrolled(context),
+        screened=screened(context),
     )
 
 
