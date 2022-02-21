@@ -30,6 +30,8 @@ class SubjectConsentFormValidatorMixin(FormValidator):
         self.clinic_type = self.cleaned_data.get("clinic_type")
         self.patient_category = self.cleaned_data.get("patient_category")
         self.tz = timezone(settings.TIME_ZONE)
+        self.identity = self.cleaned_data.get("identity")
+        self.initials = self.cleaned_data.get("initials")
 
     def clean(self):
 
@@ -48,6 +50,8 @@ class SubjectConsentFormValidatorMixin(FormValidator):
         self.validate_gender()
 
         self.validate_identity()
+
+        self.validate_initials()
 
     @property
     def subject_screening_model_cls(self):
@@ -184,4 +188,21 @@ class SubjectConsentFormValidatorMixin(FormValidator):
             )
 
     def validate_identity(self) -> None:
-        pass
+        if self.identity != self.subject_screening.hospital_id:
+            raise forms.ValidationError(
+                {
+                    "identity": "Hospital ID mismatch. The Hospital ID entered does "
+                                f"not match that reported at screening. "
+                                f"Expected '{self.subject_screening.hospital_id}'. "
+                }
+            )
+
+    def validate_initials(self) -> None:
+        if self.initials != self.subject_screening.initials:
+            raise forms.ValidationError(
+                {
+                    "initials": "Patient initials mismatch. Patient initials entered does "
+                                f"not match that reported at screening. "
+                                f"Expected '{self.subject_screening.initials}'. "
+                }
+            )
