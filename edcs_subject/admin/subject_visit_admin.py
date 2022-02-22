@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from django.contrib import admin, messages
 from django.shortcuts import redirect
 from django.urls import reverse
