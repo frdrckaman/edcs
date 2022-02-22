@@ -1,7 +1,8 @@
+from pprint import pprint
+
 from django.contrib import admin, messages
 from django.shortcuts import redirect
 from django.urls import reverse
-from django.utils.safestring import mark_safe
 
 from edcs_model_admin import SimpleHistoryAdmin, audit_fieldset_tuple
 from edcs_visit_schedule.fieldsets import visit_schedule_fieldset_tuple
@@ -48,15 +49,17 @@ class SubjectVisitAdmin(VisitModelAdminMixin, ModelAdminMixin, SimpleHistoryAdmi
 
     def response_post_save_add(self, request, obj):
         next = request.GET.get('next', None)
-        args = request.GET.get('subject', None)
+        subject = request.GET.get('subject', None)
+        appointment = request.GET.get('appointment', None)
         self.clear_message(request)
-        return redirect(self.next(next, args))
+        return redirect(self.next(next, subject, appointment))
 
     def response_post_save_change(self, request, obj):
         next = request.GET.get('next', None)
-        args = request.GET.get('subject', None)
+        subject = request.GET.get('subject', None)
+        appointment = request.GET.get('appointment', None)
         self.clear_message(request)
-        return redirect(self.next(next, args))
+        return redirect(self.next(next, subject, appointment))
 
     def clear_message(self, request):
         storage = messages.get_messages(request)
@@ -64,5 +67,5 @@ class SubjectVisitAdmin(VisitModelAdminMixin, ModelAdminMixin, SimpleHistoryAdmi
             pass
         storage.used = True
 
-    def next(self, next, args):
-        return reverse(next, args=[args])
+    def next(self, next, subject, appointment):
+        return reverse(next, args=[subject, appointment])

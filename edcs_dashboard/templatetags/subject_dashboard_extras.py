@@ -78,7 +78,7 @@ def appointment(subject_identifier, visit_code):
     takes_context=True,
 )
 def start_button(context, appt):
-    listboard_dashboard = "edcs_dashboard:enroll-dashboard"
+    listboard_dashboard = "edcs_dashboard:crf-list"
     title = "Start Appointment"
     appointment = Appointment.objects.get(subject_identifier=context.get("subject"), visit_code=appt.visit_code)
 
