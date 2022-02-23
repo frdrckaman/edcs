@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     "django_audit_fields.apps.AppConfig",
     "logentry_admin",
     "django.contrib.sites",
+    'django_celery_beat',
     "defender",
     "multisite",
     "simple_history",
