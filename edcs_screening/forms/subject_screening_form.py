@@ -30,6 +30,11 @@ class SubjectScreeningFormValidator(FormValidator):
                 {"age_in_years": "Participant must be at least 18 years old."}
             )
 
+        if self.cleaned_data.get("above_eighteen") == NO:
+            raise forms.ValidationError(
+                {"above_eighteen": "This must be YES, participant must be 18 years old or above."}
+            )
+
 
 class SubjectScreeningForm(AlreadyConsentedFormMixin, FormValidatorMixin, forms.ModelForm):
     form_validator_cls = SubjectScreeningFormValidator
