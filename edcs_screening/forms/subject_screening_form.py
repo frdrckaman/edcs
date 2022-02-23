@@ -1,7 +1,10 @@
+from datetime import date
+
 from django import forms
 from edcs_constants.constants import NO, YES
 from edcs_form_validators import FormValidator, FormValidatorMixin
 from edcs_screening.modelform_mixins import AlreadyConsentedFormMixin
+from edcs_utils import age
 
 from ..models import SubjectScreening
 
@@ -22,6 +25,15 @@ class SubjectScreeningFormValidator(FormValidator):
         self.required_if(
             YES, field="patient_know_dob", field_required="patient_dob"
         )
+
+        if self.cleaned_data.get("patient_dob") is not None:
+            age_in_years = age(self.cleaned_data.get("patient_dob"), date.today()).years
+            if age_in_years != self.cleaned_data.get("age_in_years"):
+                raise forms.ValidationError(
+                    {"patient_dob": "Please, Crosscheck  date of birth."
+                     f"Expected age is {self.cleaned_data.get('age_in_years')}, Got {age_in_years}"}
+                )
+
         if (
             self.cleaned_data.get("age_in_years")
             and self.cleaned_data.get("age_in_years") < 18
