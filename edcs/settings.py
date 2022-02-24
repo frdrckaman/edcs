@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     "logentry_admin",
     "django.contrib.sites",
     'django_celery_beat',
+    'django_celery_results',
     "defender",
     "multisite",
     "simple_history",
