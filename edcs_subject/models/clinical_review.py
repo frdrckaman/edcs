@@ -146,6 +146,7 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="Are you using any medications?",
         max_length=45,
         choices=YES_NO_DECLINED_TO_ANSWER_NA,
+        default=NOT_APPLICABLE
     )
 
     dm_medication = models.TextField(
