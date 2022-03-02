@@ -155,36 +155,6 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
         blank=True,
     )
 
-    # malignancy = models.CharField(
-    #     verbose_name="Have you ever had any other malignancy?",
-    #     max_length=45,
-    #     choices=YES_NO_DWTA_DONT_KNOW,
-    # )
-    #
-    # tb_test = models.CharField(
-    #     verbose_name="Were you tested for TB?",
-    #     max_length=45,
-    #     choices=YES_NO,
-    # )
-    #
-    # provide_sputum_tb_dx = models.CharField(
-    #     verbose_name="If No, has the patient provided sputum for TB diagnosis?",
-    #     max_length=45,
-    #     choices=QN100,
-    # )
-    #
-    # tb_status = models.CharField(
-    #     verbose_name="What is the patients TB status?",
-    #     max_length=45,
-    #     choices=QN101,
-    # )
-
-    # lung_cancer_dx = models.CharField(
-    #     verbose_name="What is the patient’s lung cancer diagnosis?",
-    #     max_length=45,
-    #     choices=QN102,
-    # )
-
     class Meta(CrfModelMixin.Meta, edcs_models.BaseUuidModel.Meta):
         verbose_name = "Clinical Review"
         verbose_name_plural = "Clinical Reviews"
