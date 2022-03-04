@@ -25,7 +25,8 @@ default_domain = getattr(settings, "EDCS_SITES_DEFAULT_DOMAIN", "localhost")
 #     ],
 # }
 
-fqdn = "edcs.org"
+# fqdn = "edcs.org"
+fqdn = settings.EDCS_DOMAIN
 
 # site_id, name, **kwargs
 all_sites = {
