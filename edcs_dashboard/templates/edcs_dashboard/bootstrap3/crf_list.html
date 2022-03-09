@@ -68,13 +68,23 @@
                         </thead>
                         <tbody>
                         {% for crf in crfs %}
-                            <tr>
-                                <td>{{ forloop.counter }}</td>
-                                <td>{{ crf.verbose_name}} </td>
-                                <td>
-                                    {% add_edit_crf crf %}
-                                </td>
-                            </tr>
+                            {% if crf.verbose_name == "Contraceptive Use Reproductive History" and object_list.gender == "M" %}
+                            {% else %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ crf.verbose_name}} </td>
+                                    <td>
+                                        {% add_edit_crf crf %}
+                                    </td>
+                                </tr>
+                            {% endif %}
+{#                            <tr>#}
+{#                                <td>{{ forloop.counter }}</td>#}
+{#                                <td>{{ crf.verbose_name}} </td>#}
+{#                                <td>#}
+{#                                    {% add_edit_crf crf %}#}
+{#                                </td>#}
+{#                            </tr>#}
                         {% endfor %}
                         </tbody>
                     </table>
