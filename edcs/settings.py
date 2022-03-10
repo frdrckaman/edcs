@@ -18,6 +18,7 @@ env = environ.Env(
     DJANGO_EMAIL_ENABLED=(bool, False),
     DJANGO_AUTO_CREATE_KEYS=(bool, False),
     EDCS_SITES_UAT_DOMAIN=(bool, True),
+    EDCS_SITES_LIVE_DOMAIN=(bool, False),
 )
 
 environ.Env.read_env(ENV_DIR)
@@ -197,7 +198,11 @@ EDCS_PROTOCOL_STUDY_CLOSE_DATETIME = get_datetime_from_env(
     *env.list("EDCS_PROTOCOL_STUDY_CLOSE_DATETIME")
 )
 
-EDCS_SITES_UAT_DOMAIN = True
+EDCS_NAME = env.str("EDCS_NAME")
+
+EDCS_SITES_UAT_DOMAIN = env("EDCS_SITES_UAT_DOMAIN")
+
+EDCS_SITES_LIVE_DOMAIN = env("EDCS_SITES_LIVE_DOMAIN")
 
 KEY_PATH = env.str("DJANGO_KEY_FOLDER")
 

@@ -66,7 +66,8 @@
                 <!------------------------------- begin system logo ------------------------------------------->
                 <a class="logo" href="{% url 'edcs_dashboard:home' %}">
 {#                    <img src="{% static 'img/logo.png' %}" alt="edcs-logo" title="edcs"/>#}
-                    <p style="font-weight: bold;color: #FFFFFF; font-size: x-large">EDCS</p>
+                    <p><span style="font-weight: bold;color: #cccccc; font-size: x-large">{% edcs_name %}</span> &nbsp;&nbsp;
+                        <span style="color: firebrick;font-size: medium;font-weight: bold">{% site_name %}</span> </p>
                 </a>
                 <!------------------------------- end system logo ------------------------------------------->
                 <!------------------------------- start template theme settings ------------------------------------------->

@@ -24,3 +24,7 @@ def EdcsInfo(context):
         "revision": site_revision.tag,
     }
 
+
+@register.simple_tag
+def edcs_name():
+    return settings.EDCS_NAME

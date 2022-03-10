@@ -1,5 +1,8 @@
+from pprint import pprint
+
 from django import template
 from django.conf import settings
+from django.contrib.sites.models import Site
 
 from edcs_registration.models import RegisteredSubject
 from edcs_screening.models import SubjectScreening
@@ -44,7 +47,6 @@ def main_menu(context):
     takes_context=True,
 )
 def bottom_summary(context):
-
     return dict(
         enrolled=enrolled(context),
         screened=screened(context),
@@ -95,3 +97,30 @@ def enrolled(context):
 
 def screened(context):
     return SubjectScreening.objects.filter(site_id=site_(context)).count()
+
+
+@register.simple_tag
+def site_name():
+    current_site = Site.objects.get_current()
+    return f"{server_state()}-{current_site.name}"
+
+
+@register.simple_tag
+def color_code():
+    if settings.EDCS_SITES_LIVE_DOMAIN:
+        return '#0ad00e'
+    else:
+        return 'firebrick'
+
+
+def server_state():
+    if settings.DEBUG:
+        state = 'DEBUG'
+    elif settings.EDCS_SITES_UAT_DOMAIN:
+        state = 'UAT'
+    elif settings.EDCS_SITES_LIVE_DOMAIN:
+        state = 'LIVE'
+    else:
+        state = None
+
+    return state
