@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from django.apps import apps as django_apps
 from django.urls import reverse
 from django.utils.translation import gettext as _
