@@ -1,5 +1,6 @@
-from django.apps import AppConfig
+from django.apps import AppConfig as DjangoAppConfig
 
 
-class EdcsPrintingConfig(AppConfig):
+class EdcsPrintingConfig(DjangoAppConfig):
     name = 'edcs_printing'
+    verbose_name = 'Edcs Printing'
