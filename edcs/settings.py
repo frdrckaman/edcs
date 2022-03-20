@@ -91,6 +91,7 @@ INSTALLED_APPS = [
     "edcs_facility.apps.AppConfig",
     "edcs_appointment.apps.AppConfig",
     "edcs_crf.apps.AppConfig",
+    "edcs_printing",
 ]
 
 MIDDLEWARE = [
