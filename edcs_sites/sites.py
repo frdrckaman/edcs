@@ -33,21 +33,37 @@ all_sites = {
     "tanzania": (
         SingleSite(
             10,
-            "muhimbili",
+            "Muhimbili",
             title="Muhimbili National hospital",
             country_code="tz",
             country="tanzania",
-            domain=f"tz.{fqdn}",
+            domain=f"mnh.tz.{fqdn}",
+        ),
+        SingleSite(
+            11,
+            "OceanRoadCancerInstitute",
+            title="Ocean Road Cancer Institute",
+            country_code="tz",
+            country="tanzania",
+            domain=f"orci.tz.{fqdn}",
         ),
     ),
     "uganda": (
         SingleSite(
             20,
-            "mulago",
-            title="Mulago Hospital",
+            "UgandaCancerInstitute",
+            title="Uganda Cancer Institute",
             country_code="ug",
             country="uganda",
-            domain=f"ug.{fqdn}",
+            domain=f"uci.ug.{fqdn}",
+        ),
+        SingleSite(
+            21,
+            "Mulago",
+            title="Mulago National Referral Hospital",
+            country_code="ug",
+            country="uganda",
+            domain=f"mnrh.ug.{fqdn}",
         ),
     ),
 }
