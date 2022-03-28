@@ -51,19 +51,19 @@ all_sites = {
     "uganda": (
         SingleSite(
             20,
-            "UgandaCancerInstitute",
-            title="Uganda Cancer Institute",
-            country_code="ug",
-            country="uganda",
-            domain=f"uci.ug.{fqdn}",
-        ),
-        SingleSite(
-            21,
             "Mulago",
             title="Mulago National Referral Hospital",
             country_code="ug",
             country="uganda",
             domain=f"mnrh.ug.{fqdn}",
+        ),
+        SingleSite(
+            21,
+            "UgandaCancerInstitute",
+            title="Uganda Cancer Institute",
+            country_code="ug",
+            country="uganda",
+            domain=f"uci.ug.{fqdn}",
         ),
     ),
 }
