@@ -138,12 +138,18 @@ WSGI_APPLICATION = "edcs.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+if env("DATABASE_SQLITE_ENABLED"):
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        }
     }
-}
+
+else:
+    DATABASES = {"default": env.db()}
+# be secure and clear DATABASE_URL since it is no longer needed.
+DATABASE_URL = None
 
 if env.str("DJANGO_CACHE") == "redis":
     CACHES = {
