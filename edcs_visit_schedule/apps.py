@@ -27,9 +27,9 @@ class AppConfig(DjangoAppConfig):
     validate_models = True
     include_in_administration_section = True
 
-    def ready(self):
-        post_migrate.connect(populate_visit_schedule, sender=self)
-        sys.stdout.write(f"Loading {self.verbose_name} ...\n")
-        site_visit_schedules.autodiscover()
-        sys.stdout.write(f" Done loading {self.verbose_name}.\n")
-        register(visit_schedule_check)
+    # def ready(self):
+    #     post_migrate.connect(populate_visit_schedule, sender=self)
+    #     sys.stdout.write(f"Loading {self.verbose_name} ...\n")
+    #     site_visit_schedules.autodiscover()
+    #     sys.stdout.write(f" Done loading {self.verbose_name}.\n")
+    #     register(visit_schedule_check)

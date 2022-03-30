@@ -51,7 +51,8 @@ SUBJECT_CONSENT_MODEL = env.str("EDCS_SUBJECT_CONSENT_MODEL")
 
 SUBJECT_VISIT_MODEL = env.str("EDCS_SUBJECT_VISIT_MODEL")
 
-ALLOWED_HOSTS = ["tz.uat.edcs.org", "ug.uat.edcs.org", "localhost"]
+ALLOWED_HOSTS = ["u54lungcancer.org", "mnh.uat.tz.u54lungcancer.org", "mnrh.uat.ug.u54lungcancer.org",
+                 "orci.uat.tz.u54lungcancer.org", "uci.uat.ug.u54lungcancer.org", "localhost"]
 
 
 # Application definition
