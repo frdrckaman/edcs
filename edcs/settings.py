@@ -70,7 +70,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     'django_celery_beat',
     'django_celery_results',
-    "defender",
+    # "defender",
     "multisite",
     "simple_history",
     "django_crypto_fields.apps.AppConfig",
@@ -103,7 +103,7 @@ MIDDLEWARE = [
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "defender.middleware.FailedLoginMiddleware",
+    # "defender.middleware.FailedLoginMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "simple_history.middleware.HistoryRequestMiddleware",
@@ -152,30 +152,30 @@ else:
 # be secure and clear DATABASE_URL since it is no longer needed.
 DATABASE_URL = None
 
-if env.str("DJANGO_CACHE") == "redis":
-    CACHES = {
-        "default": {
-            "BACKEND": "django_redis.cache.RedisCache",
-            "LOCATION": "redis://127.0.0.1:6379/1",
-            "OPTIONS": {
-                "CLIENT_CLASS": "django_redis.client.DefaultClient",
-                "PASSWORD": env.str("DJANGO_REDIS_PASSWORD"),
-            },
-            "KEY_PREFIX": f"{APP_NAME}",
-        }
-    }
-    SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-    SESSION_CACHE_ALIAS = "default"
-    DJANGO_REDIS_IGNORE_EXCEPTIONS = True
-    DJANGO_REDIS_LOG_IGNORED_EXCEPTIONS = True
-elif env.str("DJANGO_CACHE") == "memcached":
-    CACHES = {
-        "default": {
-            "BACKEND": "django.core.cache.backends.memcached.PyLibMCCache",
-            "LOCATION": "unix:/tmp/memcached.sock",
-        }
-    }
-    SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
+# if env.str("DJANGO_CACHE") == "redis":
+#     CACHES = {
+#         "default": {
+#             "BACKEND": "django_redis.cache.RedisCache",
+#             "LOCATION": "redis://127.0.0.1:6379/1",
+#             "OPTIONS": {
+#                 "CLIENT_CLASS": "django_redis.client.DefaultClient",
+#                 "PASSWORD": env.str("DJANGO_REDIS_PASSWORD"),
+#             },
+#             "KEY_PREFIX": f"{APP_NAME}",
+#         }
+#     }
+#     SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+#     SESSION_CACHE_ALIAS = "default"
+#     DJANGO_REDIS_IGNORE_EXCEPTIONS = True
+#     DJANGO_REDIS_LOG_IGNORED_EXCEPTIONS = True
+# elif env.str("DJANGO_CACHE") == "memcached":
+#     CACHES = {
+#         "default": {
+#             "BACKEND": "django.core.cache.backends.memcached.PyLibMCCache",
+#             "LOCATION": "unix:/tmp/memcached.sock",
+#         }
+#     }
+#     SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
 
 
 # Password validation
@@ -257,3 +257,5 @@ SITE_ID = SiteID(default=10)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
+
+STATIC_ROOT = BASE_DIR / 'static'
