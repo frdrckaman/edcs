@@ -11,5 +11,4 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         for visit in visits:
-            schedule = VisitSchedule(**visit)
-            schedule.save()
+            VisitSchedule.objects.update_or_create(defaults={'visit_code': visit['visit_code']}, **visit)
