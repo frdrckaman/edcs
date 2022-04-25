@@ -8,12 +8,7 @@ from ..models import CookingFuel
 
 
 class CookingFuelFormValidator(FormValidator):
-    # TODO remove super from all forms
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
     def clean(self):
-        super().clean()
 
         self.required_if(
             OTHER, field="main_use_cooking", field_required="main_use_cooking_other"
