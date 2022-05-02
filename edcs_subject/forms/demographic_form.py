@@ -9,12 +9,7 @@ from ..models import DemographicCharacteristic
 
 class DemographicCharacteristicFormValidator(FormValidator):
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
     def clean(self):
-        super().clean()
-
         self.required_if(OTHER, field="education", field_required="education_other")
         self.required_if(OTHER, field="occupation", field_required="occupation_other")
         self.required_if(OTHER, field="material_build_floor", field_required="material_build_floor_other")
