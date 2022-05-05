@@ -7,7 +7,7 @@ from django.db import models
 from django_crypto_fields.fields import EncryptedCharField
 
 from edcs_constants.choices import COUNTRY, YES_NO
-from edcs_model.models import BaseUuidModel
+from edcs_model.models import BaseUuidModel, OtherCharField
 from edcs_screening.model_mixins import ScreeningModelMixin
 from edcs_screening.screening_identifier import ScreeningIdentifier
 
@@ -50,6 +50,8 @@ class SubjectScreening(
     nationality = models.CharField(
         verbose_name="Nationality", max_length=60, choices=COUNTRY
     )
+
+    nationality_other = OtherCharField()
 
     region = models.CharField(
         verbose_name="Region:",

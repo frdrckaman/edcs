@@ -30,6 +30,7 @@ class SubjectScreeningAdmin(ModelAdminDashboardMixin, SimpleHistoryAdmin):
             {
                 "fields": (
                     "nationality",
+                    "nationality_other",
                     "region",
                     "district",
                     "patient_know_dob",
