@@ -37,7 +37,6 @@ from .constants import (
     YES,
 )
 
-
 BLANK_CHOICE_DASH = [("", "---------")]
 
 """ Try to keep these in alphabetical order
@@ -192,6 +191,14 @@ COUNTRY = (
     ("china", "China"),
     ("india", "India"),
     ("OTHER", "Other"),
+)
+
+MARITAL_STATUS = (
+    ("married", "Married"),
+    ("cohabiting", "Cohabiting"),
+    ("single", "Single"),
+    ("divorced_separated", "Divorced/Separated"),
+    ("widow_widower", "Widow/Widower"),
 )
 
 DAYS_OF_WEEK = (

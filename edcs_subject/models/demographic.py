@@ -1,10 +1,9 @@
 from django.db import models
 
-from edcs_constants.choices import YES_NO, YES_NO_DWTA_DONT_KNOW
+from edcs_constants.choices import MARITAL_STATUS, YES_NO, YES_NO_DWTA_DONT_KNOW
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
-from ..model_mixins import CrfModelMixin
 from ..choices import (
     COOKING,
     EDUCATION,
@@ -14,6 +13,7 @@ from ..choices import (
     OCCUPATION,
     POWER_SOURCE,
 )
+from ..model_mixins import CrfModelMixin
 
 
 class DemographicCharacteristic(CrfModelMixin, edcs_models.BaseUuidModel):
@@ -25,7 +25,7 @@ class DemographicCharacteristic(CrfModelMixin, edcs_models.BaseUuidModel):
     martial_status = models.CharField(
         verbose_name="Marital status?",
         max_length=45,
-        choices=YES_NO_DWTA_DONT_KNOW,
+        choices=MARITAL_STATUS,
     )
 
     education = models.CharField(
