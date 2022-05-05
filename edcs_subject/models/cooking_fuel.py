@@ -5,8 +5,8 @@ from edcs_constants.constants import NOT_APPLICABLE
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
-from ..model_mixins import CrfModelMixin
 from ..choices import QN1AP, QN2AP, QN3AP, QN5AP, QN7AP, QN28AP
+from ..model_mixins import CrfModelMixin
 
 
 class CookingFuel(CrfModelMixin, edcs_models.BaseUuidModel):
@@ -172,7 +172,7 @@ class CookingFuel(CrfModelMixin, edcs_models.BaseUuidModel):
     neighbor_use_cooking_other = edcs_models.OtherCharField()
 
     smoke_from_neighbor = models.CharField(
-        verbose_name="Does smoke from your neighbors cooking enter your house?",
+        verbose_name="Does smoke from your neighbors cooking  or burnings enter your house?",
         max_length=45,
         choices=YES_NO,
     )
