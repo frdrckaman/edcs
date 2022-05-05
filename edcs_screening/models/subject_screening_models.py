@@ -1,4 +1,8 @@
-from django.core.validators import RegexValidator, MinLengthValidator, MaxLengthValidator
+from django.core.validators import (
+    MaxLengthValidator,
+    MinLengthValidator,
+    RegexValidator,
+)
 from django.db import models
 from django_crypto_fields.fields import EncryptedCharField
 
@@ -6,8 +10,8 @@ from edcs_constants.choices import YES_NO
 from edcs_model.models import BaseUuidModel
 from edcs_screening.model_mixins import ScreeningModelMixin
 from edcs_screening.screening_identifier import ScreeningIdentifier
-from ..choices import PATIENT_CATEGORY, CLINIC
 
+from ..choices import CLINIC, PATIENT_CATEGORY
 from ..eligibility import check_eligible_final
 
 
@@ -32,9 +36,7 @@ class SubjectScreening(
     )
 
     patient_category = models.CharField(
-        verbose_name="Patient Category?",
-        max_length=45,
-        choices=PATIENT_CATEGORY
+        verbose_name="Patient Category?", max_length=45, choices=PATIENT_CATEGORY
     )
 
     screening_consent = models.CharField(
@@ -45,6 +47,10 @@ class SubjectScreening(
         max_length=15,
         choices=YES_NO,
     )
+    nationality = models.CharField(
+        verbose_name="Nationality", max_length=60, default="Tz"
+    )
+
     region = models.CharField(
         verbose_name="Region:",
         max_length=50,
@@ -77,19 +83,19 @@ class SubjectScreening(
         help_text="Use UPPERCASE letters only. May be 2 or 3 letters.",
         blank=False,
     )
-    '''Exclusion criteria'''
+    """Exclusion criteria"""
     tb_diagnosis = models.CharField(
         verbose_name="Does the patient have a positive TB diagnosis?",
         max_length=25,
         choices=YES_NO,
     )
-    '''Exclusion criteria'''
+    """Exclusion criteria"""
     malignancy = models.CharField(
         verbose_name="Have you ever had any other malignancy? ",
         max_length=25,
         choices=YES_NO,
     )
-    '''Exclusion criteria'''
+    """Exclusion criteria"""
     above_eighteen = models.CharField(
         verbose_name="Is the patient 18 years and above?",
         max_length=25,
@@ -161,7 +167,7 @@ class SubjectScreening(
         max_length=25,
         choices=YES_NO,
     )
-    '''Exclusion criteria'''
+    """Exclusion criteria"""
     diagnosed_lung_cancer = models.CharField(
         verbose_name="Have you ever been diagnosed with lung cancer?",
         max_length=25,
