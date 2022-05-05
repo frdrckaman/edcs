@@ -1,7 +1,24 @@
-from edcs_constants.constants import NOT_APPLICABLE, OTHER, COPD, ASTHMA, INTERSTITIAL_LUNG_DISEASE, NO, DONT_KNOW, \
-    NEVER, YES_PAST_SMOKER, YES_CURRENT_SMOKER, YES_CURRENT_CONSUMER, YES_PAST_CONSUMER, YES_PAST_USER, \
-    YES_CURRENT_USER, NEGATIVE_TEST, POSITIVE_TEST, GREATER_THAN_6MONTHS, NONE_OF_ABOVE
-from edcs_subject.constants import SCHEDULED, UNSCHEDULED, MISSED_VISIT
+from edcs_constants.constants import (
+    ASTHMA,
+    COPD,
+    DONT_KNOW,
+    GREATER_THAN_6MONTHS,
+    INTERSTITIAL_LUNG_DISEASE,
+    NEGATIVE_TEST,
+    NEVER,
+    NO,
+    NONE_OF_ABOVE,
+    NOT_APPLICABLE,
+    OTHER,
+    POSITIVE_TEST,
+    YES_CURRENT_CONSUMER,
+    YES_CURRENT_SMOKER,
+    YES_CURRENT_USER,
+    YES_PAST_CONSUMER,
+    YES_PAST_SMOKER,
+    YES_PAST_USER,
+)
+from edcs_subject.constants import MISSED_VISIT, SCHEDULED, UNSCHEDULED
 
 MISS_ARV = (
     ("at_least_once_every_week", "At least once every week"),
@@ -38,6 +55,7 @@ OCCUPATION = (
     ("entrepreneur", "Entrepreneur"),
     ("unemployed", "Unemployed"),
     ("business_man", "Business man/woman"),
+    ("casual_laborers", "Casual laborers"),
     (OTHER, "Other"),
 )
 
@@ -240,7 +258,12 @@ QN87 = (
     (NOT_APPLICABLE, "Not applicable"),
 )
 
-QN88 = (("one", "One"), ("two", "Two"), ("three_more", "Three or More"), (NOT_APPLICABLE, "Not applicable"),)
+QN88 = (
+    ("one", "One"),
+    ("two", "Two"),
+    ("three_more", "Three or More"),
+    (NOT_APPLICABLE, "Not applicable"),
+)
 
 QN90 = (
     ("cough_dont_go_away", "A cough that doesn't go away after 2 or 3 weeks"),
