@@ -87,6 +87,7 @@ class SubjectScreeningAdmin(ModelAdminDashboardMixin, SimpleHistoryAdmin):
         "screening_consent": admin.VERTICAL,
         "clinic_type": admin.VERTICAL,
         "patient_category": admin.VERTICAL,
+        "nationality": admin.VERTICAL,
         "gender": admin.VERTICAL,
         "patient_know_dob": admin.VERTICAL,
         "tb_diagnosis": admin.VERTICAL,

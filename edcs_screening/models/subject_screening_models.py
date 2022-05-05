@@ -6,7 +6,7 @@ from django.core.validators import (
 from django.db import models
 from django_crypto_fields.fields import EncryptedCharField
 
-from edcs_constants.choices import YES_NO
+from edcs_constants.choices import COUNTRY, YES_NO
 from edcs_model.models import BaseUuidModel
 from edcs_screening.model_mixins import ScreeningModelMixin
 from edcs_screening.screening_identifier import ScreeningIdentifier
@@ -48,7 +48,7 @@ class SubjectScreening(
         choices=YES_NO,
     )
     nationality = models.CharField(
-        verbose_name="Nationality", max_length=60, default="Tz"
+        verbose_name="Nationality", max_length=60, choices=COUNTRY
     )
 
     region = models.CharField(
