@@ -1,5 +1,6 @@
 from django.apps import apps as django_apps
 from django.db import models
+
 from edcs_consent.field_mixins import (
     CitizenFieldsMixin,
     IdentityFieldsMixin,
@@ -12,7 +13,9 @@ from edcs_consent.model_mixins import ConsentModelMixin
 from edcs_constants.choices import GENDER
 from edcs_constants.constants import NOT_APPLICABLE
 from edcs_identifier.model_mixins import NonUniqueSubjectIdentifierModelMixin
-from edcs_identifier.subject_identifier import SubjectIdentifier as BaseSubjectIdentifier
+from edcs_identifier.subject_identifier import (
+    SubjectIdentifier as BaseSubjectIdentifier,
+)
 from edcs_model.models import BaseUuidModel, HistoricalRecords
 from edcs_registration.model_mixins import UpdatesOrCreatesRegistrationModelMixin
 from edcs_screening.choices import CLINIC, PATIENT_CATEGORY
@@ -76,7 +79,7 @@ class SubjectConsent(
         verbose_name="Patient Category?",
         max_length=45,
         null=True,
-        choices=PATIENT_CATEGORY
+        choices=PATIENT_CATEGORY,
     )
 
     gender = models.CharField(
@@ -85,6 +88,10 @@ class SubjectConsent(
         max_length=1,
         null=True,
         blank=False,
+    )
+
+    nationality = models.CharField(
+        verbose_name="Nationality", max_length=60, default="Tz"
     )
 
     identity_type = models.CharField(

@@ -5,9 +5,10 @@ from django import forms
 from django.forms import BaseModelForm
 from django.forms.utils import ErrorList
 from django.utils import timezone
-from edc_constants.constants import NO, YES
+
+from edcs_constants.constants import NO, YES
 from edcs_registration.models import RegisteredSubject
-from edc_utils import AgeValueError, age, formatted_age
+from edcs_utils import AgeValueError, age, formatted_age
 
 from ..consent_helper import ConsentHelper
 from ..exceptions import ConsentObjectDoesNotExist
@@ -209,7 +210,9 @@ class ConsentModelFormMixin(BaseModelForm):
             if guardian:
                 raise forms.ValidationError(
                     "Subject's age is {}. Subject is an adult. Guardian's "
-                    "name is NOT required.".format(formatted_age(dob, consent_datetime)),
+                    "name is NOT required.".format(
+                        formatted_age(dob, consent_datetime)
+                    ),
                     params={"age": formatted_age(dob, consent_datetime)},
                     code="invalid",
                 )
@@ -219,7 +222,9 @@ class ConsentModelFormMixin(BaseModelForm):
         MAX set on the model.
         """
         cleaned_data = self.cleaned_data
-        consent_datetime = cleaned_data.get("consent_datetime", self.instance.consent_datetime)
+        consent_datetime = cleaned_data.get(
+            "consent_datetime", self.instance.consent_datetime
+        )
         if not consent_datetime:
             self._errors["consent_datetime"] = ErrorList(
                 ["This field is required. Please fill consent date and time."]
@@ -292,7 +297,8 @@ class ConsentModelFormMixin(BaseModelForm):
         gender = self.cleaned_data.get("gender")
         if gender not in self.consent_config.gender:
             raise forms.ValidationError(
-                "Gender of consent can only be '%(gender_of_consent)s'. " "Got '%(gender)s'.",
+                "Gender of consent can only be '%(gender_of_consent)s'. "
+                "Got '%(gender)s'.",
                 params={
                     "gender_of_consent": "' or '".join(self.consent_config.gender),
                     "gender": gender,
