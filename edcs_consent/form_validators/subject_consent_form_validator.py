@@ -6,6 +6,7 @@ from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from pytz import timezone
 
+from edcs_constants.constants import OTHER
 from edcs_form_validators import FormValidator
 from edcs_screening.utils import get_subject_screening_model_name
 from edcs_utils import AgeValueError, age
@@ -53,6 +54,10 @@ class SubjectConsentFormValidatorMixin(FormValidator):
         self.validate_identity()
 
         self.validate_initials()
+
+        self.validate_nationality()
+
+        self.required_if(OTHER, field="nationality", field_required="nationality_other")
 
     @property
     def subject_screening_model_cls(self):

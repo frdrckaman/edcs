@@ -32,6 +32,7 @@ class SubjectConsentAdmin(
                     "last_name",
                     "initials",
                     "nationality",
+                    "nationality_other",
                     "gender",
                     "language",
                     "is_literate",

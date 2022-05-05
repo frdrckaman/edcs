@@ -16,7 +16,7 @@ from edcs_identifier.model_mixins import NonUniqueSubjectIdentifierModelMixin
 from edcs_identifier.subject_identifier import (
     SubjectIdentifier as BaseSubjectIdentifier,
 )
-from edcs_model.models import BaseUuidModel, HistoricalRecords
+from edcs_model.models import BaseUuidModel, HistoricalRecords, OtherCharField
 from edcs_registration.model_mixins import UpdatesOrCreatesRegistrationModelMixin
 from edcs_screening.choices import CLINIC, PATIENT_CATEGORY
 from edcs_search.model_mixins import SearchSlugManager
@@ -93,6 +93,8 @@ class SubjectConsent(
     nationality = models.CharField(
         verbose_name="Nationality", max_length=60, choices=COUNTRY
     )
+
+    nationality_other = OtherCharField()
 
     identity_type = models.CharField(
         verbose_name="What type of identity number is this?",
