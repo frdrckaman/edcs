@@ -103,7 +103,7 @@ class DemographicCharacteristic(CrfModelMixin, edcs_models.BaseUuidModel):
     use_in_cooking_other = edcs_models.OtherCharField()
 
     main_power_source = models.CharField(
-        verbose_name="What is the main source of power in your household?",
+        verbose_name="What is the main source of power lighting in your household?",
         max_length=15,
         choices=POWER_SOURCE,
     )

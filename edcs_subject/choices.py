@@ -105,6 +105,7 @@ POWER_SOURCE = (
     ("electricity", "Electricity"),
     ("battery_torch", "Battery/ torch "),
     ("solar_energy", "Solar energy"),
+    ("kerosene", "Kerosene"),
     (OTHER, "Others"),
 )
 
