@@ -66,7 +66,7 @@ class DemographicCharacteristic(CrfModelMixin, edcs_models.BaseUuidModel):
         choices=IRON,
     )
     bank_account = models.CharField(
-        verbose_name="Does anyone in your household own a bank account?",
+        verbose_name="Does anyone in your household own a bank account/mobile money/microfinance?",
         max_length=15,
         choices=YES_NO,
     )
