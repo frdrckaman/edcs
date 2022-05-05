@@ -11,7 +11,8 @@ register = template.Library()
 
 
 @register.inclusion_tag(
-    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"menu/template-theme-settings.html",
+    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/"
+    f"menu/template-theme-settings.html",
     takes_context=True,
 )
 def theme_settings(context):
@@ -87,7 +88,11 @@ def summary_menu(context):
 
 
 def site_(context):
-    site_id = context.get('s_id') if not context.get('site_profile') else context.get('site_profile').site_id
+    site_id = (
+        context.get("s_id")
+        if not context.get("site_profile")
+        else context.get("site_profile").site_id
+    )
     return site_id
 
 
@@ -102,25 +107,38 @@ def screened(context):
 @register.simple_tag
 def site_name():
     current_site = Site.objects.get_current()
-    return f"{server_state()}-{current_site.name}"
+    return current_site.name
+
+
+@register.simple_tag
+def server():
+    return server_state()
 
 
 @register.simple_tag
 def color_code():
     if settings.EDCS_SITES_LIVE_DOMAIN:
-        return '#0ad00e'
+        return "#0ad00e"
     else:
-        return 'firebrick'
+        return "firebrick"
 
 
 def server_state():
     if settings.DEBUG:
-        state = 'DEBUG'
+        state = "DEBUG"
     elif settings.EDCS_SITES_UAT_DOMAIN:
-        state = 'UAT'
+        state = "UAT"
     elif settings.EDCS_SITES_LIVE_DOMAIN:
-        state = 'LIVE'
+        state = "LIVE"
     else:
         state = None
 
     return state
+
+
+@register.simple_tag
+def live_server():
+    if settings.EDCS_SITES_LIVE_DOMAIN:
+        return True
+    elif settings.DEBUG or settings.EDCS_SITES_UAT_DOMAIN:
+        return False

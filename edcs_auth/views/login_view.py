@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.views import LoginView as BaseLoginView
-from edcs_dashboard.utils import get_template_path_with_bootstrap
 
 
 class LoginView(BaseLoginView):
