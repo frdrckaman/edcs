@@ -86,7 +86,8 @@ class SignSymptomLungCancer(CrfModelMixin, edcs_models.BaseUuidModel):
     )
 
     investigations_ordered = models.CharField(
-        verbose_name="While at cancer treatment facility, what investigations did the doctor(s) order in relation to the illness?",
+        verbose_name="While at cancer treatment facility, what investigations did the doctor(s)"
+        " order in relation to the illness?",
         max_length=45,
         choices=QN98,
     )
