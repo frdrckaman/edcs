@@ -1,13 +1,13 @@
 from django.db import models
 
-from edcs_constants.choices import YES_NO_DWTA_DONT_KNOW, YES_NO_DECLINED_TO_ANSWER
+from edcs_constants.choices import YES_NO_DECLINED_TO_ANSWER, YES_NO_DWTA_DONT_KNOW
 from edcs_constants.constants import NOT_APPLICABLE
 from edcs_lists.models import LungCancerSymptoms
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
-from ..model_mixins import CrfModelMixin
 from ..choices import QN90, QN91, QN92, QN94, QN95, QN98, QN102
+from ..model_mixins import CrfModelMixin
 
 
 class SignSymptomLungCancer(CrfModelMixin, edcs_models.BaseUuidModel):
@@ -36,7 +36,6 @@ class SignSymptomLungCancer(CrfModelMixin, edcs_models.BaseUuidModel):
         max_length=45,
         null=True,
         blank=True,
-
     )
 
     characterize_symptoms = models.CharField(
@@ -66,7 +65,7 @@ class SignSymptomLungCancer(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="Do you have history of chest radiation in the past 5 years?",
         max_length=45,
         null=True,
-        choices=YES_NO_DECLINED_TO_ANSWER
+        choices=YES_NO_DECLINED_TO_ANSWER,
     )
 
     no_chest_radiation = models.IntegerField(
@@ -87,7 +86,7 @@ class SignSymptomLungCancer(CrfModelMixin, edcs_models.BaseUuidModel):
     )
 
     investigations_ordered = models.CharField(
-        verbose_name="While at cancer treatment facility, what investigations did the doctor(s) order?",
+        verbose_name="While at cancer treatment facility, what investigations did the doctor(s) order in relation to the illness?",
         max_length=45,
         choices=QN98,
     )
