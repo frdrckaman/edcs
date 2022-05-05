@@ -2,6 +2,7 @@ from django.contrib import admin, messages
 from django.shortcuts import redirect
 from django.utils.safestring import mark_safe
 from django_audit_fields import audit_fieldset_tuple
+
 from edcs_model_admin import SimpleHistoryAdmin
 from edcs_model_admin.dashboard import ModelAdminDashboardMixin
 from edcs_screening.admin_site import edcs_screening_admin
@@ -23,11 +24,12 @@ class SubjectScreeningAdmin(ModelAdminDashboardMixin, SimpleHistoryAdmin):
                     "patient_category",
                 ),
             },
-         ],
+        ],
         [
             "Demographics",
             {
                 "fields": (
+                    "nationality",
                     "region",
                     "district",
                     "patient_know_dob",
@@ -35,7 +37,7 @@ class SubjectScreeningAdmin(ModelAdminDashboardMixin, SimpleHistoryAdmin):
                     "age_in_years",
                     "gender",
                     "hospital_id",
-                    "initials"
+                    "initials",
                 ),
             },
         ],
@@ -79,9 +81,7 @@ class SubjectScreeningAdmin(ModelAdminDashboardMixin, SimpleHistoryAdmin):
         "gender",
     )
 
-    search_fields = (
-        "screening_identifier",
-    )
+    search_fields = ("screening_identifier",)
 
     radio_fields = {
         "screening_consent": admin.VERTICAL,
@@ -109,19 +109,17 @@ class SubjectScreeningAdmin(ModelAdminDashboardMixin, SimpleHistoryAdmin):
     }
 
     def response_post_save_add(self, request, obj):
-        next = request.GET.get('next', None)
+        next = request.GET.get("next", None)
         self.clear_message(request)
         return redirect(next)
 
     def response_post_save_change(self, request, obj):
-        next = request.GET.get('next', None)
+        next = request.GET.get("next", None)
         self.clear_message(request)
         return redirect(next)
 
     def demographics(self, obj=None):
-        return mark_safe(
-            f"{obj.get_gender_display()} {obj.age_in_years}yrs "
-        )
+        return mark_safe(f"{obj.get_gender_display()} {obj.age_in_years}yrs ")
 
     def clear_message(self, request):
         storage = messages.get_messages(request)
