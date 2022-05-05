@@ -218,6 +218,8 @@ QN72 = (
     ("drug_industry", "Drug industry"),
     ("milling_industry", "Milling industry"),
     ("construction_industry", "Construction industry"),
+    ("gas_fuel_stations", "Gas / fuel stations"),
+    ("cement_industry", "Cement industry"),
     (NOT_APPLICABLE, "Not applicable"),
     (OTHER, "Other"),
 )
