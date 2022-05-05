@@ -3,8 +3,11 @@ from django.shortcuts import redirect
 from django.urls import reverse
 
 from edcs_consent.modeladmin_mixins import ModelAdminConsentMixin
-from edcs_model_admin.model_admin_form_auto_number_mixin import ModelAdminFormAutoNumberMixin
 from edcs_model_admin import SimpleHistoryAdmin, audit_fieldset_tuple
+from edcs_model_admin.model_admin_form_auto_number_mixin import (
+    ModelAdminFormAutoNumberMixin,
+)
+
 from ..admin_site import edcs_consent_admin
 from ..forms import SubjectConsentForm
 from ..models import SubjectConsent
@@ -28,6 +31,7 @@ class SubjectConsentAdmin(
                     "first_name",
                     "last_name",
                     "initials",
+                    "nationality",
                     "gender",
                     "language",
                     "is_literate",
@@ -78,15 +82,15 @@ class SubjectConsentAdmin(
 
     # TODO generate next url that will direct to patient dashboard
     def response_post_save_add(self, request, obj):
-        nxt = request.GET.get('next', None)
+        nxt = request.GET.get("next", None)
         self.clear_message(request)
         return redirect(nxt)
 
     def response_post_save_change(self, request, obj):
-        if request.GET.get('subject'):
-            nxt = reverse(request.GET.get('next'), args=[request.GET.get('subject')])
+        if request.GET.get("subject"):
+            nxt = reverse(request.GET.get("next"), args=[request.GET.get("subject")])
         else:
-            nxt = request.GET.get('next', None)
+            nxt = request.GET.get("next", None)
         self.clear_message(request)
         return redirect(nxt)
 
