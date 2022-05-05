@@ -67,6 +67,7 @@ class SubjectConsentAdmin(
     radio_fields = {
         "clinic_type": admin.VERTICAL,
         "patient_category": admin.VERTICAL,
+        "nationality": admin.VERTICAL,
         "assessment_score": admin.VERTICAL,
         "consent_copy": admin.VERTICAL,
         "consent_reviewed": admin.VERTICAL,

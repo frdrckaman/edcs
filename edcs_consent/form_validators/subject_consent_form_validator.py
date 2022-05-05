@@ -4,16 +4,16 @@ from django import forms
 from django.apps import apps as django_apps
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
+from pytz import timezone
+
 from edcs_form_validators import FormValidator
 from edcs_screening.utils import get_subject_screening_model_name
 from edcs_utils import AgeValueError, age
 from edcs_utils.date import to_utc
 from edcs_utils.text import convert_php_dateformat
-from pytz import timezone
 
 
 class SubjectConsentFormValidatorMixin(FormValidator):
-
     """Form Validator mixin for the consent model."""
 
     subject_screening_model = get_subject_screening_model_name()
@@ -32,6 +32,7 @@ class SubjectConsentFormValidatorMixin(FormValidator):
         self.tz = timezone(settings.TIME_ZONE)
         self.identity = self.cleaned_data.get("identity")
         self.initials = self.cleaned_data.get("initials")
+        self.nationality = self.cleaned_data.get("nationality")
 
     def clean(self):
 
@@ -65,7 +66,9 @@ class SubjectConsentFormValidatorMixin(FormValidator):
                     raise forms.ValidationError(
                         {"consent_datetime": "This field is required."}
                     )
-                self._consent_datetime = to_utc(self.cleaned_data.get("consent_datetime"))
+                self._consent_datetime = to_utc(
+                    self.cleaned_data.get("consent_datetime")
+                )
             else:
                 self._consent_datetime = self.instance.consent_datetime
         return self._consent_datetime
@@ -96,7 +99,10 @@ class SubjectConsentFormValidatorMixin(FormValidator):
 
     def validate_age(self) -> None:
         """Validate age matches that on the screening form."""
-        if self.dob and self.screening_age_in_years != self.subject_screening.age_in_years:
+        if (
+            self.dob
+            and self.screening_age_in_years != self.subject_screening.age_in_years
+        ):
             raise forms.ValidationError(
                 {
                     "dob": "Age mismatch. The date of birth entered does "
@@ -132,23 +138,29 @@ class SubjectConsentFormValidatorMixin(FormValidator):
 
     def validate_dob_estimated(self) -> None:
         """Validate patient know date of birth on the screening form."""
-        if self.is_dob_estimated == '-' and self.subject_screening.patient_know_dob == 'No':
+        if (
+            self.is_dob_estimated == "-"
+            and self.subject_screening.patient_know_dob == "No"
+        ):
             raise forms.ValidationError(
-                    {
-                        "is_dob_estimated": "Option can not NO, "
-                        f"because its specified during screening that patient does not know his/her date of birth."
-                    }
-                )
+                {
+                    "is_dob_estimated": "Option can not NO, "
+                    f"because its specified during screening that patient does not know his/her date of birth."
+                }
+            )
 
     def validate_screening_dob(self) -> None:
         """Validate patient date of birth on the screening form."""
-        if self.dob != self.subject_screening.patient_dob and self.subject_screening.patient_know_dob == 'Yes':
+        if (
+            self.dob != self.subject_screening.patient_dob
+            and self.subject_screening.patient_know_dob == "Yes"
+        ):
             raise forms.ValidationError(
                 {
                     "dob": "Date mismatch. The date of birth entered does "
-                           f"not match the date of birth entered at screening. "
-                           f"Expected {self.subject_screening.patient_dob}. "
-                           f"Got {self.dob}."
+                    f"not match the date of birth entered at screening. "
+                    f"Expected {self.subject_screening.patient_dob}. "
+                    f"Got {self.dob}."
                 }
             )
 
@@ -192,8 +204,18 @@ class SubjectConsentFormValidatorMixin(FormValidator):
             raise forms.ValidationError(
                 {
                     "identity": "Hospital ID mismatch. The Hospital ID entered does "
-                                f"not match that reported at screening. "
-                                f"Expected '{self.subject_screening.hospital_id}'. "
+                    f"not match that reported at screening. "
+                    f"Expected '{self.subject_screening.hospital_id}'. "
+                }
+            )
+
+    def validate_nationality(self) -> None:
+        if self.nationality != self.subject_screening.nationality:
+            raise forms.ValidationError(
+                {
+                    "nationality": "Nationality mismatch. The Nationality entered does "
+                    f"not match that reported at screening. "
+                    f"Expected '{self.subject_screening.nationality}'. "
                 }
             )
 
@@ -202,7 +224,7 @@ class SubjectConsentFormValidatorMixin(FormValidator):
             raise forms.ValidationError(
                 {
                     "initials": "Patient initials mismatch. Patient initials entered does "
-                                f"not match that reported at screening. "
-                                f"Expected '{self.subject_screening.initials}'. "
+                    f"not match that reported at screening. "
+                    f"Expected '{self.subject_screening.initials}'. "
                 }
             )

@@ -182,15 +182,9 @@ ARV_STATUS_WITH_NEVER = (
 CONFIRMED_SUSPECTED = (("CONFIRMED", "Confirmed"), ("SUSPECTED", "Suspected"))
 
 COUNTRY = (
-    ("botswana", "Botswana"),
-    ("zimbabwe", "Zimbabwe"),
-    ("rsa", "South Africa"),
-    ("zambia", "Zambia"),
-    ("namibia", "Namibia"),
-    ("nigeria", "Nigeria"),
-    ("china", "China"),
-    ("india", "India"),
-    ("OTHER", "Other"),
+    ("tanzanian", "Tanzanian"),
+    ("ugandan", "Ugandan"),
+    (OTHER, "Other"),
 )
 
 MARITAL_STATUS = (

@@ -10,7 +10,7 @@ from edcs_consent.field_mixins import (
     VulnerabilityFieldsMixin,
 )
 from edcs_consent.model_mixins import ConsentModelMixin
-from edcs_constants.choices import GENDER
+from edcs_constants.choices import COUNTRY, GENDER
 from edcs_constants.constants import NOT_APPLICABLE
 from edcs_identifier.model_mixins import NonUniqueSubjectIdentifierModelMixin
 from edcs_identifier.subject_identifier import (
@@ -91,7 +91,7 @@ class SubjectConsent(
     )
 
     nationality = models.CharField(
-        verbose_name="Nationality", max_length=60, default="Tz"
+        verbose_name="Nationality", max_length=60, choices=COUNTRY
     )
 
     identity_type = models.CharField(
