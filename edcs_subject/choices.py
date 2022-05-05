@@ -65,6 +65,12 @@ MATERIAL_BUILD_FLOOR = (
     (OTHER, "Others"),
 )
 
+IRON = (
+    ("yes_electrical", "Yes electrical"),
+    ("yes_charcoal_iron", "Yes charcoal iron"),
+    ("no", "No"),
+)
+
 MATERIAL_BUILD_WALL = (
     ("soil_sand_mud", "There is no wall"),
     ("cement_concrete_tiles", "Grass"),

@@ -7,6 +7,7 @@ from edcs_utils import get_utcnow
 from ..choices import (
     COOKING,
     EDUCATION,
+    IRON,
     MATERIAL_BUILD_FLOOR,
     MATERIAL_BUILD_ROOFING,
     MATERIAL_BUILD_WALL,
@@ -61,8 +62,8 @@ class DemographicCharacteristic(CrfModelMixin, edcs_models.BaseUuidModel):
     )
     an_iron = models.CharField(
         verbose_name="Do you have an Iron in your household?",
-        max_length=15,
-        choices=YES_NO,
+        max_length=45,
+        choices=IRON,
     )
     bank_account = models.CharField(
         verbose_name="Does anyone in your household own a bank account?",
