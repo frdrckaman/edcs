@@ -35,3 +35,9 @@ class Contraceptives(ListModelMixin):
     class Meta(ListModelMixin.Meta):
         verbose_name = "Contraceptives"
         verbose_name_plural = "Contraceptives"
+
+
+class CovidVaccine(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Covid Vaccine"
+        verbose_name_plural = "Covid Vaccine"

@@ -252,6 +252,7 @@ QN82 = (
 )
 
 COVID_VACCINE = (
+    (NOT_APPLICABLE, "Not applicable"),
     ("dont_know_type", "Don’t know type"),
     ("pfizer_biontech_moderna", "Pfizer/BioNTech Moderna"),
     ("oxford_astraZeneca", "Oxford/AstraZeneca"),
@@ -261,7 +262,7 @@ COVID_VACCINE = (
     ("sputnik", "Sputnik"),
     ("valneva", "Valneva"),
     ("sinopharm", "Sinopharm"),
-    (NOT_APPLICABLE, "Not applicable"),
+    (OTHER, "Other"),
 )
 
 QN87 = (

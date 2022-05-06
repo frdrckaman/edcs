@@ -83,6 +83,19 @@ list_data = {
         ("traditional_contraceptives", "Traditional contraceptives"),
         (OTHER, "Other"),
     ],
+    "edcs_lists.covidvaccine": [
+        (NOT_APPLICABLE, "Not applicable"),
+        ("dont_know_type", "Don’t know type"),
+        ("pfizer_biontech_moderna", "Pfizer/BioNTech Moderna"),
+        ("oxford_astraZeneca", "Oxford/AstraZeneca"),
+        ("janssen_johnson_Johnson", "Janssen\Johnson&Johnson"),
+        ("novavax", "Novavax"),
+        ("sinovac", "Sinovac"),
+        ("sputnik", "Sputnik"),
+        ("valneva", "Valneva"),
+        ("sinopharm", "Sinopharm"),
+        (OTHER, "Other"),
+    ],
 }
 
 # preload_data = PreloadData(list_data=list_data)

@@ -4,10 +4,10 @@ from django_audit_fields import audit_fieldset_tuple
 from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 
-from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
 from ..forms import CovidInfectionHistoryForm
 from ..models import CovidInfectionHistory
+from .modeladmin_mixins import CrfModelAdminMixin
 
 
 @admin.register(CovidInfectionHistory, site=edcs_subject_admin)
@@ -59,12 +59,11 @@ class CovidInfectionHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     )
 
     filter_horizontal = [
-        "covid_symptoms"
+        "covid_symptoms",
+        "covid_vaccine",
     ]
 
-    search_fields = (
-        "report_datetime",
-    )
+    search_fields = ("report_datetime",)
 
     radio_fields = {
         "think_had_covid": admin.VERTICAL,
@@ -73,7 +72,6 @@ class CovidInfectionHistoryAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "swab_test": admin.VERTICAL,
         "swab_test_results": admin.VERTICAL,
         "covid_vaccinated": admin.VERTICAL,
-        "covid_vaccine": admin.VERTICAL,
         "vaccine_provider": admin.VERTICAL,
         "no_covid_vaccine": admin.VERTICAL,
         "crf_status": admin.VERTICAL,
