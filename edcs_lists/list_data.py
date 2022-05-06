@@ -1,4 +1,12 @@
-from edcs_constants.constants import OTHER
+from edcs_constants.constants import (
+    NEVER,
+    NOT_APPLICABLE,
+    OTHER,
+    YES_CURRENT_CHEW,
+    YES_CURRENT_SMOKER,
+    YES_PAST_CHEW,
+    YES_PAST_SMOKER,
+)
 
 list_data = {
     "edcs_lists.covidsymptoms": [
@@ -15,7 +23,6 @@ list_data = {
         ("loss_taste", "Loss of taste"),
         ("no_loss_smell", "No Loss of smell"),
     ],
-
     "edcs_lists.familymembers": [
         ("mother", "Mother"),
         ("father", "Father"),
@@ -31,19 +38,39 @@ list_data = {
         ("paternal_grandfather", "Paternal Grandfather"),
         (OTHER, "Other"),
     ],
-
     "edcs_lists.lungcancersymptoms": [
         ("cough_3_week", "A cough that doesn't go away after 2 or 3 weeks"),
         ("long_standing_cough", "A long-standing cough that gets worse"),
         ("coughing_blood", "Coughing up blood or rust-colored sputum (spit or phlegm)"),
-        ("chest_infections", " Chest infections that keep coming back such as bronchitis, pneumonia etc"),
-        ("chest_pain_coughing", " Chest pain that is often worsen when breathing or coughing"),
+        (
+            "chest_infections",
+            " Chest infections that keep coming back such as bronchitis, pneumonia etc",
+        ),
+        (
+            "chest_pain_coughing",
+            " Chest pain that is often worsen when breathing or coughing",
+        ),
         ("persistent_breathlessness", "Persistent breathlessness"),
         ("tiredness_lack_energy", "Persistent tiredness or lack of energy"),
         ("wheezing", " Wheezing"),
         ("shortness_of_breath", "Shortness of breath"),
         ("unexplained_weight_loss", "Unexplained weight loss"),
         (OTHER, "Other"),
+    ],
+    "edcs_lists.smokingtobaccoproducts": [
+        (YES_CURRENT_SMOKER, "Yes, Current smoker"),
+        (YES_PAST_SMOKER, "Yes, past smoker"),
+        (YES_CURRENT_CHEW, "Yes, current chew tobacco"),
+        (YES_PAST_CHEW, "Yes, past chew tobacco"),
+        (NEVER, "Never"),
+    ],
+    "edcs_lists.tobaccoproducts": [
+        ("yes_cigarettes", "Yes, Cigarettes"),
+        ("yes_cigars", "Yes, Cigars"),
+        ("yes_shisha", "Yes, Shisha"),
+        ("yes_pipes", "Yes, pipes"),
+        ("none_of_above", "None of the above"),
+        (NOT_APPLICABLE, "Not applicable"),
     ],
 }
 

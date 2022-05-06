@@ -4,10 +4,10 @@ from django_audit_fields import audit_fieldset_tuple
 from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 
-from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
 from ..forms import SignSymptomLungCancerForm
 from ..models import SignSymptomLungCancer
+from .modeladmin_mixins import CrfModelAdminMixin
 
 
 @admin.register(SignSymptomLungCancer, site=edcs_subject_admin)
@@ -65,20 +65,16 @@ class SignSymptomLungCancerAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "investigations_ordered",
     )
 
-    search_fields = (
-        "report_datetime",
-    )
+    search_fields = ("report_datetime",)
 
-    filter_horizontal = [
-        "what_brought_hospital"
-    ]
+    filter_horizontal = ["what_brought_hospital"]
 
     radio_fields = {
         "symptoms_how_long": admin.VERTICAL,
         "characterize_symptoms": admin.VERTICAL,
         "family_member_same_symptoms": admin.VERTICAL,
         "family_member_relationship": admin.VERTICAL,
-        "chest_radiation":admin.VERTICAL,
+        "chest_radiation": admin.VERTICAL,
         # "family_member_dx_cancer": admin.VERTICAL,
         "investigations_ordered": admin.VERTICAL,
         "crf_status": admin.VERTICAL,

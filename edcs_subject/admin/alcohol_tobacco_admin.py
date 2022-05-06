@@ -4,10 +4,10 @@ from django_audit_fields import audit_fieldset_tuple
 from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 
-from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
 from ..forms import AlcoholTobaccoUseForm
 from ..models import AlcoholTobaccoUse
+from .modeladmin_mixins import CrfModelAdminMixin
 
 
 @admin.register(AlcoholTobaccoUse, site=edcs_subject_admin)
@@ -21,7 +21,7 @@ class AlcoholTobaccoUseAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
             "TOBACCO",
             {
                 "fields": (
-                    "smoke_tobacco",
+                    "smoke_chew_tobacco",
                     "tobacco_product",
                     "date_start_smoking",
                     "smoking_frequency",
@@ -51,7 +51,6 @@ class AlcoholTobaccoUseAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
     list_display = (
         "report_datetime",
-        "smoke_tobacco",
         "age_start_smoking",
         "smoke_inside_house",
         "consume_alcohol",
@@ -59,7 +58,6 @@ class AlcoholTobaccoUseAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     )
 
     list_filter = (
-        "tobacco_product",
         "smoking_frequency",
         "smoking_frequency_other",
         "no_tobacco_product_smoked",
@@ -69,12 +67,13 @@ class AlcoholTobaccoUseAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "smoke_inside_house",
     )
 
-    search_fields = (
-        "report_datetime",
-    )
+    search_fields = ("report_datetime",)
+
+    filter_horizontal = [
+        "smoke_chew_tobacco",
+    ]
 
     radio_fields = {
-        "smoke_tobacco": admin.VERTICAL,
         "tobacco_product": admin.VERTICAL,
         "smoking_frequency": admin.VERTICAL,
         "someone_else_smoke": admin.VERTICAL,

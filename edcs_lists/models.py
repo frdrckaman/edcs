@@ -17,3 +17,15 @@ class LungCancerSymptoms(ListModelMixin):
     class Meta(ListModelMixin.Meta):
         verbose_name = "Lung Cancer Symptoms"
         verbose_name_plural = "Lung Cancer Symptoms"
+
+
+class SmokingTobaccoProducts(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Smoking Tobacco Products"
+        verbose_name_plural = "Smoking Tobacco Products"
+
+
+class TobaccoProducts(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Tobacco Products"
+        verbose_name_plural = "Tobacco Products"

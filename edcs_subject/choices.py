@@ -11,9 +11,11 @@ from edcs_constants.constants import (
     NOT_APPLICABLE,
     OTHER,
     POSITIVE_TEST,
+    YES_CURRENT_CHEW,
     YES_CURRENT_CONSUMER,
     YES_CURRENT_SMOKER,
     YES_CURRENT_USER,
+    YES_PAST_CHEW,
     YES_PAST_CONSUMER,
     YES_PAST_SMOKER,
     YES_PAST_USER,
@@ -112,6 +114,8 @@ POWER_SOURCE = (
 SMOKE_TOBACCO_PRODUCTS = (
     (YES_CURRENT_SMOKER, "Yes, Current smoker"),
     (YES_PAST_SMOKER, "Yes, past smoker"),
+    (YES_CURRENT_CHEW, "Yes, current chew tobacco"),
+    (YES_PAST_CHEW, "Yes, past chew tobacco"),
     (NEVER, "Never"),
 )
 

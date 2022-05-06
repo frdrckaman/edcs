@@ -2,10 +2,10 @@ from django.db import models
 
 from edcs_constants.choices import YES_NO
 from edcs_constants.constants import NOT_APPLICABLE
+from edcs_lists.models import SmokingTobaccoProducts
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
-from ..model_mixins import CrfModelMixin
 from ..choices import (
     ALCOHOL_CONSUMPTION,
     ALCOHOL_CONSUMPTION_FREQUENCY,
@@ -14,6 +14,7 @@ from ..choices import (
     SMOKE_TOBACCO_PRODUCTS_FREQUENCY,
     TOBACCO_PRODUCTS,
 )
+from ..model_mixins import CrfModelMixin
 
 
 class AlcoholTobaccoUse(CrfModelMixin, edcs_models.BaseUuidModel):
@@ -23,14 +24,12 @@ class AlcoholTobaccoUse(CrfModelMixin, edcs_models.BaseUuidModel):
         help_text="Date and time of report.",
     )
 
-    smoke_tobacco = models.CharField(
-        verbose_name="Do you smoke tobacco products?",
-        max_length=45,
-        choices=SMOKE_TOBACCO_PRODUCTS,
+    smoke_chew_tobacco = models.ManyToManyField(
+        SmokingTobaccoProducts, verbose_name="Do you smoke or chew tobacco products?"
     )
 
     tobacco_product = models.CharField(
-        verbose_name="If currently/past smoker, which tobacco products do you/ did you smoke.",
+        verbose_name="If currently/past smoker/chew, which tobacco products do you/ did you smoke/chew.",
         max_length=45,
         choices=TOBACCO_PRODUCTS,
         default=NOT_APPLICABLE,
@@ -92,7 +91,7 @@ class AlcoholTobaccoUse(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="How frequently do you consume alcohol?",
         max_length=45,
         choices=ALCOHOL_CONSUMPTION_FREQUENCY,
-        default=NOT_APPLICABLE
+        default=NOT_APPLICABLE,
     )
 
     alcohol_consumption_frequency_other = edcs_models.OtherCharField()
