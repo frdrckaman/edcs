@@ -2,6 +2,7 @@ from django import forms
 
 from edcs_constants.constants import (
     NOT_APPLICABLE,
+    OTHER,
     YES,
     YES_CURRENT_USER,
     YES_PAST_USER,
@@ -27,6 +28,9 @@ class ContraceptiveUseReproductiveHistoryFormValidator(FormValidator):
             YES,
             field="post_menopausal_hormone_therapy",
             field_applicable="how_long_post_menopausal_hormone_therapy",
+        )
+        self.required_if(
+            OTHER, field="contraceptives", field_required="contraceptives_other"
         )
 
     def validate_how_long_use_oral_contraceptives(self):

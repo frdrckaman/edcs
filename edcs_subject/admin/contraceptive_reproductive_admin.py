@@ -27,6 +27,7 @@ class ContraceptiveUseReproductiveHistoryAdmin(CrfModelAdminMixin, SimpleHistory
                     "breast_feed",
                     "use_contraceptives",
                     "contraceptives",
+                    "contraceptives_other",
                     "how_long_use_oral_contraceptives",
                     "when_stop_use_contraceptives",
                     "post_menopausal_hormone_therapy",
