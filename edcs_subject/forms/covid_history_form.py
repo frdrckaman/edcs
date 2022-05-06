@@ -33,14 +33,18 @@ class CovidInfectionHistoryFormValidator(FormValidator):
             field="swab_test_results",
             field_required="date_last_negative_test",
         )
-        self.applicable_if(
-            YES, field="covid_vaccinated", field_applicable="covid_vaccine"
+        # self.applicable_if(
+        #     YES, field="covid_vaccinated", field_applicable="covid_vaccine"
+        # )
+        self.m2m_required_if(YES, field="covid_vaccinated", m2m_field="covid_vaccine")
+        self.required_if(
+            OTHER, field="covid_vaccine", field_required="covid_vaccine_other"
         )
         self.applicable_if(
             YES, field="covid_vaccinated", field_applicable="vaccine_provider"
         )
         self.required_if(
-            OTHER, field="vaccine_provider", field_required="other_vaccine_provider"
+            OTHER, field="vaccine_provider", field_required="vaccine_provider_other"
         )
         self.applicable_if(
             YES, field="covid_vaccinated", field_applicable="no_covid_vaccine"

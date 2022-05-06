@@ -83,10 +83,15 @@ class CovidInfectionHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         max_length=15,
         choices=YES_NO,
     )
+
     covid_vaccine = models.ManyToManyField(
         CovidVaccine,
         verbose_name="If yes, what type of vaccination",
+        null=True,
+        blank=True,
     )
+
+    covid_vaccine_other = edcs_models.OtherCharField()
 
     vaccine_provider = models.CharField(
         verbose_name="If Yes who provided the vaccine",
@@ -95,7 +100,7 @@ class CovidInfectionHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         default=NOT_APPLICABLE,
     )
 
-    other_vaccine_provider = edcs_models.OtherCharField()
+    vaccine_provider_other = edcs_models.OtherCharField()
 
     no_covid_vaccine = models.CharField(
         verbose_name="How many doses have you received to date?",

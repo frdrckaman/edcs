@@ -266,6 +266,7 @@ COVID_VACCINE = (
 )
 
 QN87 = (
+    ("government_tanzania", "Government of Tanzania"),
     ("government_uganda", "Government of Uganda"),
     ("research_study", "Research study/trial "),
     (OTHER, "Others"),
