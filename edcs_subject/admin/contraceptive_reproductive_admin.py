@@ -28,7 +28,7 @@ class ContraceptiveUseReproductiveHistoryAdmin(CrfModelAdminMixin, SimpleHistory
                     "use_contraceptives",
                     "contraceptives",
                     "contraceptives_other",
-                    "how_long_use_oral_contraceptives",
+                    "how_long_use_contraceptives",
                     "when_stop_use_contraceptives",
                     "post_menopausal_hormone_therapy",
                     "how_long_post_menopausal_hormone_therapy",
@@ -47,7 +47,7 @@ class ContraceptiveUseReproductiveHistoryAdmin(CrfModelAdminMixin, SimpleHistory
         "age_have_last_child",
         "breast_feed",
         "use_contraceptives",
-        "how_long_use_oral_contraceptives",
+        "how_long_use_contraceptives",
         "age_attain_menopause",
         "created",
     )
@@ -58,7 +58,7 @@ class ContraceptiveUseReproductiveHistoryAdmin(CrfModelAdminMixin, SimpleHistory
         "age_have_last_child",
         "breast_feed",
         "use_contraceptives",
-        "how_long_use_oral_contraceptives",
+        "how_long_use_contraceptives",
         "age_attain_menopause",
     )
 
@@ -74,7 +74,7 @@ class ContraceptiveUseReproductiveHistoryAdmin(CrfModelAdminMixin, SimpleHistory
         "age_have_last_child": admin.VERTICAL,
         "breast_feed": admin.VERTICAL,
         "use_contraceptives": admin.VERTICAL,
-        "how_long_use_oral_contraceptives": admin.VERTICAL,
+        "how_long_use_contraceptives": admin.VERTICAL,
         "when_stop_use_contraceptives": admin.VERTICAL,
         "post_menopausal_hormone_therapy": admin.VERTICAL,
         "how_long_post_menopausal_hormone_therapy": admin.VERTICAL,

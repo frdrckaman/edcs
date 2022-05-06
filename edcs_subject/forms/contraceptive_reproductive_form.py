@@ -16,9 +16,9 @@ from ..models import ContraceptiveUseReproductiveHistory
 class ContraceptiveUseReproductiveHistoryFormValidator(FormValidator):
     def __init__(self):
         super().__init__()
-        self.use_oral_contraceptives = self.cleaned_data.get("use_oral_contraceptives")
+        self.use_contraceptives = self.cleaned_data.get("use_contraceptives")
         self.how_long_use_oral_contraceptives = self.cleaned_data.get(
-            "how_long_use_oral_contraceptives"
+            "how_long_use_contraceptives"
         )
 
     def clean(self):
@@ -35,11 +35,11 @@ class ContraceptiveUseReproductiveHistoryFormValidator(FormValidator):
 
     def validate_how_long_use_oral_contraceptives(self):
         if (
-            self.use_oral_contraceptives == YES_CURRENT_USER
-            or self.use_oral_contraceptives == YES_PAST_USER
+            self.use_contraceptives == YES_CURRENT_USER
+            or self.use_contraceptives == YES_PAST_USER
         ) and self.how_long_use_oral_contraceptives == NOT_APPLICABLE:
             raise forms.ValidationError(
-                {"how_long_use_oral_contraceptives": "This field is Applicable "}
+                {"how_long_use_contraceptives": "This field is Applicable "}
             )
 
 

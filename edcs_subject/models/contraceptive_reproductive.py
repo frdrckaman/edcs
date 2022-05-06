@@ -59,7 +59,7 @@ class ContraceptiveUseReproductiveHistory(CrfModelMixin, edcs_models.BaseUuidMod
 
     contraceptives_other = edcs_models.OtherCharField()
 
-    how_long_use_oral_contraceptives = models.CharField(
+    how_long_use_contraceptives = models.CharField(
         verbose_name="If yes, how long have you been using the named above contraceptives?",
         max_length=45,
         choices=QN65,
