@@ -16,8 +16,8 @@ from ..models import AirPollutionFollowUp
 class AlcoholTobaccoUseFormValidator(FormValidator):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.smoke_tobacco = self.cleaned_data.get("smoke_tobacco")
-        self.tobacco_product = self.cleaned_data.get("tobacco_product")
+        self.smoke_tobacco = self.cleaned_data.get("smoke_chew_tobacco")
+        self.tobacco_product = self.cleaned_data.get("tobacco_products")
         self.date_start_smoking = self.cleaned_data.get("date_start_smoking")
         self.smoking_frequency = self.cleaned_data.get("smoking_frequency")
         self.smoking_frequency_other = self.cleaned_data.get("smoking_frequency_other")
@@ -44,19 +44,23 @@ class AlcoholTobaccoUseFormValidator(FormValidator):
         self.validate_no_tobacco_product_smoked()
 
         self.not_applicable_if(
-            NEVER, field="smoke_tobacco", field_applicable="tobacco_product"
+            NEVER, field="smoke_chew_tobacco", field_applicable="tobacco_products"
         )
         self.not_applicable_if(
-            NEVER, field="smoke_tobacco", field_applicable="smoking_frequency"
+            NEVER, field="smoke_chew_tobacco", field_applicable="smoking_frequency"
         )
         self.required_if(
             OTHER, field="smoking_frequency", field_required="smoking_frequency_other"
         )
         self.required_if(
-            YES_PAST_SMOKER, field="smoke_tobacco", field_required="age_start_smoking"
+            YES_PAST_SMOKER,
+            field="smoke_chew_tobacco",
+            field_required="age_start_smoking",
         )
         self.required_if(
-            YES_PAST_SMOKER, field="smoke_tobacco", field_required="age_stop_smoking"
+            YES_PAST_SMOKER,
+            field="smoke_chew_tobacco",
+            field_required="age_stop_smoking",
         )
         self.applicable_if(
             YES, field="someone_else_smoke", field_applicable="smoke_inside_house"
