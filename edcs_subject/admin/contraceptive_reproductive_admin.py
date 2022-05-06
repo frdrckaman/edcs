@@ -5,9 +5,9 @@ from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 
 from ..admin_site import edcs_subject_admin
-from .modeladmin_mixins import CrfModelAdminMixin
 from ..forms import ContraceptiveUseReproductiveHistoryForm
 from ..models import ContraceptiveUseReproductiveHistory
+from .modeladmin_mixins import CrfModelAdminMixin
 
 
 @admin.register(ContraceptiveUseReproductiveHistory, site=edcs_subject_admin)
@@ -25,7 +25,8 @@ class ContraceptiveUseReproductiveHistoryAdmin(CrfModelAdminMixin, SimpleHistory
                     "age_have_first_child",
                     "age_have_last_child",
                     "breast_feed",
-                    "use_oral_contraceptives",
+                    "use_contraceptives",
+                    "contraceptives",
                     "how_long_use_oral_contraceptives",
                     "when_stop_use_contraceptives",
                     "post_menopausal_hormone_therapy",
@@ -44,7 +45,7 @@ class ContraceptiveUseReproductiveHistoryAdmin(CrfModelAdminMixin, SimpleHistory
         "age_attain_menarche",
         "age_have_last_child",
         "breast_feed",
-        "use_oral_contraceptives",
+        "use_contraceptives",
         "how_long_use_oral_contraceptives",
         "age_attain_menopause",
         "created",
@@ -55,21 +56,23 @@ class ContraceptiveUseReproductiveHistoryAdmin(CrfModelAdminMixin, SimpleHistory
         "age_attain_menarche",
         "age_have_last_child",
         "breast_feed",
-        "use_oral_contraceptives",
+        "use_contraceptives",
         "how_long_use_oral_contraceptives",
         "age_attain_menopause",
     )
 
-    search_fields = (
-        "report_datetime",
-    )
+    search_fields = ("report_datetime",)
+
+    filter_horizontal = [
+        "contraceptives",
+    ]
 
     radio_fields = {
         "age_attain_menarche": admin.VERTICAL,
         "age_have_first_child": admin.VERTICAL,
         "age_have_last_child": admin.VERTICAL,
         "breast_feed": admin.VERTICAL,
-        "use_oral_contraceptives": admin.VERTICAL,
+        "use_contraceptives": admin.VERTICAL,
         "how_long_use_oral_contraceptives": admin.VERTICAL,
         "when_stop_use_contraceptives": admin.VERTICAL,
         "post_menopausal_hormone_therapy": admin.VERTICAL,

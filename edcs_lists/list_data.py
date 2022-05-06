@@ -65,12 +65,23 @@ list_data = {
         (NEVER, "Never"),
     ],
     "edcs_lists.tobaccoproducts": [
+        (NOT_APPLICABLE, "Not applicable"),
         ("yes_cigarettes", "Yes, Cigarettes"),
         ("yes_cigars", "Yes, Cigars"),
         ("yes_shisha", "Yes, Shisha"),
         ("yes_pipes", "Yes, pipes"),
         ("none_of_above", "None of the above"),
+    ],
+    "edcs_lists.contraceptives": [
         (NOT_APPLICABLE, "Not applicable"),
+        ("oral_contraceptives.", "Oral contraceptives."),
+        ("injectables", "Injectables"),
+        ("implants", "Implants"),
+        ("intra_uterine_device", "Intra Uterine Device"),
+        ("patch", "Patch"),
+        ("rings", "Rings"),
+        ("traditional_contraceptives", "Traditional contraceptives"),
+        (OTHER, "Other"),
     ],
 }
 

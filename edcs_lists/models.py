@@ -29,3 +29,9 @@ class TobaccoProducts(ListModelMixin):
     class Meta(ListModelMixin.Meta):
         verbose_name = "Tobacco Products"
         verbose_name_plural = "Tobacco Products"
+
+
+class Contraceptives(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Contraceptives"
+        verbose_name_plural = "Contraceptives"
