@@ -2,7 +2,7 @@ from django.db import models
 
 from edcs_constants.choices import YES_NO
 from edcs_constants.constants import NOT_APPLICABLE
-from edcs_lists.models import SmokingTobaccoProducts
+from edcs_lists.models import SmokingTobaccoProducts, TobaccoProducts
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
@@ -28,11 +28,9 @@ class AlcoholTobaccoUse(CrfModelMixin, edcs_models.BaseUuidModel):
         SmokingTobaccoProducts, verbose_name="Do you smoke or chew tobacco products?"
     )
 
-    tobacco_product = models.CharField(
+    tobacco_products = models.ManyToManyField(
+        TobaccoProducts,
         verbose_name="If currently/past smoker/chew, which tobacco products do you/ did you smoke/chew.",
-        max_length=45,
-        choices=TOBACCO_PRODUCTS,
-        default=NOT_APPLICABLE,
     )
 
     date_start_smoking = models.DateField(

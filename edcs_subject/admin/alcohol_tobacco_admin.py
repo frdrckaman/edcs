@@ -22,7 +22,7 @@ class AlcoholTobaccoUseAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
             {
                 "fields": (
                     "smoke_chew_tobacco",
-                    "tobacco_product",
+                    "tobacco_products",
                     "date_start_smoking",
                     "smoking_frequency",
                     "smoking_frequency_other",
@@ -71,10 +71,10 @@ class AlcoholTobaccoUseAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
     filter_horizontal = [
         "smoke_chew_tobacco",
+        "tobacco_products",
     ]
 
     radio_fields = {
-        "tobacco_product": admin.VERTICAL,
         "smoking_frequency": admin.VERTICAL,
         "someone_else_smoke": admin.VERTICAL,
         "smoke_inside_house": admin.VERTICAL,
