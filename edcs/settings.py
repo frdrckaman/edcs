@@ -51,8 +51,15 @@ SUBJECT_CONSENT_MODEL = env.str("EDCS_SUBJECT_CONSENT_MODEL")
 
 SUBJECT_VISIT_MODEL = env.str("EDCS_SUBJECT_VISIT_MODEL")
 
-ALLOWED_HOSTS = ["www.u54lungcancer.org", "u54lungcancer.org", "mnh.uat.tz.u54lungcancer.org", "mnrh.uat.ug.u54lungcancer.org",
-                 "orci.uat.tz.u54lungcancer.org", "uci.uat.ug.u54lungcancer.org", "0.0.0.0", "localhost"]
+ALLOWED_HOSTS = [
+    "www.u54lungcancer.org",
+    "u54lungcancer.org",
+    "mnh.uat.tz.u54lungcancer.org",
+    "mnrh.uat.ug.u54lungcancer.org",
+    "orci.uat.tz.u54lungcancer.org",
+    "uci.uat.ug.u54lungcancer.org",
+    "localhost",
+]
 
 
 # Application definition
@@ -68,8 +75,8 @@ INSTALLED_APPS = [
     "django_audit_fields.apps.AppConfig",
     "logentry_admin",
     "django.contrib.sites",
-    'django_celery_beat',
-    'django_celery_results',
+    "django_celery_beat",
+    "django_celery_results",
     "defender",
     "multisite",
     "simple_history",
@@ -100,7 +107,7 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "multisite.middleware.DynamicSiteMiddleware",
-    'django.contrib.sites.middleware.CurrentSiteMiddleware',
+    "django.contrib.sites.middleware.CurrentSiteMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "defender.middleware.FailedLoginMiddleware",
@@ -258,4 +265,4 @@ SITE_ID = SiteID(default=10)
 
 STATIC_URL = "/static/"
 
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = BASE_DIR / "static"

@@ -42,7 +42,6 @@ class CovidInfectionHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         CovidSymptoms,
         verbose_name="If yes, what symptoms did you have when you first had COVID-19?",
         related_name="covid_symptoms",
-        null=True,
         blank=True,
     )
 
@@ -87,7 +86,6 @@ class CovidInfectionHistory(CrfModelMixin, edcs_models.BaseUuidModel):
     covid_vaccine = models.ManyToManyField(
         CovidVaccine,
         verbose_name="If yes, what type of vaccination",
-        null=True,
         blank=True,
     )
 
