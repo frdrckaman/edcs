@@ -58,6 +58,15 @@ ALLOWED_HOSTS = [
     "mnrh.uat.ug.u54lungcancer.org",
     "orci.uat.tz.u54lungcancer.org",
     "uci.uat.ug.u54lungcancer.org",
+    "mnh.tz.edcs.u54lungcancer.org",
+    "orci.tz.edcs.u54lungcancer.org",
+    "mnrh.ug.edcs.u54lungcancer.org",
+    "uci.ug.edcs.u54lungcancer.org",
+    "mnh.uat.tz.edcs.u54lungcancer.org",
+    "orci.uat.tz.edcs.u54lungcancer.org",
+    "mnrh.uat.ug.edcs.u54lungcancer.org",
+    "uci.uat.ug.edcs.u54lungcancer.org",
+    "edcs.u54lungcancer.org",
     "localhost",
 ]
 
