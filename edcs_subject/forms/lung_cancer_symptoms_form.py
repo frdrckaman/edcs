@@ -9,8 +9,6 @@ from ..models import SignSymptomLungCancer
 
 class SignSymptomLungCancerFormValidator(FormValidator):
     def clean(self):
-        super().clean()
-
         self.m2m_other_specify(
             OTHER,
             m2m_field="what_brought_hospital",
