@@ -9,7 +9,6 @@ from ..models import OccupationalHistory
 
 class OccupationalHistoryFormValidator(FormValidator):
     def clean(self):
-        super().clean()
 
         self.applicable_if(
             YES,
