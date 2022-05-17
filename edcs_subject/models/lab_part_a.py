@@ -14,7 +14,7 @@ class LabPartA(CrfModelMixin, edcs_models.BaseUuidModel):
         help_text="Date and time of report.",
     )
 
-    hiv_rapid_test = models.IntegerField(
+    hiv_rapid_test = models.CharField(
         verbose_name="HIV rapid test",
         choices=TEST_RESULTS,
         max_length=45,
