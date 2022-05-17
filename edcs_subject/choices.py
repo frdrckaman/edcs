@@ -4,6 +4,7 @@ from edcs_constants.constants import (
     DONT_KNOW,
     GREATER_THAN_6MONTHS,
     INTERSTITIAL_LUNG_DISEASE,
+    LEFT,
     NEGATIVE,
     NEGATIVE_TEST,
     NEVER,
@@ -13,6 +14,7 @@ from edcs_constants.constants import (
     OTHER,
     POSITIVE,
     POSITIVE_TEST,
+    RIGHT,
     UNKNOWN,
     YES_CURRENT_CHEW,
     YES_CURRENT_CONSUMER,
@@ -613,4 +615,15 @@ TB_TEST_RESULT = (
     (POSITIVE, "Positive"),
     (NEGATIVE, "Negative"),
     ("indeterminate", "Indeterminate"),
+)
+
+BIOPSY_SIDE = (
+    (RIGHT, "Right"),
+    (LEFT, "Left"),
+)
+
+BIOPSY_SITE = (
+    ("right_lung", "Right lung (upper, middle or lower)"),
+    ("left_lung", "Left lung (upper, middle or lower)"),
+    ("pleura", "Pleura"),
 )

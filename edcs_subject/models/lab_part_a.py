@@ -7,6 +7,7 @@ from ..choices import TB_TEST_RESULT, TB_TEST_TYPE, TEST_RESULTS
 from ..model_mixins import CrfModelMixin
 
 
+# TODO put hint on form eg (copies/mL)
 class LabPartA(CrfModelMixin, edcs_models.BaseUuidModel):
     report_datetime = models.DateTimeField(
         verbose_name="Report Date and Time",
@@ -32,7 +33,7 @@ class LabPartA(CrfModelMixin, edcs_models.BaseUuidModel):
 
     tb_test_result = models.CharField(
         verbose_name="TB Test Results?",
-        max_length=125,
+        max_length=45,
         choices=TB_TEST_RESULT,
     )
 
