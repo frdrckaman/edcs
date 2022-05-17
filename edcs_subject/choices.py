@@ -4,13 +4,16 @@ from edcs_constants.constants import (
     DONT_KNOW,
     GREATER_THAN_6MONTHS,
     INTERSTITIAL_LUNG_DISEASE,
+    NEGATIVE,
     NEGATIVE_TEST,
     NEVER,
     NO,
     NONE_OF_ABOVE,
     NOT_APPLICABLE,
     OTHER,
+    POSITIVE,
     POSITIVE_TEST,
+    UNKNOWN,
     YES_CURRENT_CHEW,
     YES_CURRENT_CONSUMER,
     YES_CURRENT_SMOKER,
@@ -591,4 +594,23 @@ FAMILY_MEMBERS = (
     ("paternal_grandmother", "Paternal Grandmother"),
     ("paternal_grandfather", "Paternal Grandfather"),
     (OTHER, "Other"),
+)
+
+TEST_RESULTS = (
+    (POSITIVE, "Positive"),
+    (NEGATIVE, "Negative"),
+    (UNKNOWN, "Unknown"),
+)
+
+TB_TEST_TYPE = (
+    ("microscopy", "Microscopy (ZN /Auramine)"),
+    ("genexpert", "GeneXpert"),
+    ("tb_lam", "TB LAM"),
+    (OTHER, "Other"),
+)
+
+TB_TEST_RESULT = (
+    (POSITIVE, "Positive"),
+    (NEGATIVE, "Negative"),
+    ("indeterminate", "Indeterminate"),
 )
