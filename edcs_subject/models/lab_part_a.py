@@ -1,5 +1,6 @@
 from django.db import models
 
+from edcs_constants.choices import POS_NEG
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
@@ -34,7 +35,7 @@ class LabPartA(CrfModelMixin, edcs_models.BaseUuidModel):
     tb_test_result = models.CharField(
         verbose_name="TB Test Results?",
         max_length=45,
-        choices=TB_TEST_RESULT,
+        choices=POS_NEG,
     )
 
     baseline_cd4_counts = models.IntegerField(

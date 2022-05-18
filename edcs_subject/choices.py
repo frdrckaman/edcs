@@ -350,8 +350,8 @@ QN100 = (
 )
 
 QN101 = (
-    ("tb_positive", "TB positive"),
-    ("tb_negative", "TB negative (No TB)"),
+    ("TB_POS", "TB positive"),
+    ("TB_NEG", "TB negative (No TB)"),
     ("inconclusive_results", "Inconclusive results"),
 )
 
@@ -381,8 +381,8 @@ QN105 = (
 )
 
 QN106 = (
-    ("hiv_positive", "HIV positive"),
-    ("hiv_negative", "HIV negative"),
+    ("HIV_POS", "HIV positive"),
+    ("HIV_NEG", "HIV negative"),
     ("inconclusive_results", "Inconclusive results"),
 )
 
@@ -601,7 +601,6 @@ FAMILY_MEMBERS = (
 TEST_RESULTS = (
     (POSITIVE, "Positive"),
     (NEGATIVE, "Negative"),
-    (UNKNOWN, "Unknown"),
 )
 
 TB_TEST_TYPE = (
@@ -620,6 +619,17 @@ TB_TEST_RESULT = (
 BIOPSY_SIDE = (
     (RIGHT, "Right"),
     (LEFT, "Left"),
+)
+
+TYPE_LUNG_CA = (
+    ("small_cell", "Small cel"),
+    ("non_small_cell", "Non-small cell"),
+)
+
+NON_SMALL_CELL = (
+    ("adenocarcinoma", "Adenocarcinoma"),
+    ("squamous_cell_carcinomas", "Squamous cell carcinomas"),
+    ("large_cell_carcinomas", "Large cell carcinomas"),
 )
 
 BIOPSY_SITE = (
