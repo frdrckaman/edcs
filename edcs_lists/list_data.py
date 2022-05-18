@@ -107,7 +107,7 @@ list_data = {
         ("H", "H"),
         ("K", "K"),
     ],
-    "edcs_lists.somaticmutations ": [
+    "edcs_lists.somaticmutations": [
         (NOT_APPLICABLE, "Not applicable"),
         ("EGFR", "EGFR"),
         ("KRAS", "KRAS"),

@@ -36,7 +36,6 @@ class LabPartDAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     list_display = (
         "report_datetime",
         "hiv_dna_pcr",
-        "hiv_subtype",
         "dna_methylation",
         "hiv_current_regimen",
     )
