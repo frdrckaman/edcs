@@ -11,9 +11,10 @@ from .hiv_lab_admin import HivLabInvestigationAdmin
 from .home_locator_admin import HomeLocatorFormAdmin
 from .house_kitchen_admin import HouseKitchenSurroundingAdmin
 from .lab_part_a_admin import LabPartAAdmin
+from .lab_part_b_admin import LabPartBAdmin
+from .lab_part_c_admin import LabPartCAdmin
 from .lung_cancer_lab_admin import LungCancerLabInvestigationAdmin
 from .lung_cancer_symptoms_admin import SignSymptomLungCancerAdmin
 from .lung_cancer_treatment_admin import LungCancerTreatmentAdmin
 from .occupational_history_admin import OccupationalHistoryAdmin
 from .subject_visit_admin import SubjectVisitAdmin
-from .lab_part_b_admin import LabPartBAdmin

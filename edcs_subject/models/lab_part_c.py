@@ -29,7 +29,7 @@ class LabPartC(CrfModelMixin, edcs_models.BaseUuidModel):
         null=False,
     )
 
-    Consistency = models.TextField(
+    consistency = models.TextField(
         verbose_name="Consistency",
         max_length=500,
     )
@@ -59,13 +59,13 @@ class LabPartC(CrfModelMixin, edcs_models.BaseUuidModel):
     )
 
     type_lung_ca = models.CharField(
-        verbose_name="Type of lung Cancer ",
+        verbose_name="Type of lung Cancer?",
         max_length=45,
         choices=TYPE_LUNG_CA,
     )
 
     non_small_cell = models.CharField(
-        verbose_name="If non-small cell ",
+        verbose_name="If non-small cell",
         max_length=45,
         choices=NON_SMALL_CELL,
     )
