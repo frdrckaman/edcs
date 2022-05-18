@@ -39,8 +39,6 @@ class LabPartC(CrfModelMixin, edcs_models.BaseUuidModel):
     microscopic_findings = models.TextField(
         verbose_name="Microscopic findings",
         max_length=500,
-        blank=True,
-        null=True,
     )
 
     immunohistochemistry = models.CharField(
