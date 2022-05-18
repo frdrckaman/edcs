@@ -14,3 +14,7 @@ from .home_locator_form import HomeLocatorForm
 from .house_kitchen_form import HouseKitchenSurroundingForm
 from .lung_cancer_treatment_form import LungCancerTreatmentForm
 from .occupational_history_form import OccupationalHistoryForm
+from .lab_part_a_form import LabPartAForm
+from .lab_part_b_form import LabPartBForm
+from .lab_part_c_form import LabPartCForm
+from .lab_part_d_form import LabPartDForm

@@ -33,22 +33,16 @@ class LabPartB(CrfModelMixin, edcs_models.BaseUuidModel):
     nature_of_specimen = models.TextField(
         verbose_name="Nature of specimen (Tissue or Fluid)",
         max_length=500,
-        blank=True,
-        null=True,
     )
 
     xray_findings = models.TextField(
         verbose_name="X-ray findings",
         max_length=500,
-        blank=True,
-        null=True,
     )
 
     ct_findings = models.TextField(
         verbose_name="CT findings",
         max_length=500,
-        blank=True,
-        null=True,
     )
 
     class Meta(edcs_models.BaseUuidModel.Meta):

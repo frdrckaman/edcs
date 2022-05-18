@@ -4,7 +4,7 @@ from edcs_constants.choices import POS_NEG
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
-from ..choices import TB_TEST_RESULT, TB_TEST_TYPE, TEST_RESULTS
+from ..choices import TB_TEST_TYPE, TEST_RESULTS
 from ..model_mixins import CrfModelMixin
 
 

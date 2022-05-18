@@ -5,6 +5,7 @@ from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 
 from ..admin_site import edcs_subject_admin
+from ..forms import LabPartDForm
 from ..models.lab_part_d import LabPartD
 from .modeladmin_mixins import CrfModelAdminMixin
 
@@ -12,7 +13,7 @@ from .modeladmin_mixins import CrfModelAdminMixin
 @admin.register(LabPartD, site=edcs_subject_admin)
 class LabPartDAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
-    # form = HivLabInvestigationForm
+    form = LabPartDForm
 
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),

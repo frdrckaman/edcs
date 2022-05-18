@@ -18,4 +18,5 @@ from .subject_visit import SubjectVisit
 from .lab_part_a import LabPartA
 from .lab_part_b import LabPartB
 from .lab_part_c import LabPartC
+from .lab_part_d import LabPartD
 

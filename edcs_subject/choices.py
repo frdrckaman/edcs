@@ -25,6 +25,8 @@ from edcs_constants.constants import (
     YES_PAST_SMOKER,
     YES_PAST_USER,
 )
+
+from .constants import NON_SMALL_CELL
 from edcs_subject.constants import MISSED_VISIT, SCHEDULED, UNSCHEDULED
 
 MISS_ARV = (
@@ -623,13 +625,14 @@ BIOPSY_SIDE = (
 
 TYPE_LUNG_CA = (
     ("small_cell", "Small cel"),
-    ("non_small_cell", "Non-small cell"),
+    (NON_SMALL_CELL, "Non-small cell"),
 )
 
 NON_SMALL_CELL = (
     ("adenocarcinoma", "Adenocarcinoma"),
     ("squamous_cell_carcinomas", "Squamous cell carcinomas"),
     ("large_cell_carcinomas", "Large cell carcinomas"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 BIOPSY_SITE = (

@@ -1,6 +1,7 @@
 from django.db import models
 
 from edcs_constants.choices import POS_NEG_ONLY
+from edcs_constants.constants import NOT_APPLICABLE
 from edcs_model import models as edcs_models
 from edcs_model.models import datetime_not_future
 from edcs_utils import get_utcnow
@@ -19,14 +20,10 @@ class LabPartC(CrfModelMixin, edcs_models.BaseUuidModel):
 
     histological_dx = models.TextField(
         verbose_name="Histological diagnosis",
-        blank=False,
-        null=False,
     )
 
     measurements = models.TextField(
         verbose_name="Measurements",
-        blank=False,
-        null=False,
     )
 
     consistency = models.TextField(
@@ -68,6 +65,7 @@ class LabPartC(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If non-small cell",
         max_length=45,
         choices=NON_SMALL_CELL,
+        default=NOT_APPLICABLE,
     )
 
     class Meta(edcs_models.BaseUuidModel.Meta):
