@@ -6,27 +6,26 @@ from edcs_model_admin import SimpleHistoryAdmin
 
 from ..admin_site import edcs_subject_admin
 from ..forms import HivLabInvestigationForm
-from ..models import LabPartA
+from ..models import LabPartB
 from .modeladmin_mixins import CrfModelAdminMixin
 
 
-@admin.register(LabPartA, site=edcs_subject_admin)
-class LabPartAAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
+@admin.register(LabPartB, site=edcs_subject_admin)
+class LabPartBAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
     # form = HivLabInvestigationForm
 
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),
         (
-            "LAB PART A",
+            "LAB PART B",
             {
                 "fields": (
-                    "hiv_rapid_test",
-                    "type_tb_test",
-                    "type_tb_test_other",
-                    "tb_test_result",
-                    "baseline_cd4_counts",
-                    "baseline_viral_load",
+                    "side_biopsy_taken",
+                    "location_site",
+                    "nature_of_specimen",
+                    "xray_findings",
+                    "ct_findings",
                 ),
             },
         ),
@@ -36,28 +35,27 @@ class LabPartAAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
     list_display = (
         "report_datetime",
-        "hiv_rapid_test",
-        "type_tb_test",
-        "tb_test_result",
+        "side_biopsy_taken",
+        "location_site",
+        "nature_of_specimen",
+        "xray_findings",
+        "ct_findings",
     )
 
     list_filter = (
         "report_datetime",
-        "hiv_rapid_test",
-        "type_tb_test",
-        "tb_test_result",
+        "side_biopsy_taken",
+        "location_site",
     )
 
     search_fields = (
         "report_datetime",
-        "hiv_rapid_test",
-        "type_tb_test",
-        "tb_test_result",
+        "side_biopsy_taken",
+        "location_site",
     )
 
     radio_fields = {
-        "hiv_rapid_test": admin.VERTICAL,
-        "type_tb_test": admin.VERTICAL,
-        "tb_test_result": admin.VERTICAL,
+        "side_biopsy_taken": admin.VERTICAL,
+        "location_site": admin.VERTICAL,
         "crf_status": admin.VERTICAL,
     }

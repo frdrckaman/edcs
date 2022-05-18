@@ -1,6 +1,7 @@
 from django.db import models
 
 from edcs_model import models as edcs_models
+from edcs_model.models import datetime_not_future
 from edcs_utils import get_utcnow
 
 from ..choices import BIOPSY_SIDE, BIOPSY_SITE
@@ -11,6 +12,7 @@ class LabPartB(CrfModelMixin, edcs_models.BaseUuidModel):
     report_datetime = models.DateTimeField(
         verbose_name="Report Date and Time",
         default=get_utcnow,
+        validators=[datetime_not_future],
         help_text="Date and time of report.",
     )
 
