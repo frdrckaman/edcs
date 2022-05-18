@@ -41,3 +41,15 @@ class CovidVaccine(ListModelMixin):
     class Meta(ListModelMixin.Meta):
         verbose_name = "Covid Vaccine"
         verbose_name_plural = "Covid Vaccine"
+
+
+class HIVSubtype(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "HIV Subtype"
+        verbose_name_plural = "HIV Subtype"
+
+
+class SomaticMutations(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Somatic Mutations"
+        verbose_name_plural = "Somatic Mutations"

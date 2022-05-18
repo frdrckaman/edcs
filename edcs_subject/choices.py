@@ -637,3 +637,107 @@ BIOPSY_SITE = (
     ("left_lung", "Left lung (upper, middle or lower)"),
     ("pleura", "Pleura"),
 )
+
+
+HIV_DRUG_RESISTANCE = (
+    ("NNRTI", "NNRTI"),
+    ("NRTI", "NRTI"),
+    ("PI", "PI"),
+    (OTHER, "Other"),
+    (NOT_APPLICABLE, "Not applicable"),
+)
+
+NNRTI = (
+    ("DOR", "DOR doravirine"),
+    ("EFV", "EFV efavirenz"),
+    ("ETR", "ETR etravirine"),
+    ("NVP", "NVP nevirapine"),
+    ("RPV", "RPV rilpivirine"),
+)
+
+NRTI = (
+    ("ABC", "ABC abacavir"),
+    ("AZT", "AZT zidovudine"),
+    ("D4T", "D4T stavudine"),
+    ("DDI", "DDI didanosine"),
+    ("FTC", "FTC emtricitabine"),
+    ("3TC", "3TC lamivudine"),
+    ("TDF", "TDF tenofovir"),
+)
+
+PI = (
+    ("ATV_r", "ATV/r atazanavir/r"),
+    ("DRV_r", "DRV/r darunavir/r"),
+    ("FPV_r", "FPV/r fosamprenavir/r"),
+    ("IDV_r", "IDV/r indinavir/r"),
+    ("LPV_r", "LPV/r lopinavir/r"),
+    ("NFV", "NFV nelfinavir"),
+    ("SQV_r", "SQV/r saquinavir/r"),
+    ("TPV_r", "TPV/r tipranavir/r"),
+)
+
+HIV_SUBTYPE = (
+    ("A", "A"),
+    ("B", "B"),
+    ("C", "C"),
+    ("D", "D"),
+    ("E", "E"),
+    ("F", "F"),
+    ("G", "G"),
+    ("H", "H"),
+    ("K", "K"),
+)
+
+HIV_DRUG_RESISTANCE_LEVEL = (
+    ("susceptible", "Susceptible"),
+    ("low_level_resistance", "Low-Level Resistance"),
+    ("high_level_resistance ", "High-Level Resistance "),
+)
+
+HIV_SOMATIC_MUTATIONS = (
+    ("EGFR", "EGFR"),
+    ("KRAS", "KRAS"),
+    ("ALK", "ALK"),
+    ("HER2", "HER2"),
+    ("ROS1", "ROS1"),
+    ("MET", "MET"),
+    ("BRAF", "BRAF"),
+    ("ERBB2", "ERBB2"),
+    ("RET", "RET"),
+    ("TP53", "TP53"),
+    ("CDKN2A", "CDKN2A"),
+    ("RAF1", "RAF1"),
+    ("MAP2K1", "MAP2K1"),
+    ("SMAD4", "SMAD4"),
+    ("NRAS", "NRAS"),
+    ("AR", "AR"),
+    ("FGFR3", "FGFR3"),
+    ("PDGFRA", "PDGFRA"),
+    ("B2M", "B2M"),
+    ("FBXW7", "FBXW7"),
+    ("KEAPI", "KEAPI"),
+    ("POLE", "POLE"),
+    ("PTEN", "PTEN"),
+    ("U2AFI", "U2AFI"),
+    ("AKT", "AKT"),
+    ("ODR2", "ODR2"),
+    ("ERBB3", "ERBB3"),
+    ("IDH2", "IDH2"),
+    ("FGFR4", "FGFR4"),
+    ("NMYC", "NMYC"),
+    ("ERG", "ERG"),
+    ("MTOR", "MTOR"),
+    ("FGFR1", "FGFR1"),
+    ("APC", "APC"),
+    ("CCND1", "CCND1"),
+    ("MYC", "MYC"),
+    ("CDK4", "CDK4"),
+    ("CTNNBI", "CTNNBI"),
+    ("RICTOR", "RICTOR"),
+    ("CDKN2A", "CDKN2A"),
+    ("HRAS", "HRAS"),
+    ("KIT", "KIT"),
+    ("SMO", "SMO"),
+    ("AXL", "AXL"),
+    ("FGFR2", "FGFR2"),
+)
