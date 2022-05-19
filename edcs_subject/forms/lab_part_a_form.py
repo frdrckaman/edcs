@@ -21,3 +21,8 @@ class LabPartAForm(FormValidatorMixin, forms.ModelForm):
     class Meta:
         model = LabPartA
         fields = "__all__"
+        labels = {
+            "baseline_cd4_counts": "in cells/mm3",
+            "baseline_viral_load": "copies/mL. Enter 0, if ess than 10 copies/ml, "
+            "less than 20 copies/ml and less than 50 copies/ml",
+        }
