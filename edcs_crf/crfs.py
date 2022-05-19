@@ -5,6 +5,7 @@ from .crf import Crf
 enrollment_crf = FormsCollection(
     Crf(show_order=100, model="edcs_subject.clinicalreview"),
     Crf(show_order=110, model="edcs_subject.demographiccharacteristic"),
+    Crf(show_order=115, model="edcs_subject.socioeconomiccharacteristic"),
     # Crf(show_order=120, model="edcs_subject.hivLabinvestigation", required=False),
     Crf(show_order=130, model="edcs_subject.signsymptomlungCancer", required=False),
     # Crf(

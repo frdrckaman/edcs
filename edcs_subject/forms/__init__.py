@@ -18,3 +18,4 @@ from .lab_part_a_form import LabPartAForm
 from .lab_part_b_form import LabPartBForm
 from .lab_part_c_form import LabPartCForm
 from .lab_part_d_form import LabPartDForm
+from .socio_economic_form import SocioEconomicCharacteristicForm
