@@ -3,11 +3,11 @@ from django_audit_fields import audit_fieldset_tuple
 
 from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
-from .modeladmin_mixins import CrfModelAdminMixin
 
 from ..admin_site import edcs_subject_admin
 from ..forms import ClinicalReviewForm
 from ..models import ClinicalReview
+from .modeladmin_mixins import CrfModelAdminMixin
 
 
 @admin.register(ClinicalReview, site=edcs_subject_admin)
@@ -67,14 +67,6 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                 ),
             },
         ),
-        # (
-        #     "LUNG CANCER",
-        #     {
-        #         "fields": (
-        #             "lung_cancer_dx",
-        #         ),
-        #     },
-        # ),
         crf_status_fieldset_tuple,
         audit_fieldset_tuple,
     )
@@ -96,9 +88,7 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "dm_dx",
     )
 
-    search_fields = (
-        "report_datetime",
-    )
+    search_fields = ("report_datetime",)
 
     radio_fields = {
         "hiv_test": admin.VERTICAL,
@@ -112,6 +102,5 @@ class SubjectClinicalReviewAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "use_htn_medication": admin.VERTICAL,
         "dm_dx": admin.VERTICAL,
         "use_dm_medication": admin.VERTICAL,
-        # "lung_cancer_dx": admin.VERTICAL,
         "crf_status": admin.VERTICAL,
     }
