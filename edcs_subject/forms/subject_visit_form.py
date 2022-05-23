@@ -1,10 +1,11 @@
 from django import forms
+
 from edcs_constants.constants import OTHER
-from edcs_form_validators import FormValidatorMixin, INVALID_ERROR
+from edcs_form_validators import INVALID_ERROR, FormValidatorMixin
 from edcs_sites.forms import SiteModelFormMixin
+
 from ..constants import SCHEDULED
 from ..form_validators import VisitFormValidator
-
 from ..models import SubjectVisit
 
 
@@ -12,7 +13,6 @@ class SubjectVisitFormValidator(VisitFormValidator):
     validate_missed_visit_reason = False
 
     def clean(self):
-        super().clean()
         reason = self.cleaned_data.get("reason")
 
         if reason != SCHEDULED:
@@ -20,9 +20,7 @@ class SubjectVisitFormValidator(VisitFormValidator):
                 {"reason": "This is a schedule visit"}, code=INVALID_ERROR
             )
 
-        self.required_if(
-            OTHER, field="info_source", field_required="info_source_other"
-        )
+        self.required_if(OTHER, field="info_source", field_required="info_source_other")
 
 
 class SubjectVisitForm(SiteModelFormMixin, FormValidatorMixin, forms.ModelForm):
