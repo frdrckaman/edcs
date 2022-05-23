@@ -137,8 +137,5 @@ def server_state():
 
 
 @register.simple_tag
-def live_server():
-    if settings.EDCS_SITES_LIVE_DOMAIN:
-        return True
-    elif settings.DEBUG or settings.EDCS_SITES_UAT_DOMAIN:
-        return False
+def uat_server():
+    return settings.EDCS_SITES_UAT_DOMAIN
