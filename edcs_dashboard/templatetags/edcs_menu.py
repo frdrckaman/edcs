@@ -138,4 +138,5 @@ def server_state():
 
 @register.simple_tag
 def uat_server():
-    return settings.EDCS_SITES_UAT_DOMAIN
+    if settings.EDCS_SITES_UAT_DOMAIN:
+        return
