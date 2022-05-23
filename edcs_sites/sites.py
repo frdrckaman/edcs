@@ -27,6 +27,11 @@ default_domain = getattr(settings, "EDCS_SITES_DEFAULT_DOMAIN", "localhost")
 
 # fqdn = "edcs.org"
 fqdn = settings.EDCS_DOMAIN
+edcs = ""
+
+if settings.EDCS_SITES_LIVE_DOMAIN:
+    edcs = "edcs."
+
 
 # site_id, name, **kwargs
 all_sites = {
@@ -37,7 +42,7 @@ all_sites = {
             title="Muhimbili National hospital",
             country_code="tz",
             country="tanzania",
-            domain=f"mnh.tz.{fqdn}",
+            domain=f"mnh.tz.{edcs}{fqdn}",
         ),
         SingleSite(
             11,
@@ -45,7 +50,7 @@ all_sites = {
             title="Ocean Road Cancer Institute",
             country_code="tz",
             country="tanzania",
-            domain=f"orci.tz.{fqdn}",
+            domain=f"orci.tz.{edcs}{fqdn}",
         ),
     ),
     "uganda": (
@@ -55,7 +60,7 @@ all_sites = {
             title="Mulago National Referral Hospital",
             country_code="ug",
             country="uganda",
-            domain=f"mnrh.ug.{fqdn}",
+            domain=f"mnrh.ug.{edcs}{fqdn}",
         ),
         SingleSite(
             21,
@@ -63,7 +68,7 @@ all_sites = {
             title="Uganda Cancer Institute",
             country_code="ug",
             country="uganda",
-            domain=f"uci.ug.{fqdn}",
+            domain=f"uci.ug.{edcs}{fqdn}",
         ),
     ),
 }
