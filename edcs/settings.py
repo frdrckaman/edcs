@@ -62,6 +62,7 @@ ALLOWED_HOSTS = [
     "orci.tz.edcs.u54lungcancer.org",
     "mnrh.ug.edcs.u54lungcancer.org",
     "uci.ug.edcs.u54lungcancer.org",
+    "mli.ug.edcs.u54lungcancer.org",
     "mnh.uat.tz.edcs.u54lungcancer.org",
     "orci.uat.tz.edcs.u54lungcancer.org",
     "mnrh.uat.ug.edcs.u54lungcancer.org",
