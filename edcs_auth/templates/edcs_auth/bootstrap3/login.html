@@ -4,10 +4,11 @@
 {% block title %} <title> EDCS | Login </title> {% endblock title %}
 {% block body-content %}
     <div class="loginBlock" id="login" style="display: block;">
-{#        {% if server_state == 'UAT' %}#}
-{#            <div class="alert alert-danger" style="font-size: medium"><strong>Note:</strong> This is a <strong>UAT Server</strong>, Please use it for practicing purpose only.</div>#}
-{#        {% endif %}#}
-        <h4>Welcome to <strong>{% site_name %}</strong>, Please Login</h4>
+        <div class="alert {% live_server %} alert-block">
+            <div class="col-md-offset-2"><h4 >U54 Lung Cancer EDC ({% server %})</h4></div>
+            <div class="col-md-offset-1"><h4 style="margin-top: 4%">{% site_name %}</h4></div>
+            {% login_uat_label %}
+        </div>
         <div class="dr"><span></span></div>
             <div class="loginForm">
                 <form class="form-horizontal" action="" method="post" id="validation">

@@ -38,7 +38,7 @@ all_sites = {
     "tanzania": (
         SingleSite(
             10,
-            "muhimbili",
+            "Muhimbili National Hospital (MNH)",
             title="Muhimbili National hospital",
             country_code="tz",
             country="tanzania",
@@ -46,7 +46,7 @@ all_sites = {
         ),
         SingleSite(
             11,
-            "oceanroadcancerinstitute",
+            "Ocean Road Cancer Institute (ORCI)",
             title="Ocean Road Cancer Institute",
             country_code="tz",
             country="tanzania",
@@ -56,7 +56,7 @@ all_sites = {
     "uganda": (
         SingleSite(
             20,
-            "mulago",
+            "Mulago National Referral Hospital (MNRH)",
             title="Mulago National Referral Hospital",
             country_code="ug",
             country="uganda",
@@ -64,11 +64,19 @@ all_sites = {
         ),
         SingleSite(
             21,
-            "ugandacancerinstitute",
+            "Uganda Cancer Institute (UCI)",
             title="Uganda Cancer Institute",
             country_code="ug",
             country="uganda",
             domain=f"uci.ug.{edcs}{fqdn}",
+        ),
+        SingleSite(
+            22,
+            "Makerere Lung Institute (MLI)",
+            title="Makerere Lung Institute",
+            country_code="ug",
+            country="uganda",
+            domain=f"mli.ug.{edcs}{fqdn}",
         ),
     ),
 }

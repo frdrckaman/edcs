@@ -17,7 +17,7 @@ env = environ.Env(
     DATABASE_SQLITE_ENABLED=(bool, False),
     DJANGO_EMAIL_ENABLED=(bool, False),
     DJANGO_AUTO_CREATE_KEYS=(bool, False),
-    EDCS_SITES_UAT_DOMAIN=(bool, True),
+    EDCS_SITES_UAT_DOMAIN=(bool, False),
     EDCS_SITES_LIVE_DOMAIN=(bool, False),
 )
 

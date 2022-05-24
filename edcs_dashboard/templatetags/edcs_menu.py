@@ -87,6 +87,20 @@ def summary_menu(context):
     )
 
 
+@register.inclusion_tag(
+    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/"
+    f"labels/login_uat_label.html",
+)
+def login_uat_label():
+    uat = False
+    if settings.EDCS_SITES_UAT_DOMAIN:
+        uat = True
+
+    return dict(
+        uat=uat,
+    )
+
+
 def site_(context):
     site_id = (
         context.get("s_id")
@@ -117,17 +131,18 @@ def server():
 
 @register.simple_tag
 def color_code():
+    colour_code = "btn-danger"
     if settings.EDCS_SITES_LIVE_DOMAIN:
-        return "#0ad00e"
-    else:
-        return "firebrick"
+        colour_code = "btn-success"
+
+    return colour_code
 
 
 def server_state():
     if settings.DEBUG:
         state = "DEBUG"
-    elif settings.EDCS_SITES_UAT_DOMAIN:
-        state = "UAT"
+    if settings.EDCS_SITES_UAT_DOMAIN:
+        state = "TEST"
     elif settings.EDCS_SITES_LIVE_DOMAIN:
         state = "LIVE"
     else:
@@ -137,6 +152,8 @@ def server_state():
 
 
 @register.simple_tag
-def uat_server():
-    if settings.EDCS_SITES_UAT_DOMAIN:
-        return
+def live_server():
+    alert = "alert-danger"
+    if settings.EDCS_SITES_LIVE_DOMAIN:
+        alert = "alert-success"
+    return alert
