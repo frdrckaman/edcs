@@ -28,3 +28,7 @@ enrollment_crf = FormsCollection(
     Crf(show_order=131, model="edcs_subject.LabPartD"),
     name="Enrollment CRFs",
 )
+
+followup_3m_crf = FormsCollection()
+
+followup_6m_crf = FormsCollection()
