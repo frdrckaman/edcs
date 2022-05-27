@@ -1,6 +1,7 @@
 from edcs_constants.constants import (
     ASTHMA,
     COPD,
+    DECLINE_TO_ANSWER,
     DONT_KNOW,
     GREATER_THAN_6MONTHS,
     INTERSTITIAL_LUNG_DISEASE,
@@ -25,9 +26,9 @@ from edcs_constants.constants import (
     YES_PAST_SMOKER,
     YES_PAST_USER,
 )
+from edcs_subject.constants import MISSED_VISIT, SCHEDULED, UNSCHEDULED
 
 from .constants import NON_SMALL_CELL
-from edcs_subject.constants import MISSED_VISIT, SCHEDULED, UNSCHEDULED
 
 MISS_ARV = (
     ("at_least_once_every_week", "At least once every week"),
@@ -199,7 +200,7 @@ QN64 = (
     (YES_CURRENT_USER, "Yes, Current user"),
     (YES_PAST_USER, "Yes, Past user"),
     (NO, "No"),
-    ("decline_to_answer", "Decline to answer"),
+    (DECLINE_TO_ANSWER, "Decline to answer"),
     (NOT_APPLICABLE, "Not applicable"),
 )
 

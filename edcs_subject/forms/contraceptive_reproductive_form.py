@@ -1,6 +1,8 @@
 from django import forms
 
 from edcs_constants.constants import (
+    DECLINE_TO_ANSWER,
+    NO,
     NOT_APPLICABLE,
     OTHER,
     YES,
@@ -14,15 +16,23 @@ from ..models import ContraceptiveUseReproductiveHistory
 
 
 class ContraceptiveUseReproductiveHistoryFormValidator(FormValidator):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
         self.use_contraceptives = self.cleaned_data.get("use_contraceptives")
         self.how_long_use_oral_contraceptives = self.cleaned_data.get(
             "how_long_use_contraceptives"
         )
 
+        self.contraceptives = self.cleaned_data.get("contraceptives")
+
+        self.contraceptives_na = self.contraceptives.filter(
+            name=NOT_APPLICABLE
+        ).exists()
+
     def clean(self):
         self.validate_how_long_use_oral_contraceptives()
+
+        self.validate_contraceptives()
 
         self.applicable_if(
             YES,
@@ -33,6 +43,13 @@ class ContraceptiveUseReproductiveHistoryFormValidator(FormValidator):
             OTHER, field="contraceptives", field_required="contraceptives_other"
         )
 
+    def validate_contraceptives(self):
+        if (
+            self.use_contraceptives == YES_CURRENT_USER
+            or self.use_contraceptives == YES_PAST_USER
+        ) and self.contraceptives_na:
+            raise forms.ValidationError({"contraceptives": "This field is Applicable "})
+
     def validate_how_long_use_oral_contraceptives(self):
         if (
             self.use_contraceptives == YES_CURRENT_USER
@@ -40,6 +57,20 @@ class ContraceptiveUseReproductiveHistoryFormValidator(FormValidator):
         ) and self.how_long_use_oral_contraceptives == NOT_APPLICABLE:
             raise forms.ValidationError(
                 {"how_long_use_contraceptives": "This field is Applicable "}
+            )
+        elif (
+            self.use_contraceptives == NO
+            or self.use_contraceptives == DECLINE_TO_ANSWER
+            or self.use_contraceptives == NOT_APPLICABLE
+        ) and (self.contraceptives.count() > 1):
+            raise forms.ValidationError({"contraceptives": "Invalid choices "})
+        elif (
+            self.use_contraceptives == NO
+            or self.use_contraceptives == DECLINE_TO_ANSWER
+            or self.use_contraceptives == NOT_APPLICABLE
+        ) and not self.contraceptives_na:
+            raise forms.ValidationError(
+                {"contraceptives": "This field is Not Applicable  "}
             )
 
 
