@@ -6,6 +6,7 @@ from django.forms import model_to_dict
 
 from edcs_constants.constants import (
     NEVER,
+    NOT_APPLICABLE,
     OTHER,
     YES,
     YES_CURRENT_CHEW,
@@ -68,11 +69,29 @@ class AlcoholTobaccoUseFormValidator(FormValidator):
             .exists()
         )
 
+        self.tobacco_products = self.cleaned_data.get("tobacco_products")
+
+        self.tobacco_products_na = (
+            self.cleaned_data.get("tobacco_products")
+            .filter(name=NOT_APPLICABLE)
+            .exists()
+        )
+
     def clean(self):
+
+        self.validate_smoke_chew_tobacco()
 
         self.validate_date_start_smoking()
 
         self.validate_no_tobacco_product_smoked()
+
+        self.validate_tobacco_products()
+
+        self.validate_tobacco_products_na()
+
+        self.m2m_other_specify(
+            OTHER, m2m_field="tobacco_products", field_other="tobacco_products_other"
+        )
 
         self.not_applicable_if(
             NEVER, field="smoke_chew_tobacco", field_applicable="smoking_frequency"
@@ -105,6 +124,30 @@ class AlcoholTobaccoUseFormValidator(FormValidator):
         self.validate_age_start_smoking()
 
         self.validate_age_stop_smoking()
+
+    def validate_smoke_chew_tobacco(self):
+        if self.tobacco_user and self.never_use_tobacco:
+            raise forms.ValidationError(
+                {"smoke_chew_tobacco": "NEVER is not Applicable "}
+            )
+
+    def validate_tobacco_products(self):
+        if self.tobacco_user and self.tobacco_products_na:
+            raise forms.ValidationError(
+                {"tobacco_products": "This field is Applicable "}
+            )
+        elif not self.tobacco_user and (self.tobacco_products.count() > 1):
+            raise forms.ValidationError({"tobacco_products": "Invalid choices "})
+        elif not self.tobacco_user and not self.tobacco_products_na:
+            raise forms.ValidationError(
+                {"tobacco_products": "This field is Not Applicable "}
+            )
+
+    def validate_tobacco_products_na(self):
+        if (self.tobacco_products.count() > 1) and self.tobacco_products_na:
+            raise forms.ValidationError(
+                {"tobacco_products": "NOT APPLICABLE is not A Valid choice "}
+            )
 
     def validate_date_start_smoking(self):
         if self.never_use_tobacco and self.date_start_smoking is not None:

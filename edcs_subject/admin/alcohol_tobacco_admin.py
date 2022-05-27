@@ -23,6 +23,7 @@ class AlcoholTobaccoUseAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                 "fields": (
                     "smoke_chew_tobacco",
                     "tobacco_products",
+                    "tobacco_products_other",
                     "date_start_smoking",
                     "smoking_frequency",
                     "smoking_frequency_other",

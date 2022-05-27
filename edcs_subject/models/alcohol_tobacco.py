@@ -33,6 +33,8 @@ class AlcoholTobaccoUse(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If currently/past smoker/chew, which tobacco products do you/ did you smoke/chew.",
     )
 
+    tobacco_products_other = edcs_models.OtherCharField()
+
     date_start_smoking = models.DateField(
         verbose_name="Month and Year Patient started smoking tobacco products",
         null=True,

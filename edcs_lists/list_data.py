@@ -70,7 +70,7 @@ list_data = {
         ("yes_cigars", "Yes, Cigars"),
         ("yes_shisha", "Yes, Shisha"),
         ("yes_pipes", "Yes, pipes"),
-        ("none_of_above", "None of the above"),
+        (OTHER, "Other"),
     ],
     "edcs_lists.contraceptives": [
         (NOT_APPLICABLE, "Not applicable"),
