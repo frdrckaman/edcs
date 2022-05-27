@@ -1,10 +1,16 @@
+from pprint import pprint
+
 from django import forms
+from django.db.models import Q
+from django.forms import model_to_dict
 
 from edcs_constants.constants import (
     NEVER,
     OTHER,
     YES,
+    YES_CURRENT_CHEW,
     YES_CURRENT_SMOKER,
+    YES_PAST_CHEW,
     YES_PAST_SMOKER,
 )
 from edcs_form_validators import FormValidatorMixin
@@ -21,6 +27,8 @@ class AlcoholTobaccoUseFormValidator(FormValidator):
         self.date_start_smoking = self.cleaned_data.get("date_start_smoking")
         self.smoking_frequency = self.cleaned_data.get("smoking_frequency")
         self.smoking_frequency_other = self.cleaned_data.get("smoking_frequency_other")
+        self.age_start_smoking = self.cleaned_data.get("age_start_smoking")
+        self.age_stop_smoking = self.cleaned_data.get("age_stop_smoking")
         self.no_tobacco_product_smoked = self.cleaned_data.get(
             "no_tobacco_product_smoked"
         )
@@ -34,18 +42,38 @@ class AlcoholTobaccoUseFormValidator(FormValidator):
         self.alcohol_consumption_frequency_other = self.cleaned_data.get(
             "alcohol_consumption_frequency_other"
         )
+        self.never_use_tobacco = (
+            self.cleaned_data.get("smoke_chew_tobacco").filter(name=NEVER).exists()
+        )
+        self.past_smoker = (
+            self.cleaned_data.get("smoke_chew_tobacco")
+            .filter(name=YES_PAST_SMOKER)
+            .exists()
+        )
+
+        self.current_smoker = (
+            self.cleaned_data.get("smoke_chew_tobacco")
+            .filter(name=YES_CURRENT_SMOKER)
+            .exists()
+        )
+
+        self.tobacco_user = (
+            self.cleaned_data.get("smoke_chew_tobacco")
+            .filter(
+                Q(name=YES_CURRENT_SMOKER)
+                | Q(name=YES_PAST_SMOKER)
+                | Q(name=YES_CURRENT_CHEW)
+                | Q(name=YES_PAST_CHEW)
+            )
+            .exists()
+        )
 
     def clean(self):
 
         self.validate_date_start_smoking()
 
-        self.validate_smoking_frequency_other()
-
         self.validate_no_tobacco_product_smoked()
 
-        self.not_applicable_if(
-            NEVER, field="smoke_chew_tobacco", field_applicable="tobacco_products"
-        )
         self.not_applicable_if(
             NEVER, field="smoke_chew_tobacco", field_applicable="smoking_frequency"
         )
@@ -53,14 +81,9 @@ class AlcoholTobaccoUseFormValidator(FormValidator):
             OTHER, field="smoking_frequency", field_required="smoking_frequency_other"
         )
         self.required_if(
-            YES_PAST_SMOKER,
-            field="smoke_chew_tobacco",
-            field_required="age_start_smoking",
-        )
-        self.required_if(
-            YES_PAST_SMOKER,
-            field="smoke_chew_tobacco",
-            field_required="age_stop_smoking",
+            OTHER,
+            field="smoking_frequency",
+            field_required="smoking_frequency_other",
         )
         self.applicable_if(
             YES, field="someone_else_smoke", field_applicable="smoke_inside_house"
@@ -79,53 +102,41 @@ class AlcoholTobaccoUseFormValidator(FormValidator):
             field_required="alcohol_consumption_frequency_other",
         )
 
+        self.validate_age_start_smoking()
+
+        self.validate_age_stop_smoking()
+
     def validate_date_start_smoking(self):
-        if self.smoke_tobacco == NEVER and self.date_start_smoking is not None:
+        if self.never_use_tobacco and self.date_start_smoking is not None:
             raise forms.ValidationError(
                 {"date_start_smoking": "Date is not Applicable "}
             )
         elif (
-            self.smoke_tobacco == YES_CURRENT_SMOKER
-            or self.smoke_tobacco == YES_PAST_SMOKER
+            self.current_smoker or self.past_smoker
         ) and self.date_start_smoking is None:
             raise forms.ValidationError({"date_start_smoking": "Date is Required "})
 
-    def validate_smoking_frequency_other(self):
-        if self.smoking_frequency != OTHER and self.smoking_frequency_other is not None:
-            raise forms.ValidationError(
-                {"smoking_frequency_other": "This field is not Applicable "}
-            )
-
     def validate_no_tobacco_product_smoked(self):
         if (
-            self.smoke_tobacco == YES_CURRENT_SMOKER
-            or self.smoke_tobacco == YES_PAST_SMOKER
+            self.current_smoker or self.past_smoker
         ) and self.no_tobacco_product_smoked is None:
             raise forms.ValidationError(
                 {"no_tobacco_product_smoked": "This field is required "}
             )
-        elif self.smoke_tobacco == NEVER and self.no_tobacco_product_smoked is not None:
+        elif self.never_use_tobacco and self.no_tobacco_product_smoked is not None:
             raise forms.ValidationError(
                 {"no_tobacco_product_smoked": "This field is not Applicable "}
             )
 
-    def validate_smoke_inside_house_other(self):
-        if (
-            self.smoke_inside_house != OTHER
-            and self.smoke_inside_house_other is not None
-        ):
+    def validate_age_start_smoking(self):
+        if (self.current_smoker or self.past_smoker) and self.age_start_smoking is None:
             raise forms.ValidationError(
-                {"smoke_inside_house_other": "This field is not Applicable "}
+                {"age_start_smoking": "This field is required "}
             )
 
-    def validate_alcohol_consumption_frequency_other(self):
-        if (
-            self.alcohol_consumption_frequency != OTHER
-            and self.alcohol_consumption_frequency_other is not None
-        ):
-            raise forms.ValidationError(
-                {"alcohol_consumption_frequency_other": "This field is not Applicable "}
-            )
+    def validate_age_stop_smoking(self):
+        if self.past_smoker and self.age_stop_smoking is None:
+            raise forms.ValidationError({"age_stop_smoking": "This field is required "})
 
 
 class AlcoholTobaccoUseForm(FormValidatorMixin, forms.ModelForm):

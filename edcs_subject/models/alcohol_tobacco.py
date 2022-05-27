@@ -54,7 +54,7 @@ class AlcoholTobaccoUse(CrfModelMixin, edcs_models.BaseUuidModel):
         blank=True,
     )
     age_start_smoking = models.IntegerField(
-        verbose_name="If past smoker, at what age did you first start smoking?",
+        verbose_name="If past/current smoker, at what age did you first start smoking?",
         help_text="in years",
         null=True,
         blank=True,
