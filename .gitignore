@@ -1,7 +1,8 @@
 
 # Created by https://www.toptal.com/developers/gitignore/api/pycharm+all,python,django
 # Edit at https://www.toptal.com/developers/gitignore?templates=pycharm+all,python,django
-
+.DS_Store
+.etc/.DS_Store
 ### Django ###
 *.log
 *.pot
