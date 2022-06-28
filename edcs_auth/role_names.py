@@ -4,6 +4,7 @@ from .constants import (
     STAFF_ROLE,
     CLINIC_SUPER_ROLE,
     CLINIC_ROLE,
+    LABORATORY_ROLE,
 
 )
 from .group_names import (
@@ -12,6 +13,7 @@ from .group_names import (
     EVERYONE,
     CLINIC_SUPER,
     CLINIC,
+    LABORATORY,
 )
 
 role_names = {
@@ -20,6 +22,7 @@ role_names = {
     CLINIC_ROLE: "Clinic",
     CUSTOM_ROLE: "Custom ...",
     STAFF_ROLE: "Staff",
+    LABORATORY_ROLE: "Laboratory"
 }
 
 required_role_names = {STAFF_ROLE: "Staff"}
@@ -29,5 +32,6 @@ groups_by_role_name = {
     CLINIC_SUPER_ROLE: [CLINIC, CLINIC_SUPER, EVERYONE],
     CLINIC_ROLE: [CLINIC, EVERYONE],
     STAFF_ROLE: [EVERYONE],
+    LABORATORY_ROLE: [LABORATORY, EVERYONE],
     CUSTOM_ROLE: [],
 }

@@ -18,6 +18,7 @@ from .default_role_names import (
     CUSTOM_ROLE,
     NURSE_ROLE,
     STAFF_ROLE,
+    LABORATORY_ROLE,
 )
 
 # Format {ROLE_NAME: [GROUP_NAME, GROUP_NAME, ...]
@@ -43,4 +44,5 @@ default_roles = {
     ],
     STAFF_ROLE: [ADMINISTRATION, EVERYONE],
     STATISTICIAN: [],
+    LABORATORY_ROLE: [EVERYONE]
 }
