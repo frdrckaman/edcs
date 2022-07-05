@@ -53,3 +53,39 @@ class SomaticMutations(ListModelMixin):
     class Meta(ListModelMixin.Meta):
         verbose_name = "Somatic Mutations"
         verbose_name_plural = "Somatic Mutations"
+
+
+class CookingDone(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Cooking Done"
+        verbose_name_plural = "Cooking Done"
+
+
+class CookingFuel(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Cooking Fuel"
+        verbose_name_plural = "Cooking Fuel"
+
+
+class CookingArea(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Cooking Area"
+        verbose_name_plural = "Cooking Area"
+
+
+class AirMonitorProblem(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Air Monitor Problem"
+        verbose_name_plural = "Air Monitor Problem"
+
+
+class OtherCookingFuel(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Other Cooking Fuel"
+        verbose_name_plural = "Other Cooking Fuel"
+
+
+class SolidFuel(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Solid Fuel"
+        verbose_name_plural = "Solid Fuel"

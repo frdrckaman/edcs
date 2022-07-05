@@ -698,6 +698,19 @@ HIV_DRUG_RESISTANCE_LEVEL = (
     ("high_level_resistance ", "High-Level Resistance "),
 )
 
+COOKING_DONE = (
+    ("inside_house", "Inside the house"),
+    ("outside_house", "Outside the house"),
+)
+
+COOKING_AREA = (
+    ("window_outside", "Window outside"),
+    ("chimney", "Chimney"),
+    ("exhaust", "Exhaust"),
+    ("partial_open_outside", "Partially open to the outside"),
+    ("none", "None"),
+)
+
 HIV_SOMATIC_MUTATIONS = (
     ("EGFR", "EGFR"),
     ("KRAS", "KRAS"),
@@ -744,4 +757,69 @@ HIV_SOMATIC_MUTATIONS = (
     ("SMO", "SMO"),
     ("AXL", "AXL"),
     ("FGFR2", "FGFR2"),
+)
+
+COOKING_FUEL = (
+    ("kerosene", "Kerosene"),
+    ("charcoal", "Charcoal"),
+    ("coal", "Coal"),
+    ("gas ", "Gas "),
+    ("agricultural_crop", "Agricultural crop"),
+    ("wood", "Wood"),
+    ("gobar_gas ", "Gobar gas "),
+    ("electricity", "Electricity"),
+    ("straw_shrubs_grass ", "Straw/shrubs/grass "),
+    ("agricultural_crop", "Agricultural crop"),
+    ("animal_dung", "Animal dung"),
+    (OTHER, "Other"),
+)
+
+OTHER_COOKING_FUEL = (
+    ("no_other_fuel", "No other fuel except primary fuel used for cooking"),
+    ("kerosene", "Kerosene"),
+    ("charcoal", "Charcoal"),
+    ("coal", "Coal"),
+    ("gas ", "Gas "),
+    ("agricultural_crop", "Agricultural crop"),
+    ("wood", "Wood"),
+    ("gobar_gas ", "Gobar gas "),
+    ("electricity", "Electricity"),
+    ("straw_shrubs_grass ", "Straw/shrubs/grass "),
+    ("agricultural_crop", "Agricultural crop"),
+    ("animal_dung", "Animal dung"),
+    (OTHER, "Other"),
+)
+
+FUEL_USED_HEATING = (
+    ("no_heating", "No heating during monitoring"),
+    ("coal_open_fire", "Coal open fire"),
+    ("wood_open_fire", "Wood open fire"),
+    ("gas_furnace", "Gas furnace"),
+    ("portable_heater", "Portable heater"),
+    ("electricity", "Electricity"),
+    (OTHER, "Other"),
+)
+
+AIR_MONITOR_PROBLEM = (
+    ("monitor_fell", "Monitor fell on the surface"),
+    ("monitor_noise", "Monitor noise became louder"),
+    ("monitor_turned_off", "Monitor turned off before end of period"),
+    (OTHER, "Other"),
+)
+
+SMOKE_TOBACCO_HOUSE = (
+    ("1_times", "Once/day"),
+    ("2_4_times", "2-4 times/day"),
+    ("5_10_times", "5-10 times/day"),
+    ("more_10_times", ">10 times/day"),
+)
+
+SOLID_FUEL = (
+    (NOT_APPLICABLE, "Not applicable; solid fuel was not used for cooking"),
+    ("open_fire", "Open fire"),
+    ("mud_stove", "Mud stove"),
+    ("stove_chimney", "Stove with chimney"),
+    ("stove_exhaust_hood", "Stove with exhaust hood"),
+    ("stove__builtin_fan", "Stove with built-in fan"),
+    ("charcoal_stove", "Charcoal stove"),
 )

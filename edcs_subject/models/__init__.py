@@ -20,4 +20,6 @@ from .lab_part_b import LabPartB
 from .lab_part_c import LabPartC
 from .lab_part_d import LabPartD
 from .socio_economic import SocioEconomicCharacteristic
+from .pre_air_quality import PreAirQuality
+from .post_air_quality import PostAirQuality
 
