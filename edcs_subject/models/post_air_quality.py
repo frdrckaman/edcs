@@ -1,6 +1,7 @@
 from django.db import models
 
 from edcs_constants.choices import YES_NO
+from edcs_constants.constants import NOT_APPLICABLE
 from edcs_lists.models import AirMonitorProblem, OtherCookingFuel, SolidFuel
 from edcs_model import models as edcs_models
 from edcs_model.models import datetime_not_future
@@ -65,6 +66,8 @@ class PostAirQuality(CrfModelMixin, edcs_models.BaseUuidModel):
         "primary fuel or other fuel for cooking, what type of stove did you use these fuels in?",
     )
 
+    solid_fuel_other = edcs_models.OtherCharField()
+
     primary_fuel_heating = models.CharField(
         verbose_name="During the air monitoring, what was the primary fuel used for heating?",
         choices=FUEL_USED_HEATING,
@@ -88,6 +91,7 @@ class PostAirQuality(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes, how many times did people smoke tobacco products in this house?",
         choices=SMOKE_TOBACCO_HOUSE,
         max_length=45,
+        default=NOT_APPLICABLE,
     )
 
     air_pollution_monitor_reading = models.DecimalField(

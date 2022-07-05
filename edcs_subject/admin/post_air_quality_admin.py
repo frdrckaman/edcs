@@ -5,8 +5,7 @@ from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 
 from ..admin_site import edcs_subject_admin
-
-# from ..forms import PostAirQualityForm
+from ..forms import PostAirQualityForm
 from ..models.post_air_quality import PostAirQuality
 from .modeladmin_mixins import CrfModelAdminMixin
 
@@ -14,7 +13,7 @@ from .modeladmin_mixins import CrfModelAdminMixin
 @admin.register(PostAirQuality, site=edcs_subject_admin)
 class PostAirQualityAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
-    # form = PostAirQualityForm
+    form = PostAirQualityForm
 
     fieldsets = (
         (None, {"fields": ("subject_visit", "report_datetime")}),
@@ -39,6 +38,7 @@ class PostAirQualityAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "other_cooking_fuel_other",
                     "other_cooking_fuel_duration",
                     "solid_fuel",
+                    "solid_fuel_other",
                 ),
             },
         ),

@@ -120,6 +120,7 @@ list_data = {
         ("none", "None"),
     ],
     "edcs_lists.airmonitorproblem": [
+        (NOT_APPLICABLE, "Not applicable"),
         ("window_outside", "Window outside"),
         ("chimney", "Chimney"),
         ("exhaust", "Exhaust"),

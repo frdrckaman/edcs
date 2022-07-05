@@ -812,6 +812,7 @@ SMOKE_TOBACCO_HOUSE = (
     ("2_4_times", "2-4 times/day"),
     ("5_10_times", "5-10 times/day"),
     ("more_10_times", ">10 times/day"),
+    (NOT_APPLICABLE, "Not applicable"),
 )
 
 SOLID_FUEL = (
