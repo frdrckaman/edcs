@@ -18,5 +18,7 @@ from .lung_cancer_lab_admin import LungCancerLabInvestigationAdmin
 from .lung_cancer_symptoms_admin import SignSymptomLungCancerAdmin
 from .lung_cancer_treatment_admin import LungCancerTreatmentAdmin
 from .occupational_history_admin import OccupationalHistoryAdmin
-from .subject_visit_admin import SubjectVisitAdmin
+from .post_air_quality_admin import PostAirQualityAdmin
+from .pre_air_quality_admin import PreAirQualityAdmin
 from .socio_economic_admin import SocioEconomicCharacteristicAdmin
+from .subject_visit_admin import SubjectVisitAdmin

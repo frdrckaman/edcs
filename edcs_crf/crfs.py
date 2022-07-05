@@ -26,6 +26,8 @@ enrollment_crf = FormsCollection(
     Crf(show_order=129, model="edcs_subject.LabPartB"),
     Crf(show_order=130, model="edcs_subject.LabPartC"),
     Crf(show_order=131, model="edcs_subject.LabPartD"),
+    Crf(show_order=132, model="edcs_subject.PreAirQuality"),
+    Crf(show_order=133, model="edcs_subject.PostAirQuality"),
     name="Enrollment CRFs",
 )
 
