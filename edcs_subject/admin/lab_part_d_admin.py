@@ -26,6 +26,7 @@ class LabPartDAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "somatic_mutations",
                     "dna_methylation",
                     "hiv_drug_resistance_test",
+                    "hiv_drug_resistance_other",
                     "hiv_current_regimen",
                 ),
             },

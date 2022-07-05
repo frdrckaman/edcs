@@ -1,6 +1,6 @@
 from django.db import models
 
-from edcs_constants.choices import POS_NEG_ONLY
+from edcs_constants.choices import POS_NEG_NA, POS_NEG_ONLY
 from edcs_constants.constants import NOT_APPLICABLE
 from edcs_lists.models import HIVSubtype, SomaticMutations
 from edcs_model import models as edcs_models
@@ -21,8 +21,8 @@ class LabPartD(CrfModelMixin, edcs_models.BaseUuidModel):
 
     hiv_dna_pcr = models.TextField(
         verbose_name="HIV DNA PCR",
-        choices=POS_NEG_ONLY,
-        blank=False,
+        choices=POS_NEG_NA,
+        default=NOT_APPLICABLE,
     )
 
     hiv_subtype = models.ManyToManyField(
@@ -46,6 +46,8 @@ class LabPartD(CrfModelMixin, edcs_models.BaseUuidModel):
         choices=HIV_DRUG_RESISTANCE,
         default=NOT_APPLICABLE,
     )
+
+    hiv_drug_resistance_other = edcs_models.OtherCharField()
 
     hiv_current_regimen = models.CharField(
         verbose_name="Current Regimen",

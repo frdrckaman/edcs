@@ -97,6 +97,7 @@ list_data = {
         (OTHER, "Other"),
     ],
     "edcs_lists.hivsubtype": [
+        (NOT_APPLICABLE, "Not applicable"),
         ("A", "A"),
         ("B", "B"),
         ("C", "C"),
