@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from django import forms
 from django.db.models import Q
 
@@ -95,11 +97,6 @@ class AlcoholTobaccoUseFormValidator(FormValidator):
         )
         self.required_if(
             OTHER, field="smoking_frequency", field_required="smoking_frequency_other"
-        )
-        self.required_if(
-            OTHER,
-            field="smoking_frequency",
-            field_required="smoking_frequency_other",
         )
         self.applicable_if(
             YES, field="someone_else_smoke", field_applicable="smoke_inside_house"
