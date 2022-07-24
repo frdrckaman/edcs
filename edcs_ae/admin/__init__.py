@@ -1,0 +1,1 @@
+from .death_report_admin import DeathReportAdmin

@@ -1,5 +1,7 @@
-from django.apps import AppConfig
+from django.apps import AppConfig as DjangoAppConfig
 
 
-class EdcsAeConfig(AppConfig):
-    name = 'edcs_ae'
+class AppConfig(DjangoAppConfig):
+    name = "edcs_ae"
+    verbose_name = "Edcs Adverse Events"
+    include_in_administration_section = True

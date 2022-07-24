@@ -1,22 +1,24 @@
 from django.contrib import admin
 from django.urls import include, path
 
+from edcs_ae.admin_site import edcs_ae_admin
+from edcs_appointment.admin_site import edcs_appointment_admin
+from edcs_consent.admin_site import edcs_consent_admin
+from edcs_crf.admin_site import edcs_crf_admin
 from edcs_dashboard.views import AdministrationView
 from edcs_export.admin_site import edcs_export_admin
 from edcs_facility.admin_site import edcs_facility_admin
 from edcs_identifier.admin_site import edcs_identifier_admin
+from edcs_lists.admin_site import edcs_lists_admin
 from edcs_notification.admin_site import edcs_notification_admin
+from edcs_registration.admin_site import edcs_registration_admin
 from edcs_screening.admin_site import edcs_screening_admin
 from edcs_subject.admin_site import edcs_subject_admin
-from edcs_consent.admin_site import edcs_consent_admin
-from edcs_registration.admin_site import edcs_registration_admin
 from edcs_visit_schedule.admin_site import edcs_visit_schedule_admin
-from edcs_appointment.admin_site import edcs_appointment_admin
-from edcs_crf.admin_site import edcs_crf_admin
-from edcs_lists.admin_site import edcs_lists_admin
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("admin/", edcs_ae_admin.urls),
     path("admin/", edcs_appointment_admin.urls),
     path("admin/", edcs_crf_admin.urls),
     path("admin/", edcs_export_admin.urls),
@@ -31,6 +33,7 @@ urlpatterns = [
     path("admin/", edcs_lists_admin.urls),
     path("dashboard/", include("edcs_dashboard.urls")),
     path("edcs_device/", include("edcs_device.urls")),
+    path("edcs_ae/", include("edcs_ae.urls")),
     path("edcs_notification/", include("edcs_notification.urls")),
     path("edcs_appointment/", include("edcs_appointment.urls")),
     path("edcs_crf/", include("edcs_crf.urls")),
