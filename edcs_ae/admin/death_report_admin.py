@@ -2,11 +2,10 @@ from django.contrib import admin
 from django_audit_fields.admin import audit_fieldset_tuple
 
 from edcs_model_admin import SimpleHistoryAdmin
-from edcs_subject.admin.modeladmin_mixins import CrfModelAdmin, CrfModelAdminMixin
+from edcs_subject.admin.modeladmin_mixins import CrfModelAdminMixin
 
 from ..admin_site import edcs_ae_admin
 from ..forms import DeathReportForm
-from ..modeladmin_mixins import AdverseEventsAdminMethodsMixin
 from ..models import DeathReport
 
 
