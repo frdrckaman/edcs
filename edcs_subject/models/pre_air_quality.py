@@ -32,6 +32,8 @@ class PreAirQuality(CrfModelMixin, edcs_models.BaseUuidModel):
     household_num = models.CharField(
         verbose_name="House hold number:",
         max_length=14,
+        null=True,
+        blank=True,
     )
 
     gender = models.CharField(

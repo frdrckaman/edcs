@@ -40,10 +40,14 @@ class LabPartA(CrfModelMixin, edcs_models.BaseUuidModel):
 
     baseline_cd4_counts = models.IntegerField(
         verbose_name="Baseline CD4 counts",
+        null=True,
+        blank=True,
     )
     # TODO put viral load on prn form for 6m - 60m
     baseline_viral_load = models.IntegerField(
         verbose_name="Baseline Viral Load",
+        null=True,
+        blank=True,
     )
 
     class Meta(edcs_models.BaseUuidModel.Meta):

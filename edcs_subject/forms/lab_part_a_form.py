@@ -1,6 +1,6 @@
 from django import forms
 
-from edcs_constants.constants import OTHER
+from edcs_constants.constants import OTHER, POSITIVE
 from edcs_form_validators import FormValidatorMixin
 from edcs_form_validators.form_validator import FormValidator
 
@@ -11,6 +11,12 @@ class LabPartAFormValidator(FormValidator):
     def clean(self):
         self.required_if(
             OTHER, field="type_tb_test", field_required="type_tb_test_other"
+        )
+        self.required_if(
+            POSITIVE, field="hiv_rapid_test", field_required="baseline_cd4_counts"
+        )
+        self.required_if(
+            POSITIVE, field="hiv_rapid_test", field_required="baseline_viral_load"
         )
 
 
