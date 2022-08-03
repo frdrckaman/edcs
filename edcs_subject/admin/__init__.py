@@ -7,6 +7,7 @@ from .cooking_fuel_admin import CookingFuelAdmin
 from .covid_history_admin import CovidInfectionHistoryAdmin
 from .demographic_admin import DemographicCharacteristicAdmin
 from .effect_air_pollution_admin import EffectAirPollutionAdmin
+from .follow_up_admin import FollowUpAdmin
 from .hiv_lab_admin import HivLabInvestigationAdmin
 from .home_locator_admin import HomeLocatorFormAdmin
 from .house_kitchen_admin import HouseKitchenSurroundingAdmin

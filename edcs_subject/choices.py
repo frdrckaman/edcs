@@ -10,6 +10,7 @@ from edcs_constants.constants import (
     NEGATIVE_TEST,
     NEVER,
     NO,
+    NONE,
     NONE_OF_ABOVE,
     NOT_APPLICABLE,
     OTHER,
@@ -26,7 +27,12 @@ from edcs_constants.constants import (
     YES_PAST_SMOKER,
     YES_PAST_USER,
 )
-from edcs_subject.constants import MISSED_VISIT, SCHEDULED, UNSCHEDULED
+from edcs_subject.constants import (
+    MISSED_VISIT,
+    NOT_RESPOND_TREATMENT,
+    SCHEDULED,
+    UNSCHEDULED,
+)
 
 from .constants import NON_SMALL_CELL
 
@@ -823,4 +829,22 @@ SOLID_FUEL = (
     ("stove_exhaust_hood", "Stove with exhaust hood"),
     ("stove__builtin_fan", "Stove with built-in fan"),
     ("charcoal_stove", "Charcoal stove"),
+)
+
+FOLLOW_UP_TEST = (
+    ("chest_xray", "Yes, chest X-ray"),
+    ("ct_scan", "Yes, CT scan"),
+    ("ultrasound_scan", "Yes, Ultrasound scan"),
+    ("blood_cbc", "Yes, Blood CBC"),
+    ("chemistry_tests", "Yes, Chemistry tests"),
+    (NONE, "None"),
+    (OTHER, "Other"),
+)
+
+PATIENT_STATUS_VISIT = (
+    ("respond_treatment", "Responding to treatment"),
+    ("no_changes", "No changes"),
+    (NOT_RESPOND_TREATMENT, "Not responding to treatment"),
+    ("lost_follow_up", "Lost to follow up"),
+    ("died", "Died "),
 )

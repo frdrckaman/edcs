@@ -7,19 +7,19 @@ from .cooking_fuel import CookingFuel
 from .covid_history import CovidInfectionHistory
 from .demographic import DemographicCharacteristic
 from .effect_air_pollution import EffectAirPollution
+from .follow_up import FollowUp
 from .hiv_lab import HivLabInvestigation
 from .home_locator import HomeLocator
-from .lung_cancer_lab import LungCancerLabInvestigation
-from .lung_cancer_symptoms import SignSymptomLungCancer
-from .lung_cancer_treatment import LungCancerTreatment
-from .occupational_history import OccupationalHistory
 from .house_kitchen import HouseKitchenSurrounding
-from .subject_visit import SubjectVisit
 from .lab_part_a import LabPartA
 from .lab_part_b import LabPartB
 from .lab_part_c import LabPartC
 from .lab_part_d import LabPartD
-from .socio_economic import SocioEconomicCharacteristic
-from .pre_air_quality import PreAirQuality
+from .lung_cancer_lab import LungCancerLabInvestigation
+from .lung_cancer_symptoms import SignSymptomLungCancer
+from .lung_cancer_treatment import LungCancerTreatment
+from .occupational_history import OccupationalHistory
 from .post_air_quality import PostAirQuality
-
+from .pre_air_quality import PreAirQuality
+from .socio_economic import SocioEconomicCharacteristic
+from .subject_visit import SubjectVisit
