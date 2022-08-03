@@ -60,7 +60,7 @@ class FollowUp(CrfModelMixin, edcs_models.BaseUuidModel):
         choices=YES_NO,
     )
 
-    patient_visit_status = models.IntegerField(
+    patient_visit_status = models.CharField(
         verbose_name="What is the patient status at this visit?",
         max_length=45,
         choices=PATIENT_STATUS_VISIT,
