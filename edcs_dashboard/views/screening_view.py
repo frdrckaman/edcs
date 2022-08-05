@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.views.generic.base import TemplateView
 
 from .screening_list.screening_listboard import ScreeningListBoardView
 

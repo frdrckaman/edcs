@@ -5,7 +5,9 @@ from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse
 from django.utils.html import format_html
+
 from edcs_form_validators.form_validator import FormValidator
+
 # from edcs_metadata.form_validators import MetaDataFormValidatorMixin
 from edcs_utils import convert_php_dateformat, get_utcnow
 from edcs_visit_schedule.schedule.window import (
@@ -28,7 +30,7 @@ class AppointmentFormValidator(FormValidator):
     through this form.
     """
 
-    appointment_model = "edc_appointment.appointment"
+    appointment_model = "edcs_appointment.appointment"
 
     def clean(self):
         self.validate_visit_report_sequence()
@@ -58,7 +60,10 @@ class AppointmentFormValidator(FormValidator):
         try:
             self.instance.visit
         except (ObjectDoesNotExist, AttributeError):
-            if self.cleaned_data.get("appt_status") == IN_PROGRESS_APPT and self.instance:
+            if (
+                self.cleaned_data.get("appt_status") == IN_PROGRESS_APPT
+                and self.instance
+            ):
                 try:
                     self.instance.visit
                 except ObjectDoesNotExist:
@@ -116,15 +121,19 @@ class AppointmentFormValidator(FormValidator):
         if appt_datetime and appt_datetime != NEW_APPT:
             rappt_datetime = Arrow.fromdatetime(appt_datetime, appt_datetime.tzinfo)
             if rappt_datetime.to("UTC").date() > get_utcnow().date():
-                raise forms.ValidationError({"appt_datetime": "Cannot be a future date."})
+                raise forms.ValidationError(
+                    {"appt_datetime": "Cannot be a future date."}
+                )
 
     def validate_appt_datetime_in_window(self):
         if not self.instance.is_baseline_appt:
-            baseline_timepoint_datetime = self.instance.__class__.objects.first_appointment(
-                subject_identifier=self.instance.subject_identifier,
-                visit_schedule_name=self.instance.visit_schedule_name,
-                schedule_name=self.instance.schedule_name,
-            ).timepoint_datetime
+            baseline_timepoint_datetime = (
+                self.instance.__class__.objects.first_appointment(
+                    subject_identifier=self.instance.subject_identifier,
+                    visit_schedule_name=self.instance.visit_schedule_name,
+                    schedule_name=self.instance.schedule_name,
+                ).timepoint_datetime
+            )
 
             datestring = convert_php_dateformat(settings.SHORT_DATE_FORMAT)
             self.instance.visit_from_schedule.timepoint_datetime = (
@@ -151,7 +160,9 @@ class AppointmentFormValidator(FormValidator):
                     }
                 )
             except ScheduledVisitWindowError:
-                upper = self.instance.visit_from_schedule.dates.upper.strftime(datestring)
+                upper = self.instance.visit_from_schedule.dates.upper.strftime(
+                    datestring
+                )
                 raise forms.ValidationError(
                     {
                         "appt_datetime": (
@@ -165,7 +176,10 @@ class AppointmentFormValidator(FormValidator):
         and don't allow cancelled if visit_code_sequence == 0.
         """
         appt_status = self.cleaned_data.get("appt_status")
-        if appt_status in [NEW_APPT, CANCELLED_APPT] and self.crf_metadata_required_exists:
+        if (
+            appt_status in [NEW_APPT, CANCELLED_APPT]
+            and self.crf_metadata_required_exists
+        ):
             raise forms.ValidationError(
                 {"appt_status": "Invalid. CRF data has already been entered."}
             )
@@ -236,7 +250,9 @@ class AppointmentFormValidator(FormValidator):
                 )
             elif not self.requisition_metadata_required_exists:
                 raise forms.ValidationError(
-                    {"appt_status": "Invalid. All required requisitions have been keyed"}
+                    {
+                        "appt_status": "Invalid. All required requisitions have been keyed"
+                    }
                 )
             elif not self.required_additional_forms_exist:
                 raise forms.ValidationError(
@@ -268,7 +284,9 @@ class AppointmentFormValidator(FormValidator):
         if self.cleaned_data.get("facility_name"):
             app_config = django_apps.get_app_config("edc_facility")
             if self.cleaned_data.get("facility_name") not in app_config.facilities:
-                raise forms.ValidationError(f"Facility '{self.facility_name}' does not exist.")
+                raise forms.ValidationError(
+                    f"Facility '{self.facility_name}' does not exist."
+                )
 
     def validate_appt_reason(self):
         """Raises if visit_code_sequence is not 0 and appt_reason

@@ -32,13 +32,13 @@ class SiteVisitSchedules:
 
     @property
     def registry(self):
-        # pass
-        if not self.loaded:
-            raise RegistryNotLoaded(
-                "Registry not loaded. Is AppConfig for 'edcs_visit_schedule' "
-                "declared in settings?."
-            )
-        return self._registry
+        pass
+        # if not self.loaded:
+        #     raise RegistryNotLoaded(
+        #         "Registry not loaded. Is AppConfig for 'edcs_visit_schedule' "
+        #         "declared in settings?."
+        #     )
+        # return self._registry
 
     def register(self, visit_schedule):
         self.loaded = True
@@ -86,7 +86,9 @@ class SiteVisitSchedules:
                 visit_schedule_name = visit_schedule_name.split(".")[0]
             except AttributeError:
                 pass
-            visit_schedules[visit_schedule_name] = self.get_visit_schedule(visit_schedule_name)
+            visit_schedules[visit_schedule_name] = self.get_visit_schedule(
+                visit_schedule_name
+            )
         return visit_schedules or self.registry
 
     def get_by_onschedule_model(self, onschedule_model=None):
@@ -111,7 +113,9 @@ class SiteVisitSchedules:
 
         attr `loss_to_followup_model` is in "label_lower" format.
         """
-        return self._get_by_model(attr="loss_to_followup_model", model=loss_to_followup_model)
+        return self._get_by_model(
+            attr="loss_to_followup_model", model=loss_to_followup_model
+        )
 
     def _get_by_model(self, attr=None, model=None):
         ret = []
@@ -213,7 +217,9 @@ class SiteVisitSchedules:
                     before_import_registry = copy.copy(site_visit_schedules._registry)
                     import_module(f"{app}.{module_name}")
                     if verbose:
-                        sys.stdout.write(" * registered visit schedule from " f"'{app}'\n")
+                        sys.stdout.write(
+                            " * registered visit schedule from " f"'{app}'\n"
+                        )
                 except Exception as e:
                     if f"No module named '{app}.{module_name}'" not in str(e):
                         raise

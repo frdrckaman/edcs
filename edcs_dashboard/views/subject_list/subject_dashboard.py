@@ -1,8 +1,8 @@
 from django.views.generic import TemplateView
 
+from edcs_consent.models import SubjectConsent
 from edcs_dashboard.view_mixins import EdcsViewMixin
 from edcs_dashboard.views.dashboard_list import ListboardView
-from edcs_consent.models import SubjectConsent
 
 
 class SubjectDashboardView(EdcsViewMixin, ListboardView, TemplateView):
@@ -17,13 +17,13 @@ class SubjectDashboardView(EdcsViewMixin, ListboardView, TemplateView):
             consent_url=self.next_url_consent,
             consent_date=self.get_consent_date,
             object_list=self.get_consent_data,
-            subject_visit=self.get_subject_visit_url
+            subject_visit=self.get_subject_visit_url,
         )
         return context
 
     @property
     def get_consent_data(self):
-        consent = SubjectConsent.objects.get(subject_identifier=self.kwargs['subject'])
+        consent = SubjectConsent.objects.get(subject_identifier=self.kwargs["subject"])
         return consent
 
     @property
@@ -40,5 +40,11 @@ class SubjectDashboardView(EdcsViewMixin, ListboardView, TemplateView):
 
     @property
     def next_url_consent(self):
-        return '?next='.join([self.get_consent_url, self.listboard_dashboard + '&subject='
-                              + self.get_consent_data.subject_identifier])
+        return "?next=".join(
+            [
+                self.get_consent_url,
+                self.listboard_dashboard
+                + "&subject="
+                + self.get_consent_data.subject_identifier,
+            ]
+        )

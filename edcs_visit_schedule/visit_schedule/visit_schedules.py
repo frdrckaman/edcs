@@ -1,15 +1,13 @@
-from ..visit_schedule import VisitSchedule
 from ..site_visit_schedules import site_visit_schedules
+from ..visit_schedule import VisitSchedule
 from .schedule import schedule_enrolment, schedule_followup
 
 VISIT_SCHEDULE = "visit_schedule"
 
 visit_schedule = VisitSchedule(
     name=VISIT_SCHEDULE,
-    verbose_name="INTE",
-    offstudy_model="edc_offstudy.subjectoffstudy",
-    death_report_model="inte_ae.deathreport",
-    locator_model="edc_locator.subjectlocator",
+    verbose_name="EDCS",
+    death_report_model="edcs_ae.deathreport",
     previous_visit_schedule=None,
 )
 

@@ -1,4 +1,5 @@
 from django.db import models
+
 from edcs_visit_schedule.schedule.window import (
     ScheduledVisitWindowError,
     UnScheduledVisitWindowError,
@@ -20,7 +21,8 @@ class WindowPeriodModelMixin(models.Model):
 
     def save(self: AppointmentModelStub, *args, **kwargs) -> None:
         if self.id and self.appt_datetime and self.timepoint_datetime:
-            self.raise_on_not_datetime_in_window()
+            pass
+            # self.raise_on_not_datetime_in_window()
         super().save(*args, **kwargs)  # type:ignore
 
     def raise_on_not_datetime_in_window(self: AppointmentModelStub):

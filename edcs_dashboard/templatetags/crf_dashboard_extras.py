@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from django import template
 from django.conf import settings
 from django.urls import reverse
@@ -14,7 +12,8 @@ def next_url(url, nxt):
 
 
 @register.inclusion_tag(
-    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"buttons/add_edit_crf_button.html",
+    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/"
+    f"buttons/add_edit_crf_button.html",
     takes_context=True,
 )
 def add_edit_crf(context, obj):
@@ -29,8 +28,15 @@ def add_edit_crf(context, obj):
     subject_visit = SubjectVisit.objects.get(appointment_id=appointment)
     subject_visit_data = obj.get_subject_visit(subject_visit.id)
 
-    nxt = listboard_dashboard + "&subject=" + subject_identifier + "&appointment=" + appointment + "&subject_visit=" \
-          + str(subject_visit.id)
+    nxt = (
+        listboard_dashboard
+        + "&subject="
+        + subject_identifier
+        + "&appointment="
+        + appointment
+        + "&subject_visit="
+        + str(subject_visit.id)
+    )
     href = next_url(reverse(obj.model_cls().admin_url_name), nxt)
 
     if subject_visit_data:
@@ -40,10 +46,4 @@ def add_edit_crf(context, obj):
         title = text + obj.verbose_name
         href = next_url(obj.model_cls().admin_url(subject_visit_data.id), nxt)
 
-    return dict(
-        title=title,
-        text=text,
-        icon=icon,
-        btn=btn,
-        href=href
-    )
+    return dict(title=title, text=text, icon=icon, btn=btn, href=href)
