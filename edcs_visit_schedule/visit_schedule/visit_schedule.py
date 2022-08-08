@@ -3,7 +3,6 @@ import re
 
 from django.apps import apps as django_apps
 from django.conf import settings
-# from edcs_visit_tracking.constants import MISSED_VISIT, SCHEDULED, UNSCHEDULED
 
 from .schedules_collection import SchedulesCollection
 
