@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "_version.py"
+
+[tool.black]
+line-length = 95
+target-version = ["py38"]
+extend-exclude = '''^(.*\/)*\b(migrations)\b($|\/.*$)'''
+
+[tool.isort]
+profile = "black"
+py_version = "38"
+skip = [".tox", ".eggs", "migrations"]
+
+[tool.coverage.run]
+parallel = false
+branch = true
+source = ["edcs"]
+
+[tool.coverage.paths]
+source = ["edcs"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+omit = ["requirements.txt"]
+
+[tool.tox]
