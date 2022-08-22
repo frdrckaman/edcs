@@ -1,6 +1,7 @@
 from django.db import models
 
-from edcs_constants.choices import POS_NEG, YES_NO
+from edcs_constants.choices import POS_NEG, YES_NO, YES_NO_NA
+from edcs_constants.constants import NOT_APPLICABLE
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
@@ -70,7 +71,8 @@ class FollowUp(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If the patient is not responding to treatment, has the patient's "
         "treatment changed?",
         max_length=15,
-        choices=YES_NO,
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE,
     )
 
     treatment_change = models.TextField(
