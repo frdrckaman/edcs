@@ -483,6 +483,7 @@ QN31AP = (
 QN32AP = (
     ("no_walls", "No walls"),
     ("mud", "Mud"),
+    ("bricks", "Bricks"),
     ("wood", "Wood"),
     ("cement_concrete", "Cement/concrete"),
     ("stone", "Stone"),

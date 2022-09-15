@@ -4,8 +4,8 @@ from edcs_constants.choices import YES_NO
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
-from ..model_mixins import CrfModelMixin
 from ..choices import QN30AP, QN31AP, QN32AP, QN34AP, QN36AP, QN39AP
+from ..model_mixins import CrfModelMixin
 
 
 class HouseKitchenSurrounding(CrfModelMixin, edcs_models.BaseUuidModel):
@@ -57,7 +57,7 @@ class HouseKitchenSurrounding(CrfModelMixin, edcs_models.BaseUuidModel):
     material_interior_wall_kitchen = models.CharField(
         verbose_name="What is the main material of the interior walls of your kitchen?",
         max_length=125,
-        choices=QN31AP,
+        choices=QN32AP,
     )
     material_exterior_wall_kitchen = models.CharField(
         verbose_name="What is the main material of the exterior walls of your kitchen?",
