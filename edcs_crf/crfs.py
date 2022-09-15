@@ -20,7 +20,7 @@ enrollment_crf = FormsCollection(
     Crf(show_order=123, model="edcs_subject.cookingfuel"),
     Crf(show_order=124, model="edcs_subject.housekitchensurrounding"),
     Crf(show_order=125, model="edcs_subject.effectairpollution"),
-    Crf(show_order=126, model="edcs_subject.airpollutionfollowup"),
+    # Crf(show_order=126, model="edcs_subject.airpollutionfollowup"),
     Crf(show_order=127, model="edcs_subject.homelocator"),
     Crf(show_order=128, model="edcs_subject.LabPartA"),
     Crf(show_order=129, model="edcs_subject.LabPartB"),
