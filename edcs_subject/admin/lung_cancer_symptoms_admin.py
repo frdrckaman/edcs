@@ -30,12 +30,13 @@ class SignSymptomLungCancerAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "family_member_same_symptoms",
                     "family_member_relationship",
                     "family_member_relationship_other",
-                    # "family_member_dx_cancer",
                     "chest_radiation",
                     "no_chest_radiation",
                     "time_take_referred_cancer_facilities",
-                    "investigations_ordered",
+                    "investigations_ordered_nw",
+                    "investigations_ordered_other",
                     "non_investigations_ordered",
+                    "lung_cancer_dx",
                 ),
             },
         ),
@@ -49,9 +50,7 @@ class SignSymptomLungCancerAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "characterize_symptoms",
         "family_member_same_symptoms",
         "family_member_relationship",
-        # "family_member_dx_cancer",
         "time_take_referred_cancer_facilities",
-        "investigations_ordered",
     )
 
     list_filter = (
@@ -60,14 +59,12 @@ class SignSymptomLungCancerAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "characterize_symptoms",
         "family_member_same_symptoms",
         "family_member_relationship",
-        # "family_member_dx_cancer",
         "time_take_referred_cancer_facilities",
-        "investigations_ordered",
     )
 
     search_fields = ("report_datetime",)
 
-    filter_horizontal = ["what_brought_hospital"]
+    filter_horizontal = ["what_brought_hospital", "investigations_ordered_nw"]
 
     radio_fields = {
         "symptoms_how_long": admin.VERTICAL,
@@ -75,8 +72,7 @@ class SignSymptomLungCancerAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "family_member_same_symptoms": admin.VERTICAL,
         "family_member_relationship": admin.VERTICAL,
         "chest_radiation": admin.VERTICAL,
-        # "family_member_dx_cancer": admin.VERTICAL,
-        "investigations_ordered": admin.VERTICAL,
+        "lung_cancer_dx": admin.VERTICAL,
         "crf_status": admin.VERTICAL,
     }
 

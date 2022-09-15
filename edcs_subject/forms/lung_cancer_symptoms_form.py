@@ -34,13 +34,16 @@ class SignSymptomLungCancerFormValidator(FormValidator):
             field="family_member_relationship",
             field_required="family_member_relationship_other",
         )
-        self.required_if(
-            YES, field="chest_radiation", field_required="no_chest_radiation"
-        )
-        self.required_if(
+        self.required_if(YES, field="chest_radiation", field_required="no_chest_radiation")
+        # self.required_if(
+        #     OTHER,
+        #     field="investigations_ordered",
+        #     field_required="investigations_ordered_other",
+        # )
+        self.m2m_other_specify(
             OTHER,
-            field="investigations_ordered",
-            field_required="investigations_ordered_other",
+            m2m_field="investigations_ordered_nw",
+            field_other="what_brought_hospital_nw_other",
         )
         self.required_if(
             NONE_OF_ABOVE,

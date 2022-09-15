@@ -2,7 +2,7 @@ from django.db import models
 
 from edcs_constants.choices import YES_NO_DECLINED_TO_ANSWER, YES_NO_DWTA_DONT_KNOW
 from edcs_constants.constants import NOT_APPLICABLE
-from edcs_lists.models import LungCancerSymptoms
+from edcs_lists.models import CancerInvestigation, LungCancerSymptoms
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
@@ -90,6 +90,13 @@ class SignSymptomLungCancer(CrfModelMixin, edcs_models.BaseUuidModel):
         " order in relation to the illness?",
         max_length=45,
         choices=QN98,
+        null=True,
+    )
+
+    investigations_ordered_nw = models.ManyToManyField(
+        CancerInvestigation,
+        verbose_name="While at cancer treatment facility, what investigations did the doctor(s)"
+        " order in relation to the illness?",
     )
 
     investigations_ordered_other = edcs_models.OtherCharField()

@@ -1,5 +1,6 @@
 from edcs_constants.constants import (
     NEVER,
+    NONE_OF_ABOVE,
     NOT_APPLICABLE,
     OTHER,
     YES_CURRENT_CHEW,
@@ -218,6 +219,16 @@ list_data = {
         ("SMO", "SMO"),
         ("AXL", "AXL"),
         ("FGFR2", "FGFR2"),
+    ],
+    "edcs_lists.cancerinvestigation": [
+        (NOT_APPLICABLE, "Not applicable"),
+        ("blood_tests", "Blood tests"),
+        ("chest_xray", "Chest X-ray"),
+        ("ct_scan", "CT scan"),
+        ("lung_cancer_biopsy", "Lung cancer biopsy"),
+        ("sputum_tb_dx", "Sputum for TB diagnosis"),
+        (OTHER, "Others"),
+        (NONE_OF_ABOVE, "None of the above"),
     ],
 }
 

@@ -89,3 +89,9 @@ class SolidFuel(ListModelMixin):
     class Meta(ListModelMixin.Meta):
         verbose_name = "Solid Fuel"
         verbose_name_plural = "Solid Fuel"
+
+
+class CancerInvestigation(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Cancer Investigation"
+        verbose_name_plural = "Cancer Investigation"
