@@ -1,5 +1,6 @@
 from edcs_constants.constants import (
     NEVER,
+    NONE,
     NONE_OF_ABOVE,
     NOT_APPLICABLE,
     OTHER,
@@ -240,6 +241,16 @@ list_data = {
         ("construction_industry", "Construction industry"),
         ("gas_fuel_stations", "Gas / fuel stations"),
         ("cement_industry", "Cement industry"),
+        (OTHER, "Other"),
+    ],
+    "edcs_lists.followuptest": [
+        (NOT_APPLICABLE, "Not applicable"),
+        ("chest_xray", "Yes, chest X-ray"),
+        ("ct_scan", "Yes, CT scan"),
+        ("ultrasound_scan", "Yes, Ultrasound scan"),
+        ("blood_cbc", "Yes, Blood CBC"),
+        ("chemistry_tests", "Yes, Chemistry tests"),
+        (NONE, "None"),
         (OTHER, "Other"),
     ],
 }

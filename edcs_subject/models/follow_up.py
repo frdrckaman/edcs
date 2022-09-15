@@ -2,6 +2,7 @@ from django.db import models
 
 from edcs_constants.choices import POS_NEG, YES_NO, YES_NO_NA
 from edcs_constants.constants import NOT_APPLICABLE
+from edcs_lists.models import FollowUpTest
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
@@ -20,8 +21,12 @@ class FollowUp(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="Have any test been ordered at this visit",
         choices=FOLLOW_UP_TEST,
         max_length=45,
-        blank=False,
         null=False,
+    )
+
+    test_ordered_nw = models.ManyToManyField(
+        FollowUpTest,
+        verbose_name="Have any test been ordered at this visit",
     )
 
     test_ordered_other = edcs_models.OtherCharField()

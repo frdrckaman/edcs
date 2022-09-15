@@ -10,26 +10,18 @@ from ..models import FollowUp
 
 class FollowUpFormValidator(FormValidator):
     def clean(self):
-        self.required_if(
-            OTHER, field="test_ordered", field_required="test_ordered_other"
+        self.m2m_other_specify(
+            OTHER, m2m_field="test_ordered_nw", field_other="test_ordered_other"
         )
-        self.required_if(
-            POSITIVE, field="hiv_status", field_required="viral_load_cd4_off"
-        )
-        self.required_if(
-            POSITIVE, field="hiv_status", field_required="current_viral_load"
-        )
-        self.required_if(
-            POSITIVE, field="hiv_status", field_required="current_cd4_count"
-        )
+        self.required_if(POSITIVE, field="hiv_status", field_required="viral_load_cd4_off")
+        self.required_if(POSITIVE, field="hiv_status", field_required="current_viral_load")
+        self.required_if(POSITIVE, field="hiv_status", field_required="current_cd4_count")
         self.required_if(
             NOT_RESPOND_TREATMENT,
             field="patient_visit_status",
             field_required="respond_treatment",
         )
-        self.required_if(
-            YES, field="respond_treatment", field_required="treatment_change"
-        )
+        self.required_if(YES, field="respond_treatment", field_required="treatment_change")
 
 
 class FollowUpForm(FormValidatorMixin, forms.ModelForm):

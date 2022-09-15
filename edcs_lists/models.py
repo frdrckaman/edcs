@@ -101,3 +101,9 @@ class Industries(ListModelMixin):
     class Meta(ListModelMixin.Meta):
         verbose_name = "Industries"
         verbose_name_plural = "Industries"
+
+
+class FollowUpTest(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Follow up Test"
+        verbose_name_plural = "Follow up Test"

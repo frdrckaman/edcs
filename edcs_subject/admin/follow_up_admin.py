@@ -21,7 +21,7 @@ class FollowUpAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
             "TEST ORDERED",
             {
                 "fields": (
-                    "test_ordered",
+                    "test_ordered_nw",
                     "test_ordered_other",
                     "test_ordered_result",
                     "hiv_status",
@@ -63,8 +63,11 @@ class FollowUpAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
     search_fields = ("report_datetime", "subject_visit")
 
+    filter_horizontal = [
+        "test_ordered_nw",
+    ]
+
     radio_fields = {
-        "test_ordered": admin.VERTICAL,
         "hiv_status": admin.VERTICAL,
         "hiv_genotype": admin.VERTICAL,
         "patient_visit_status": admin.VERTICAL,
