@@ -2,11 +2,12 @@ from django.db import models
 
 from edcs_constants.choices import YES_NO_DECLINED_TO_ANSWER
 from edcs_constants.constants import NOT_APPLICABLE
+from edcs_lists.models import Industries
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
-from ..model_mixins import CrfModelMixin
 from ..choices import QN65, QN72
+from ..model_mixins import CrfModelMixin
 
 
 class OccupationalHistory(CrfModelMixin, edcs_models.BaseUuidModel):
@@ -22,11 +23,9 @@ class OccupationalHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         choices=YES_NO_DECLINED_TO_ANSWER,
     )
 
-    industries_worked = models.CharField(
+    industries_worked = models.ManyToManyField(
+        Industries,
         verbose_name="If yes, what kind of industry did you work?",
-        max_length=45,
-        choices=QN72,
-        default=NOT_APPLICABLE
     )
 
     industries_worked_other = edcs_models.OtherCharField()
@@ -41,7 +40,7 @@ class OccupationalHistory(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes, for how long have worked in the mines?",
         max_length=45,
         choices=QN65,
-        default=NOT_APPLICABLE
+        default=NOT_APPLICABLE,
     )
 
     activities_expose_to_smoke = models.TextField(

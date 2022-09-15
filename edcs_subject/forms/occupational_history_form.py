@@ -15,8 +15,8 @@ class OccupationalHistoryFormValidator(FormValidator):
             field="history_working_industries",
             field_applicable="industries_worked",
         )
-        self.required_if(
-            OTHER, field="industries_worked", field_required="industries_worked_other"
+        self.m2m_other_specify(
+            OTHER, m2m_field="industries_worked", field_other="industries_worked_other"
         )
         self.applicable_if(
             YES, field="history_working_mines", field_applicable="how_long_work_mine"

@@ -95,3 +95,9 @@ class CancerInvestigation(ListModelMixin):
     class Meta(ListModelMixin.Meta):
         verbose_name = "Cancer Investigation"
         verbose_name_plural = "Cancer Investigation"
+
+
+class Industries(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Industries"
+        verbose_name_plural = "Industries"

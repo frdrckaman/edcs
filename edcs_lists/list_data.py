@@ -230,6 +230,18 @@ list_data = {
         (OTHER, "Others"),
         (NONE_OF_ABOVE, "None of the above"),
     ],
+    "edcs_lists.industries": [
+        (NOT_APPLICABLE, "Not applicable"),
+        ("textile_industry", "Textile industry"),
+        ("chemical_production_industry", "Chemical production industry"),
+        ("food_processing_industry", "Food processing industry"),
+        ("drug_industry", "Drug industry"),
+        ("milling_industry", "Milling industry"),
+        ("construction_industry", "Construction industry"),
+        ("gas_fuel_stations", "Gas / fuel stations"),
+        ("cement_industry", "Cement industry"),
+        (OTHER, "Other"),
+    ],
 }
 
 # preload_data = PreloadData(list_data=list_data)
