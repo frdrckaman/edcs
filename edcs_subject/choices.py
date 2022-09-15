@@ -6,6 +6,7 @@ from edcs_constants.constants import (
     GREATER_THAN_6MONTHS,
     INTERSTITIAL_LUNG_DISEASE,
     LEFT,
+    NEG,
     NEGATIVE,
     NEGATIVE_TEST,
     NEVER,
@@ -13,6 +14,7 @@ from edcs_constants.constants import (
     NONE,
     NONE_OF_ABOVE,
     NOT_APPLICABLE,
+    NOT_DONE,
     OTHER,
     POSITIVE,
     POSITIVE_TEST,
@@ -30,6 +32,13 @@ from edcs_constants.constants import (
 from edcs_subject.constants import (
     MISSED_VISIT,
     NOT_RESPOND_TREATMENT,
+    POS_CK5_6,
+    POS_CK7,
+    POS_CK20,
+    POS_P40,
+    POS_P63,
+    POS_PANCYTOKERATINE,
+    POS_TTF1,
     SCHEDULED,
     UNSCHEDULED,
 )
@@ -848,4 +857,16 @@ PATIENT_STATUS_VISIT = (
     (NOT_RESPOND_TREATMENT, "Not responding to treatment"),
     ("lost_follow_up", "Lost to follow up"),
     ("died", "Died "),
+)
+
+IMM_HIST_CHEM_UP = (
+    (POS_TTF1, "Positive- TTF1"),
+    (POS_P40, "Positive- P40"),
+    (POS_P63, "Positive- P63"),
+    (POS_PANCYTOKERATINE, "Positive- PANCYTOKERATINE"),
+    (POS_CK20, "Positive- CK20"),
+    (POS_CK7, "Positive- CK7"),
+    (POS_CK5_6, "Positive- CK5/6"),
+    (NEG, "Negative"),
+    (NOT_DONE, "Note done"),
 )

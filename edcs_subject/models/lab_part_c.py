@@ -6,7 +6,7 @@ from edcs_model import models as edcs_models
 from edcs_model.models import datetime_not_future
 from edcs_utils import get_utcnow
 
-from ..choices import NON_SMALL_CELL, TYPE_LUNG_CA
+from ..choices import IMM_HIST_CHEM_UP, NON_SMALL_CELL, TYPE_LUNG_CA
 from ..model_mixins import CrfModelMixin
 
 
@@ -44,13 +44,13 @@ class LabPartC(CrfModelMixin, edcs_models.BaseUuidModel):
     immunohistochemistry = models.CharField(
         verbose_name="Immunohistochemistry",
         max_length=45,
-        choices=POS_NEG_ONLY,
+        choices=IMM_HIST_CHEM_UP,
     )
 
     histochemistry = models.CharField(
         verbose_name="Histochemistry",
         max_length=45,
-        choices=POS_NEG_ONLY,
+        choices=IMM_HIST_CHEM_UP,
     )
 
     type_lung_ca = models.CharField(
