@@ -115,6 +115,7 @@ list_data = {
         ("outside_house", "Outside the house"),
     ],
     "edcs_lists.cookingarea": [
+        (NOT_APPLICABLE, "Not applicable"),
         ("window_outside", "Window outside"),
         ("chimney", "Chimney"),
         ("exhaust", "Exhaust"),
