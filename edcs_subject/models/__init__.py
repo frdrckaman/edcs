@@ -5,6 +5,7 @@ from .clinical_review import ClinicalReview
 from .contraceptive_reproductive import ContraceptiveUseReproductiveHistory
 from .cooking_fuel import CookingFuel
 from .covid_history import CovidInfectionHistory
+from .death_report import DeathReport
 from .demographic import DemographicCharacteristic
 from .effect_air_pollution import EffectAirPollution
 from .follow_up import FollowUp

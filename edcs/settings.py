@@ -91,7 +91,7 @@ INSTALLED_APPS = [
     "multisite",
     "simple_history",
     "django_crypto_fields.apps.AppConfig",
-    "edcs_ae.apps.AppConfig",
+    # "edcs_ae.apps.AppConfig",
     "edcs_auth.apps.AppConfig",
     "edcs_dashboard.apps.AppConfig",
     "edcs_device.apps.AppConfig",
@@ -200,9 +200,7 @@ elif env.str("DJANGO_CACHE") == "memcached":
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},

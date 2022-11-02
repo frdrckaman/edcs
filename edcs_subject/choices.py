@@ -30,6 +30,7 @@ from edcs_constants.constants import (
     YES_PAST_USER,
 )
 from edcs_subject.constants import (
+    HOSPITAL_CLINIC,
     MISSED_VISIT,
     NOT_RESPOND_TREATMENT,
     POS_CK5_6,
@@ -869,4 +870,18 @@ IMM_HIST_CHEM_UP = (
     (POS_CK5_6, "Positive- CK5/6"),
     (NEG, "Negative"),
     (NOT_DONE, "Note done"),
+)
+
+DEATH_LOCATIONS = (
+    ("home", "At home"),
+    (HOSPITAL_CLINIC, "Hospital/clinic"),
+    ("elsewhere", "Elsewhere"),
+)
+
+INFORMANT_RELATIONSHIP = (
+    ("husband_wife", "Husband/wife"),
+    ("Parent", "Parent"),
+    ("child", "Child"),
+    (UNKNOWN, "Unknown"),
+    (OTHER, "Other"),
 )

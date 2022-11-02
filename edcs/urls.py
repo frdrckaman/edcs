@@ -33,7 +33,7 @@ urlpatterns = [
     path("admin/", edcs_lists_admin.urls),
     path("dashboard/", include("edcs_dashboard.urls")),
     path("edcs_device/", include("edcs_device.urls")),
-    path("edcs_ae/", include("edcs_ae.urls")),
+    # path("edcs_ae/", include("edcs_ae.urls")),
     path("edcs_notification/", include("edcs_notification.urls")),
     path("edcs_appointment/", include("edcs_appointment.urls")),
     path("edcs_crf/", include("edcs_crf.urls")),

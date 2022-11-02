@@ -5,6 +5,7 @@ from .clinical_review_form import ClinicalReviewForm
 from .contraceptive_reproductive_form import ContraceptiveUseReproductiveHistoryForm
 from .cooking_fuel_form import CookingFuelForm
 from .covid_history_form import CovidInfectionHistoryForm
+from .death_report_form import DeathReportForm
 from .demographic_form import DemographicCharacteristicForm
 from .effect_air_pollution_form import EffectAirPollutionForm
 from .follow_up_form import FollowUpForm

@@ -33,5 +33,6 @@ enrollment_crf = FormsCollection(
 
 followup_crf = FormsCollection(
     Crf(show_order=100, model="edcs_subject.followup"),
+    Crf(show_order=105, model="edcs_subject.deathreport"),
     name="Follow Up CRFs",
 )

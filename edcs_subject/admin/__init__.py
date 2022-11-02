@@ -5,6 +5,7 @@ from .clinical_review_admin import SubjectClinicalReviewAdmin
 from .contraceptive_reproductive_admin import ContraceptiveUseReproductiveHistoryAdmin
 from .cooking_fuel_admin import CookingFuelAdmin
 from .covid_history_admin import CovidInfectionHistoryAdmin
+from .death_report_admin import DeathReportAdmin
 from .demographic_admin import DemographicCharacteristicAdmin
 from .effect_air_pollution_admin import EffectAirPollutionAdmin
 from .follow_up_admin import FollowUpAdmin
