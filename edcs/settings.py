@@ -90,6 +90,7 @@ INSTALLED_APPS = [
     "defender",
     "multisite",
     "simple_history",
+    "import_export",
     "django_crypto_fields.apps.AppConfig",
     # "edcs_ae.apps.AppConfig",
     "edcs_auth.apps.AppConfig",
