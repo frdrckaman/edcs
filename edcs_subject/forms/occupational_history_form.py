@@ -18,11 +18,6 @@ class OccupationalHistoryFormValidator(FormValidator):
         self.industries_working = self.cleaned_data.get("industries_worked")
 
     def clean(self):
-        # self.applicable_if(
-        #     YES,
-        #     field="history_working_industries",
-        #     field_applicable="industries_worked",
-        # )
         self.m2m_other_specify(
             OTHER, m2m_field="industries_worked", field_other="industries_worked_other"
         )

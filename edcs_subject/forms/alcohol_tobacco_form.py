@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from django import forms
 from django.db.models import Q
 
@@ -29,13 +27,9 @@ class AlcoholTobaccoUseFormValidator(FormValidator):
         self.smoking_frequency_other = self.cleaned_data.get("smoking_frequency_other")
         self.age_start_smoking = self.cleaned_data.get("age_start_smoking")
         self.age_stop_smoking = self.cleaned_data.get("age_stop_smoking")
-        self.no_tobacco_product_smoked = self.cleaned_data.get(
-            "no_tobacco_product_smoked"
-        )
+        self.no_tobacco_product_smoked = self.cleaned_data.get("no_tobacco_product_smoked")
         self.smoke_inside_house = self.cleaned_data.get("smoke_inside_house")
-        self.smoke_inside_house_other = self.cleaned_data.get(
-            "smoke_inside_house_other"
-        )
+        self.smoke_inside_house_other = self.cleaned_data.get("smoke_inside_house_other")
         self.alcohol_consumption_frequency = self.cleaned_data.get(
             "alcohol_consumption_frequency"
         )
@@ -46,9 +40,7 @@ class AlcoholTobaccoUseFormValidator(FormValidator):
             self.cleaned_data.get("smoke_chew_tobacco").filter(name=NEVER).exists()
         )
         self.past_smoker = (
-            self.cleaned_data.get("smoke_chew_tobacco")
-            .filter(name=YES_PAST_SMOKER)
-            .exists()
+            self.cleaned_data.get("smoke_chew_tobacco").filter(name=YES_PAST_SMOKER).exists()
         )
 
         self.current_smoker = (
@@ -71,9 +63,7 @@ class AlcoholTobaccoUseFormValidator(FormValidator):
         self.tobacco_products = self.cleaned_data.get("tobacco_products")
 
         self.tobacco_products_na = (
-            self.cleaned_data.get("tobacco_products")
-            .filter(name=NOT_APPLICABLE)
-            .exists()
+            self.cleaned_data.get("tobacco_products").filter(name=NOT_APPLICABLE).exists()
         )
 
     def clean(self):
@@ -121,21 +111,15 @@ class AlcoholTobaccoUseFormValidator(FormValidator):
 
     def validate_smoke_chew_tobacco(self):
         if self.tobacco_user and self.never_use_tobacco:
-            raise forms.ValidationError(
-                {"smoke_chew_tobacco": "NEVER is not Applicable "}
-            )
+            raise forms.ValidationError({"smoke_chew_tobacco": "NEVER is not Applicable "})
 
     def validate_tobacco_products(self):
         if self.tobacco_user and self.tobacco_products_na:
-            raise forms.ValidationError(
-                {"tobacco_products": "This field is Applicable "}
-            )
+            raise forms.ValidationError({"tobacco_products": "This field is Applicable "})
         elif not self.tobacco_user and (self.tobacco_products.count() > 1):
             raise forms.ValidationError({"tobacco_products": "Invalid choices "})
         elif not self.tobacco_user and not self.tobacco_products_na:
-            raise forms.ValidationError(
-                {"tobacco_products": "This field is Not Applicable "}
-            )
+            raise forms.ValidationError({"tobacco_products": "This field is Not Applicable "})
 
     def validate_tobacco_products_na(self):
         if (self.tobacco_products.count() > 1) and self.tobacco_products_na:
@@ -145,12 +129,8 @@ class AlcoholTobaccoUseFormValidator(FormValidator):
 
     def validate_date_start_smoking(self):
         if self.never_use_tobacco and self.date_start_smoking is not None:
-            raise forms.ValidationError(
-                {"date_start_smoking": "Date is not Applicable "}
-            )
-        elif (
-            self.current_smoker or self.past_smoker
-        ) and self.date_start_smoking is None:
+            raise forms.ValidationError({"date_start_smoking": "Date is not Applicable "})
+        elif (self.current_smoker or self.past_smoker) and self.date_start_smoking is None:
             raise forms.ValidationError({"date_start_smoking": "Date is Required "})
 
     def validate_no_tobacco_product_smoked(self):
@@ -167,9 +147,7 @@ class AlcoholTobaccoUseFormValidator(FormValidator):
 
     def validate_age_start_smoking(self):
         if (self.current_smoker or self.past_smoker) and self.age_start_smoking is None:
-            raise forms.ValidationError(
-                {"age_start_smoking": "This field is required "}
-            )
+            raise forms.ValidationError({"age_start_smoking": "This field is required "})
 
     def validate_age_stop_smoking(self):
         if self.past_smoker and self.age_stop_smoking is None:
