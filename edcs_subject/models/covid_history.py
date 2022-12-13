@@ -6,7 +6,7 @@ from edcs_lists.models import CovidSymptoms, CovidVaccine
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
-from ..choices import COVID_SYMPTOMS, COVID_VACCINE, QN82, QN87, QN88
+from ..choices import QN82, QN87, QN88
 from ..model_mixins import CrfModelMixin
 
 
