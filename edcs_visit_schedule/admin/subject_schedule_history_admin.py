@@ -2,19 +2,17 @@ from django.contrib import admin
 from django.template.loader import render_to_string
 from django.urls import NoReverseMatch, reverse
 from django.utils.translation import gettext as _
+
 from edcs_dashboard import url_names
 from edcs_model_admin import audit_fieldset_tuple
 from edcs_model_admin.dashboard import ModelAdminSubjectDashboardMixin
 
 from ..admin_site import edcs_visit_schedule_admin
-# from ..forms import SubjectScheduleHistoryForm
 from ..models import SubjectScheduleHistory
 
 
 @admin.register(SubjectScheduleHistory, site=edcs_visit_schedule_admin)
 class SubjectScheduleHistoryAdmin(ModelAdminSubjectDashboardMixin, admin.ModelAdmin):
-
-    # form = SubjectScheduleHistoryForm
 
     date_hierarchy = "onschedule_datetime"
 
