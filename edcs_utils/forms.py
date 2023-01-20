@@ -1,5 +1,6 @@
 from django import forms
-from edcs_model.utils import InvalidFormat,duration_to_date
+
+from edcs_model.utils import InvalidFormat, duration_to_date
 
 
 class EstimatedDateFromAgoFormMixin:
