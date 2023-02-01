@@ -86,7 +86,7 @@ class FollowUp(CrfModelMixin, edcs_models.BaseUuidModel):
     )
 
     viral_load_cd4_off = models.IntegerField(
-        verbose_name="If positive, was the blood sample for viral load and CD4 count off?",
+        verbose_name="If positive, was the blood sample for viral load and CD4 taken off?",
         null=True,
         blank=True,
     )
