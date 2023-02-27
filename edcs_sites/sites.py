@@ -38,6 +38,22 @@ all_sites = {
             country="tanzania",
             domain=f"orci.tz.{edcs}{fqdn}",
         ),
+        SingleSite(
+            12,
+            "Bugando Medical Center",
+            title="Bugando Medical Center",
+            country_code="tz",
+            country="tanzania",
+            domain=f"bugando.tz.{edcs}{fqdn}",
+        ),
+        SingleSite(
+            13,
+            "Mbeya Referral Zonal Hospital",
+            title="Mbeya Referral Zonal Hospital",
+            country_code="tz",
+            country="tanzania",
+            domain=f"mbeya.tz.{edcs}{fqdn}",
+        ),
     ),
     "uganda": (
         SingleSite(

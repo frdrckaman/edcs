@@ -19,7 +19,7 @@ cryptography==35.0.0
 defusedxml==0.7.1
 diff-match-patch==20200713
 distlib==0.3.1
-Django==3.2
+Django==3.1.7
 django-audit-fields==0.3.2
 django-celery-beat==2.2.1
 django-celery-results==2.2.0
