@@ -54,6 +54,14 @@ all_sites = {
             country="tanzania",
             domain=f"mbeya.tz.{edcs}{fqdn}",
         ),
+        SingleSite(
+            14,
+            "Mwananyamala Regional Referral Hospital",
+            title="Mwananyamala Regional Referral Hospital",
+            country_code="tz",
+            country="tanzania",
+            domain=f"mwananyamala.tz.{edcs}{fqdn}",
+        ),
     ),
     "uganda": (
         SingleSite(

@@ -64,6 +64,7 @@ ALLOWED_HOSTS = [
     "orci.tz.edcs.u54lungcancer.org",
     "bugando.tz.edcs.u54lungcancer.org",
     "mbeya.tz.edcs.u54lungcancer.org",
+    "mwananyamala.tz.edcs.u54lungcancer.org",
     "mnrh.ug.edcs.u54lungcancer.org",
     "uci.ug.edcs.u54lungcancer.org",
     "mli.ug.edcs.u54lungcancer.org",
