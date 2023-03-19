@@ -100,7 +100,7 @@ IRON = (
 MATERIAL_BUILD_WALL = (
     ("soil_sand_mud", "There is no wall"),
     ("cement_concrete_tiles", "Grass"),
-    ("other", "Canes/ Palm"),
+    ("canes_palms", "Canes/ Palm"),
     ("trees_mud", "Trees and mud"),
     ("stone_mud", "Stones and mud"),
     ("wood_timber", "Wood/timber"),
