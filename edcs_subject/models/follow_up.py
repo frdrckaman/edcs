@@ -193,14 +193,14 @@ class FollowUp(CrfModelMixin, edcs_models.BaseUuidModel):
     )
 
     cough_get_worse_before = models.CharField(
-        verbose_name="as the patient had a long-standing cough that gets worse (Before)",
+        verbose_name="Has the patient had a long-standing cough that gets worse (Before)",
         max_length=6,
         null=True,
         choices=YES_NO,
     )
 
     cough_get_worse_after = models.CharField(
-        verbose_name="as the patient had a long-standing cough that gets worse (After)",
+        verbose_name="Has the patient had a long-standing cough that gets worse (After)",
         max_length=6,
         null=True,
         choices=YES_NO,
