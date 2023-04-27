@@ -1,29 +1,31 @@
 from .constants import (
     ACCOUNT_MANAGER_ROLE,
-    CUSTOM_ROLE,
-    STAFF_ROLE,
-    CLINIC_SUPER_ROLE,
+    AUDITOR_ROLE,
     CLINIC_ROLE,
-    LABORATORY_ROLE,
+    CLINIC_SUPER_ROLE,
+    CUSTOM_ROLE,
     HISTOPATHOLOGY_ROLE,
-    MOLECULAR_GENETICS_ROLE,
     HM_LOCATOR_AIR_MONITOR_ROLE,
-
+    LABORATORY_ROLE,
+    MOLECULAR_GENETICS_ROLE,
+    STAFF_ROLE,
 )
 from .group_names import (
     ACCOUNT_MANAGER,
     ADMINISTRATION,
-    EVERYONE,
-    CLINIC_SUPER,
+    AUDITOR,
     CLINIC,
-    LABORATORY,
+    CLINIC_SUPER,
+    EVERYONE,
     HISTOPATHOLOGY,
-    MOLECULAR_GENETICS,
     HM_LOCATOR_AIR_MONITOR,
+    LABORATORY,
+    MOLECULAR_GENETICS,
 )
 
 role_names = {
     ACCOUNT_MANAGER_ROLE: "Account Manager",
+    AUDITOR_ROLE: "Auditor",
     CLINIC_SUPER_ROLE: "Clinic Super",
     CLINIC_ROLE: "Clinic",
     CUSTOM_ROLE: "Custom ...",
@@ -31,13 +33,14 @@ role_names = {
     LABORATORY_ROLE: "Laboratory",
     HISTOPATHOLOGY_ROLE: "Histopathology",
     MOLECULAR_GENETICS_ROLE: "Molecular genetics",
-    HM_LOCATOR_AIR_MONITOR_ROLE: "Home Locator Air Monitoring"
+    HM_LOCATOR_AIR_MONITOR_ROLE: "Home Locator Air Monitoring",
 }
 
 required_role_names = {STAFF_ROLE: "Staff"}
 
 groups_by_role_name = {
     ACCOUNT_MANAGER_ROLE: [ACCOUNT_MANAGER, ADMINISTRATION, EVERYONE],
+    AUDITOR_ROLE: [AUDITOR],
     CLINIC_SUPER_ROLE: [CLINIC, CLINIC_SUPER, EVERYONE],
     CLINIC_ROLE: [CLINIC, EVERYONE],
     STAFF_ROLE: [EVERYONE],
