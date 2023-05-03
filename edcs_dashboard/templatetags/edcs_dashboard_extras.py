@@ -1,10 +1,15 @@
+import shutil
 from math import ceil
 from urllib.parse import parse_qsl, unquote, urlencode, urljoin
 
+import pandas as pd
+import sqlalchemy as db
 from django import template
 from django.conf import settings
 from django.template.defaultfilters import stringfilter
 from django.urls.base import reverse
+from sqlalchemy import text
+
 from edcs_utils import AgeValueError, age, get_utcnow
 
 register = template.Library()
@@ -64,6 +69,43 @@ def copy_string_to_clipboard_button(value, index=None):
     return dict(value=value, index=index)
 
 
+@register.inclusion_tag(
+    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"buttons/download-data.html",
+    takes_context=True,
+)
+def download_data(context, perm=False):
+    export_usr = str(settings.EXPORT_DATA).split(",")
+    usr = str(context.get("user"))
+
+    if usr in export_usr:
+        perm = True
+    title = "Download All U54 Study CRFs"
+    return dict(
+        href="",
+        title=title,
+        download=perm,
+    )
+
+
+@register.inclusion_tag(
+    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"buttons/download-dictionary.html",
+    takes_context=True,
+)
+def download_dictionary(context, perm=False):
+    export_usr = str(settings.EXPORT_DATA).split(",")
+    usr = str(context.get("user"))
+
+    if usr in export_usr:
+        perm = True
+
+    title = "Download U54 Data Dictionary"
+    return dict(
+        href="",
+        title=title,
+        download=perm,
+    )
+
+
 # @register.inclusion_tag(
 #     "edcs_dashboard/index_link.html",
 #     takes_context=True,
@@ -75,7 +117,7 @@ def index_link(context):
 @register.filter
 @stringfilter
 def human(value):
-    return "-".join([value[i * 4: (i + 1) * 4] for i in range(0, ceil(len(value) / 4))])
+    return "-".join([value[i * 4 : (i + 1) * 4] for i in range(0, ceil(len(value) / 4))])
 
 
 @register.inclusion_tag(

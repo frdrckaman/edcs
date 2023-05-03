@@ -1,0 +1,54 @@
+{% extends 'edcs_dashboard/bootstrap3/base.html' %}
+{% load edcs_dashboard_extras %}
+{% load subject_dashboard_extras %}
+{% block main-content %}
+<div class="workplace">
+    <div class="row">
+        <!-------------------- start screening patients --------------------->
+        <div class="col-md-12">
+            <div class="head clearfix">
+                <div class="isw-grid"></div>
+                <h1>Data Management</h1>
+                <ul class="buttons">
+                    <li><a href="#" class="isw-download"></a></li>
+                    <li><a href="#" class="isw-attachment"></a></li>
+                    <li>
+                        <a href="#" class="isw-settings"></a>
+                        <ul class="dd-list">
+                            <li><a href="#"><span class="isw-plus"></span> New document</a></li>
+                            <li><a href="#"><span class="isw-edit"></span> Edit</a></li>
+                            <li><a href="#"><span class="isw-delete"></span> Delete</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="block-fluid">
+                <table cellpadding="0" cellspacing="0" width="100%" class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th width="40%">Name</th>
+                        <th width="60%">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>All U54 Study CRFs</td>
+                            <td>{% download_data %}</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>U54 Data Dictionary</td>
+                            <td>{% download_dictionary %}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% pagination %}
+        <!-------------------- end screening patients --------------------->
+    </div>
+    <div class="dr"><span></span></div>
+</div>
+{% endblock main-content %}
