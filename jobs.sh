@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source .bashrc
+source /home/frdrck/.bashrc
 conda deactivate
 conda activate edcs
 rm -f /home/frdrck/edcs/.data/edcs/data.zip
