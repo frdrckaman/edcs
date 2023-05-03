@@ -73,15 +73,18 @@ def copy_string_to_clipboard_button(value, index=None):
     f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"buttons/download-data.html",
     takes_context=True,
 )
-def download_data(context, perm=False):
+def download_data(context, perm=False, href=None, name=None):
     export_usr = str(settings.EXPORT_DATA).split(",")
     usr = str(context.get("user"))
 
     if usr in export_usr:
         perm = True
+        href = str(settings.EDCS_DATA_DOWNLOAD)
+        name = str(settings.EDCS_DATA_NAME)
     title = "Download All U54 Study CRFs"
     return dict(
-        href="",
+        name=name,
+        href=href,
         title=title,
         download=perm,
     )
@@ -91,16 +94,19 @@ def download_data(context, perm=False):
     f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"buttons/download-dictionary.html",
     takes_context=True,
 )
-def download_dictionary(context, perm=False):
+def download_dictionary(context, perm=False, href=None, name=None):
     export_usr = str(settings.EXPORT_DATA).split(",")
     usr = str(context.get("user"))
 
     if usr in export_usr:
         perm = True
+        href = str(settings.EDCS_DATA_DOWNLOAD)
+        name = str(settings.EDCS_DATA_NAME)
 
     title = "Download U54 Data Dictionary"
     return dict(
-        href="",
+        name=name,
+        href=href,
         title=title,
         download=perm,
     )
