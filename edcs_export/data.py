@@ -7,8 +7,6 @@ import pandas as pd
 import sqlalchemy as db
 from sqlalchemy import text
 
-# from edcs_export.choices import DATA_MODEL
-
 DATA_MODEL = [
     "django_site",
     "edcs_appointment_appointment",
