@@ -8,6 +8,8 @@ from edcs_dashboard.views import (
     EnrollListView,
     HomeView,
     ScreeningDashboardView,
+    download_data,
+    download_dict,
 )
 
 app_name = "edcs_dashboard"
@@ -23,5 +25,7 @@ urlpatterns = [
     path("crf-list/<subject>/<appointment>", CrfListView.as_view(), name="crf-list"),
     path("screening/", ScreeningDashboardView.as_view(), name="screening_dashboard"),
     path("screening/<page>", ScreeningDashboardView.as_view(), name="screening_dashboard"),
+    path("download-data/", download_data, name="download-data"),
+    path("download-dict/", download_dict, name="download-dict"),
     path("", HomeView.as_view(), name="home"),
 ]

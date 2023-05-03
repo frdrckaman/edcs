@@ -1,5 +1,5 @@
 {% if download %}
-<a href="{{ href }}" class="btn btn-sm btn-info tip" title="{{ title }}"
+<a href="{% url 'edcs_dashboard:download-dict' %}" class="btn btn-sm btn-info tip" title="{{ title }}"
    download="{{ name }}">Download
     <span class="glyphicon glyphicon-download glyphicon glyphicon-white"></span></a>
 {% else %}
