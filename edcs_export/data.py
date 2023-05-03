@@ -7,7 +7,7 @@ import pandas as pd
 import sqlalchemy as db
 from sqlalchemy import text
 
-from edcs_export.choices import DATA_MODEL
+from .choices import DATA_MODEL
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 ENV_DIR = str(Path(os.path.join(BASE_DIR, ".env")))
