@@ -100,8 +100,8 @@ def download_dictionary(context, perm=False, href=None, name=None):
 
     if usr in export_usr:
         perm = True
-        href = str(settings.EDCS_DATA_DOWNLOAD)
-        name = str(settings.EDCS_DATA_NAME)
+        href = str(settings.EDCS_DATA_DICTIONARY)
+        name = str(settings.EDCS_DICT_NAME)
 
     title = "Download U54 Data Dictionary"
     return dict(
