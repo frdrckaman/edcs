@@ -10,6 +10,8 @@ from django.template.defaultfilters import stringfilter
 from django.urls.base import reverse
 from sqlalchemy import text
 
+from edcs_export.constants import PROSPECTIVE_DATA, PROSPECTIVE_DATA_DICT
+from edcs_export.models import DataDownload
 from edcs_utils import AgeValueError, age, get_utcnow
 
 register = template.Library()
@@ -81,6 +83,7 @@ def download_data(context, perm=False, href=None, name=None):
         perm = True
         href = str(settings.EDCS_DATA_DOWNLOAD)
         name = str(settings.EDCS_DATA_NAME)
+
     title = "Download All U54 Study CRFs"
     return dict(
         name=name,
