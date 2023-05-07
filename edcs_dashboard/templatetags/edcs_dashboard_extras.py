@@ -1,17 +1,11 @@
-import shutil
 from math import ceil
 from urllib.parse import parse_qsl, unquote, urlencode, urljoin
 
-import pandas as pd
-import sqlalchemy as db
 from django import template
 from django.conf import settings
 from django.template.defaultfilters import stringfilter
 from django.urls.base import reverse
-from sqlalchemy import text
 
-from edcs_export.constants import PROSPECTIVE_DATA, PROSPECTIVE_DATA_DICT
-from edcs_export.models import DataDownload
 from edcs_utils import AgeValueError, age, get_utcnow
 
 register = template.Library()
@@ -115,10 +109,6 @@ def download_dictionary(context, perm=False, href=None, name=None):
     )
 
 
-# @register.inclusion_tag(
-#     "edcs_dashboard/index_link.html",
-#     takes_context=True,
-# )
 def index_link(context):
     return dict(index_page=settings.INDEX_PAGE, index_page_label=settings.INDEX_PAGE_LABEL)
 
