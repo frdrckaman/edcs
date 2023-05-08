@@ -7,14 +7,6 @@ from edcs_export.models import DataDownload
 
 def download_data(request):
     data_file = settings.EDCS_DATA_DOWNLOAD
-    # dt = {
-    #     "data_type": PROSPECTIVE_DATA,
-    #     "username": request.user,
-    #     "first_name": request.user.first_name,
-    #     "last_name": request.user.last_name,
-    #     "email": request.user.email,
-    # }
-    # DataDownload.objects.create(**dt)
     download_data_rec(request, PROSPECTIVE_DATA)
     response = HttpResponse(open(data_file, "rb"), content_type="application/zip")
     response["Content-Disposition"] = 'attachment; filename="{}"'.format(
