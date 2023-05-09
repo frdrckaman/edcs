@@ -17,14 +17,6 @@ def download_data(request):
 
 def download_dict(request):
     data_file = settings.EDCS_DATA_DICTIONARY
-    # dt = {
-    #     "data_type": PROSPECTIVE_DATA_DICT,
-    #     "username": request.user,
-    #     "first_name": request.user.first_name,
-    #     "last_name": request.user.last_name,
-    #     "email": request.user.email,
-    # }
-    # DataDownload.objects.create(**dt)
     download_data_rec(request, PROSPECTIVE_DATA_DICT)
     response = HttpResponse(open(data_file, "rb"), content_type="application/vnd.ms-excel")
     response["Content-Disposition"] = 'attachment; filename="{}"'.format(
