@@ -174,7 +174,6 @@ def paginator_row(context):
         next_url=next_url,
         last_url=last_url,
         numbers=numbers,
-        # search_term=search_term,
         sub_text=sub_text,
     )
 
