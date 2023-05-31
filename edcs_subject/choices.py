@@ -777,6 +777,7 @@ HIV_SOMATIC_MUTATIONS = (
 )
 
 COOKING_FUEL = (
+    (NOT_APPLICABLE, "Not applicable"),
     ("kerosene", "Kerosene"),
     ("charcoal", "Charcoal"),
     ("coal", "Coal"),
