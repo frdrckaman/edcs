@@ -1,6 +1,6 @@
 from django import forms
 
-from edcs_constants.constants import OTHER
+from edcs_constants.constants import OTHER, YES
 from edcs_form_validators import FormValidatorMixin
 from edcs_form_validators.form_validator import FormValidator
 
@@ -13,6 +13,11 @@ class PreAirQualityFormValidator(FormValidator):
             OTHER,
             field="cooking_fuel",
             field_required="cooking_fuel_other",
+        )
+        self.applicable_if(
+            YES,
+            field="previously_used_cooking_fuel",
+            field_applicable="previously_cooking_fuel",
         )
         self.required_if(
             OTHER,
