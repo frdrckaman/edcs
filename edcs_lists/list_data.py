@@ -174,6 +174,15 @@ list_data = {
         ("animal_dung", "Animal dung"),
         (OTHER, "Other"),
     ],
+    "edcs_lists.solidfuelnew": [
+        (NOT_APPLICABLE, "Not applicable; solid fuel was not used for cooking"),
+        ("open_fire", "Open fire"),
+        ("mud_stove", "Mud stove"),
+        ("stove_chimney", "Stove with chimney"),
+        ("stove_exhaust_hood", "Stove with exhaust hood "),
+        ("stove_builtin_fan", "Stove with built-in fan"),
+        ("charcoal_stove", "Charcoal stove"),
+    ],
     "edcs_lists.somaticmutations": [
         (NOT_APPLICABLE, "Not applicable"),
         ("EGFR", "EGFR"),

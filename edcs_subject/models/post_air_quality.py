@@ -2,7 +2,12 @@ from django.db import models
 
 from edcs_constants.choices import YES_NO
 from edcs_constants.constants import NOT_APPLICABLE
-from edcs_lists.models import AirMonitorProblem, OtherCookingFuel, SolidFuel
+from edcs_lists.models import (
+    AirMonitorProblem,
+    OtherCookingFuel,
+    SolidFuel,
+    SolidFuelNew,
+)
 from edcs_model import models as edcs_models
 from edcs_model.models import datetime_not_future
 from edcs_utils import get_utcnow
@@ -56,12 +61,12 @@ class PostAirQuality(CrfModelMixin, edcs_models.BaseUuidModel):
     other_cooking_fuel_other = edcs_models.OtherCharField()
 
     other_cooking_fuel_duration = models.IntegerField(
-        verbose_name="For how many hours was the primary fuel used for cooking?",
+        verbose_name="For how many hours were the other fuels used for cooking?",
         help_text="Enter as minutes Eg 1hr = 60min",
     )
 
     solid_fuel = models.ManyToManyField(
-        SolidFuel,
+        SolidFuelNew,
         verbose_name="If you used solid fuel (charcoal, wood, coal, agriculture/crop, animal dung or shrub/grass) as "
         "primary fuel or other fuel for cooking, what type of stove did you use these fuels in?",
     )
@@ -77,7 +82,7 @@ class PostAirQuality(CrfModelMixin, edcs_models.BaseUuidModel):
     primary_fuel_heating_other = edcs_models.OtherCharField()
 
     primary_fuel_heating_duration = models.IntegerField(
-        verbose_name="For how many hours was the primary fuel used for cooking?",
+        verbose_name="For how many hours was the primary fuel used for heating?",
         help_text="Enter as minutes Eg 1hr = 60min",
     )
 
