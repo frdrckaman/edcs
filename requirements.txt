@@ -1,7 +1,7 @@
 amqp==5.0.9
 appdirs==1.4.4
 arrow==1.0.3
-asgiref==3.3.1
+# asgiref==3.3.1
 bcrypt==3.2.0
 beautifulsoup4==4.9.3
 billiard==3.6.4.0
