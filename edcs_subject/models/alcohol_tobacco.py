@@ -23,16 +23,13 @@ class AlcoholTobaccoUse(CrfModelMixin, edcs_models.BaseUuidModel):
         default=get_utcnow,
         help_text="Date and time of report.",
     )
-
     smoke_chew_tobacco = models.ManyToManyField(
         SmokingTobaccoProducts, verbose_name="Do you smoke or chew tobacco products?"
     )
-
     tobacco_products = models.ManyToManyField(
         TobaccoProducts,
         verbose_name="If currently/past smoker/chew, which tobacco products do you/ did you smoke/chew.",
     )
-
     tobacco_products_other = edcs_models.OtherCharField()
 
     date_start_smoking = models.DateField(
@@ -40,18 +37,69 @@ class AlcoholTobaccoUse(CrfModelMixin, edcs_models.BaseUuidModel):
         null=True,
         blank=True,
     )
-
     smoking_frequency = models.CharField(
         verbose_name="How frequently do you smoke these products?",
         max_length=45,
         choices=SMOKE_TOBACCO_PRODUCTS_FREQUENCY,
         default=NOT_APPLICABLE,
+        null=True,
     )
-
     smoking_frequency_other = edcs_models.OtherCharField()
+
+    smoking_frequency_cigarettes = models.CharField(
+        verbose_name="How frequently do you smoke cigarettes?",
+        max_length=45,
+        choices=SMOKE_TOBACCO_PRODUCTS_FREQUENCY,
+        default=NOT_APPLICABLE,
+    )
+    smoking_frequency_other_cigarettes = edcs_models.OtherCharField()
+
+    smoking_frequency_cigars = models.CharField(
+        verbose_name="How frequently do you smoke cigars?",
+        max_length=45,
+        choices=SMOKE_TOBACCO_PRODUCTS_FREQUENCY,
+        default=NOT_APPLICABLE,
+    )
+    smoking_frequency_other_cigars = edcs_models.OtherCharField()
+
+    smoking_frequency_shisha = models.CharField(
+        verbose_name="How frequently do you smoke shisha?",
+        max_length=45,
+        choices=SMOKE_TOBACCO_PRODUCTS_FREQUENCY,
+        default=NOT_APPLICABLE,
+    )
+    smoking_frequency_other_shisha = edcs_models.OtherCharField()
+
+    smoking_frequency_pipes = models.CharField(
+        verbose_name="How frequently do you smoke pipes?",
+        max_length=45,
+        choices=SMOKE_TOBACCO_PRODUCTS_FREQUENCY,
+        default=NOT_APPLICABLE,
+    )
+    smoking_frequency_other_pipes = edcs_models.OtherCharField()
 
     no_tobacco_product_smoked = models.IntegerField(
         verbose_name="On average, how many of these products do you/did you smoke?",
+        null=True,
+        blank=True,
+    )
+    no_cigarettes_smoked = models.IntegerField(
+        verbose_name="On average, how many Cigarettes do you/did you smoke?",
+        null=True,
+        blank=True,
+    )
+    no_cigars_smoked = models.IntegerField(
+        verbose_name="On average, how many Cigars do you/did you smoke?",
+        null=True,
+        blank=True,
+    )
+    no_shisha_smoked = models.IntegerField(
+        verbose_name="On average, how many Shisha do you/did you smoke?",
+        null=True,
+        blank=True,
+    )
+    no_pipe_smoked = models.IntegerField(
+        verbose_name="On average, how many Pipes do you/did you smoke?",
         null=True,
         blank=True,
     )
@@ -78,7 +126,6 @@ class AlcoholTobaccoUse(CrfModelMixin, edcs_models.BaseUuidModel):
         choices=SMOKE_INSIDE,
         default=NOT_APPLICABLE,
     )
-
     smoke_inside_house_other = edcs_models.OtherCharField()
 
     consume_alcohol = models.CharField(
@@ -86,14 +133,12 @@ class AlcoholTobaccoUse(CrfModelMixin, edcs_models.BaseUuidModel):
         max_length=45,
         choices=ALCOHOL_CONSUMPTION,
     )
-
     alcohol_consumption_frequency = models.CharField(
         verbose_name="How frequently do you consume alcohol?",
         max_length=45,
         choices=ALCOHOL_CONSUMPTION_FREQUENCY,
         default=NOT_APPLICABLE,
     )
-
     alcohol_consumption_frequency_other = edcs_models.OtherCharField()
 
     class Meta(edcs_models.BaseUuidModel.Meta):
