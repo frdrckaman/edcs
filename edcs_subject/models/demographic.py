@@ -34,6 +34,22 @@ class DemographicCharacteristic(CrfModelMixin, edcs_models.BaseUuidModel):
         choices=OCCUPATION,
     )
 
+    occupation_details = models.CharField(
+        verbose_name="Provide more details about the above occupation?",
+        max_length=85,
+        blank=True,
+        null=True,
+    )
+
+    occupation_duration = models.DecimalField(
+        verbose_name="How long have you been working on the above occupation?",
+        null=True,
+        max_digits=6,
+        decimal_places=3,
+        help_text="Three month = 0.25, Six month = 0.5, One year = 1 , year and six month = "
+        "1.5 etc.",
+    )
+
     occupation_other = edcs_models.OtherCharField()
 
     class Meta(edcs_models.BaseUuidModel.Meta):
