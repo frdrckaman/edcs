@@ -34,6 +34,7 @@ class DemographicCharacteristic(CrfModelMixin, edcs_models.BaseUuidModel):
         choices=OCCUPATION,
     )
 
+    # new field
     occupation_details = models.CharField(
         verbose_name="Provide more details about the above occupation?",
         max_length=85,
@@ -41,6 +42,7 @@ class DemographicCharacteristic(CrfModelMixin, edcs_models.BaseUuidModel):
         null=True,
     )
 
+    # new field
     occupation_duration = models.DecimalField(
         verbose_name="How long have you been working on the above occupation?",
         null=True,

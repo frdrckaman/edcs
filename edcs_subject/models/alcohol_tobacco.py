@@ -46,58 +46,78 @@ class AlcoholTobaccoUse(CrfModelMixin, edcs_models.BaseUuidModel):
     )
     smoking_frequency_other = edcs_models.OtherCharField()
 
+    # new field
     smoking_frequency_cigarettes = models.CharField(
         verbose_name="How frequently do you smoke cigarettes?",
         max_length=45,
         choices=SMOKE_TOBACCO_PRODUCTS_FREQUENCY,
         default=NOT_APPLICABLE,
     )
+    # new field
     smoking_frequency_other_cigarettes = edcs_models.OtherCharField()
 
+    # new field
     smoking_frequency_cigars = models.CharField(
         verbose_name="How frequently do you smoke cigars?",
         max_length=45,
         choices=SMOKE_TOBACCO_PRODUCTS_FREQUENCY,
         default=NOT_APPLICABLE,
     )
+
+    # new field
     smoking_frequency_other_cigars = edcs_models.OtherCharField()
 
+    # new field
     smoking_frequency_shisha = models.CharField(
         verbose_name="How frequently do you smoke shisha?",
         max_length=45,
         choices=SMOKE_TOBACCO_PRODUCTS_FREQUENCY,
         default=NOT_APPLICABLE,
     )
+
+    # new field
     smoking_frequency_other_shisha = edcs_models.OtherCharField()
 
+    # new field
     smoking_frequency_pipes = models.CharField(
         verbose_name="How frequently do you smoke pipes?",
         max_length=45,
         choices=SMOKE_TOBACCO_PRODUCTS_FREQUENCY,
         default=NOT_APPLICABLE,
     )
+
+    # new field
     smoking_frequency_other_pipes = edcs_models.OtherCharField()
 
+    # new field
     no_tobacco_product_smoked = models.IntegerField(
         verbose_name="On average, how many of these products do you/did you smoke?",
         null=True,
         blank=True,
     )
+
+    # new field
     no_cigarettes_smoked = models.IntegerField(
         verbose_name="On average, how many Cigarettes do you/did you smoke?",
         null=True,
         blank=True,
     )
+
+    # new field
     no_cigars_smoked = models.IntegerField(
         verbose_name="On average, how many Cigars do you/did you smoke?",
         null=True,
         blank=True,
     )
+
+    # new field
     no_shisha_smoked = models.IntegerField(
         verbose_name="On average, how many Shisha do you/did you smoke?",
         null=True,
         blank=True,
     )
+
+    # new field
     no_pipe_smoked = models.IntegerField(
         verbose_name="On average, how many Pipes do you/did you smoke?",
         null=True,
