@@ -4,10 +4,10 @@ from django_audit_fields import audit_fieldset_tuple
 from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 
-from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
 from ..forms import DemographicCharacteristicForm
 from ..models import DemographicCharacteristic
+from .modeladmin_mixins import CrfModelAdminMixin
 
 
 @admin.register(DemographicCharacteristic, site=edcs_subject_admin)
@@ -26,6 +26,8 @@ class DemographicCharacteristicAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "education_other",
                     "occupation",
                     "occupation_other",
+                    "occupation_details",
+                    "occupation_duration",
                 ),
             },
         ),
@@ -46,9 +48,7 @@ class DemographicCharacteristicAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "occupation",
     )
 
-    search_fields = (
-        "report_datetime",
-    )
+    search_fields = ("report_datetime",)
 
     radio_fields = {
         "martial_status": admin.VERTICAL,
