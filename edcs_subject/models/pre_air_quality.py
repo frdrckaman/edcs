@@ -100,6 +100,24 @@ class PreAirQuality(CrfModelMixin, edcs_models.BaseUuidModel):
         help_text="If duration is less than 1 year, please indicate “01”",
     )
 
+    upas_number = models.CharField(
+        verbose_name="UPAS Number",
+        max_length=45,
+        null=True,
+    )
+
+    cartridge_number = models.CharField(
+        verbose_name="Cartridge Number",
+        max_length=45,
+        null=True,
+    )
+
+    filter_number = models.CharField(
+        verbose_name="Filter Number",
+        max_length=45,
+        null=True,
+    )
+
     class Meta(edcs_models.BaseUuidModel.Meta):
         verbose_name = "Pre Air Quality"
         verbose_name_plural = "Pre Air Quality"
