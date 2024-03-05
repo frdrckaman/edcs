@@ -7,6 +7,7 @@ from edcs_form_validators import FormValidator, FormValidatorMixin
 from edcs_screening.modelform_mixins import AlreadyConsentedFormMixin
 from edcs_utils import age
 
+from ..choices import OTHER_CANCER
 from ..models import SubjectScreening
 
 
@@ -25,6 +26,9 @@ class SubjectScreeningFormValidator(FormValidator):
             )
         self.required_if(YES, field="patient_know_dob", field_required="patient_dob")
         self.required_if(OTHER, field="nationality", field_required="nationality_other")
+        self.applicable_if(
+            OTHER_CANCER, field="patient_category", field_applicable="other_cancer_dx"
+        )
 
         if self.cleaned_data.get("patient_dob") is not None:
             age_in_years = age(self.cleaned_data.get("patient_dob"), date.today()).years
@@ -52,9 +56,7 @@ class SubjectScreeningFormValidator(FormValidator):
             )
 
 
-class SubjectScreeningForm(
-    AlreadyConsentedFormMixin, FormValidatorMixin, forms.ModelForm
-):
+class SubjectScreeningForm(AlreadyConsentedFormMixin, FormValidatorMixin, forms.ModelForm):
     form_validator_cls = SubjectScreeningFormValidator
 
     def clean(self):

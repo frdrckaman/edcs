@@ -11,7 +11,7 @@ from edcs_model.models import BaseUuidModel, OtherCharField
 from edcs_screening.model_mixins import ScreeningModelMixin
 from edcs_screening.screening_identifier import ScreeningIdentifier
 
-from ..choices import CLINIC, PATIENT_CATEGORY
+from ..choices import CLINIC, OTHER_CANCER_DX, PATIENT_CATEGORY
 from ..eligibility import check_eligible_final
 
 
@@ -37,6 +37,13 @@ class SubjectScreening(
 
     patient_category = models.CharField(
         verbose_name="Patient Category?", max_length=45, choices=PATIENT_CATEGORY
+    )
+
+    other_cancer_dx = models.CharField(
+        verbose_name="For other cancers (Please clarify)",
+        max_length=45,
+        choices=OTHER_CANCER_DX,
+        null=True,
     )
 
     screening_consent = models.CharField(
