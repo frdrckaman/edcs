@@ -886,3 +886,9 @@ INFORMANT_RELATIONSHIP = (
     (UNKNOWN, "Unknown"),
     (OTHER, "Other"),
 )
+
+TB_DX = (
+    ("yes_clinically", "Yes clinically"),
+    ("Yes_bacteriologically", "Yes bacteriologically confirmed"),
+    (NO, NO),
+)

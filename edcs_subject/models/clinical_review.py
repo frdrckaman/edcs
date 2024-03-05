@@ -4,13 +4,15 @@ from django.utils.safestring import mark_safe
 from edcs_constants.choices import (
     HIV_RESULT_DWTA_DONT_KNOW,
     YES_NO,
-    YES_NO_DWTA_DONT_KNOW, YES_NO_NA, YES_NO_DECLINED_TO_ANSWER_NA,
+    YES_NO_DECLINED_TO_ANSWER_NA,
+    YES_NO_DWTA_DONT_KNOW,
+    YES_NO_NA,
 )
 from edcs_constants.constants import NOT_APPLICABLE
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
-from ..choices import LUNG_DISEASE, MISS_ARV
+from ..choices import LUNG_DISEASE, MISS_ARV, TB_DX
 from ..model_mixins import CrfModelMixin
 
 
@@ -67,6 +69,13 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
     )
 
     miss_taking_arv_other = edcs_models.OtherCharField()
+    # new
+    tb_dx = models.CharField(
+        verbose_name="Have you ever been diagnosed with TB?",
+        max_length=65,
+        choices=TB_DX,
+        null=True,
+    )
 
     lung_diseases_dx = models.CharField(
         verbose_name="Have you ever been diagnosed with a chronic lung disease like Asthma, COPD, and Interstitial "
@@ -121,7 +130,7 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="Are you using any medications?",
         max_length=45,
         choices=YES_NO_DECLINED_TO_ANSWER_NA,
-        default=NOT_APPLICABLE
+        default=NOT_APPLICABLE,
     )
 
     htn_medication = models.TextField(
@@ -146,7 +155,7 @@ class ClinicalReview(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="Are you using any medications?",
         max_length=45,
         choices=YES_NO_DECLINED_TO_ANSWER_NA,
-        default=NOT_APPLICABLE
+        default=NOT_APPLICABLE,
     )
 
     dm_medication = models.TextField(
