@@ -6,7 +6,7 @@ from django.core.validators import (
 from django.db import models
 from django_crypto_fields.fields import EncryptedCharField
 
-from edcs_constants.choices import COUNTRY, YES_NO
+from edcs_constants.choices import COUNTRY, YES_NO, YES_NO_TAP
 from edcs_model.models import BaseUuidModel, OtherCharField
 from edcs_screening.model_mixins import ScreeningModelMixin
 from edcs_screening.screening_identifier import ScreeningIdentifier
@@ -47,9 +47,7 @@ class SubjectScreening(
         max_length=15,
         choices=YES_NO,
     )
-    nationality = models.CharField(
-        verbose_name="Nationality", max_length=60, choices=COUNTRY
-    )
+    nationality = models.CharField(verbose_name="Nationality", max_length=60, choices=COUNTRY)
 
     nationality_other = OtherCharField()
 
@@ -127,6 +125,25 @@ class SubjectScreening(
         verbose_name="Has the patient had unexplained weight loss?",
         max_length=25,
         choices=YES_NO,
+    )
+    # new variable
+    tb_pleurisy = models.CharField(
+        verbose_name="TB pleurisy (a pleural effusion and pleuritis secondary to Mycobacterium infection)",
+        choices=YES_NO_TAP,
+        max_length=25,
+        null=True,
+    )
+    dx_tb_clinical_criteria = models.CharField(
+        verbose_name="Diagnosed with TB on clinical criteria / sputum negative, no clinical improvement 2 months or more after starting TB treatment and Viral Load below 200copies/ml.",
+        max_length=25,
+        choices=YES_NO,
+        null=True,
+    )
+    ct_findings_report = models.CharField(
+        verbose_name="Did the CT scan findings report suggest lung malignancy? ",
+        max_length=25,
+        choices=YES_NO,
+        null=True,
     )
     abnormal_chest_xrays = models.CharField(
         verbose_name="Does the patient have abnormal chest x-rays demonstrating nodules and/or masses?",

@@ -521,6 +521,11 @@ YES_NO_DECLINED_TO_ANSWER_NA = (
 
 YES_NO_DOESNT_WORK = ((YES, YES), (NO, NO), ("Doesnt_work", "Doesn't work"))
 
+YES_NO_TAP = (
+    ("Yes", "Yes (Tap the pleural fluid do cytology and CT scan)"),
+    (NO, NO),
+)
+
 WHYNOPARTICIPATE_CHOICE = (
     ("I don't have time", _("I don't have time")),
     ("I don't want to answer the questions", _("I don't want to answer the questions")),
