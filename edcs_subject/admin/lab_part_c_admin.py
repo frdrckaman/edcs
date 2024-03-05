@@ -26,8 +26,8 @@ class LabPartCAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "consistency",
                     "color",
                     "microscopic_findings",
-                    "immunohistochemistry",
-                    "histochemistry",
+                    "immunohistochemistry_new",
+                    "histochemistry_new",
                     "type_lung_ca",
                     "non_small_cell",
                 ),
@@ -39,8 +39,8 @@ class LabPartCAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
     list_display = (
         "report_datetime",
-        "immunohistochemistry",
-        "histochemistry",
+        # "immunohistochemistry",
+        # "histochemistry",
         "type_lung_ca",
         "non_small_cell",
         "measurements",
@@ -48,23 +48,28 @@ class LabPartCAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
     list_filter = (
         "report_datetime",
-        "immunohistochemistry",
-        "histochemistry",
+        # "immunohistochemistry",
+        # "histochemistry",
         "type_lung_ca",
         "non_small_cell",
     )
 
     search_fields = (
         "report_datetime",
-        "immunohistochemistry",
-        "histochemistry",
+        # "immunohistochemistry",
+        # "histochemistry",
         "type_lung_ca",
         "non_small_cell",
     )
 
+    filter_horizontal = [
+        "immunohistochemistry_new",
+        "histochemistry_new",
+    ]
+
     radio_fields = {
-        "immunohistochemistry": admin.VERTICAL,
-        "histochemistry": admin.VERTICAL,
+        # "immunohistochemistry": admin.VERTICAL,
+        # "histochemistry": admin.VERTICAL,
         "type_lung_ca": admin.VERTICAL,
         "non_small_cell": admin.VERTICAL,
         "crf_status": admin.VERTICAL,

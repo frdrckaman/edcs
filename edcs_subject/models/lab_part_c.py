@@ -2,6 +2,7 @@ from django.db import models
 
 from edcs_constants.choices import POS_NEG_ONLY
 from edcs_constants.constants import NOT_APPLICABLE
+from edcs_lists.models import Immunohistochemistry
 from edcs_model import models as edcs_models
 from edcs_model.models import datetime_not_future
 from edcs_utils import get_utcnow
@@ -45,12 +46,25 @@ class LabPartC(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="Immunohistochemistry",
         max_length=45,
         choices=IMM_HIST_CHEM_UP,
+        blank=True,
+        null=True,
+    )
+    immunohistochemistry_new = models.ManyToManyField(
+        Immunohistochemistry,
+        verbose_name="Immunohistochemistry",
+        related_name="immunohistochemistry",
     )
 
     histochemistry = models.CharField(
         verbose_name="Histochemistry",
         max_length=45,
         choices=IMM_HIST_CHEM_UP,
+        blank=True,
+        null=True,
+    )
+
+    histochemistry_new = models.ManyToManyField(
+        Immunohistochemistry, verbose_name="Histochemistry", related_name="histochemistry"
     )
 
     type_lung_ca = models.CharField(

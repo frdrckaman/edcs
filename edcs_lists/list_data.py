@@ -1,13 +1,24 @@
 from edcs_constants.constants import (
+    NEG,
     NEVER,
     NONE,
     NONE_OF_ABOVE,
     NOT_APPLICABLE,
+    NOT_DONE,
     OTHER,
     YES_CURRENT_CHEW,
     YES_CURRENT_SMOKER,
     YES_PAST_CHEW,
     YES_PAST_SMOKER,
+)
+from edcs_subject.constants import (
+    POS_CK5_6,
+    POS_CK7,
+    POS_CK20,
+    POS_P40,
+    POS_P63,
+    POS_PANCYTOKERATINE,
+    POS_TTF1,
 )
 
 list_data = {
@@ -262,6 +273,17 @@ list_data = {
         ("chemistry_tests", "Yes, Chemistry tests"),
         (NONE, "None"),
         (OTHER, "Other"),
+    ],
+    "edcs_lists.immunohistochemistry": [
+        (POS_TTF1, "Positive- TTF1"),
+        (POS_P40, "Positive- P40"),
+        (POS_P63, "Positive- P63"),
+        (POS_PANCYTOKERATINE, "Positive- PANCYTOKERATINE"),
+        (POS_CK20, "Positive- CK20"),
+        (POS_CK7, "Positive- CK7"),
+        (POS_CK5_6, "Positive- CK5/6"),
+        (NEG, "Negative"),
+        (NOT_DONE, "Note done"),
     ],
 }
 
