@@ -6,7 +6,7 @@ from edcs_lists.models import FollowUpTest
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
-from ..choices import FOLLOW_UP_TEST, PATIENT_STATUS_VISIT
+from ..choices import FOLLOW_UP_TEST, PATIENT_STATUS_VISIT, QUALITY_OF_LIFE, SCALE
 from ..model_mixins import CrfModelMixin
 
 
@@ -267,7 +267,7 @@ class FollowUp(CrfModelMixin, edcs_models.BaseUuidModel):
         null=True,
         choices=YES_NO,
     )
-
+    # *******************************************************
     walk_before = models.CharField(
         verbose_name="Has the patient been able to walk on their own (Before)?",
         max_length=6,
@@ -308,6 +308,12 @@ class FollowUp(CrfModelMixin, edcs_models.BaseUuidModel):
         max_length=6,
         null=True,
         choices=YES_NO,
+    )
+    # ***************************************************************
+    other_presenting_symptoms = models.TextField(
+        verbose_name="Any other presenting symptoms please specify?",
+        blank=True,
+        null=True,
     )
 
     CT_scan_done = models.CharField(
@@ -395,6 +401,191 @@ class FollowUp(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="If yes specify",
         null=True,
         blank=True,
+    )
+    # ********************************** new variable ****************************************
+    strenuous_activities = models.CharField(
+        verbose_name="Do you have any trouble doing strenuous activities,like carrying a heavy shopping bag or a suitcase?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    long_walk = models.CharField(
+        verbose_name="Do you have any trouble taking a long walk?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    short_walk = models.CharField(
+        verbose_name="Do you have any trouble taking a short walk outside of the house?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    stay_bed_chair = models.CharField(
+        verbose_name="Do you need to stay in bed or a chair during the day?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    need_help = models.CharField(
+        verbose_name="Do you need help with eating, dressing, washing yourself or using the toilet?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    limited_daily_activities = models.CharField(
+        verbose_name="Were you limited in doing either your work or other daily activities?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    limited_leisure_activities = models.CharField(
+        verbose_name="Were you limited in pursuing your hobbies or other leisure time activities?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    short_breath = models.CharField(
+        verbose_name="Were you short of breath?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    had_pain = models.CharField(
+        verbose_name="Have you had pain?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    need_rest = models.CharField(
+        verbose_name="Did you need to rest?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    trouble_sleeping = models.CharField(
+        verbose_name="Have you had trouble sleeping?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    felt_weak = models.CharField(
+        verbose_name="Have you felt weak?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    lacked_appetite = models.CharField(
+        verbose_name="Have you lacked appetite?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    felt_nauseated = models.CharField(
+        verbose_name="Have you felt nauseated?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    vomited = models.CharField(
+        verbose_name="Have you vomited?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    constipated = models.CharField(
+        verbose_name="Have you been constipated?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    diarrhea = models.CharField(
+        verbose_name="Have you had diarrhea?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    tired = models.CharField(
+        verbose_name="Were you tired?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    pain_interfere_activities = models.CharField(
+        verbose_name="Did pain interfere with your daily activities?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    difficulty_concentrating = models.CharField(
+        verbose_name="Have you had difficulty in concentrating on things, like reading a newspaper or watching television?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    feel_tense = models.CharField(
+        verbose_name="Did you feel tense?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    worry = models.CharField(
+        verbose_name="Did you worry",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    feel_irritable = models.CharField(
+        verbose_name="Did you feel irritable?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    depressed = models.CharField(
+        verbose_name="Did you feel depressed",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    difficulty_remembering = models.CharField(
+        verbose_name="Have you had difficulty remembering things?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    condition_interfered_family = models.CharField(
+        verbose_name="Has your physical condition or medical treatment interfered with your family life?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    condition_interfered_social = models.CharField(
+        verbose_name="Has your physical condition or medical treatment interfered with your social activities?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+    condition_interfered_financial = models.CharField(
+        verbose_name="Has your physical condition or medical treatment caused you financial difficulties?",
+        max_length=15,
+        null=True,
+        choices=QUALITY_OF_LIFE,
+    )
+
+    rate_overall_health = models.CharField(
+        verbose_name="How would you rate your overall health during the past week?",
+        max_length=15,
+        choices=SCALE,
+        null=True,
+        help_text="1 be very poor and 7 be excellent",
+    )
+
+    rate_overall_quality_life = models.CharField(
+        verbose_name="How would you rate your overall quality of life during the past week?",
+        max_length=15,
+        choices=SCALE,
+        null=True,
+        help_text="1 be very poor and 7 be excellent",
     )
 
     class Meta(edcs_models.BaseUuidModel.Meta):

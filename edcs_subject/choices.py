@@ -892,3 +892,20 @@ TB_DX = (
     ("Yes_bacteriologically", "Yes bacteriologically confirmed"),
     (NO, NO),
 )
+
+QUALITY_OF_LIFE = (
+    ("not_at_all", "Not at All"),
+    ("little", "A Little"),
+    ("quite_bit", "Quite a Bit"),
+    ("very_much", "Very Much"),
+)
+
+SCALE = (
+    ("1", "1"),
+    ("2", "2"),
+    ("3", "3"),
+    ("4", "4"),
+    ("5", "5"),
+    ("6", "6"),
+    ("7", "7"),
+)
