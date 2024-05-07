@@ -9,6 +9,7 @@ from .death_report_admin import DeathReportAdmin
 from .demographic_admin import DemographicCharacteristicAdmin
 from .effect_air_pollution_admin import EffectAirPollutionAdmin
 from .follow_up_admin import FollowUpAdmin
+from .genotypic_cancer_profile_admin import GenotypicCancerProfileAdmin
 from .hiv_lab_admin import HivLabInvestigationAdmin
 from .home_locator_admin import HomeLocatorFormAdmin
 from .house_kitchen_admin import HouseKitchenSurroundingAdmin

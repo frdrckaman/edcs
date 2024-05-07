@@ -9,6 +9,7 @@ from .death_report import DeathReport
 from .demographic import DemographicCharacteristic
 from .effect_air_pollution import EffectAirPollution
 from .follow_up import FollowUp
+from .genotypic_cancer_profile import GenotypicCancerProfile
 from .hiv_lab import HivLabInvestigation
 from .home_locator import HomeLocator
 from .house_kitchen import HouseKitchenSurrounding
