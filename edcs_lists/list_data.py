@@ -285,6 +285,20 @@ list_data = {
         (NEG, "Negative"),
         (NOT_DONE, "Note done"),
     ],
+    "edcs_lists.oncominevariantclass": [
+        ("amplification", "Amplification"),
+        ("Fusion", "Fusion"),
+        ("nontargetedfusion", "NonTargetedFusion"),
+        ("rnaexonvariant", "RNAExonVariant"),
+        ("hotspot", "Hotspot"),
+        ("egfrexon19Deletion", "EGFRExon19Deletion"),
+        ("egfrexon20Insertion", "EGFRExon20Insertion"),
+        ("erbb2exon20insertion", "ERBB2Exon20Insertion"),
+        ("kitexon11deletion", "KITExon11Deletion"),
+        ("kitexon11insertion", "KITExon11Insertion"),
+        ("metexon14skipping", "METExon14Skipping"),
+        ("pdgfraexon18deletion", "PDGFRAExon18Deletion"),
+    ],
 }
 
 # preload_data = PreloadData(list_data=list_data)

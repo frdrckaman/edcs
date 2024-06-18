@@ -1,5 +1,6 @@
 from django.db import models
 
+from edcs_lists.models import OncomineVariantClass
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
@@ -13,6 +14,20 @@ class GenotypicCancerProfile(CrfModelMixin, edcs_models.BaseUuidModel):
         help_text="Date and time of report.",
     )
 
+    oncomine_variant = models.ManyToManyField(
+        OncomineVariantClass, verbose_name="Oncomine Variant Class", null=True
+    )
+
+    genotype = models.TextField(verbose_name="Genotype", null=True)
+
+    amino_acid_change = models.TextField(verbose_name="Amino Acid Change", null=True)
+
+    coverage = models.IntegerField(verbose_name="Coverage", null=True)
+
+    allele_frequency = models.IntegerField(
+        verbose_name="Allele Frequency", blank=True, null=True
+    )
+
     sample_type = models.CharField(
         verbose_name="Sample Type",
         max_length=20,
@@ -21,11 +36,13 @@ class GenotypicCancerProfile(CrfModelMixin, edcs_models.BaseUuidModel):
 
     date_received = models.DateTimeField(
         verbose_name="Date Received",
+        null=True,
     )
 
     cancer_type = models.CharField(
         verbose_name="Cancer Type",
         max_length=45,
+        null=True,
     )
 
     genomic_alteration = models.CharField(
@@ -34,22 +51,23 @@ class GenotypicCancerProfile(CrfModelMixin, edcs_models.BaseUuidModel):
         null=True,
     )
 
-    allele_frequency = models.DecimalField(
-        verbose_name="Allele Frequency",
-        decimal_places=2,
-        max_digits=4,
-        null=True,
-        help_text="Percentage %",
-    )
+    # allele_frequency = models.DecimalField(
+    #     verbose_name="Allele Frequency",
+    #     decimal_places=2,
+    #     max_digits=4,
+    #     null=True,
+    #     help_text="Percentage %",
+    # )
 
     variant_class = models.CharField(
         verbose_name="Variant Class",
         max_length=45,
+        null=True,
     )
 
-    coverage = models.IntegerField(
-        verbose_name="Coverage",
-    )
+    # coverage = models.IntegerField(
+    #     verbose_name="Coverage",
+    # )
 
     biomarker_this_cancer = models.TextField(
         verbose_name="Biomarker-based Relevant Therapies",

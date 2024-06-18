@@ -119,3 +119,9 @@ class FollowUpTest(ListModelMixin):
     class Meta(ListModelMixin.Meta):
         verbose_name = "Follow up Test"
         verbose_name_plural = "Follow up Test"
+
+
+class OncomineVariantClass(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "Oncomine Variant Class"
+        verbose_name_plural = "Oncomine Variant Class"

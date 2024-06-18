@@ -10,6 +10,7 @@ from .models import (
     FamilyMembers,
     HIVSubtype,
     LungCancerSymptoms,
+    OncomineVariantClass,
     SmokingTobaccoProducts,
     SomaticMutations,
     TobaccoProducts,
@@ -58,4 +59,9 @@ class HIVSubtypeAdmin(ListModelAdminMixin, admin.ModelAdmin):
 
 @admin.register(SomaticMutations, site=edcs_lists_admin)
 class SomaticMutationsAdmin(ListModelAdminMixin, admin.ModelAdmin):
+    pass
+
+
+@admin.register(OncomineVariantClass, site=edcs_lists_admin)
+class OncomineVariantClassAdmin(ListModelAdminMixin, admin.ModelAdmin):
     pass

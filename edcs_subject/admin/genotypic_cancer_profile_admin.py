@@ -22,15 +22,11 @@ class GenotypicCancerProfileAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
             "GENOTYPIC CANCER PROFILE",
             {
                 "fields": (
-                    "sample_type",
-                    "date_received",
-                    "cancer_type",
-                    "genomic_alteration",
-                    "allele_frequency",
-                    "variant_class",
+                    "oncomine_variant",
+                    "genotype",
+                    "amino_acid_change",
                     "coverage",
-                    "biomarker_this_cancer",
-                    "biomarker_other_cancer",
+                    "allele_frequency",
                 ),
             },
         ),
@@ -40,21 +36,19 @@ class GenotypicCancerProfileAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
     list_display = (
         "report_datetime",
-        "sample_type",
-        "date_received",
-        "genomic_alteration",
-        "allele_frequency",
-        "variant_class",
+        "genotype",
+        "amino_acid_change",
         "coverage",
+        "allele_frequency",
     )
 
-    list_filter = (
-        "report_datetime",
-        "sample_type",
-        "date_received",
-    )
+    list_filter = ("report_datetime",)
 
     search_fields = ("report_datetime",)
+
+    filter_horizontal = [
+        "oncomine_variant",
+    ]
 
     radio_fields = {
         "crf_status": admin.VERTICAL,
