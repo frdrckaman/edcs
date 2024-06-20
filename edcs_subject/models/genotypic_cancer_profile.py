@@ -24,8 +24,8 @@ class GenotypicCancerProfile(CrfModelMixin, edcs_models.BaseUuidModel):
 
     coverage = models.IntegerField(verbose_name="Coverage", null=True)
 
-    allele_frequency = models.IntegerField(
-        verbose_name="Allele Frequency", blank=True, null=True
+    allele_frequency = models.DecimalField(
+        verbose_name="Allele Frequency", max_digits=6, decimal_places=2, blank=True, null=True
     )
 
     sample_type = models.CharField(
