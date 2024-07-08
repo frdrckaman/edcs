@@ -909,3 +909,11 @@ SCALE = (
     ("6", "6"),
     ("7", "7"),
 )
+
+ASSAY_STATUS = (
+    (NOT_APPLICABLE, "Not applicable"),
+    ("amplified_dna_rna", "Amplified DNA & RNA"),
+    ("failed_dna_rna", "Failed DNA & RNA"),
+    ("amplified_dna_only", "Amplified DNA only"),
+    ("amplified_rna_only", "Amplified RNA only"),
+)

@@ -22,7 +22,9 @@ class GenotypicCancerProfileAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
             "GENOTYPIC CANCER PROFILE",
             {
                 "fields": (
+                    "assay_status",
                     "oncomine_variant",
+                    "gene",
                     "genotype",
                     "amino_acid_change",
                     "coverage",
@@ -51,5 +53,6 @@ class GenotypicCancerProfileAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
     ]
 
     radio_fields = {
+        "assay_status": admin.VERTICAL,
         "crf_status": admin.VERTICAL,
     }

@@ -4,6 +4,7 @@ from edcs_lists.models import OncomineVariantClass
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
+from ..choices import ASSAY_STATUS
 from ..model_mixins import CrfModelMixin
 
 
@@ -14,15 +15,31 @@ class GenotypicCancerProfile(CrfModelMixin, edcs_models.BaseUuidModel):
         help_text="Date and time of report.",
     )
 
+    assay_status = models.CharField(
+        verbose_name="Assay Status",
+        max_length=45,
+        null=True,
+        choices=ASSAY_STATUS,
+    )
+
     oncomine_variant = models.ManyToManyField(
         OncomineVariantClass, verbose_name="Oncomine Variant Class", null=True
     )
 
-    genotype = models.TextField(verbose_name="Genotype", null=True)
+    gene = models.CharField(
+        verbose_name="Gene",
+        max_length=45,
+        blank=True,
+        null=True,
+    )
 
-    amino_acid_change = models.TextField(verbose_name="Amino Acid Change", null=True)
+    genotype = models.TextField(verbose_name="Genotype", blank=True, null=True)
 
-    coverage = models.IntegerField(verbose_name="Coverage", null=True)
+    amino_acid_change = models.TextField(
+        verbose_name="Amino Acid Change", blank=True, null=True
+    )
+
+    coverage = models.IntegerField(verbose_name="Coverage", blank=True, null=True)
 
     allele_frequency = models.DecimalField(
         verbose_name="Allele Frequency", max_digits=6, decimal_places=2, blank=True, null=True
@@ -31,23 +48,27 @@ class GenotypicCancerProfile(CrfModelMixin, edcs_models.BaseUuidModel):
     sample_type = models.CharField(
         verbose_name="Sample Type",
         max_length=20,
+        blank=True,
         null=True,
     )
 
     date_received = models.DateTimeField(
         verbose_name="Date Received",
+        blank=True,
         null=True,
     )
 
     cancer_type = models.CharField(
         verbose_name="Cancer Type",
         max_length=45,
+        blank=True,
         null=True,
     )
 
     genomic_alteration = models.CharField(
         verbose_name="Genomic Alteration",
         max_length=45,
+        blank=True,
         null=True,
     )
 
@@ -62,6 +83,7 @@ class GenotypicCancerProfile(CrfModelMixin, edcs_models.BaseUuidModel):
     variant_class = models.CharField(
         verbose_name="Variant Class",
         max_length=45,
+        blank=True,
         null=True,
     )
 

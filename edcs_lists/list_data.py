@@ -286,6 +286,8 @@ list_data = {
         (NOT_DONE, "Note done"),
     ],
     "edcs_lists.oncominevariantclass": [
+        (NOT_APPLICABLE, "Not applicable"),
+        (NONE, "None"),
         ("amplification", "Amplification"),
         ("Fusion", "Fusion"),
         ("nontargetedfusion", "NonTargetedFusion"),
