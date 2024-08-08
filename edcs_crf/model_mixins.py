@@ -2,14 +2,13 @@ from django.conf import settings
 from django.contrib.sites.managers import CurrentSiteManager
 from django.db import models
 from django.db.models.deletion import PROTECT
+
 from edcs_consent.model_mixins import RequiresConsentFieldsModelMixin
 from edcs_identifier.model_mixins import TrackingModelMixin
 from edcs_model.models.historical_records import HistoricalRecords
 from edcs_sites.models import SiteModelMixin
 from edcs_visit_schedule.managers import CrfModelManager
-from edcs_visit_schedule.model_mixins import (
-    VisitTrackingCrfModelMixin,
-)
+from edcs_visit_schedule.model_mixins import VisitTrackingCrfModelMixin
 
 from .stubs import CrfModelStub
 

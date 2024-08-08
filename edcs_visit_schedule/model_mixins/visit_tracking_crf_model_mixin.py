@@ -4,12 +4,12 @@ from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 from django.db.models.deletion import PROTECT
+
 from edcs_crf.stubs import CrfModelStub, TCrfModelStub
 from edcs_model.models import datetime_not_future
 from edcs_protocol.validators import datetime_not_before_study_start
 from edcs_utils import get_utcnow
 from edcs_visit_schedule.model_mixins import SubjectScheduleModelMixin
-
 from edcs_visit_schedule.stubs import SubjectVisitModelStub, TSubjectVisitModelStub
 
 from ..crf_date_validator import CrfDateValidator

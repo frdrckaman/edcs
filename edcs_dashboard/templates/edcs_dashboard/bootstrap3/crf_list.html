@@ -74,17 +74,52 @@
                                 <tr>
                                     <td>{{ forloop.counter }}</td>
                                     <td>{{ crf.verbose_name}} </td>
-                                    <td>
-                                        {% add_edit_crf crf %}
-                                    </td>
+                                    {% if crf.verbose_name == "Genotypic Cancer Profile" %}
+                                        <td>
+                                           {% add_edit_crf crf "Genotypic" %}
+                                        </td>
+                                    {% else %}
+                                       <td>
+                                           {% add_edit_crf crf %}
+                                        </td>
+                                    {% endif %}
                                     <td><button class="btn btn-default" disabled>Query</button> </td>
                                 </tr>
                             {% endif %}
                         {% endfor %}
                         </tbody>
                     </table>
+                    <div class="head clearfix">
+                        <div class="isw-grid"></div>
+                        <h1>Genotypic Cancer Profile</h1>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable">
+                        <thead>
+                        <tr>
+                            <th width="3%">#</th>
+                            <th width="60%">Assay Status</th>
+                            <th width="10%">Action</th>
+                            <th width="15%">DM</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for genotypic in genotypics %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>Result {{ forloop.counter }}
+                                     ({{ genotypic.assay_status }})</td>
+                                <td>
+                                    {% edit_gentype_btn genotypic %}
+                                </td>
+                                <td><button class="btn btn-default" disabled>Query</button></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
+
+
             <!-------------------- end screening patients --------------------->
 
             {% side_info_panel object_list %}

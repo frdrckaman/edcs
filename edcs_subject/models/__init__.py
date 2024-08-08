@@ -25,3 +25,4 @@ from .post_air_quality import PostAirQuality
 from .pre_air_quality import PreAirQuality
 from .socio_economic import SocioEconomicCharacteristic
 from .subject_visit import SubjectVisit
+from .xgenotypic import Genotypic

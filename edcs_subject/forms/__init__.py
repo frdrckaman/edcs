@@ -23,3 +23,4 @@ from .post_air_quality_form import PostAirQualityForm
 from .pre_air_quality_form import PreAirQualityForm
 from .socio_economic_form import SocioEconomicCharacteristicForm
 from .subject_visit_form import SubjectVisitForm
+from .xgenotypic_form import GenotypicForm

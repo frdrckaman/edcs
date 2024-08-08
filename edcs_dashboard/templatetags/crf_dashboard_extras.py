@@ -1,8 +1,9 @@
 from django import template
+from django.apps import apps as django_apps
 from django.conf import settings
 from django.urls import reverse
 
-from edcs_subject.models import SubjectVisit
+from edcs_subject.models import Genotypic, GenotypicCancerProfile, SubjectVisit
 
 register = template.Library()
 
@@ -12,17 +13,19 @@ def next_url(url, nxt):
 
 
 @register.inclusion_tag(
-    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/"
-    f"buttons/add_edit_crf_button.html",
+    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"buttons/add_edit_crf_button.html",
     takes_context=True,
 )
-def add_edit_crf(context, obj):
+def add_edit_crf(context, obj, gtype=None):
     listboard_dashboard = "edcs_dashboard:crf-list"
     subject_identifier = context.get("subject")
     appointment = context.get("appointment")
     text = "Add "
     icon = "glyphicon-plus"
-    btn = "btn-warning"
+    if gtype == "Genotypic":
+        btn = "btn-primary"
+    else:
+        btn = "btn-warning"
     title = text + obj.verbose_name
 
     subject_visit = SubjectVisit.objects.get(appointment_id=appointment)
@@ -39,11 +42,56 @@ def add_edit_crf(context, obj):
     )
     href = next_url(reverse(obj.model_cls().admin_url_name), nxt)
 
-    if subject_visit_data:
+    if subject_visit_data and gtype is None:
         text = "Change "
         icon = "glyphicon-pencil"
         btn = "btn-success"
         title = text + obj.verbose_name
+        print(subject_visit_data.id)
         href = next_url(obj.model_cls().admin_url(subject_visit_data.id), nxt)
+
+    return dict(title=title, text=text, icon=icon, btn=btn, href=href)
+
+
+@register.inclusion_tag(
+    f"edcs_dashboard/bootstrap{settings.EDCS_BOOTSTRAP}/" f"buttons/edit_gentype_button.html",
+    takes_context=True,
+)
+def edit_gentype_btn(context, obj, gtype=None):
+    listboard_dashboard = "edcs_dashboard:crf-list"
+    subject_identifier = context.get("subject")
+    appointment = context.get("appointment")
+    text = "Add "
+    icon = "glyphicon-plus"
+    if gtype == "Genotypic":
+        btn = "btn-primary"
+    else:
+        btn = "btn-warning"
+    title = text + obj.verbose_name
+
+    subject_visit = SubjectVisit.objects.get(appointment_id=appointment)
+    # subject_visit_data = django_apps.get_model("edcs_subject.genotypic").objects.get(
+    #     subject_visit_id=subject_visit.id
+    # )
+    subject_visit_data = Genotypic.objects.get(id=obj.id)
+    model_cls = django_apps.get_model("edcs_subject.genotypic")
+
+    nxt = (
+        listboard_dashboard
+        + "&subject="
+        + subject_identifier
+        + "&appointment="
+        + appointment
+        + "&subject_visit="
+        + str(subject_visit.id)
+    )
+
+    if subject_visit_data and gtype is None:
+        url = f"/admin/edcs_subject/genotypic/{subject_visit_data.id}/change/"
+        text = "Change "
+        icon = "glyphicon-pencil"
+        btn = "btn-success"
+        title = text + obj.verbose_name
+        href = next_url(url, nxt)
 
     return dict(title=title, text=text, icon=icon, btn=btn, href=href)
