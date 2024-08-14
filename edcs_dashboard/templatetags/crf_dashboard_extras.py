@@ -47,7 +47,6 @@ def add_edit_crf(context, obj, gtype=None):
         icon = "glyphicon-pencil"
         btn = "btn-success"
         title = text + obj.verbose_name
-        print(subject_visit_data.id)
         href = next_url(obj.model_cls().admin_url(subject_visit_data.id), nxt)
 
     return dict(title=title, text=text, icon=icon, btn=btn, href=href)
@@ -70,9 +69,6 @@ def edit_gentype_btn(context, obj, gtype=None):
     title = text + obj.verbose_name
 
     subject_visit = SubjectVisit.objects.get(appointment_id=appointment)
-    # subject_visit_data = django_apps.get_model("edcs_subject.genotypic").objects.get(
-    #     subject_visit_id=subject_visit.id
-    # )
     subject_visit_data = Genotypic.objects.get(id=obj.id)
     model_cls = django_apps.get_model("edcs_subject.genotypic")
 
