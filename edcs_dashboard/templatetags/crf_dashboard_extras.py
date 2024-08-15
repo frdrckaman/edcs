@@ -3,7 +3,7 @@ from django.apps import apps as django_apps
 from django.conf import settings
 from django.urls import reverse
 
-from edcs_subject.models import Genotypic, GenotypicCancerProfile, SubjectVisit
+from edcs_subject.models import Genotypic, SubjectVisit
 
 register = template.Library()
 

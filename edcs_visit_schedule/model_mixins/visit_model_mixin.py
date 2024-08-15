@@ -1,16 +1,15 @@
-from pprint import pprint
-
 from django.db import models
 from django.db.models.deletion import PROTECT
+
 from edcs_appointment.constants import COMPLETE_APPT, IN_PROGRESS_APPT
 from edcs_constants.constants import NO, YES
 from edcs_identifier.model_mixins import NonUniqueSubjectIdentifierFieldMixin
 from edcs_visit_schedule.model_mixins import VisitScheduleModelMixin
 
-from ..stubs import SubjectVisitModelStub
-
 from ..constants import MISSED_VISIT, NO_FOLLOW_UP_REASONS
 from ..managers import VisitModelManager
+from ..stubs import SubjectVisitModelStub
+
 # from ..previous_visit_model_mixin import PreviousVisitModelMixin
 from .visit_model_fields_mixin import VisitModelFieldsMixin
 
