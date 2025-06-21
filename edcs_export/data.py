@@ -86,6 +86,8 @@ DATA_MODEL = [
     "edcs_subject_signsymptomlungcancer_investigations_ordered_nw",
     "edcs_subject_signsymptomlungcancer_what_brought_hospital",
     "edcs_subject_socioeconomiccharacteristic",
+    "edcs_subject_labpartc_histochemistry_new",
+    "edcs_subject_labpartc_immunohistochemistry_new",
     "edcs_subject_subjectvisit",
     "edcs_visit_schedule_subjectschedulehistory",
     "edcs_visit_schedule_visitschedule",
