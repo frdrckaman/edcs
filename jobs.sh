@@ -31,7 +31,7 @@ fi
 
 # 4) cleanup old exports
 rm -f /home/live/edcs/.data/edcs/data.zip
-rm -f /home/live/edcs/.data/edcs/data/*.xlsx
+#rm -f /home/live/edcs/.data/edcs/data/*.xlsx
 
 # 5) run your Django-export job
 cd /home/live/edcs/edcs_export
