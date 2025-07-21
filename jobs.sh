@@ -1,15 +1,38 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-source /home/live/.bashrc
+# —— adjust this to wherever your Conda is installed ——
+CONDA_BASE=/home/live/miniconda3
 
-eval "$(/home/live/miniconda3/bin/conda shell.bash hook)"
+# 1) load conda functions for non-interactive shells
+if [ -f "$CONDA_BASE/etc/profile.d/conda.sh" ]; then
+    # this gives you `conda activate`
+    . "$CONDA_BASE/etc/profile.d/conda.sh"
+else
+    echo "ERROR: cannot find conda.sh at $CONDA_BASE/etc/profile.d/conda.sh" >&2
+    exit 1
+fi
 
-conda deactivate
+# 2) check & activate your EDCS env
+if ! conda env list | grep -qE '^[[:space:]]*edcs[[:space:]]'; then
+    echo "ERROR: conda env 'edcs' not found." >&2
+    echo "Available envs:" >&2
+    conda env list >&2
+    exit 1
+fi
 conda activate edcs
 
+# 3) ensure we have a python on $PATH
+PYTHON=$(command -v python) || true
+if [ -z "$PYTHON" ]; then
+    echo "ERROR: python not found even after conda activate." >&2
+    exit 1
+fi
+
+# 4) cleanup old exports
 rm -f /home/live/edcs/.data/edcs/data.zip
 rm -f /home/live/edcs/.data/edcs/data/*.xlsx
 
+# 5) run your Django-export job
 cd /home/live/edcs/edcs_export
-
-python data.py
+"$PYTHON" data.py
