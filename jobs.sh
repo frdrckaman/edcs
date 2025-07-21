@@ -20,7 +20,7 @@ if ! conda env list | grep -qE '^[[:space:]]*edcs[[:space:]]'; then
     conda env list >&2
     exit 1
 fi
-conda activate edcs
+conda activate live
 
 # 3) ensure we have a python on $PATH
 PYTHON=$(command -v python) || true
