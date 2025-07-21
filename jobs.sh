@@ -14,8 +14,8 @@ else
 fi
 
 # 2) check & activate your EDCS env
-if ! conda env list | grep -qE '^[[:space:]]*edcs[[:space:]]'; then
-    echo "ERROR: conda env 'edcs' not found." >&2
+if ! conda env list | grep -qE '^[[:space:]]*live[[:space:]]'; then
+    echo "ERROR: conda env 'live' not found." >&2
     echo "Available envs:" >&2
     conda env list >&2
     exit 1
