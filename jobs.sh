@@ -35,4 +35,5 @@ rm -f /home/live/edcs/.data/edcs/data/*.xlsx
 
 # 5) run your Django-export job
 cd /home/live/edcs/edcs_export
-"$PYTHON" data.py
+#"$PYTHON" data.py
+python data.py
