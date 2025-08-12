@@ -125,3 +125,9 @@ class OncomineVariantClass(ListModelMixin):
     class Meta(ListModelMixin.Meta):
         verbose_name = "Oncomine Variant Class"
         verbose_name_plural = "Oncomine Variant Class"
+
+
+class LungCancerTreatmentClass(ListModelMixin):
+    class Meta(ListModelMixin.Meta):
+        verbose_name = "LungCancer Treatment Class"
+        verbose_name_plural = "LungCancer Treatment Class"

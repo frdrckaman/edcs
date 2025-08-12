@@ -4,10 +4,10 @@ from django_audit_fields import audit_fieldset_tuple
 from edcs_crf.admin import crf_status_fieldset_tuple
 from edcs_model_admin import SimpleHistoryAdmin
 
-from .modeladmin_mixins import CrfModelAdminMixin
 from ..admin_site import edcs_subject_admin
 from ..forms import LungCancerTreatmentForm
 from ..models import LungCancerTreatment
+from .modeladmin_mixins import CrfModelAdminMixin
 
 
 @admin.register(LungCancerTreatment, site=edcs_subject_admin)
@@ -23,7 +23,7 @@ class LungCancerTreatmentAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                 "fields": (
                     "lung_cancer_stage",
                     "date_start_treatment",
-                    "treatment",
+                    "treatment_new",
                     "treatment_other",
                 ),
             },
@@ -36,7 +36,6 @@ class LungCancerTreatmentAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "report_datetime",
         "lung_cancer_stage",
         "date_start_treatment",
-        "treatment",
         "treatment_other",
         "created",
     )
@@ -45,13 +44,14 @@ class LungCancerTreatmentAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
         "report_datetime",
         "lung_cancer_stage",
         "date_start_treatment",
-        "treatment",
         "treatment_other",
     )
 
-    search_fields = (
-        "report_datetime",
-    )
+    filter_horizontal = [
+        "treatment_new",
+    ]
+
+    search_fields = ("report_datetime",)
 
     radio_fields = {
         "lung_cancer_stage": admin.VERTICAL,

@@ -1,11 +1,12 @@
 from django.db import models
 
 from edcs_constants.constants import NOT_APPLICABLE
+from edcs_lists.models import LungCancerTreatmentClass
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
-from ..model_mixins import CrfModelMixin
 from ..choices import QN103, QN105
+from ..model_mixins import CrfModelMixin
 
 
 class LungCancerTreatment(CrfModelMixin, edcs_models.BaseUuidModel):
@@ -19,7 +20,7 @@ class LungCancerTreatment(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="What is the stage of lung cancer?",
         max_length=45,
         choices=QN103,
-        default=NOT_APPLICABLE
+        default=NOT_APPLICABLE,
     )
 
     date_start_treatment = models.DateField(
@@ -33,7 +34,12 @@ class LungCancerTreatment(CrfModelMixin, edcs_models.BaseUuidModel):
         verbose_name="Type of treatment?",
         max_length=45,
         choices=QN105,
-        default=NOT_APPLICABLE
+        null=True,
+        default=NOT_APPLICABLE,
+    )
+    treatment_new = models.ManyToManyField(
+        LungCancerTreatmentClass,
+        verbose_name="Type of treatment?",
     )
 
     treatment_other = edcs_models.OtherCharField()

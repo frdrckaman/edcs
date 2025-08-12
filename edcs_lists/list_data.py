@@ -326,6 +326,15 @@ list_data = {
         ("metexon14skipping", "METExon14Skipping"),
         ("pdgfraexon18deletion", "PDGFRAExon18Deletion"),
     ],
+    "edcs_lists.lungcancertreatmentclass": [
+        (NOT_APPLICABLE, "Not applicable"),
+        ("chemotherapy", "Chemotherapy"),
+        ("radiation", "Radiation"),
+        ("surgical", "Surgical resection"),
+        ("immunotherapy", "Immunotherapy"),
+        ("tyrosine_kinase", "Tyrosine kinase inhibitor"),
+        (OTHER, "Others"),
+    ],
 }
 
 # preload_data = PreloadData(list_data=list_data)
