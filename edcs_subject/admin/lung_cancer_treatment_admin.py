@@ -35,6 +35,7 @@ class LungCancerTreatmentAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
                     "date_start_treatment",
                     "treatment_new",
                     "treatment_other",
+                    "other_interventions",
                 ),
             },
         ),
@@ -59,6 +60,7 @@ class LungCancerTreatmentAdmin(CrfModelAdminMixin, SimpleHistoryAdmin):
 
     filter_horizontal = [
         "treatment_new",
+        "other_interventions",
     ]
 
     search_fields = ("report_datetime",)

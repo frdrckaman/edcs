@@ -1,7 +1,7 @@
 from django.db import models
 
 from edcs_constants.constants import NOT_APPLICABLE
-from edcs_lists.models import LungCancerTreatmentClass
+from edcs_lists.models import LungCancerTreatmentClass, OtherInterventionClass
 from edcs_model import models as edcs_models
 from edcs_utils import get_utcnow
 
@@ -47,7 +47,14 @@ class LungCancerTreatment(CrfModelMixin, edcs_models.BaseUuidModel):
     other_intervention = models.CharField(
         verbose_name="Other intervention given to lung cancer patients?",
         max_length=45,
+        null=True,
     )
+
+    other_interventions = models.ManyToManyField(
+        OtherInterventionClass,
+        verbose_name="Other intervention given to lung cancer patients?",
+    )
+
 
     class Meta(edcs_models.BaseUuidModel.Meta):
         verbose_name = "Lung Cancer Treatment"
