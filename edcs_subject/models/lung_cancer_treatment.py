@@ -44,6 +44,11 @@ class LungCancerTreatment(CrfModelMixin, edcs_models.BaseUuidModel):
 
     treatment_other = edcs_models.OtherCharField()
 
+    other_intervention = models.CharField(
+        verbose_name="Other intervention given to lung cancer patients?",
+        max_length=45,
+    )
+
     class Meta(edcs_models.BaseUuidModel.Meta):
         verbose_name = "Lung Cancer Treatment"
         verbose_name_plural = "Lung Cancer Treatment"
