@@ -1,0 +1,35 @@
+{% extends "admin/change_form.html" %}
+{% load static %}
+
+{% block footer %}{{ block.super }}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // 1) Find the row containing the treatment_new field
+  var treatmentRow =
+    document.querySelector('.field-treatment_other') ||
+    (document.getElementById('id_treatment_other') &&
+     document.getElementById('id_treatment_other').closest('.form-row'));
+  if (!treatmentRow) return;
+
+  // 2) Locate the ChemotherapyDrug inline group
+  //    Prefer matching by the inline box <h2> text (verbose_name_plural)
+  var targetInline = null;
+  var groups = document.querySelectorAll('#content-main .inline-group'); // works for Tabular/Stacked
+  groups.forEach(function (g) {
+    var h2 = g.querySelector('h2');
+    if (h2 && h2.textContent.trim().toLowerCase() === 'chemotherapy drugs') {
+      targetInline = g;
+    }
+  });
+
+  //    Fallback: by default Django ids are "<prefix>-group", usually "chemotherapydrug_set-group"
+  if (!targetInline) {
+    targetInline = document.getElementById('chemotherapydrug_set-group');
+  }
+  if (!targetInline) return; // nothing to move
+
+  // 3) Move the inline directly after the treatment_new row
+  treatmentRow.insertAdjacentElement('afterend', targetInline);
+});
+</script>
+{% endblock %}

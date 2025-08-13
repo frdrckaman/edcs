@@ -1,6 +1,7 @@
 from .air_pollution_followup_admin import AirPollutionFollowUpAdmin
 from .alcohol_tobacco_admin import AlcoholTobaccoUseAdmin
 from .cancer_history_admin import CancerHistoryAdmin
+from .chemotherapy_drugs_admin import ChemotherapyDrugsAdmin
 from .clinical_review_admin import SubjectClinicalReviewAdmin
 from .contraceptive_reproductive_admin import ContraceptiveUseReproductiveHistoryAdmin
 from .cooking_fuel_admin import CookingFuelAdmin

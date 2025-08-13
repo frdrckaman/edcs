@@ -917,3 +917,16 @@ ASSAY_STATUS = (
     ("amplified_dna_only", "Amplified DNA only"),
     ("amplified_rna_only", "Amplified RNA only"),
 )
+
+CHEMOTHERAPY_DRUG = (
+    ("carboplatin", "Carboplatin"),
+    ("paclitaxel", "Paclitaxel"),
+    ("cisplatin", "Cisplatin"),
+    ("pemetrexed", "Pemetrexed"),
+    ("bevacizumab", "Bevacizumab"),
+    ("erlotinib", "Erlotinib"),
+    ("etoposide", "Etoposide"),
+    ("vincristine", "Vincristine"),
+    ("osimetinib", "Osimetinib"),
+    ("crizotinib", "Crizotinib"),
+)
