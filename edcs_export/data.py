@@ -34,7 +34,7 @@ DATA_MODEL = [
     "edcs_lists_solidfuel",
     "edcs_lists_somaticmutations",
     "edcs_lists_tobaccoproducts",
-    "edcs_lists.immunohistochemistry",
+    "edcs_lists_immunohistochemistry",
     "edcs_lists_oncominevariantclass",
     "edcs_lists_lungcancertreatmentclass",
     "edcs_lists_otherinterventionsclass",
