@@ -132,7 +132,8 @@ class LungCancerTreatmentClass(ListModelMixin):
         verbose_name = "LungCancer Treatment Class"
         verbose_name_plural = "LungCancer Treatment Class"
 
-class OtherInterventionClass(ListModelMixin):
+
+class OtherInterventionsClass(ListModelMixin):
     class Meta(ListModelMixin.Meta):
-        verbose_name = "Other Intervention Class"
-        verbose_name_plural = "Other Intervention Class"
+        verbose_name = "Other Interventions Class"
+        verbose_name_plural = "Other Interventions Class"

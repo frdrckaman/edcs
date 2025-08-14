@@ -335,12 +335,12 @@ list_data = {
         ("tyrosine_kinase", "Tyrosine kinase inhibitor"),
         (OTHER, "Others"),
     ],
-    "edcs_lists.otherinterventionclass":  [
+    "edcs_lists.otherinterventionsclass": [
         ("oxygen_therapy", "Oxygen therapy"),
         ("blood_transfusion", "Blood transfusion"),
         ("thoracocentesis", "Thoracocentesis"),
         ("antibiotics", "Antibiotics eg Ceftriaxone/Sulbactam"),
-        ("ppis ", "PPIs eg Rabeprazole"),
+        ("ppis", "PPIs eg Rabeprazole"),
         ("antifungals", "Antifungals eg Fluconazole"),
         ("anticoagulants", "Anticoagulants eg Rivaroxaban"),
         ("iv_fluids", "IV fluids eg RL , NS"),
@@ -353,21 +353,7 @@ list_data = {
         ("expectorants", "Expectorants"),
         ("multivitamins", "Multivitamins"),
         ("tricyclic_antidepressant", "Tricyclic antidepressant eg amitriptyline"),
-        ("immunotherapy_agents", "Immunotherapy Agents"),
-        ("pembrolizumab", "Pembrolizumab (Keytruda)"),
-        ("nivolumab", "Nivolumab (Opdivo)"),
-        ("atezolizumab", "Atezolizumab (Tecentriq)"),
-        ("durvalumab", "Durvalumab (Imfinzi)"),
-        ("ipilimumab", "Ipilimumab (Yervoy)"),
-        ("targeted_therapy", "Targeted therapy"),
-        ("osimertinib", "Osimertinib (Tagrisso)"),
-        ("erlotinib", "Erlotinib (Tarceva)"),
-        ("gefitinib", "Gefitinib (Iressa)"),
-        ("afatinib", "Afatinib (Gilotrif)"),
-        ("alectinib", "Alectinib (Alecensa)"),
-        ("crizotinib", "Crizotinib (Xalkori)"),
-        ("entrectinib", "Entrectinib (Rozlytrek)"),
-    ]
+    ],
 }
 
 # preload_data = PreloadData(list_data=list_data)
