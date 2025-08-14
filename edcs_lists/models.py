@@ -109,7 +109,7 @@ class Industries(ListModelMixin):
         verbose_name_plural = "Industries"
 
 
-class Immunohistochemistrylab(ListModelMixin):
+class Immunohistochemistry(ListModelMixin):
     class Meta(ListModelMixin.Meta):
         verbose_name = "Immunohistochemistry"
         verbose_name_plural = "Immunohistochemistry"

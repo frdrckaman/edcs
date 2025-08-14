@@ -305,7 +305,7 @@ list_data = {
         (NONE, "None"),
         (OTHER, "Other"),
     ],
-    "edcs_lists.immunohistochemistrylab": [
+    "edcs_lists.immunohistochemistry": [
         (POS_TTF1, "Positive- TTF1"),
         (NEG_TTF1, "Negative- TTF1"),
         (POS_P40, "Positive- P40"),

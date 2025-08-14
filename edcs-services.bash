@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo systemctl restart gunicorn-live.socket gunicorn-live.serviceervice
+sudo systemctl restart gunicorn-live
 
