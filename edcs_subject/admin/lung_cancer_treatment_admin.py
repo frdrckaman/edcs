@@ -15,7 +15,7 @@ class ChemotherapyDrugInline(admin.TabularInline):  # Or use StackedInline
     model = ChemotherapyDrugs
     extra = 1
     fields = ["chemotherapy_drug", "number_of_cycles"]
-    max_num = 10
+    max_num = 20
 
 
 @admin.register(LungCancerTreatment, site=edcs_subject_admin)
