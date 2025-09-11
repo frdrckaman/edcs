@@ -68,6 +68,7 @@ DATA_MODEL = [
     "edcs_subject_effectairpollution",
     "edcs_subject_followup",
     "edcs_subject_followup_test_ordered_nw",
+    "edcs_subject_genotypic",
     "edcs_subject_genotypiccancerprofile",
     "edcs_subject_genotypic_oncomine_variant",
     "edcs_subject_genotypiccancerprofile_oncomine_variant",
